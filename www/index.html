@@ -1,8 +1,66 @@
 <html>
 <head>
   <script src="/bundle.js" ></script> 
+
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+  <style type="text/css">
+
+    body {
+      font-family: 'Open Sans', sans-serif;
+    }
+
+    #main-container {
+      display: flex;
+      flex-direction: column;
+    }
+
+    #main-container .title {
+      font-size: 2em;
+    }
+    
+    #main-container .subtitle {
+      margin-bottom: 20px;
+    }
+
+    .user-search-container {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .user-search-form {
+      display: flex;
+      flex-direction: column;
+      width: 400px;
+    }
+    
+    .user-search-form .title {
+      font-weight: 300;
+    }
+
+    .users-list {
+      display: flex;
+      flex-direction: column;
+      margin-top: 20px;
+      padding: 10px;
+    }
+
+    .users-list .title {
+      font-size: 1.2em !important;
+      margin-bottom: 10px;
+    }
+
+    .users-list .user-entry {
+      display: flex;
+    }
+    
+    .users-list .user-entry div {
+      width: 100px;
+    }
+  </style>
 </head>
 <body>
-  Hello World
+  <div id="app-root">
+
+  </div>
 </body>
 </html>
