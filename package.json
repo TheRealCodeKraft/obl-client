@@ -1,21 +1,6 @@
 {
   "name": "obl-client",
-  "version": "1.0.0",
-  "description": "OBL Client",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/TheRealCodeKraft/obl-client.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/TheRealCodeKraft/obl-client/issues"
-  },
+  "author": "Arnaud DRAZEK",
   "homepage": "https://github.com/TheRealCodeKraft/obl-client#readme",
   "dependencies": {
     "babel-core": "^6.24.1",
@@ -23,5 +8,17 @@
     "babel-preset-latest": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "webpack": "^2.5.1"
-  }
+  },
+  "description": "OBL Web Client",
+  "keywords": [],
+  "license": "ISC",
+  "main": "index.js",
+  "scripts": {
+    "compile": "webpack",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/TheRealCodeKraft/obl-client/issues"
+  },
+  "version": "1.0.0"
 }
