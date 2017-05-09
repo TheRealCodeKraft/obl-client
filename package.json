@@ -16,5 +16,10 @@
   "bugs": {
     "url": "https://github.com/TheRealCodeKraft/obl-client/issues"
   },
-  "homepage": "https://github.com/TheRealCodeKraft/obl-client#readme"
+  "homepage": "https://github.com/TheRealCodeKraft/obl-client#readme",
+  "dependencies": {
+    "babel-core": "^6.24.1",
+    "babel-preset-latest": "^6.24.1",
+    "babel-preset-react": "^6.24.1"
+  }
 }
