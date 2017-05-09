@@ -19,7 +19,9 @@
   "homepage": "https://github.com/TheRealCodeKraft/obl-client#readme",
   "dependencies": {
     "babel-core": "^6.24.1",
+    "babel-loader": "^7.0.0",
     "babel-preset-latest": "^6.24.1",
-    "babel-preset-react": "^6.24.1"
+    "babel-preset-react": "^6.24.1",
+    "webpack": "^2.5.1"
   }
 }
