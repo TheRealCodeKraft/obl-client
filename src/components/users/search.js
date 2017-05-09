@@ -71,7 +71,11 @@ class UserSearch extends React.Component {
   handleSearch() {
     this.setState({searching: true}, function() {
       console.log("searching : " + this.state.query + " !");
-      UsersApi.searchFor(this.state.query, this.handleResponse);
+      if (this.state.query == "") {
+        this.handleResponse({users: []});
+      } else {
+        UsersApi.searchFor(this.state.query, this.handleResponse);
+      }
     });
   }
 
