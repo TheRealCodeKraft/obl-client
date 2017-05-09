@@ -7,7 +7,9 @@
     "babel-loader": "^7.0.0",
     "babel-preset-latest": "^6.24.1",
     "babel-preset-react": "^6.24.1",
-    "webpack": "^2.5.1"
+    "express": "^4.15.2",
+    "webpack": "^2.5.1",
+    "webpack-dev-middleware": "^1.10.2"
   },
   "description": "OBL Web Client",
   "keywords": [],
@@ -15,6 +17,7 @@
   "main": "index.js",
   "scripts": {
     "compile": "webpack",
+    "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "bugs": {
