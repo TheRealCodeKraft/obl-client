@@ -3,8 +3,10 @@ import React from 'react';
 import { BrowserRouter } from 'react-router-dom'
 import { Route/*, Link*/, Switch } from 'react-router-dom'
 
-import Offline from 'components/offline';
-import Dashboard from 'components/dashboard';
+import Offline from 'components/offline'
+import Dashboard from 'components/dashboard'
+
+import AuthChecker from 'components/utils/auth-checker'
 
 /**
  * OBL Main App Container
@@ -20,12 +22,21 @@ class Main extends React.Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
+  componentWillUpdate() {
+    console.log("update");
+  }
+
+  componentWillReceiveProps(props) {
+    console.log("uh?");
+  }
+
   render() {
+console.log("oh");
     return (
       <BrowserRouter>
         <div id="main-container">
           <Switch>
-            <Route path="/dashboard" component={Dashboard} />
+            <Route path="/dashboard" component={AuthChecker(Dashboard)} />
             <Route path="/" component={Offline} />
           </Switch>
         </div>
