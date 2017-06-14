@@ -1,6 +1,10 @@
 import React from 'react';
 
-import UserSearcher from './components/users/search';
+import { BrowserRouter } from 'react-router-dom'
+import { Route/*, Link*/, Switch } from 'react-router-dom'
+
+import Offline from 'components/offline';
+import Dashboard from 'components/dashboard';
 
 /**
  * OBL Main App Container
@@ -18,11 +22,14 @@ class Main extends React.Component {
 
   render() {
     return (
-      <div id="main-container">
-        <span className="title">Open Business Labs</span>
-        <span className="subtitle">Test d'accès à l'API Moodle</span>
-        <UserSearcher />
-      </div>
+      <BrowserRouter>
+        <div id="main-container">
+          <Switch>
+            <Route path="/dashboard" component={Dashboard} />
+            <Route path="/" component={Offline} />
+          </Switch>
+        </div>
+      </BrowserRouter>
     );
   }
 

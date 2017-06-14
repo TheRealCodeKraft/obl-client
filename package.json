@@ -3,15 +3,38 @@
   "author": "Arnaud DRAZEK",
   "homepage": "https://github.com/TheRealCodeKraft/obl-client#readme",
   "dependencies": {
-    "babel-core": "^6.24.1",
+    "autoprefixer": "^7.1.1",
+    "babel-core": "^6.25.0",
+    "babel-eslint": "^7.1.1",
     "babel-loader": "^7.0.0",
     "babel-preset-latest": "^6.24.1",
     "babel-preset-react": "^6.24.1",
-    "express": "^4.15.2",
-    "react": "^15.5.4",
-    "react-dom": "^15.5.4",
-    "webpack": "^2.5.1",
-    "webpack-dev-middleware": "^1.10.2"
+    "case-sensitive-paths-webpack-plugin": "^2.1.1",
+    "detect-port": "^1.2.1",
+    "dotenv": "^4.0.0",
+    "eslint": "^3.16.1",
+    "eslint-config-react-app": "^0.6.2",
+    "eslint-loader": "^1.6.0",
+    "eslint-plugin-flowtype": "^2.21.0",
+    "eslint-plugin-import": "^2.0.1",
+    "eslint-plugin-jsx-a11y": "^4.0.0",
+    "eslint-plugin-react": "^6.4.1",
+    "express": "^4.15.3",
+    "file-loader": "^0.11.2",
+    "html-webpack-plugin": "^2.28.0",
+    "json-loader": "^0.5.4",
+    "react": "^15.6.0",
+    "react-dev-utils": "^2.0.1",
+    "react-dom": "^15.6.0",
+    "react-router": "^4.1.1",
+    "react-router-dom": "^4.1.1",
+    "react-scroll-to-component": "^1.0.1",
+    "react-slick": "^0.14.11",
+    "url-loader": "^0.5.9",
+    "webpack": "^1.14.0",
+    "webpack-dev-middleware": "^1.10.2",
+    "webpack-dev-server": "^1.16.2",
+    "webpack-hot-middleware": "^2.18.0"
   },
   "description": "OBL Web Client",
   "keywords": [],
@@ -19,11 +42,16 @@
   "main": "index.js",
   "scripts": {
     "compile": "webpack",
-    "start": "node server.js",
+    "build": "webpack -p --config ./config/webpack.config.prod.js --progress",
+    "heroku-postbuild": "webpack -p --config ./config/webpack.config.prod.js --progress",
+    "start": "node scripts/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "bugs": {
     "url": "https://github.com/TheRealCodeKraft/obl-client/issues"
   },
-  "version": "1.0.0"
+  "version": "1.0.0",
+  "eslintConfig": {
+    "extends": "react-app"
+  }
 }
