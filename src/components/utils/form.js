@@ -7,6 +7,7 @@ class Form extends React.Component {
 
     this.state = {
       errors: {},
+      submitting: false,
       submitError: undefined,
       values: {}
     }
@@ -40,15 +41,24 @@ class Form extends React.Component {
             </label>
           )
         })}
-        {this.state.submitError ? [<span>{this.state.submitError}</span>, <br />] : null}
-        <button type="submit">{this.props.submitLabel}</button>
+        {(!this.state.submitting && this.state.submitError) ? [<span>{this.state.submitError}</span>, <br />] : null}
+        {this.state.submitting
+         ? <span>waiting for response</span>
+         : <button type="submit">{this.props.submitLabel}</button>}
       </form>
     )
   }
 
   getInput(field) {
     var input = null
-    input = <input name={field.name} type={field.type} value={this.state.values[field.name]} placeholder={field.placeholder} onChange={this.handleInputChange.bind(this, field)} />
+    switch(field.type) {
+      case "checkbox":
+        input = <input name={field.name} type={field.type} value={this.state.values[field.name] === true ? "on" : "off"} placeholder={field.placeholder} onChange={this.handleInputChange.bind(this, field)} />
+        break
+      default:
+        input = <input name={field.name} type={field.type} value={this.state.values[field.name]} placeholder={field.placeholder} onChange={this.handleInputChange.bind(this, field)} />
+        break
+    }
     return input
   }
 
@@ -58,7 +68,7 @@ class Form extends React.Component {
 
     switch(field.type) {
       case "checkbox":
-        values[e.target.name] = (e.target.value === "on" ? true : false)
+        values[e.target.name] = (e.target.value === "on" ? false : true)
         break;
     }
 
@@ -72,7 +82,9 @@ class Form extends React.Component {
     this.setState({errors: errors})
     if (Object.keys(errors).length === 0) {
       if (this.props.service !== undefined) {
-        this.props.service.client[this.props.service.func](this.state.values, this.handleFormSubmitted)
+        this.setState({submitting: true}, function() {
+          this.props.service.client[this.props.service.func](this.state.values, this.handleFormSubmitted)
+        })
       }
       if (this.props.onSubmit) this.props.onSubmit(this.state.values)
     }
@@ -80,10 +92,10 @@ class Form extends React.Component {
 
   handleFormSubmitted(data) {
     if (!data.error) {
-      this.setState({submitError: undefined})
+      this.setState({submitError: undefined, submitting: false})
       if (this.props.onSubmitComplete) this.props.onSubmitComplete(data);
     } else {
-      this.setState({submitError: data.message})
+      this.setState({submitError: data.message, submitting: false})
       if (this.props.onSubmitError) this.props.onSubmitError(data);
     }
   }
@@ -109,7 +121,6 @@ class Form extends React.Component {
 
       if (!errors[field.name]) {
         if (field.wanted) {
-console.log(this.state.values[field.name]);
           if (this.state.values[field.name] !== field.wanted) {
             errors[field.name] = field.name+ "_waiting_for_" + field.wanted
           }
