@@ -13,7 +13,6 @@ class Form extends React.Component {
 
     this.handleFormSubmit = this.handleFormSubmit.bind(this)
     this.handleFormSubmitted = this.handleFormSubmitted.bind(this)
-    this.handleInputChange = this.handleInputChange.bind(this)
   }
 
   componentWillMount() {
@@ -31,7 +30,7 @@ class Form extends React.Component {
           return (
             <label>
               {field.label} : 
-              <input name={field.name} type={field.type} value={this.state.values[field.name]} placeholder={field.placeholder} onChange={this.handleInputChange} />
+              {this.getInput(field)}
               {
                 this.state.errors[field.name] !== undefined
                 ? <span>{this.state.errors[field.name]}</span>
@@ -47,9 +46,22 @@ class Form extends React.Component {
     )
   }
 
-  handleInputChange(e) {
+  getInput(field) {
+    var input = null
+    input = <input name={field.name} type={field.type} value={this.state.values[field.name]} placeholder={field.placeholder} onChange={this.handleInputChange.bind(this, field)} />
+    return input
+  }
+
+  handleInputChange(field, e) {
     var values = this.state.values;
     values[e.target.name] = e.target.value
+
+    switch(field.type) {
+      case "checkbox":
+        values[e.target.name] = (e.target.value === "on" ? true : false)
+        break;
+    }
+
     this.setState({values: values});
   }
 
@@ -83,14 +95,23 @@ class Form extends React.Component {
       field = this.props.fields[index]
       if (field.required) {
         if (textTypes.indexOf(field.type) >= 0 && (this.state.values[field.name] === "" || this.state.values[field.name] === undefined)) {
-          errors[field.name] = "required"
+          errors[field.name] = field.name + "_required"
         }
       }
 
       if (!errors[field.name]) {
         if (field.confirmFor) {
           if (this.state.values[field.name] !== this.state.values[field.confirmFor]) {
-            errors[field.name] = "does not match"
+            errors[field.name] = field.name + "_does_not_match"
+          }
+        }
+      }
+
+      if (!errors[field.name]) {
+        if (field.wanted) {
+console.log(this.state.values[field.name]);
+          if (this.state.values[field.name] !== field.wanted) {
+            errors[field.name] = field.name+ "_waiting_for_" + field.wanted
           }
         }
       }

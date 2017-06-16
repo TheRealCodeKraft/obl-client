@@ -53,6 +53,13 @@ class Signup extends React.Component {
         type: "password",
         required: true,
         confirmFor: "password"
+      },
+      {
+        name: "cgu",
+        label: "J'accepte les condition générales d'utilisation",
+        type: "checkbox",
+        required: true,
+        wanted: true
       }
     ];
 
