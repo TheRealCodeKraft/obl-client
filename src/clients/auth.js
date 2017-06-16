@@ -15,6 +15,17 @@ console.log(refresh_token)
     callback(data)
   }
 
+  var login = function(params, callback) {
+    params["grant_type"] = "password"
+    BaseClient.post("oauth/token", params, function(data) {
+      if (data.error) {
+        callback(data)
+      } else {
+        Auth.storeToken(data, callback)
+      }
+    }, false, true)
+  }
+
   var checkLoggedIn = function() {
     var token = StorageService.get(STORAGE_KEY_FOR_TOKEN)
     //console.dir(token);
@@ -48,6 +59,7 @@ console.log(refresh_token)
     refreshToken: refreshToken,
     storeToken: storeToken,
     checkLoggedIn: checkLoggedIn,
+    login: login,
     logout: logout
   }
 }()

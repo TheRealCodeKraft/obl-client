@@ -13,6 +13,7 @@ class Form extends React.Component {
     }
 
     this.handleFormSubmit = this.handleFormSubmit.bind(this)
+    this.handleFormSubmit = this.handleFormSubmit.bind(this)
     this.handleFormSubmitted = this.handleFormSubmitted.bind(this)
   }
 
@@ -41,7 +42,7 @@ class Form extends React.Component {
             </label>
           )
         })}
-        {(!this.state.submitting && this.state.submitError) ? [<span>{this.state.submitError}</span>, <br />] : null}
+        {(this.state.submitError) ? [<span>{this.state.submitError}</span>, <br />] : null}
         {this.state.submitting
          ? <span>waiting for response</span>
          : <button type="submit">{this.props.submitLabel}</button>}
@@ -82,7 +83,7 @@ class Form extends React.Component {
     this.setState({errors: errors})
     if (Object.keys(errors).length === 0) {
       if (this.props.service !== undefined) {
-        this.setState({submitting: true}, function() {
+        this.setState({submitting: true, submitError: undefined}, function() {
           this.props.service.client[this.props.service.func](this.state.values, this.handleFormSubmitted)
         })
       }
@@ -95,7 +96,7 @@ class Form extends React.Component {
       this.setState({submitError: undefined, submitting: false})
       if (this.props.onSubmitComplete) this.props.onSubmitComplete(data);
     } else {
-      this.setState({submitError: data.message, submitting: false})
+      this.setState({submitError: data.message !== undefined ? data.message : data.error, submitting: false})
       if (this.props.onSubmitError) this.props.onSubmitError(data);
     }
   }

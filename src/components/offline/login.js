@@ -3,7 +3,7 @@ import React from "react"
 import { Redirect } from "react-router-dom"
 
 import Form from 'components/utils/form'
-import UserClient from 'clients/user'
+import Auth from 'clients/auth'
 
 class Login extends React.Component {
 
@@ -11,7 +11,8 @@ class Login extends React.Component {
     super(props);
 
     this.state = {
-      loggedIn: false
+      loggedIn: false,
+      error: false,
     }
 
     this.fields = [
@@ -42,9 +43,8 @@ class Login extends React.Component {
             fields={this.fields} 
             submitLabel="M'enregistrer" 
             onSubmit={this.handleSubmit} 
-            service={{client: UserClient, func: "login"}}
+            service={{client: Auth, func: "login"}}
             onSubmitComplete={this.handleSubmitComplete}
-            onSubmitError={this.handleSubmitError}
         />
     )
   }
@@ -54,9 +54,6 @@ class Login extends React.Component {
 
   handleSubmitComplete(data) {
     this.setState({loggedIn: true})
-  }
-
-  handleSubmitError(data) {
   }
 }
 
