@@ -12,8 +12,8 @@ import AuthChecker from 'components/utils/auth-checker'
  * OBL Main App Container
  **/
 class Main extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       counter: 0
@@ -31,10 +31,10 @@ class Main extends React.Component {
   }
 
   render() {
-console.log("oh");
     return (
       <BrowserRouter>
         <div id="main-container">
+PAF
           <Switch>
             <Route path="/dashboard" component={AuthChecker(Dashboard)} />
             <Route path="/" component={Offline} />
