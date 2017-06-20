@@ -1,5 +1,8 @@
 import configs from 'config'
 
+import StorageService from 'clients/storage/storage'
+const STORAGE_KEY_FOR_TOKEN = "token";
+
 var BaseClient = function() {
   var call = function(method, endpoint, params, callback, offline=false, defaultParams=false) {
     var headers = {
@@ -13,13 +16,28 @@ var BaseClient = function() {
         params['client_secret'] = configs.api.clientSecret
         params['grant_type'] = 'password'
       } else {
-        headers['Authorization'] = 'bearer 11dec774b37a3dd9e0d26e1a57796f1d46cbf71a74146bdd5a90b11ffe2abfb2'
+        var token = JSON.parse(StorageService.get(STORAGE_KEY_FOR_TOKEN)).access_token
+        headers['Authorization'] = 'bearer ' + token//11dec774b37a3dd9e0d26e1a57796f1d46cbf71a74146bdd5a90b11ffe2abfb2'
       }
     }
     var fetchParams = {
-      method: 'post',
+      method: method,
       headers: headers,
-      body: JSON.stringify(params)
+    }
+
+    switch(method) {
+      case "post":
+        fetchParams.body = JSON.stringify(params)
+        break
+      case "get":
+        if (params !== undefined && params.length > 0) {
+          var keys = Object.getKeys(params)
+          for(var paramIndex in keys) {
+            endpoint += (paramIndex == 0 ? "?" : "&")
+            endpoint += keys[paramIndex] + "=" + params[keys[paramIndex]]
+          }
+        }
+        break
     }
 
     console.dir(fetchParams)
@@ -39,8 +57,13 @@ var BaseClient = function() {
     return call("post", endpoint, params, callback, offline, defaultParams)
   }
 
+  var get = function(endpoint, params, callback, offline=false) {
+    return call("get", endpoint, params, callback, offline)
+  }
+
   return {
-    post: post
+    post: post,
+    get: get
   }
 }();
 

@@ -1,10 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './app';
+
+import { Provider } from 'react-redux';
+import store from './reducers/index'
  
 document.addEventListener('DOMContentLoaded', function() {
   ReactDOM.render(
-    React.createElement(App),
+    <Provider store={store}>
+      <App />
+    </Provider>,
     document.getElementById('app-root')
   );
 });

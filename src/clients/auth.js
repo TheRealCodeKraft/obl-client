@@ -1,4 +1,5 @@
 import BaseClient from './base'
+
 import StorageService from 'clients/storage/storage'
 const STORAGE_KEY_FOR_TOKEN = "token";
 

@@ -9,10 +9,6 @@ class PIFullname extends BaseItem {
     this.label = "Nom complet"
   }
 
-  getValue() {
-    return "Arnaud DRAZEK"
-  }
-
 /*
   buildFullContent() {
     return (

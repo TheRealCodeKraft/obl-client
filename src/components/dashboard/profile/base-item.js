@@ -16,9 +16,9 @@ class BaseItem extends React.Component {
     return (
       <div>
         <div>
-          <a href="#" onClick={this.handleToggleOpen}>Open</a>
-          <span>{this.label}</span>
-          {!this.state.opened ? <span>{this.buildValue()}</span> : null}
+          <a href="#" onClick={this.handleToggleOpen}>{this.state.opened ? "Close" : "Open"}</a>
+          &nbsp;&nbsp;<span>{this.label}</span>
+          {!this.state.opened ? <strong>&nbsp;&nbsp;{this.buildValue()}</strong> : null}
         </div>
         {this.state.opened ? this.buildFullContent() : null}
       </div>
@@ -26,7 +26,7 @@ class BaseItem extends React.Component {
   }
 
   buildValue() {
-    return "Value not set"
+    return this.props.value !== undefined ? this.props.value : "Value not set"
   }
 
   buildFullContent() {

@@ -1,4 +1,7 @@
 import React from "react"
+import { connect } from 'react-redux'
+
+import UserClient from 'clients/user'
 
 import Fullname from './profile/items/fullname'
 import Email from './profile/items/email'
@@ -13,23 +16,37 @@ import Personality from './profile/items/personality'
 
 class Profile extends React.Component {
 
+  componentWillMount() {
+    UserClient.me()
+  }
+
   render() {
     return (
       <div id="profile">
-        <Fullname />
-        <Email />
-        <Pseudo />
-        <Password />
-        <Traineeship />
-        <Contract />
-        <Mobility />
-        <School />
-        <Specialities />
-        <Personality />
+        {this.props.me !== null 
+          ? [<Fullname value={this.props.me.firstname + " " + this.props.me.lastname} />,
+             <Email value={this.props.me.email} />,
+             <Pseudo value={this.props.me.pseudo} />,
+             <Password value="" />,
+             <Traineeship />,
+             <Contract />,
+             <Mobility />,
+             <School />,
+             <Specialities />,
+             <Personality />]
+          : null}
       </div>
     )
   }
 
 }
 
-export default Profile
+function mapStateToProps(state) {
+console.log("REDUX?")
+console.dir(state)
+  return {
+    me: state.userState.me || null
+  }
+}
+
+export default connect(mapStateToProps)(Profile)
