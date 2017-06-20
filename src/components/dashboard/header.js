@@ -21,6 +21,8 @@ class Header extends React.Component {
     return (
       <header id="header">
         <Link to="/">Open Business Lab</Link>
+        <Link to="/dashboard/profile">Profil</Link>
+        <Link to="/dashboard/games">Jeux</Link>
         <a href="#" onClick={this.handleLogout}>Déconnexion</a>
       </header>
     );

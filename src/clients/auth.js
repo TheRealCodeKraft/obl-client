@@ -6,7 +6,6 @@ var Auth = function() {
 
   var refreshToken = function(callback) {
     var refresh_token = getToken().refresh_token
-console.log(refresh_token)
     BaseClient.post("oauth/token", { grant_type: "refresh_token", refresh_token: refresh_token}, callback);
   }
 
@@ -28,7 +27,6 @@ console.log(refresh_token)
 
   var checkLoggedIn = function() {
     var token = StorageService.get(STORAGE_KEY_FOR_TOKEN)
-    //console.dir(token);
     if (token) {
       
       var currentTimestamp = parseInt(new Date().getTime() / 1000);

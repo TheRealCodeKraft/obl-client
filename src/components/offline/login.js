@@ -41,7 +41,7 @@ class Login extends React.Component {
     return (
       <Form id="login-form" 
             fields={this.fields} 
-            submitLabel="M'enregistrer" 
+            submitLabel="Me connecter" 
             onSubmit={this.handleSubmit} 
             service={{client: Auth, func: "login"}}
             onSubmitComplete={this.handleSubmitComplete}

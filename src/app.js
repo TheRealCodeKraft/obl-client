@@ -16,25 +16,14 @@ class Main extends React.Component {
     super(props);
 
     this.state = {
-      counter: 0
     };
 
-    this.handleClick = this.handleClick.bind(this);
-  }
-
-  componentWillUpdate() {
-    console.log("update");
-  }
-
-  componentWillReceiveProps(props) {
-    console.log("uh?");
   }
 
   render() {
     return (
       <BrowserRouter>
         <div id="main-container">
-PAF
           <Switch>
             <Route path="/dashboard" component={AuthChecker(Dashboard)} />
             <Route path="/" component={Offline} />
@@ -42,10 +31,6 @@ PAF
         </div>
       </BrowserRouter>
     );
-  }
-
-  handleClick() {
-    this.setState({counter: this.state.counter + 1});
   }
 }
 
