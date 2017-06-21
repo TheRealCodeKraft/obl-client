@@ -9,7 +9,13 @@ var Auth = function() {
 
   var refreshToken = function(callback) {
     var refresh_token = getToken().refresh_token
-    BaseClient.post("oauth/token", { grant_type: "refresh_token", refresh_token: refresh_token}, callback);
+    BaseClient.post("oauth/token", { grant_type: "refresh_token", refresh_token: refresh_token}, function(data) {
+      if (data.error) {
+        if (callback) callback(data)
+      } else {
+        Auth.storeToken(data, callback)
+      }
+   });
   }
 
   var storeToken = function(data, callback) {
@@ -44,11 +50,12 @@ var Auth = function() {
     } else { return false }
   }
 
-  var logout = function() {
+  var logout = function(callback) {
     StorageService.delete(STORAGE_KEY_FOR_TOKEN)
     store.dispatch({
       type: "USER_NOT_FOUND"
     })
+    callback()
   }
 
   var getToken = function() {

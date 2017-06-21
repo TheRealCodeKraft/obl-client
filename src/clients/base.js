@@ -51,8 +51,11 @@ var BaseClient = function() {
     .then(promise => {
       promise.json().then(response => {
         if (response.error) {
+          if (response.error == "The access token expired") {
+            Auth.refreshToken(callback)
+          }
           if (response.error == "The access token is invalid") {
-            Auth.logout()
+            Auth.logout(callback)
           }
         } else if (callback) callback(response);
       });
