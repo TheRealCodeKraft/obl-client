@@ -22,53 +22,54 @@ export default function(ComposedComponent, offline=false) {
     }
 
     componentWillMount() {
-console.log(ComposedComponent)
-console.log(Auth.checkForToken())
       if (Auth.checkForToken() == true) {
-console.log("I HAVE A TOKEN")
-console.log(offline)
-        if (offline) { console.log("I NEED FOR OFFLINE"); this.props.history.push("/dashboard") }
+        // I HAVE A TOKEN
+        if (offline) { 
+          // I NEED OFFLINE GRANTS
+          this.props.history.push("/dashboard") 
+        }
         else { 
-console.log("I NEED FOR ONLINE"); 
+          // I NEED ONLINE GRANTS
           if (this.props.me === null) {
+            // NOT ME DATA
             this.setState({checking: true}, function () {
               UserClient.me()
             })
           } else {
+            // RESETTING ME DATA
             this.setState({resetting: true}, function() {
-console.log("RESETTING")
               UserClient.resetMe()
             })
           }
         }
       } else {
-console.log("I HAVE NO TOKEN")
-        if (offline) { console.log("I NEED FOR OFFLINE"); this.setState({connectionOk: true}) }
+        // I HAVE NO TOKEN
+        if (offline) { 
+          // I NEED OFFLINE GRANTS
+          this.setState({connectionOk: true}) 
+        }
         else {
-          console.log("I NEED FOR ONLINE") 
-this.props.history.push('/login')
+          // I NEED ONLINE GRANTS
+          this.props.history.push('/login')
         }
       }
     }
 
     componentWillReceiveProps(props) {
-console.log("PROPSSSS")
-console.dir(props)
       if (this.state.resetting && props.me == null) {
-        console.log("RESETTED")
+        // SESSION HAS BEEN RESET
         this.setState({resetting: false, checking: true}, function() {
           UserClient.me()
         })
       } else if (this.state.checking) {
+        // I AM CHECKING FOR ME DATA
         if (props.notFound === false) {
-          console.log("LOGGED IN")
+          // I AM LOGGED IN
           this.setState({checking: false, connectionOk: true})
         } else {
+          // CONNECTION FAILED
           this.props.history.push("/login")
         }
-      } else {
-//console.log("REDIRECT")
- //       this.props.history.push("/login")
       }
     }
 
@@ -76,27 +77,6 @@ console.dir(props)
       if (!this.state.connectionOk) {
         return <span>Checking logged in</span>
       }
-
-/*
-      if (!offline) {
-        if (this.state.refreshing) {
-          return <span>Refreshing</span>
-        }
-
-        var logStatus = Auth.checkLoggedIn()
-        if (!logStatus) {
-          return <Redirect to="/login" />
-        } else {
-          if (logStatus === "toRefresh") {
-            this.setState({refreshing: true}, function() {
-              Auth.refreshToken(this.handleRefresh)
-            })
-          }
-        }
-      } else if (offline && Auth.checkLoggedIn()) {
-        return <Redirect to="/dashboard" />
-      }
-*/
 
       return <ComposedComponent {...this.props} />
     }
@@ -114,8 +94,6 @@ console.dir(props)
 }
 
 function mapStateToProps(state) {
-console.log("STATE FROM REDUX")
-console.dir(state)
   return {
     me: state.userState.me,
     notFound: state.userState.notFound || false
