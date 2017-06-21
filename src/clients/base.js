@@ -1,7 +1,11 @@
 import configs from 'config'
 
+import store from 'reducers/index';
+
 import StorageService from 'clients/storage/storage'
 const STORAGE_KEY_FOR_TOKEN = "token";
+
+import Auth from './auth'
 
 var BaseClient = function() {
   var call = function(method, endpoint, params, callback, offline=false, defaultParams=false) {
@@ -10,6 +14,7 @@ var BaseClient = function() {
     }
 
     if (offline) {
+        headers['Authorization'] = 'bearer ' + configs.api.app_token
     } else {
       if (defaultParams) {
         params['client_id'] = configs.api.clientId
@@ -17,7 +22,7 @@ var BaseClient = function() {
         params['grant_type'] = 'password'
       } else {
         var token = JSON.parse(StorageService.get(STORAGE_KEY_FOR_TOKEN)).access_token
-        headers['Authorization'] = 'bearer ' + token//11dec774b37a3dd9e0d26e1a57796f1d46cbf71a74146bdd5a90b11ffe2abfb2'
+        headers['Authorization'] = 'bearer ' + token
       }
     }
     var fetchParams = {
@@ -45,9 +50,14 @@ var BaseClient = function() {
     fetch(configs.api.url + endpoint, fetchParams)
     .then(promise => {
       promise.json().then(response => {
-        if (callback) callback(response);
+        if (response.error) {
+          if (response.error == "The access token is invalid") {
+            Auth.logout()
+          }
+        } else if (callback) callback(response);
       });
     }).catch(exception => {
+console.dir(exception)
       if (callback) callback({error: true, message: exception.message});
     });
     return;

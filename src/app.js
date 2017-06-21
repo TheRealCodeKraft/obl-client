@@ -25,7 +25,7 @@ class Main extends React.Component {
       <BrowserRouter>
         <div id="main-container">
           <Switch>
-            <Route path="/dashboard" component={AuthChecker(Dashboard)} />
+            <Route path="/dashboard" component={Dashboard} />
             <Route path="/" component={Offline} />
           </Switch>
         </div>

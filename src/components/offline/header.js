@@ -1,5 +1,7 @@
 import React from "react";
 
+import { connect } from 'react-redux'
+
 import { Link, Redirect } from 'react-router-dom'
 import Auth from 'clients/auth'
 
@@ -15,7 +17,7 @@ class Header extends React.Component {
     return (
       <header id="header">
         <Link to="/">Open Business Lab</Link>
-        {Auth.checkLoggedIn() 
+        {this.props.me
          ? [<Link to="/dashboard">Dashboard</Link>,
             <a href="#" onClick={this.handleLogout}>Déconnexion</a>]
          : [<Link to="/login">Connexion</Link>,
@@ -33,4 +35,10 @@ class Header extends React.Component {
 
 }
 
-export default Header;
+function mapStateToProps(state) {
+  return {
+    me: state.userState.me
+  }
+}
+
+export default connect(mapStateToProps)(Header)

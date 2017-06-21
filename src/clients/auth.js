@@ -1,5 +1,7 @@
 import BaseClient from './base'
 
+import store from 'reducers/index';
+
 import StorageService from 'clients/storage/storage'
 const STORAGE_KEY_FOR_TOKEN = "token";
 
@@ -19,24 +21,24 @@ var Auth = function() {
     params["grant_type"] = "password"
     BaseClient.post("oauth/token", params, function(data) {
       if (data.error) {
-        callback(data)
+        if (callback) callback(data)
       } else {
         Auth.storeToken(data, callback)
       }
     }, false, true)
   }
 
-  var checkLoggedIn = function() {
+  var checkForToken = function() {
     var token = StorageService.get(STORAGE_KEY_FOR_TOKEN)
     if (token) {
-      
+    /*  
       var currentTimestamp = parseInt(new Date().getTime() / 1000);
       var  expireTimestamp = token.created_at + (token.expires_in / 2);
 
       if(currentTimestamp >= expireTimestamp) {
         return "toRefresh";
       }
-
+*/
       return true
 
     } else { return false }
@@ -44,6 +46,9 @@ var Auth = function() {
 
   var logout = function() {
     StorageService.delete(STORAGE_KEY_FOR_TOKEN)
+    store.dispatch({
+      type: "USER_NOT_FOUND"
+    })
   }
 
   var getToken = function() {
@@ -57,7 +62,7 @@ var Auth = function() {
   return {
     refreshToken: refreshToken,
     storeToken: storeToken,
-    checkLoggedIn: checkLoggedIn,
+    checkForToken: checkForToken,
     login: login,
     logout: logout
   }

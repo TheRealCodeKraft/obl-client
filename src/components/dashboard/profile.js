@@ -16,9 +16,11 @@ import Personality from './profile/items/personality'
 
 class Profile extends React.Component {
 
+/*
   componentWillMount() {
     UserClient.me()
   }
+*/
 
   render() {
     return (
@@ -28,10 +30,10 @@ class Profile extends React.Component {
              <Email value={this.props.me.email} />,
              <Pseudo value={this.props.me.pseudo} />,
              <Password value="" />,
-             <Traineeship />,
-             <Contract />,
+             <Traineeship value={this.props.traineeship ? "Oui" : "Non"} />,
+             <Contract value={this.props.contract ? "Oui" : "Non"} />,
              <Mobility />,
-             <School />,
+             <School value={this.props.school} />,
              <Specialities />,
              <Personality />]
           : null}
@@ -42,8 +44,6 @@ class Profile extends React.Component {
 }
 
 function mapStateToProps(state) {
-console.log("REDUX?")
-console.dir(state)
   return {
     me: state.userState.me || null
   }

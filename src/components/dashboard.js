@@ -17,7 +17,7 @@ class Dashboard extends React.Component {
       <div className="dashboard">
         <Header />
         <Switch>
-          <Route exact path="/dashboard" component={Home} />
+          <Route exact path="/dashboard" component={AuthChecker(Home)} />
           <Route exact path="/dashboard/profile" component={AuthChecker(Profile)} />
           <Route exact path="/dashboard/games" component={AuthChecker(Games)} />
         </Switch>
