@@ -40,11 +40,16 @@ var UserClient = function() {
     })
   }
 
+  var updatePassword = function(id, params, callback) {
+    BaseClient.put("users/password", id, params, callback)
+  }
+
   return {
     signup: signup,
     me: me,
     resetMe: resetMe,
-    update: update
+    update: update,
+    updatePassword: updatePassword
   }
 
 }();
