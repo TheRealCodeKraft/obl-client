@@ -22,7 +22,7 @@ class Form extends React.Component {
     for (var index in this.props.fields) {
       valuesState[this.props.fields[index].name] = this.props.fields[index].defaultValue
     }
-    this.setState(valuesState);
+    this.setState({values: valuesState});
   }
 
   render() {
@@ -45,7 +45,7 @@ class Form extends React.Component {
         {(this.state.submitError) ? [<span>{this.state.submitError}</span>, <br />] : null}
         {this.state.submitting
          ? <span>waiting for response</span>
-         : <button type="submit">{this.props.submitLabel}</button>}
+         : <button type="submit">{this.props.submitLabel ? this.props.submitLabel : "Enregistrer"}</button>}
       </form>
     )
   }
@@ -84,7 +84,11 @@ class Form extends React.Component {
     if (Object.keys(errors).length === 0) {
       if (this.props.service !== undefined) {
         this.setState({submitting: true, submitError: undefined}, function() {
-          this.props.service.client[this.props.service.func](this.state.values, this.handleFormSubmitted)
+          if (this.props.entityId !== undefined) {
+            this.props.service.client[this.props.service.func](this.props.entityId, this.state.values, this.handleFormSubmitted)
+          } else {
+            this.props.service.client[this.props.service.func](this.state.values, this.handleFormSubmitted)
+          }
         })
       }
       if (this.props.onSubmit) this.props.onSubmit(this.state.values)

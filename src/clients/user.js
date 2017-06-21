@@ -28,10 +28,23 @@ var UserClient = function() {
     })
   }
 
+  var update = function(id, params, callback) {
+    BaseClient.put("users", id, params, function(data) {
+      if (!data.error) {
+        store.dispatch({
+          type: "ME",
+          user: data
+        })
+      }
+      if (callback) callback(data)
+    })
+  }
+
   return {
     signup: signup,
     me: me,
-    resetMe: resetMe
+    resetMe: resetMe,
+    update: update
   }
 
 }();

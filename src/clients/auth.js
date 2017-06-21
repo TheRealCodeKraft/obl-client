@@ -5,6 +5,8 @@ import store from 'reducers/index';
 import StorageService from 'clients/storage/storage'
 const STORAGE_KEY_FOR_TOKEN = "token";
 
+import UserClient from 'clients/user'
+
 var Auth = function() {
 
   var refreshToken = function(callback) {
@@ -14,6 +16,7 @@ var Auth = function() {
         if (callback) callback(data)
       } else {
         Auth.storeToken(data, callback)
+        UserClient.me()
       }
    });
   }
@@ -55,7 +58,7 @@ var Auth = function() {
     store.dispatch({
       type: "USER_NOT_FOUND"
     })
-    callback()
+    if (callback) callback()
   }
 
   var getToken = function() {

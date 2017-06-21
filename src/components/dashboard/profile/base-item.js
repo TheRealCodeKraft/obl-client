@@ -10,6 +10,7 @@ class BaseItem extends React.Component {
     }
 
     this.handleToggleOpen = this.handleToggleOpen.bind(this)
+    this.handleSubmitComplete= this.handleSubmitComplete.bind(this)
   }
 
   render() {
@@ -26,7 +27,7 @@ class BaseItem extends React.Component {
   }
 
   buildValue() {
-    return this.props.value !== undefined ? this.props.value : "Value not set"
+    return this.props.value ? this.props.value : "Non renseigné"
   }
 
   buildFullContent() {
@@ -38,6 +39,10 @@ class BaseItem extends React.Component {
   handleToggleOpen(e) {
     e.preventDefault()
     this.setState({opened: !this.state.opened})
+  }
+
+  handleSubmitComplete(data) {
+    this.setState({opened: false})
   }
 
 }

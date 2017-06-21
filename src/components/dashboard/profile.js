@@ -23,19 +23,21 @@ class Profile extends React.Component {
 */
 
   render() {
+    var me = this.props.me
+
     return (
       <div id="profile">
-        {this.props.me !== null 
-          ? [<Fullname value={this.props.me.firstname + " " + this.props.me.lastname} />,
-             <Email value={this.props.me.email} />,
-             <Pseudo value={this.props.me.pseudo} />,
-             <Password value="" />,
-             <Traineeship value={this.props.traineeship ? "Oui" : "Non"} />,
-             <Contract value={this.props.contract ? "Oui" : "Non"} />,
-             <Mobility />,
-             <School value={this.props.school} />,
-             <Specialities />,
-             <Personality />]
+        {me !== null 
+          ? [<Fullname entity={me} value={me.firstname + " " + me.lastname} />,
+             <Email entity={me} value={me.email} />,
+             <Pseudo entity={me} value={me.pseudo} />,
+             <Password entity={me} value="Modifiez votre mot de passe" />,
+             <Traineeship entity={me} value={this.props.traineeship ? "Oui" : "Non"} />,
+             <Contract entity={me} value={me.contract ? "Oui" : "Non"} />,
+             <Mobility entity={me} value={me.mobility} />,
+             <School entity={me} value={me.school} />,
+             <Specialities entity={me} value={me.specialities} />,
+             <Personality entity={me} />]
           : null}
       </div>
     )

@@ -32,6 +32,7 @@ var BaseClient = function() {
 
     switch(method) {
       case "post":
+      case "put":
         fetchParams.body = JSON.stringify(params)
         break
       case "get":
@@ -53,9 +54,10 @@ var BaseClient = function() {
         if (response.error) {
           if (response.error == "The access token expired") {
             Auth.refreshToken(callback)
-          }
-          if (response.error == "The access token is invalid") {
+          } else if (response.error == "The access token is invalid") {
             Auth.logout(callback)
+          } else {
+            callback(response)
           }
         } else if (callback) callback(response);
       });
@@ -74,9 +76,14 @@ console.dir(exception)
     return call("get", endpoint, params, callback, offline)
   }
 
+  var put = function(endpoint, id, params, callback) {
+    return call("put", endpoint + "/" + id, params, callback)
+  }
+
   return {
+    get: get,
     post: post,
-    get: get
+    put: put
   }
 }();
 
