@@ -26,14 +26,15 @@ class Mobility extends BaseItem {
               entityId={this.props.entity.id}
               fields={[
                 {
-                  name: "mobility",
+                  name: "areas",
                   label: "Votre mobilité",
                   type: "list-selector",
+                  placeholder: "Sélectionnez une région pour l'ajouter",
                   values: this.props.areas,
                   listKey: "id",
                   listValue: "name",
                   required: true,
-                  defaultValue: this.props.entity.mobility
+                  defaultValue: this.props.entity.areas.map(area => {return area.id})
                 },
               ]}
               service={{client: UserClient, func: "update"}}

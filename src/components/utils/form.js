@@ -72,7 +72,7 @@ class Form extends React.Component {
         input = radios
         break
       case "list-selector":
-        input = <ListSelector field={field} />
+        input = <ListSelector field={field} onChange={this.handleInputChange.bind(this, field)} />
         break
       default:
         input = <input name={field.name} type={field.type} value={this.state.values[field.name]} placeholder={field.placeholder} onChange={this.handleInputChange.bind(this, field)} />
@@ -93,11 +93,12 @@ class Form extends React.Component {
         values[e.target.name] = (e.target.value === "true" ? true : false)
         break
       case "list-selector":
-        values[e.target.name] = e.target.values
+        values[e.target.name] = e.target.value
         break
       default:
         break
     }
+console.dir(values)
 
     this.setState({values: values});
   }
