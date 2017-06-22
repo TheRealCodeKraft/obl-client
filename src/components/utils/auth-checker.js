@@ -1,5 +1,4 @@
 import React from "react"
-import { Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 
 import UserClient from 'clients/user'
@@ -22,7 +21,7 @@ export default function(ComposedComponent, offline=false) {
     }
 
     componentWillMount() {
-      if (Auth.checkForToken() == true) {
+      if (Auth.checkForToken() === true) {
         // I HAVE A TOKEN
         if (offline) { 
           // I NEED OFFLINE GRANTS

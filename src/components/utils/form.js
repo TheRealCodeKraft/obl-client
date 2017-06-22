@@ -1,5 +1,7 @@
 import React from "react"
 
+import ListSelector from './form/list-selector'
+
 class Form extends React.Component {
 
   constructor(props) {
@@ -30,7 +32,7 @@ class Form extends React.Component {
       <form id={this.props.id} onSubmit={this.handleFormSubmit}>
         {this.props.fields.map(field => {
           return (
-            <label>
+            <label key={this.props.id + "-field-" + field.name}>
               {field.label} : 
               {this.getInput(field)}
               {
@@ -56,6 +58,22 @@ class Form extends React.Component {
       case "checkbox":
         input = <input name={field.name} type={field.type} value={this.state.values[field.name] === true ? "on" : "off"} placeholder={field.placeholder} onChange={this.handleInputChange.bind(this, field)} />
         break
+      case "radio":
+        var radios = []
+        if (field.values) {
+          var value = undefined, radioId = undefined
+          for (var index in field.values) {
+            value = field.values[index]
+            radioId = this.props.id + "-" + field.name + "-" + index
+            radios.push(<input id={radioId} name={field.name} type={field.type} value={value.value} onChange={this.handleInputChange.bind(this, field)} checked={this.state.values[field.name] === value.value ? "checked" : ""} />)
+            radios.push(<label htmlFor={radioId}>{value.label}</label>)
+          }
+        }
+        input = radios
+        break
+      case "list-selector":
+        input = <ListSelector field={field} />
+        break
       default:
         input = <input name={field.name} type={field.type} value={this.state.values[field.name]} placeholder={field.placeholder} onChange={this.handleInputChange.bind(this, field)} />
         break
@@ -70,7 +88,15 @@ class Form extends React.Component {
     switch(field.type) {
       case "checkbox":
         values[e.target.name] = (e.target.value === "on" ? false : true)
-        break;
+        break
+      case "radio":
+        values[e.target.name] = (e.target.value === "true" ? true : false)
+        break
+      case "list-selector":
+        values[e.target.name] = e.target.values
+        break
+      default:
+        break
     }
 
     this.setState({values: values});

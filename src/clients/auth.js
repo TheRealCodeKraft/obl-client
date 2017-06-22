@@ -9,6 +9,14 @@ import UserClient from 'clients/user'
 
 var Auth = function() {
 
+  var getToken = function() {
+    return JSON.parse(StorageService.get(STORAGE_KEY_FOR_TOKEN))
+  }
+
+  var setToken = function(token) {
+    StorageService.set(STORAGE_KEY_FOR_TOKEN, JSON.stringify(token));
+  }
+
   var refreshToken = function(callback) {
     var refresh_token = getToken().refresh_token
     BaseClient.post("oauth/token", { grant_type: "refresh_token", refresh_token: refresh_token}, function(data) {
@@ -59,14 +67,6 @@ var Auth = function() {
       type: "USER_NOT_FOUND"
     })
     if (callback) callback()
-  }
-
-  var getToken = function() {
-    return JSON.parse(StorageService.get(STORAGE_KEY_FOR_TOKEN))
-  }
-
-  var setToken = function(token) {
-    StorageService.set(STORAGE_KEY_FOR_TOKEN, JSON.stringify(token));
   }
 
   return {

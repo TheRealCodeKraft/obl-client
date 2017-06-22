@@ -2,7 +2,7 @@ import React from "react";
 
 import { connect } from 'react-redux'
 
-import { Link, Redirect } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import Auth from 'clients/auth'
 
 class Header extends React.Component {
@@ -18,10 +18,10 @@ class Header extends React.Component {
       <header id="header">
         <Link to="/">Open Business Lab</Link>
         {this.props.me
-         ? [<Link to="/dashboard">Dashboard</Link>,
-            <a href="#" onClick={this.handleLogout}>Déconnexion</a>]
-         : [<Link to="/login">Connexion</Link>,
-            <Link to="/signup">Inscription</Link>]
+         ? [<Link key="header-dashboard-link" to="/dashboard">Dashboard</Link>,
+            <a key="header-logout-link" href="#" onClick={this.handleLogout}>Déconnexion</a>]
+         : [<Link key="header-login-link" to="/login">Connexion</Link>,
+            <Link key="header-signup-link" to="/signup">Inscription</Link>]
         }
       </header>
     )

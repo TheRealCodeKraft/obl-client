@@ -1,4 +1,3 @@
-import React from "react"
 import BaseItem from "../base-item"
 
 class Personality extends BaseItem {

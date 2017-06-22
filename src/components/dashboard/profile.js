@@ -1,8 +1,6 @@
 import React from "react"
 import { connect } from 'react-redux'
 
-import UserClient from 'clients/user'
-
 import Fullname from './profile/items/fullname'
 import Email from './profile/items/email'
 import Pseudo from './profile/items/pseudo'
@@ -28,16 +26,16 @@ class Profile extends React.Component {
     return (
       <div id="profile">
         {me !== null 
-          ? [<Fullname entity={me} value={me.firstname + " " + me.lastname} />,
-             <Email entity={me} value={me.email} />,
-             <Pseudo entity={me} value={me.pseudo} />,
-             <Password entity={me} value="Modifiez votre mot de passe" />,
-             <Traineeship entity={me} value={this.props.traineeship ? "Oui" : "Non"} />,
-             <Contract entity={me} value={me.contract ? "Oui" : "Non"} />,
-             <Mobility entity={me} value={me.mobility} />,
-             <School entity={me} value={me.school} />,
-             <Specialities entity={me} value={me.specialities} />,
-             <Personality entity={me} />]
+          ? [<Fullname key="profile-fullname" entity={me} value={me.firstname + " " + me.lastname} />,
+             <Email key="profile-email" entity={me} value={me.email} />,
+             <Pseudo key="profile-pseudo" entity={me} value={me.pseudo} />,
+             <Password key="profile-password" entity={me} value="Modifiez votre mot de passe" />,
+             <Traineeship key="profile-traineeship" entity={me} value={me.traineeship ? "Oui" : "Non"} />,
+             <Contract key="profile-contract" entity={me} value={me.contract ? "Oui" : "Non"} />,
+             <Mobility key="profile-mobility" entity={me} value={me.mobility} />,
+             <School key="profile-school" entity={me} value={me.school} />,
+             <Specialities key="profile-specialities" entity={me} value={me.specialities} />,
+             <Personality key="profile-personality" entity={me} />]
           : null}
       </div>
     )

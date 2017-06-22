@@ -9,13 +9,26 @@ const userReducer = function(state = {}, action) {
       return Object.assign({}, state, { me: action.user, notFound: false })
     case 'USER_NOT_FOUND':
       return Object.assign({}, state, { me: null, notFound: true })
+    default:
+      break
   }
-  return state;
+  return state
+}
+
+const areaReducer = function(state = {}, action) {
+  switch(action.type) {
+    case "AREAS":
+      return Object.assign({}, state, { areas: action.areas })
+    default:
+      break
+  }
+  return state
 }
 
 // Combine Reducers
 const reducers = combineReducers({
   userState: userReducer,
+  areaState: areaReducer,
 });
 
 const store = createStore(reducers);

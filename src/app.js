@@ -6,8 +6,6 @@ import { Route/*, Link*/, Switch } from 'react-router-dom'
 import Offline from 'components/offline'
 import Dashboard from 'components/dashboard'
 
-import AuthChecker from 'components/utils/auth-checker'
-
 /**
  * OBL Main App Container
  **/

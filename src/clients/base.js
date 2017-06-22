@@ -1,7 +1,5 @@
 import configs from 'config'
 
-import store from 'reducers/index';
-
 import StorageService from 'clients/storage/storage'
 const STORAGE_KEY_FOR_TOKEN = "token";
 
@@ -39,10 +37,12 @@ var BaseClient = function() {
         if (params !== undefined && params.length > 0) {
           var keys = Object.getKeys(params)
           for(var paramIndex in keys) {
-            endpoint += (paramIndex == 0 ? "?" : "&")
+            endpoint += (paramIndex === 0 ? "?" : "&")
             endpoint += keys[paramIndex] + "=" + params[keys[paramIndex]]
           }
         }
+        break
+      default:
         break
     }
 
@@ -52,9 +52,9 @@ var BaseClient = function() {
     .then(promise => {
       promise.json().then(response => {
         if (response.error) {
-          if (response.error == "The access token expired") {
+          if (response.error === "The access token expired") {
             Auth.refreshToken(callback)
-          } else if (response.error == "The access token is invalid") {
+          } else if (response.error === "The access token is invalid") {
             Auth.logout(callback)
           } else {
             callback(response)
