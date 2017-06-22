@@ -1,6 +1,8 @@
 import React from "react"
 import { connect } from 'react-redux'
 
+var moment = require("moment")
+
 import Fullname from './profile/items/fullname'
 import Email from './profile/items/email'
 import Pseudo from './profile/items/pseudo'
@@ -24,7 +26,7 @@ class Profile extends React.Component {
              <Email key="profile-email" entity={me} value={me.email} />,
              <Pseudo key="profile-pseudo" entity={me} value={me.pseudo} />,
              <Password key="profile-password" entity={me} value="Modifiez votre mot de passe" />,
-             <Traineeship key="profile-traineeship" entity={me} value={me.traineeship ? "Oui" : "Non"} />,
+             <Traineeship key="profile-traineeship" entity={me} value={this.getTraineeshipLabel()} />,
              <Contract key="profile-contract" entity={me} value={me.contract ? "Oui" : "Non"} />,
              <Mobility key="profile-mobility" entity={me} value={this.getItemList(me.areas)} />,
              <School key="profile-school" entity={me} value={me.school ? me.school.name : "Aucune"} />,
@@ -33,6 +35,20 @@ class Profile extends React.Component {
           : null}
       </div>
     )
+  }
+
+  getTraineeshipLabel() {
+    if (this.props.me.traineeship) {
+      var start = null, end = null, tsString = null
+      if (this.props.me.traineeship_start_ts !== null && this.props.me.traineeship_end_ts !== null) {
+        tsString = "Du " + moment(this.props.me.traineeship_start_ts).format("DD/MM/YYYY") + " au " + moment(this.props.me.traineeship_end_ts).format("DD/MM/YYYY")
+      } else if (this.props.me.traineeship_start_ts !== null) {
+        tsString = "A partir du " + moment(this.props.me.traineeship_start_ts).format("DD/MM/YYY")
+      }
+      return "Oui" + (tsString ? " > " + tsString : "") 
+    }
+    else
+      return "Non"
   }
 
   getItemList(list) {

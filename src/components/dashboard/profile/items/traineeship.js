@@ -27,6 +27,28 @@ class Traineeship extends BaseItem {
                   required: true,
                   defaultValue: this.props.entity.traineeship
                 },
+                {
+                  name: "traineeship_start_ts",
+                  label: "Date de début",
+                  type: "date",
+                  required: false,
+                  defaultValue: this.props.entity.traineeship_start_ts,
+                  displayIf: {
+                    name: "traineeship",
+                    value: true
+                  }
+                },
+                {
+                  name: "traineeship_end_ts",
+                  label: "Date de fin",
+                  type: "date",
+                  required: false,
+                  defaultValue: this.props.entity.traineeship_end_ts,
+                  displayIf: {
+                    name: "traineeship",
+                    value: true
+                  }
+                },
               ]}
               service={{client: UserClient, func: "update"}}
               onSubmitComplete={this.handleSubmitComplete}

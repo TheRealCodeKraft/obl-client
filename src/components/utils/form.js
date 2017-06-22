@@ -1,5 +1,7 @@
 import React from "react"
 
+var moment = require("moment")
+
 import ListSelector from './form/list-selector'
 
 class Form extends React.Component {
@@ -31,6 +33,10 @@ class Form extends React.Component {
     return (
       <form id={this.props.id} onSubmit={this.handleFormSubmit}>
         {this.props.fields.map(field => {
+          if (field.displayIf && this.state.values[field.displayIf.name] !== field.displayIf.value) {
+            return null
+          }
+
           return (
             <label key={this.props.id + "-field-" + field.name}>
               {field.label} : 
@@ -83,7 +89,12 @@ class Form extends React.Component {
         input = <ListSelector field={field} onChange={this.handleInputChange.bind(this, field)} />
         break
       default:
-        input = <input name={field.name} type={field.type} value={this.state.values[field.name]} placeholder={field.placeholder} onChange={this.handleInputChange.bind(this, field)} />
+        var value = this.state.values[field.name]
+        if (value == null) value = ""
+        if (field.type === "date" && value !== "") {
+          value=moment(value).format("YYYY-MM-DD")
+        }
+        input = <input name={field.name} type={field.type} value={value} placeholder={field.placeholder} onChange={this.handleInputChange.bind(this, field)} />
         break
     }
     return input
