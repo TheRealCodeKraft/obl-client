@@ -1,6 +1,8 @@
 import React from "react"
+import { connect } from 'react-redux'
 
 import UserClient from 'clients/user'
+import SchoolClient from 'clients/school'
 
 import BaseItem from "../base-item"
 import Form from 'components/utils/form'
@@ -13,6 +15,10 @@ class School extends BaseItem {
     this.label = "Ecole"
   }
 
+  componentWillMount() {
+    SchoolClient.schools()
+  }
+
   buildFullContent() {
     return (
       <div>
@@ -20,10 +26,13 @@ class School extends BaseItem {
               entityId={this.props.entity.id}
               fields={[
                 {
-                  name: "school",
+                  name: "school_id",
                   label: "Ecole",
-                  placeholder: "Ecole",
-                  type: "text",
+                  placeholder: "Aucune école",
+                  type: "select",
+                  values: this.props.schools,
+                  key: "id",
+                  value: "name",
                   required: true,
                   defaultValue: this.props.entity.school
                 },
@@ -37,4 +46,10 @@ class School extends BaseItem {
 
 }
 
-export default School
+function mapStateToProps(state) {
+  return {
+    schools: state.schoolState.schools || []
+  }
+}
+
+export default connect(mapStateToProps)(School)

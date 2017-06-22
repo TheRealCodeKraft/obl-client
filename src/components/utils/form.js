@@ -71,6 +71,14 @@ class Form extends React.Component {
         }
         input = radios
         break
+      case "select":
+        input = <select name={field.name} onChange={this.handleInputChange.bind(this, field)}>
+                  <option value="-1">{field.placeholder}</option>
+                  {field.values.map(value => {
+                    return <option value={value[field.key]}>{value[field.value]}</option>
+                  })}
+                </select>
+        break
       case "list-selector":
         input = <ListSelector field={field} onChange={this.handleInputChange.bind(this, field)} />
         break

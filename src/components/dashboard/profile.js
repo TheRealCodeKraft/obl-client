@@ -27,7 +27,7 @@ class Profile extends React.Component {
              <Traineeship key="profile-traineeship" entity={me} value={me.traineeship ? "Oui" : "Non"} />,
              <Contract key="profile-contract" entity={me} value={me.contract ? "Oui" : "Non"} />,
              <Mobility key="profile-mobility" entity={me} value={this.getItemList(me.areas)} />,
-             <School key="profile-school" entity={me} value={me.school} />,
+             <School key="profile-school" entity={me} value={me.school ? me.school.name : "Aucune"} />,
              <Specialities key="profile-specialities" entity={me} value={this.getItemList(me.specialities)} />,
              <Personality key="profile-personality" entity={me} />]
           : null}
