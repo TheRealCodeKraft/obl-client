@@ -43,7 +43,7 @@ class Profile extends React.Component {
       if (this.props.me.traineeship_start_ts !== null && this.props.me.traineeship_end_ts !== null) {
         tsString = "Du " + moment(this.props.me.traineeship_start_ts).format("DD/MM/YYYY") + " au " + moment(this.props.me.traineeship_end_ts).format("DD/MM/YYYY")
       } else if (this.props.me.traineeship_start_ts !== null) {
-        tsString = "A partir du " + moment(this.props.me.traineeship_start_ts).format("DD/MM/YYY")
+        tsString = "A partir du " + moment(this.props.me.traineeship_start_ts).format("DD/MM/YYYY")
       }
       return "Oui" + (tsString ? " > " + tsString : "") 
     }
