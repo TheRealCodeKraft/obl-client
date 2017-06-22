@@ -22,7 +22,7 @@ class Mobility extends BaseItem {
   buildFullContent() {
     return (
       <div>
-        <Form id="user-mobility-form"
+        <Form id="user-mobilities-form"
               entityId={this.props.entity.id}
               fields={[
                 {
@@ -40,7 +40,6 @@ class Mobility extends BaseItem {
               service={{client: UserClient, func: "update"}}
               onSubmitComplete={this.handleSubmitComplete}
         />
-
       </div>
     )
   }

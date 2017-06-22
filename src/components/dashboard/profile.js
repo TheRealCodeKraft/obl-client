@@ -14,12 +14,6 @@ import Personality from './profile/items/personality'
 
 class Profile extends React.Component {
 
-/*
-  componentWillMount() {
-    UserClient.me()
-  }
-*/
-
   render() {
     var me = this.props.me
 
@@ -32,23 +26,23 @@ class Profile extends React.Component {
              <Password key="profile-password" entity={me} value="Modifiez votre mot de passe" />,
              <Traineeship key="profile-traineeship" entity={me} value={me.traineeship ? "Oui" : "Non"} />,
              <Contract key="profile-contract" entity={me} value={me.contract ? "Oui" : "Non"} />,
-             <Mobility key="profile-mobility" entity={me} value={this.getAreas()} />,
+             <Mobility key="profile-mobility" entity={me} value={this.getItemList(me.areas)} />,
              <School key="profile-school" entity={me} value={me.school} />,
-             <Specialities key="profile-specialities" entity={me} value={me.specialities} />,
+             <Specialities key="profile-specialities" entity={me} value={this.getItemList(me.specialities)} />,
              <Personality key="profile-personality" entity={me} />]
           : null}
       </div>
     )
   }
 
-  getAreas() {
-    var areas = ""
-    var items = this.props.me.areas.sort(function(a, b) { return (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0) })
+  getItemList(list) {
+    var values = ""
+    var items = list.sort(function(a, b) { return (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0) })
     for (var index in items) {
-      areas += items[index].name
-      if (index < (items.length - 1)) areas += ", "
+      values += items[index].name
+      if (index < (items.length - 1)) values += ", "
     }
-    return areas
+    return values
   }
 
 }

@@ -65,8 +65,8 @@ class Form extends React.Component {
           for (var index in field.values) {
             value = field.values[index]
             radioId = this.props.id + "-" + field.name + "-" + index
-            radios.push(<input id={radioId} name={field.name} type={field.type} value={value.value} onChange={this.handleInputChange.bind(this, field)} checked={this.state.values[field.name] === value.value ? "checked" : ""} />)
-            radios.push(<label htmlFor={radioId}>{value.label}</label>)
+            radios.push(<input key={radioId} id={radioId} name={field.name} type={field.type} value={value.value} onChange={this.handleInputChange.bind(this, field)} checked={this.state.values[field.name] === value.value ? "checked" : ""} />)
+            radios.push(<label key={radioId + "_label"} htmlFor={radioId}>{value.label}</label>)
           }
         }
         input = radios
@@ -98,8 +98,6 @@ class Form extends React.Component {
       default:
         break
     }
-console.dir(values)
-
     this.setState({values: values});
   }
 

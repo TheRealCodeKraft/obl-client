@@ -25,10 +25,21 @@ const areaReducer = function(state = {}, action) {
   return state
 }
 
+const specialityReducer = function(state = {}, action) {
+  switch(action.type) {
+    case "SPECIALITIES":
+      return Object.assign({}, state, { specialities: action.specialities })
+    default:
+      break
+  }
+  return state
+}
+
 // Combine Reducers
 const reducers = combineReducers({
   userState: userReducer,
   areaState: areaReducer,
+  specialityState: specialityReducer,
 });
 
 const store = createStore(reducers);
