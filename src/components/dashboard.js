@@ -2,8 +2,6 @@ import React from "react"
 
 import {Switch, Route} from "react-router"
 
-import AuthChecker from 'components/utils/auth-checker'
-
 import Header from './dashboard/header'
 
 import Home from './dashboard/home'
@@ -17,9 +15,9 @@ class Dashboard extends React.Component {
       <div className="dashboard">
         <Header />
         <Switch>
-          <Route exact path="/dashboard" component={AuthChecker(Home)} />
-          <Route exact path="/dashboard/profile" component={AuthChecker(Profile)} />
-          <Route exact path="/dashboard/sessions" component={AuthChecker(Sessions)} />
+          <Route exact path="/dashboard" component={Home} />
+          <Route exact path="/dashboard/profile" component={Profile} />
+          <Route exact path="/dashboard/sessions" component={Sessions} />
         </Switch>
       </div>
     );

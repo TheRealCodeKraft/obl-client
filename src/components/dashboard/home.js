@@ -8,7 +8,7 @@ class Home extends React.Component {
     return (
       <div id="dashboard-home">
         <Link to="/dashboard/profile">Profil</Link>
-        <Link to="/dashboard/games">Jeux</Link>
+        <Link to="/dashboard/sessions">Jeux</Link>
       </div>
     )
   }

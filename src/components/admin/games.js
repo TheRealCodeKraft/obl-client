@@ -1,15 +1,15 @@
 import React from "react"
 
-class Home extends React.Component {
+class Games extends React.Component {
 
   render() {
     return (
       <div>
-        ADMIN DASHBOARD
+        Admin Games
       </div>
     )
   }
 
 }
 
-export default Home
+export default Games

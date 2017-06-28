@@ -39,7 +39,7 @@ class Profile extends React.Component {
 
   getTraineeshipLabel() {
     if (this.props.me.traineeship) {
-      var start = null, end = null, tsString = null
+      var tsString = null
       if (this.props.me.traineeship_start_ts !== null && this.props.me.traineeship_end_ts !== null) {
         tsString = "Du " + moment(this.props.me.traineeship_start_ts).format("DD/MM/YYYY") + " au " + moment(this.props.me.traineeship_end_ts).format("DD/MM/YYYY")
       } else if (this.props.me.traineeship_start_ts !== null) {

@@ -59,7 +59,7 @@ class Form extends React.Component {
   }
 
   getInput(field) {
-    var input = null
+    var input = null, value = undefined
     switch(field.type) {
       case "checkbox":
         input = <input name={field.name} type={field.type} value={this.state.values[field.name] === true ? "on" : "off"} placeholder={field.placeholder} onChange={this.handleInputChange.bind(this, field)} />
@@ -67,7 +67,8 @@ class Form extends React.Component {
       case "radio":
         var radios = []
         if (field.values) {
-          var value = undefined, radioId = undefined
+          value = undefined
+          var radioId = undefined
           for (var index in field.values) {
             value = field.values[index]
             radioId = this.props.id + "-" + field.name + "-" + index
@@ -89,7 +90,7 @@ class Form extends React.Component {
         input = <ListSelector field={field} onChange={this.handleInputChange.bind(this, field)} />
         break
       default:
-        var value = this.state.values[field.name]
+        value = this.state.values[field.name]
         if (value == null) value = ""
         if (field.type === "date" && value !== "") {
           value=moment(value).format("YYYY-MM-DD")

@@ -2,7 +2,6 @@ import React from "react"
 
 import { Link, Redirect } from 'react-router-dom'
 import Auth from 'clients/auth'
-import ShowForAcls from 'components/utils/auth/show-for-acls'
 
 class Header extends React.Component {
 

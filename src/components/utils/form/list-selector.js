@@ -46,7 +46,7 @@ class ListSelector extends React.Component {
   getAvailableValues() {
     var self=this
     return this.props.field.values.filter(function(v) {
-      return self.state.values.indexOf(v[self.props.field.listKey]) == -1
+      return self.state.values.indexOf(v[self.props.field.listKey]) === -1
     })
   }
 
@@ -59,7 +59,7 @@ class ListSelector extends React.Component {
 
   handleSelectionChange(e) {
     var values = this.state.values
-    values.push(parseInt(e.target.value))
+    values.push(parseInt(e.target.value, 10))
     this.setState({values: values})
 
     this.handleChange()
