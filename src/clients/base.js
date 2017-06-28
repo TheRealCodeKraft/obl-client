@@ -1,5 +1,7 @@
 import configs from 'config'
 
+import Logger from 'js-logger'
+
 import StorageService from 'clients/storage/storage'
 const STORAGE_KEY_FOR_TOKEN = "token";
 
@@ -46,11 +48,23 @@ var BaseClient = function() {
         break
     }
 
-    console.dir(fetchParams)
+    Logger.debug({
+      method: method,
+      request: endpoint,
+      headers: headers,
+      data: params
+    })
 
     fetch(configs.api.url + endpoint, fetchParams)
     .then(promise => {
       promise.json().then(response => {
+
+        Logger.debug({
+          method: method,
+          response: endpoint,
+          data: response
+        })  
+
         if (response.error) {
           if (response.error === "The access token expired") {
             Auth.refreshToken(callback)
@@ -62,7 +76,13 @@ var BaseClient = function() {
         } else if (callback) callback(response);
       });
     }).catch(exception => {
-console.dir(exception)
+
+      Logger.debug({
+        method: method,
+        response: endpoint,
+        exception: exception
+      })  
+
       if (callback) callback({error: true, message: exception.message});
     });
     return;

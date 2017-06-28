@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react"
 
 import { Link, Redirect } from 'react-router-dom'
 import Auth from 'clients/auth'
@@ -23,11 +23,6 @@ class Header extends React.Component {
       <header id="header">
         <Link to="/">Open Business Lab</Link>
         <Link to="/dashboard">Dashboard</Link>
-        <Link to="/dashboard/profile">Profil</Link>
-        <Link to="/dashboard/sessions">Jeux</Link>
-        <ShowForAcls grants={["admin"]}>
-          <Link to="/admin">Administration</Link>
-        </ShowForAcls>
         <a href="#" onClick={this.handleLogout}>Déconnexion</a>
       </header>
     );

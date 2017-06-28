@@ -4,11 +4,11 @@ import { createStore, combineReducers } from 'redux';
 const userReducer = function(state = {}, action) {
   switch(action.type) {
     case 'RESET_ME':
-      return Object.assign({}, state, { me: null, notFound: false })
+      return Object.assign({}, state, { me: null, authenticated: false, notFound: false })
     case 'ME':
-      return Object.assign({}, state, { me: action.user, notFound: false })
+      return Object.assign({}, state, { me: action.user, authenticated: true, notFound: false })
     case 'USER_NOT_FOUND':
-      return Object.assign({}, state, { me: null, notFound: true })
+      return Object.assign({}, state, { me: null, authenticated: false, notFound: true })
     default:
       break
   }
@@ -45,12 +45,36 @@ const schoolReducer = function(state = {}, action) {
   return state
 }
 
+const sessionReducer = function(state = {}, action) {
+  switch(action.type) {
+    case "SESSIONS":
+      return Object.assign({}, state, { sessions: action.sessions })
+    default:
+      break
+  }
+  return state
+}
+
+const gameReducer = function(state = {}, action) {
+  switch(action.type) {
+    case "GAMES":
+      return Object.assign({}, state, { games: action.games })
+    default:
+      break
+  }
+  return state
+}
+
 // Combine Reducers
 const reducers = combineReducers({
   userState: userReducer,
+
   areaState: areaReducer,
   specialityState: specialityReducer,
   schoolState: schoolReducer,
+  sessionState: sessionReducer,
+  gameState: gameReducer,
+
 });
 
 const store = createStore(reducers);

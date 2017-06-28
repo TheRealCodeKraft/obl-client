@@ -8,7 +8,7 @@ import Header from './dashboard/header'
 
 import Home from './dashboard/home'
 import Profile from './dashboard/profile'
-import Games from './dashboard/games'
+import Sessions from './dashboard/sessions'
 
 class Dashboard extends React.Component {
 
@@ -19,7 +19,7 @@ class Dashboard extends React.Component {
         <Switch>
           <Route exact path="/dashboard" component={AuthChecker(Home)} />
           <Route exact path="/dashboard/profile" component={AuthChecker(Profile)} />
-          <Route exact path="/dashboard/games" component={AuthChecker(Games)} />
+          <Route exact path="/dashboard/sessions" component={AuthChecker(Sessions)} />
         </Switch>
       </div>
     );
