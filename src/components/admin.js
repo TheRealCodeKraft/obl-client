@@ -17,10 +17,12 @@ class Admin extends React.Component {
     super(props)
 
     this.pages = AdminConfig
+  }
+
+  componentWillMount() {
     for (var index in this.pages) {
       this.pages[index].client = Clients[this.pages[index].client]
     }
-
   }
 
   render() {
