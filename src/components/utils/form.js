@@ -1,6 +1,9 @@
 import React from "react"
+import { connect } from 'react-redux';
 
 var moment = require("moment")
+
+import * as Clients from 'clients'
 
 import ListSelector from './form/list-selector'
 
@@ -13,7 +16,9 @@ class Form extends React.Component {
       errors: {},
       submitting: false,
       submitError: undefined,
-      values: {}
+      values: {},
+      loadingData: [],
+      loadedData: {}
     }
 
     this.handleFormSubmit = this.handleFormSubmit.bind(this)
@@ -22,11 +27,51 @@ class Form extends React.Component {
   }
 
   componentWillMount() {
-    var valuesState = {}
-      
+    var field=undefined, loadingData=[]
     for (var index in this.props.fields) {
-      if (this.props.values !== null) {
+      field = this.props.fields[index]
+      if (field.values && field.values.targetState !== undefined) {
+        Clients[field.values.client][field.values.func]()
+        loadingData.push(field)
+      }
+    }
+
+    if (loadingData.length > 0) {
+      this.setState({loadingData: loadingData})
+    } else {
+      this.loadValuesState()
+    }
+  }
+
+  componentWillReceiveProps(props) {
+    if (this.state.loadingData.length > 0) {
+      var loadingData = [], loadedData = this.state.loadedData
+      var current = undefined
+      for (var index in this.state.loadingData) {
+        current = this.state.loadingData[index]
+        if (props.reduxState[current.values.targetState][current.values.targetValue]) {
+          loadedData[current.name] = props.reduxState[current.values.targetState][current.values.targetValue]
+        } else {
+          loadingData.push(current)
+        } 
+      }
+      this.setState({loadingData: loadingData, loadedData: loadedData}, function() {
+        if (this.state.loadingData.length === 0) {
+          this.loadValuesState()
+        }
+      })
+    }
+  }
+
+  loadValuesState() {
+    var valuesState = {}
+
+    for (var index in this.props.fields) {
+      if (this.props.values) {
         valuesState[this.props.fields[index].name] = this.props.values[this.props.fields[index].name]
+        if (valuesState[this.props.fields[index].name] instanceof Array) {
+          valuesState[this.props.fields[index].name] = valuesState[this.props.fields[index].name].map(value => { return value.id })
+        }
       } else {
         valuesState[this.props.fields[index].name] = this.props.fields[index].defaultValue
       }
@@ -85,15 +130,27 @@ class Form extends React.Component {
         input = radios
         break
       case "select":
-        input = <select name={field.name} onChange={this.handleInputChange.bind(this, field)}>
+        var options = []
+        if (field.values instanceof Array) {
+          options = field.values
+        } else if (field.values instanceof Object) {
+          options = this.state.loadedData[field.name] || []
+        }
+        input = <select name={field.name} onChange={this.handleInputChange.bind(this, field)} defaultValue={this.state.values[field.name]}>
                   <option value="-1">{field.placeholder}</option>
-                  {field.values.map(value => {
+                  {options.map(value => {
                     return <option value={value[field.key]}>{value[field.value]}</option>
                   })}
                 </select>
         break
       case "list-selector":
-        input = <ListSelector field={field} onChange={this.handleInputChange.bind(this, field)} />
+        var options = []
+        if (field.values instanceof Array) {
+          options = field.values
+        } else if (field.values instanceof Object) {
+          options = this.state.loadedData[field.name] || []
+        }
+        input = <ListSelector field={field} defaultValue={this.state.values[field.name]} options={options} onChange={this.handleInputChange.bind(this, field)} />
         break
       default:
         value = this.state.values[field.name]
@@ -189,4 +246,10 @@ class Form extends React.Component {
 
 }
 
-export default Form;
+function mapStateToProps(state) {
+  return {
+    reduxState: state
+  }
+}
+
+export default connect(mapStateToProps)(Form);

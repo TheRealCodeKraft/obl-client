@@ -55,6 +55,10 @@ const sessionReducer = function(state = {}, action) {
     case "UPDATE_SESSION":
       var sessions = mergeEntityAndState(action.session, state, "sessions")
       return Object.assign({}, state, { updatedSession: action.session, sessions: sessions})
+    case "DESTROY_SESSION":
+      var deletedSession = state.sessions.filter(session => { return session.id === action.id })[0]
+      var sessions = removeEntityFromState(action.id, state, "sessions")
+      return Object.assign({}, state, { deletedSession: deletedSession, sessions: sessions})
     default:
       break
   }
@@ -71,6 +75,10 @@ const gameReducer = function(state = {}, action) {
     case "UPDATE_GAME":
       var games = mergeEntityAndState(action.game, state, "games")
       return Object.assign({}, state, { updatedGame: action.game, games: games})
+    case "DESTROY_GAME":
+      var deletedGame = state.games.filter(game => { return game.id === action.id })[0]
+      var games = removeEntityFromState(action.id, state, "games")
+      return Object.assign({}, state, { deletedGame: deletedGame, games: games})
     default:
       break
   }
@@ -84,6 +92,20 @@ function pushNewEntityToState(entity, state, name) {
     list.push(entity)
   }
   return list
+}
+
+function removeEntityFromState(id, state, name) {
+  var list = state[name], newList = []
+  if (list && id !== undefined) {
+    for(var index in list) {
+      if (list[index].id != id) {
+        newList.push(list[index])
+      }
+    }
+  } else {
+    newList = list
+  }
+  return newList
 }
 
 function mergeEntityAndState(entity, state, name) {

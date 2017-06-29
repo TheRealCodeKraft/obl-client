@@ -21,7 +21,7 @@ class ListSelector extends React.Component {
   }
 
   setValues(props) {
-    this.setState({values: props.field.defaultValue})
+    this.setState({values: props.defaultValue})
   }
 
   render() {
@@ -35,7 +35,7 @@ class ListSelector extends React.Component {
         </select>
         {this.getCurrentValues().map(value => {
           return <div key={"list-selector-for-" + this.props.field.name + "-for-" + value.id}>
-                   {value.name}
+                   {value[this.props.field.listValue]}
                    &nbsp;&nbsp;<a href="#" onClick={this.handleDeleteItem.bind(this, value.id)}>supprimer</a>
                  </div>
         })}
@@ -45,15 +45,15 @@ class ListSelector extends React.Component {
 
   getAvailableValues() {
     var self=this
-    return this.props.field.values.filter(function(v) {
-      return self.state.values.indexOf(v[self.props.field.listKey]) === -1
+    return this.props.options.filter(function(v) {
+      return (self.state.values && self.state.values.indexOf(v[self.props.field.listKey]) === -1)
     })
   }
 
   getCurrentValues() {
     var self=this
-    return this.props.field.values.filter(function(v) { 
-      return self.state.values.indexOf(v[self.props.field.listKey]) >= 0
+    return this.props.options.filter(function(v) { 
+      return self.state.values && self.state.values.indexOf(v[self.props.field.listKey]) >= 0
     })
   }
 

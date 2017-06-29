@@ -21,7 +21,7 @@ import Sidebar from 'react-sidebar'
                  open={this.state.sidebarOpen} 
                  onSetOpen={this.handleSetSidebarOpen}
                  rootClassName="admin-sidebar"
-                 sidebarClassName="admin-sidebar-container"
+                 sidebarClassName={"admin-sidebar-container" + (this.props.tinify ? " tiny-sidebar" : "")}
                  overlayClassName="admin-sidebar-overlay"
                  pullRight={true}>
         </Sidebar>
@@ -31,8 +31,11 @@ import Sidebar from 'react-sidebar'
     getSidebarContent() {
       return (
         <div>
+          <div style={{display: "flex", justifyContent: "space-between", padding: 10}}>
+            <span>[sidebar title]</span>
+            <a href="#" onClick={this.handleClose} style={{fontWeight: "bold"}}>X</a>
+          </div>
           {this.props.children}
-          <a href="#" onClick={this.handleClose}>Close</a>
         </div>
       )
     }
@@ -42,23 +45,20 @@ import Sidebar from 'react-sidebar'
     }
 
     close() {
-      this.setState({sidebarOpen: false})
+      this.setState({sidebarOpen: false}, function() {
+        if (this.props.onClose) this.props.onClose()
+      })
     }
 
     handleSetSidebarOpen(open) {
       var self = this;
-      this.setState({sidebarOpen: open}, function() {
-        if (!open && self.props.onClose) {
-          setTimeout(self.props.onClose, 500)
-        }
-      });
+      if (!open) this.close()
+      else this.open()
     }
 
     handleClose(e) {
       e.preventDefault()
-      this.setState({sidebarOpen: false}, function() {
-        if (this.props.onClose) setTimeout(this.props.onClose, 500)
-      })
+      this.close()
     }
 
   }

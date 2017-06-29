@@ -22,6 +22,12 @@
               "required": true
             }
           ]
+        },
+        "delete": {
+          "labels": {
+            "entity": "le jeu",
+            "identifier": "title"
+          }
         }
       },
       {
@@ -45,8 +51,30 @@
               "placeholder": "Titre de la session",
               "type": "text",
               "required": true
+            },
+            {
+              "name": "games",
+              "label": "Jeu",
+              "placeholder": "Sélectionnez un jeu",
+              "type": "list-selector",
+              "values": {
+                "targetState": "gameState",
+                "targetValue": "games",
+                "client": "GameClient",
+                "func": "fetchAll"
+              },
+              "listKey": "id",
+              "listValue": "title",
+              "required": true,
+              "defaultValue": []
             }
           ]
+        },
+        "delete": {
+          "labels": {
+            "entity": "la session",
+            "identifier": "title"
+          }
         }
       }
     ]

@@ -19,6 +19,12 @@
   }
 }
 
+.admin-sidebar .admin-sidebar-container.tiny-sidebar {
+  bottom: auto !important;
+  left: auto;
+  width: 400px;
+}
+
 .admin-sidebar .admin-sidebar-overlay {
   z-index: 999 !important;
 }

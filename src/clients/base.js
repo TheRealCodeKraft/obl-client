@@ -100,10 +100,15 @@ var BaseClient = function() {
     return call("put", endpoint + "/" + id, params, callback)
   }
 
+  var destroy = function(endpoint, id, callback) {
+    return call("delete", endpoint + "/" + id, undefined, callback)
+  }
+
   return {
     get: get,
     post: post,
-    put: put
+    put: put,
+    destroy: destroy,
   }
 }();
 

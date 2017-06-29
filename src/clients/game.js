@@ -35,12 +35,23 @@ var GameClient = function() {
     })
   }
 
+  var destroy = function(id, callback) {
+    BaseClient.destroy(plural, id, function(data) {
+      store.dispatch({
+        type: "DESTROY_GAME",
+        id: data.id
+      })
+      if (callback) callback(data)
+    })
+  }
+
   return {
     name: name,
 
     fetchAll: fetchAll,
     create: create,
     update: update,
+    destroy: destroy
   }
 
 }()

@@ -4,7 +4,8 @@ import { connect } from 'react-redux';
 import AdminPageList from './admin-page/list'
 import AdminSidebar from './admin-page/sidebar'
 
-import Form from 'components/utils/form'
+import CreateEditForm from './form/create-edit'
+import DeleteForm from './form/delete'
 
 export default function(config) {
   class AdminPage extends React.Component {
@@ -20,6 +21,7 @@ export default function(config) {
 
       this.handleNew = this.handleNew.bind(this)
       this.handleDelete = this.handleDelete.bind(this)
+      this.handleDeleted = this.handleDeleted.bind(this)
       this.handleSee = this.handleSee.bind(this)
       this.handleEdit = this.handleEdit.bind(this)
 
@@ -52,7 +54,9 @@ export default function(config) {
                          onEdit={this.handleEdit}
           />
 
-          <AdminSidebar onClose={this.handleCloseSidebar} ref="sidebar">
+          <AdminSidebar ref="sidebar" 
+                        onClose={this.handleCloseSidebar}
+                        tinify={this.state.mode === "delete"}>
             {this.getSidebarContent()}
           </AdminSidebar>
 
@@ -62,23 +66,19 @@ export default function(config) {
 
     getSidebarContent() {
       var content = null
+      
+      var entity = null
+      if (this.state.currentId !== undefined) {
+        entity = this.props[getPluralName()].filter(item => { return item.id === this.state.currentId })[0]
+      }
+
       switch(this.state.mode) {
-        case "edit":
         case "create":
-          var values = null
-          if (this.state.currentId !== undefined) {
-            values = this.props[getPluralName()].filter(item => { return item.id === this.state.currentId })[0]
-          }
-          content = <Form id={config.client.name + "-form"}
-                          entityId={this.state.currentId}
-                          fields={config.form.attributes} 
-                          values={values}
-                          submitLabel={config.form.submitLabel ? config.form.submitLabel : "Enregistrer"} 
-                          service={{client: config.client, func: this.state.mode === "edit" ? "update" : "create"}}
-                          onSubmitComplete={this.handleSubmitComplete}
-                    />
+        case "edit":
+          content = <CreateEditForm {...config} entity={entity} mode={this.state.mode} onSubmitComplete={this.handleSubmitComplete} />
           break
         case "delete":
+          content = <DeleteForm {...config} entity={entity} onDeleted={this.handleDeleted} />
           break
       }
       return content
@@ -88,13 +88,21 @@ export default function(config) {
       this.refs.sidebar.open()
     }
 
+    closeSidebar() {
+      this.refs.sidebar.close()
+    }
+
     handleNew(e) {
       e.preventDefault()
       this.setState({currentId: undefined, mode: "create"}, this.openSidebar)
     }
 
     handleDelete(id) {
-      this.setState({currentId: id, mode: "delete"})
+      this.setState({currentId: id, mode: "delete"}, this.openSidebar)
+    }
+
+    handleDeleted() {
+      this.closeSidebar()
     }
 
     handleSee(id) {
@@ -112,7 +120,8 @@ export default function(config) {
     }
 
     handleCloseSidebar() {
-      this.setState({currentId: undefined, mode: "list"})
+      var self = this
+      setTimeout(function() { self.setState({currentId: undefined, mode: "list"}) }, 500)
     }
 
   }
