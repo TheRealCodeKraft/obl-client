@@ -23,14 +23,19 @@ class Form extends React.Component {
 
   componentWillMount() {
     var valuesState = {}
+      
     for (var index in this.props.fields) {
-      valuesState[this.props.fields[index].name] = this.props.fields[index].defaultValue
+      if (this.props.values !== null) {
+        valuesState[this.props.fields[index].name] = this.props.values[this.props.fields[index].name]
+      } else {
+        valuesState[this.props.fields[index].name] = this.props.fields[index].defaultValue
+      }
     }
+
     this.setState({values: valuesState});
   }
 
   render() {
-console.dir(this.props.values)
     return (
       <form id={this.props.id} onSubmit={this.handleFormSubmit}>
         {this.props.fields.map(field => {

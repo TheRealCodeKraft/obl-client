@@ -17,6 +17,8 @@ export default function(config) {
       }
 
       this.handleCloseSidebar = this.handleCloseSidebar.bind(this)
+
+      this.handleNew = this.handleNew.bind(this)
       this.handleDelete = this.handleDelete.bind(this)
       this.handleSee = this.handleSee.bind(this)
       this.handleEdit = this.handleEdit.bind(this)
@@ -38,7 +40,10 @@ export default function(config) {
 
       return (
         <div>
-          <h2>{config.title}</h2>
+          <div style={{display: "flex", justifyContent: "space-between", alignItems: "center", flex: 1}}>
+            <h2>{config.title}</h2>
+            <a href="#" onClick={this.handleNew}>Nouveau</a>
+          </div>
 
           <AdminPageList attributes={config.list.attributes} 
                          items={this.props[pluralName]}
@@ -59,16 +64,17 @@ export default function(config) {
       var content = null
       switch(this.state.mode) {
         case "edit":
-        case "see":
+        case "create":
           var values = null
           if (this.state.currentId !== undefined) {
             values = this.props[getPluralName()].filter(item => { return item.id === this.state.currentId })[0]
           }
           content = <Form id={config.client.name + "-form"}
+                          entityId={this.state.currentId}
                           fields={config.form.attributes} 
                           values={values}
                           submitLabel={config.form.submitLabel ? config.form.submitLabel : "Enregistrer"} 
-                          service={{client: config.client, func: "login"}}
+                          service={{client: config.client, func: this.state.mode === "edit" ? "update" : "create"}}
                           onSubmitComplete={this.handleSubmitComplete}
                     />
           break
@@ -80,6 +86,11 @@ export default function(config) {
 
     openSidebar() {
       this.refs.sidebar.open()
+    }
+
+    handleNew(e) {
+      e.preventDefault()
+      this.setState({currentId: undefined, mode: "create"}, this.openSidebar)
     }
 
     handleDelete(id) {
@@ -95,7 +106,9 @@ export default function(config) {
     }
 
     handleSubmitComplete(data) {
-      console.dir(data)
+      if (!data.error) {
+        this.refs.sidebar.close()
+      }
     }
 
     handleCloseSidebar() {

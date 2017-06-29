@@ -49,6 +49,12 @@ const sessionReducer = function(state = {}, action) {
   switch(action.type) {
     case "SESSIONS":
       return Object.assign({}, state, { sessions: action.sessions })
+    case "NEW_SESSION":
+      var sessions = pushNewEntityToState(action.session, state, "sessions")
+      return Object.assign({}, state, { newSession: action.session, sessions: sessions })
+    case "UPDATE_SESSION":
+      var sessions = mergeEntityAndState(action.session, state, "sessions")
+      return Object.assign({}, state, { updatedSession: action.session, sessions: sessions})
     default:
       break
   }
@@ -59,10 +65,41 @@ const gameReducer = function(state = {}, action) {
   switch(action.type) {
     case "GAMES":
       return Object.assign({}, state, { games: action.games })
+    case "NEW_GAME":
+      var games = pushNewEntityToState(action.game, state, "games")
+      return Object.assign({}, state, { newGame: action.game, games: games })
+    case "UPDATE_GAME":
+      var games = mergeEntityAndState(action.game, state, "games")
+      return Object.assign({}, state, { updatedGame: action.game, games: games})
     default:
       break
   }
   return state
+}
+
+function pushNewEntityToState(entity, state, name) {
+  var list = state[name]
+  if (entity !== undefined) {
+    list = JSON.parse(JSON.stringify(list))
+    list.push(entity)
+  }
+  return list
+}
+
+function mergeEntityAndState(entity, state, name) {
+  var list = state[name], newList = []
+  if (list && entity !== undefined) {
+    for(var index in list) {
+      if (list[index].id === entity.id) {
+        newList.push(entity)
+      } else {
+        newList.push(list[index])
+      }
+    }
+  } else {
+    newList = list
+  }
+  return newList
 }
 
 // Combine Reducers

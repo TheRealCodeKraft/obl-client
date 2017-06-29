@@ -41,6 +41,10 @@ import Sidebar from 'react-sidebar'
       this.setState({sidebarOpen: true})
     }
 
+    close() {
+      this.setState({sidebarOpen: false})
+    }
+
     handleSetSidebarOpen(open) {
       var self = this;
       this.setState({sidebarOpen: open}, function() {
