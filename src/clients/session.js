@@ -3,7 +3,9 @@ import BaseClient from './base'
 import store from 'reducers/index';
 
 var SessionClient = function() {
-  var sessions = function(params, callback) {
+  var name = "session";
+
+  var fetchAll = function(params, callback) {
     BaseClient.get("sessions", params, function(data) {
       store.dispatch({
         type: "SESSIONS",
@@ -14,7 +16,9 @@ var SessionClient = function() {
   }
 
   return {
-    sessions: sessions,
+    name: name,
+
+    fetchAll: fetchAll,
   }
 
 }()

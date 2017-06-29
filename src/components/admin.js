@@ -3,19 +3,32 @@ import React from "react"
 import {Switch, Route} from "react-router"
 import { Link } from "react-router-dom"
 
-
 import Header from './admin/header'
 import Home from './admin/home'
-import Games from "./admin/games"
+
+import AdminConfig from 'config/admin-config'
+import AdminPage from './admin/utils/admin-page'
+
+import * as Clients from 'clients'
 
 class Admin extends React.Component {
+
+  constructor(props) {
+    super(props)
+
+    this.pages = AdminConfig
+    for (var index in this.pages) {
+      this.pages[index].client = Clients[this.pages[index].client]
+    }
+
+  }
 
   render() {
     return (
       <div>
         <Header />
         <div style={{display: "flex"}}>
-          <div style={{display: "flex", flexDirection: "column"}}>
+          <div style={{display: "flex", flexDirection: "column", paddingRight: 20, marginRight: 20, borderRight: "1px solid lightgray"}}>
             <h2>Sidebar</h2>
             <Link to="/admin">Racine admin</Link>
             <Link to="/admin/games">Jeux</Link>
@@ -24,7 +37,9 @@ class Admin extends React.Component {
           <div>
             <Switch>
               <Route exact path="/admin" component={Home} />
-              <Route exact path="/admin/games" component={Games} />
+              {this.pages.map(page => {
+                return <Route key={page.route} exact path={page.route} component={AdminPage(page)} />
+              })}
             </Switch>
           </div>
         </div>

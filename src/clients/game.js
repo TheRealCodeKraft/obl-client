@@ -3,7 +3,9 @@ import BaseClient from './base'
 import store from 'reducers/index';
 
 var GameClient = function() {
-  var games = function(params, callback) {
+  var name = "game";
+
+  var fetchAll = function(params, callback) {
     BaseClient.get("games", params, function(data) {
       store.dispatch({
         type: "GAMES",
@@ -14,7 +16,9 @@ var GameClient = function() {
   }
 
   return {
-    games: games,
+    name: name,
+
+    fetchAll: fetchAll,
   }
 
 }()

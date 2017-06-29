@@ -1,0 +1,53 @@
+[
+      {
+        "route": "/admin/games",
+        "title": "Jeux",
+        "client": "GameClient",
+        "list": {
+          "attributes": [
+            "id",
+            {
+              "label": "Titre",
+              "name": "title"
+            }
+          ]
+        },
+        "form": {
+          "attributes": [
+            {
+              "name": "title",
+              "label": "Titre",
+              "placeholder": "Titre du jeu",
+              "type": "text",
+              "required": true
+            }
+          ]
+        }
+      },
+      {
+        "route": "/admin/sessions",
+        "title": "Sessions",
+        "client": "SessionClient",
+        "list": {
+          "attributes": [
+            "id",
+            {
+              "label": "Titre",
+              "name": "title"
+            }
+          ]
+        },
+        "form": {
+          "attributes": [
+            {
+              "name": "title",
+              "label": "Titre",
+              "placeholder": "Titre de la session",
+              "type": "text",
+              "required": true
+            }
+          ]
+        }
+      }
+    ]
+

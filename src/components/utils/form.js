@@ -30,6 +30,7 @@ class Form extends React.Component {
   }
 
   render() {
+console.dir(this.props.values)
     return (
       <form id={this.props.id} onSubmit={this.handleFormSubmit}>
         {this.props.fields.map(field => {
