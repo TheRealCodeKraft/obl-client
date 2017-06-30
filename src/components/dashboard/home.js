@@ -2,9 +2,12 @@ import React from "react"
 
 import { Link } from "react-router-dom"
 
+//import UserClient from 'clients/user' Test Hugo 30062017
+
 class Home extends React.Component {
 
   render() {
+
     return (
       	<section className={"content"}>
             <div className={"container-fluid"}>
@@ -15,7 +18,7 @@ class Home extends React.Component {
 
                         <h1><i className={"pe pe-7s-home text-warning"}></i> Accueil</h1>
 
-                        <h2><small>Bienvenue sur ton compte Open Business Labs <span className={"c-white"}>Jean-Claude</span> !</small></h2>
+                        <h2><small>Bienvenue sur ton compte Open Business Labs <span className={"c-white"}>this.props.entity.firstname</span> !</small></h2>
 
                     </div>
                 </div>

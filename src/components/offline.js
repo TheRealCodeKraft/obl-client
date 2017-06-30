@@ -13,7 +13,7 @@ class Offline extends React.Component {
 
   render() {
     return (
-      <section className="content">
+      <section className="content content-no-sidebar">
           <Header />
           <Switch>
             <Route exact path="/" component={Home} />

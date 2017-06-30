@@ -74,7 +74,16 @@ export default function(ComposedComponent, offline=false) {
 
     render() {
       if (!this.state.connectionOk) {
-        return <span>Checking logged in</span>
+        return (
+          <section className={"content content-no-sidebar"}>
+            
+                  <div className="panel panel-filled">
+                    <h4>Checking logged in</h4>
+                  </div>
+
+          </section>
+        )
+        
       }
 
       return <ComposedComponent {...this.props} />

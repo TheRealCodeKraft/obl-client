@@ -20,20 +20,39 @@ class Profile extends React.Component {
     var me = this.props.me
 
     return (
-      <div id="profile">
-        {me !== null 
-          ? [<Fullname key="profile-fullname" entity={me} value={me.firstname + " " + me.lastname} />,
-             <Email key="profile-email" entity={me} value={me.email} />,
-             <Pseudo key="profile-pseudo" entity={me} value={me.pseudo} />,
-             <Password key="profile-password" entity={me} value="Modifiez votre mot de passe" />,
-             <Traineeship key="profile-traineeship" entity={me} value={this.getTraineeshipLabel()} />,
-             <Contract key="profile-contract" entity={me} value={me.contract ? "Oui" : "Non"} />,
-             <Mobility key="profile-mobility" entity={me} value={this.getItemList(me.areas)} />,
-             <School key="profile-school" entity={me} value={me.school ? me.school.name : "Aucune"} />,
-             <Specialities key="profile-specialities" entity={me} value={this.getItemList(me.specialities)} />,
-             <Personality key="profile-personality" entity={me} />]
-          : null}
-      </div>
+
+      <section className="content">
+            <div className="container-fluid">
+
+
+                <div className="row">
+                    <div className="col-xs-12">
+
+                        <h1><i className={"pe pe-7s-user text-warning"}></i> Profil</h1>
+
+                    </div>
+                </div>
+
+                {me !== null 
+                  ? [
+
+                      <Fullname key="profile-fullname" entity={me} value={me.firstname + " " + me.lastname} />,
+                      <Email key="profile-email" entity={me} value={me.email} />,
+                      <Pseudo key="profile-pseudo" entity={me} value={me.pseudo} />,
+                      <Password key="profile-password" entity={me} value="Modifiez votre mot de passe" />,
+                      <Traineeship key="profile-traineeship" entity={me} value={this.getTraineeshipLabel()} />,
+                      <Contract key="profile-contract" entity={me} value={me.contract ? "Oui" : "Non"} />,
+                      <Mobility key="profile-mobility" entity={me} value={this.getItemList(me.areas)} />,
+                      <School key="profile-school" entity={me} value={me.school ? me.school.name : "Aucune"} />,
+                      <Specialities key="profile-specialities" entity={me} value={this.getItemList(me.specialities)} />,
+                      <Personality key="profile-personality" entity={me} />
+
+                    ]
+                  : null}
+
+            </div>
+      </section>
+
     )
   }
 

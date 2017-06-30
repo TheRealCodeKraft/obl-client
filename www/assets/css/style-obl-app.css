@@ -1,0 +1,19 @@
+/* Fix the Pace default CSS class */
+.content > div {
+    opacity: 1;
+}
+
+/* Fix left margin on login page */
+.content-no-sidebar {
+  margin-left: 0;
+}
+
+/* Border between profil fields to replace hr */
+.profile-field {
+  margin-top:10px;
+  margin-bottom:10px;
+  border-bottom: #3d404c solid 1px;
+}
+.profile-field:last-of-type {
+  border-bottom: 0;
+}

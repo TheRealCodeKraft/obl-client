@@ -15,14 +15,27 @@ class BaseItem extends React.Component {
 
   render() {
     return (
-      <div>
-        <div>
-          <a href="#" onClick={this.handleToggleOpen}>{this.state.opened ? "Close" : "Open"}</a>
-          &nbsp;&nbsp;<span>{this.label}</span>
-          {!this.state.opened ? <strong>&nbsp;&nbsp;{this.buildValue()}</strong> : null}
-        </div>
-        {this.state.opened ? this.buildFullContent() : null}
+
+      <div className="row profile-field">
+                    <div className="col-xs-12">
+
+                        <div className={"panel panel-profile collapsed"}>
+                            <div className="panel-heading">
+                                <div className="panel-tools">
+                                    <a href="#" className={"panel-toggle-profile"} onClick={this.handleToggleOpen}>{this.state.opened ? <i className={"fa fa-times text-warning"}></i> : <i className={"fa fa-pencil text-warning"}></i>}</a>
+                                </div>
+                                {this.label}
+                                {!this.state.opened ? <div>{this.buildValue()}</div> : null}
+                            </div>
+                        </div>
+          
+                        <div className="panel-body">
+                          {this.state.opened ? this.buildFullContent() : null}
+                        </div>
+
+                    </div>
       </div>
+
     )
   }
 

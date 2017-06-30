@@ -13,11 +13,28 @@ class Sessions extends React.Component {
 
   render() {
     return (
-      <div id="sessions">
-        {this.props.sessions.map(session => {
-          return <Session key={"session-" + session.id} session={session} />
-        })}
-      </div>
+
+      <section className="content">
+
+            <div className="container-fluid">
+
+
+                <div className="row">
+                    <div className="col-xs-12">
+
+                        <h1><i className={"pe pe-7s-joy text-warning"}></i> Jeux</h1>
+
+                    </div>
+                </div>
+                
+                {this.props.sessions.map(session => {
+                  return <Session key={"session-" + session.id} session={session} />
+                })}
+
+            </div>
+
+      </section>
+
     )
   }
 
