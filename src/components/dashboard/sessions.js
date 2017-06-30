@@ -8,7 +8,7 @@ import Session from './sessions/session'
 class Sessions extends React.Component {
 
   componentWillMount() {
-    SessionClient.sessions()
+    SessionClient.fetchAll()
   }
 
   render() {
