@@ -25,7 +25,7 @@ class Main extends React.Component {
   render() {
     return (
       <BrowserRouter>
-        <div id="main-container">
+        <div id="main-container" className={"wrapper"}>
           <Switch>
             <Route path="/dashboard" component={AuthChecker(Dashboard)} />
             <Route path="/admin" component={AuthChecker(CheckForAcls(["admin"], Admin))} />

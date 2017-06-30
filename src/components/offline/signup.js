@@ -83,14 +83,38 @@ class Signup extends React.Component {
       )
     } else {
       return (
-        <Form id="signup-form" 
-              fields={this.fields} 
-              submitLabel="M'enregistrer" 
-              onSubmit={this.handleSubmit} 
-              service={{client: UserClient, func: "signup"}}
-              onSubmitComplete={this.handleSubmitComplete}
-              onSubmitError={this.handleSubmitError}
-        />
+        
+
+        <div className={"container-center animated slideInDown"}>
+
+            <div className={"view-header"}>
+                <div className={"header-icon"}>
+                    <i className={"page-header-icon pe pe-7s-user"}></i>
+                </div>
+                <div className={"header-title"}>
+                    <h3>Créer un compte</h3>
+                    <small>
+                        Entrez les infos suivantes pour créer votre compte Open Business Labs.
+                    </small>
+                </div>
+            </div>
+
+            <div className={"panel panel-filled"}>
+                    <div className={"panel-body"}>
+                        <Form id="signup-form" 
+                              fields={this.fields} 
+                              submitLabel="M'enregistrer" 
+                              onSubmit={this.handleSubmit} 
+                              service={{client: UserClient, func: "signup"}}
+                              onSubmitComplete={this.handleSubmitComplete}
+                              onSubmitError={this.handleSubmitError}
+                        />
+                        
+                    </div>
+                </div>
+
+            </div>
+
       )
     }
   }

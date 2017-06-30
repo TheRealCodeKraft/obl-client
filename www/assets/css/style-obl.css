@@ -1,0 +1,272 @@
+/**************** GENERAL **********************/
+
+img {
+    height: auto;
+    max-width: 100%;
+}
+.back-link {
+    float: none;
+    margin: auto;
+    width: 100%;
+}
+.container-center {
+    margin: 4% auto 0;
+}
+
+/* Fix navigation mobile*/
+.navigation {
+  position:fixed;
+  overflow: hidden;
+  height: 100%;
+}
+.navigation nav {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+}
+
+/* Navigation à droite sur mobile */
+@media (max-width: 768px) {
+
+  
+
+}
+
+/* Entete avec logo */
+.navbar-default .navbar-brand, .navbar-default .navbar-brand:focus {
+    height: 60px;
+    padding: 5px 10px;
+}
+.navbar-default .navbar-brand img {
+  float:left;
+}
+.navbar-default .navbar-brand span {
+    color: #ffffff;
+    display: inline-block;
+    float: none;
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: 10px;
+    line-height: 20px;
+    margin-left: 10px;
+    margin-top: 14px;
+}
+
+/**************** FIN GENERAL **********************/
+
+
+
+/***************** COMPOSANTS *******************/
+
+/* Datepicker */ 
+.datepicker {
+  background-color:#494B54;
+  color:#949ba2;
+}
+.datepicker table tr td.active.active, .datepicker table tr td.active.highlighted.active, .datepicker table tr td.active.highlighted:active, .datepicker table tr td.active:active {
+  background-color:#F6A821;
+}
+.datepicker table tr td.active.active.focus, .datepicker table tr td.active.active:focus, .datepicker table tr td.active.active:hover, .datepicker table tr td.active.highlighted.active.focus, .datepicker table tr td.active.highlighted.active:focus, .datepicker table tr td.active.highlighted.active:hover, .datepicker table tr td.active.highlighted.focus:active, .datepicker table tr td.active.highlighted:active:focus, .datepicker table tr td.active.highlighted:active:hover, .datepicker table tr td.active.focus:active, .datepicker table tr td.active:active:focus, .datepicker table tr td.active:active:hover {
+    background-color: #e89912;
+    border-color: #e89912;
+    color: #fff;
+}
+.datepicker table tr td.today {
+    background-color: #2A2D35;
+    border-color: #2A2D35;
+    color: #fff;
+}
+.datepicker-dropdown.datepicker-orient-top::after {
+    border-top: 6px solid #494B54;
+}
+.datepicker-dropdown::after {
+    border-color: currentcolor transparent #494B54;
+}
+.datepicker .datepicker-switch:hover, .datepicker .next:hover, .datepicker .prev:hover, .datepicker tfoot tr th:hover {
+    color:#494B54;
+}
+
+/* mark */
+.mark-grey {
+  color:#fff;
+  background-color:#949ba2;
+}
+.mark-green {
+  color:#fff;
+  background-color:#1BBF89;
+}
+.mark-red {
+  color:#fff;
+  background-color:#DB524B;
+}
+.mark-yellow {
+  color:#fff;
+  background-color:#F6A821;
+}
+
+/* info bulle */
+.infobulle {
+  font-size: 18px;
+}
+
+/* Alert Boutons */
+.alert .btn-warning {
+  background-color:#e5981d;
+  border-color:#e5981d;
+  color:#fff;
+}
+.alert .btn-warning:hover {
+  background-color:#e59f2d;
+  border-color:#d68a11;
+  color:#fff;
+}
+.alert .btn-danger {
+  background-color:#ce3b33;
+  border-color:#ce3b33;
+  color:#fff;
+}
+.alert .btn-danger:hover {
+  background-color:#d84e47;
+  border-color:#bf241c;
+  color:#fff;
+}
+.alert .btn-success {
+  background-color:#099e6c;
+  border-color:#0daa76;
+  color:#fff;
+}
+.alert .btn-success:hover {
+  background-color:#1bb783;
+  border-color:#079365;
+  color:#fff;
+}
+
+/* hr custom */
+.hr-standard {
+  margin-top:10px;
+  margin-bottom:10px;
+}
+
+/***************** FIN COMPOSANTS *******************/
+
+
+
+/********************* MODULES *********************************/
+@media (max-width: 768px) {
+
+  .qr-code-module .flash-code form button {
+    margin-top:10px;
+  }
+
+}
+
+
+/********************* FIN MODULES *********************************/
+
+
+
+/*************** SECTION 1 **************/
+
+/* Accueil Etudiant */
+.home-h4 {
+  color:#949ba2;
+  font-size:inherit;
+}
+.panel-home-student:hover .panel-filled {
+  background-color:#44464f;
+}
+.panel-home-student:hover {
+  text-decoration:none; 
+}
+@media (min-width: 992px) {
+    .panel-home-student .panel-filled {
+      height:180px;
+    }
+}
+
+/* Page profil */
+.panel-profile {
+  margin-bottom:0;
+}
+.panel-profile > .panel-heading {
+  color:#949ba2;
+  font-style:italic;
+}
+.panel-profile > .panel-heading div {
+  color:#fff;
+  font-style:normal;
+  font-weight:bold;
+  margin-top:5px;
+}
+select.form-control {
+  width:100%;
+}
+.input-group-addon {
+  color:#949ba2;
+}
+
+/* Liste jeux */
+.panel-list-jeux .panel-heading {
+
+}
+
+/* Resultats jeu */
+.panel-jeu {
+  margin-bottom:0;
+}
+.panel-jeu .panel-heading {
+  color:#848c94;
+}
+.panel-jeu .panel-heading .score {
+  color:#fff;
+  font-size:32px;
+  font-weight:bold;
+}
+.panel-jeu .detail-score {
+  margin-bottom:5px;
+}
+.panel-jeu .detail-score .score {
+  color:#fff;
+  font-weight:bold;
+}
+.panel-jeu .joueur-actif {
+  font-weight:bold;
+  color:#1BBF89;
+}
+
+/*************** FIN SECTION 1 **************/
+
+
+
+/*************** SECTION 2 **************/
+
+/* Accueil Jeu */
+.jeu .titre-accueil-jeu img {
+  float:left;
+  margin-right:15px;
+}
+.jeu .titre-accueil-jeu h1 {
+  font-size:24px;
+}
+@media (min-width: 768px) {
+  .jeu .titre-accueil-jeu h1 {
+    font-size: 36px;
+  }
+}
+
+/* Salle d'attente jeu */
+.jeu .statut {
+  font-size:18px;
+}
+
+/* Opportunite nOx*/
+table.indices {
+  font-size:12px;
+}
+@media (min-width: 480px) {
+  table.indices {
+    font-size:inherit;
+  }
+}
+
+/*************** FIN SECTION 2 **************/

@@ -15,15 +15,11 @@ class Header extends React.Component {
   render() {
 
     return (
-      <header id="header">
-        <Link to="/">Open Business Lab</Link>
-        {this.props.me
-         ? [<Link key="header-dashboard-link" to="/dashboard">Dashboard</Link>,
-            <a key="header-logout-link" href="#" onClick={this.handleLogout}>Déconnexion</a>]
-         : [<Link key="header-login-link" to="/login">Connexion</Link>,
-            <Link key="header-signup-link" to="/signup">Inscription</Link>]
-        }
-      </header>
+
+      <div className="back-link">
+            <Link to="/"><img src="assets/images/logo-obl-small.png" alt="Open Business Labs" /></Link>
+      </div>
+
     )
   }
 

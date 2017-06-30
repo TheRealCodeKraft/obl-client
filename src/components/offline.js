@@ -13,14 +13,14 @@ class Offline extends React.Component {
 
   render() {
     return (
-      <div className="offline">
-        <Header />
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route exact path="/login" component={AuthChecker(Login, true)} />
-          <Route exact path="/signup" component={AuthChecker(Signup, true)} />
-        </Switch>
-      </div>
+      <section className="content">
+          <Header />
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route exact path="/login" component={AuthChecker(Login, true)} />
+            <Route exact path="/signup" component={AuthChecker(Signup, true)} />
+          </Switch>
+      </section>
     );
   }
 
