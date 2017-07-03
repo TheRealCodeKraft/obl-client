@@ -53,6 +53,34 @@
               "required": true
             },
             {
+              "name": "shortname",
+              "label": "Titre court",
+              "placeholder": "Titre court du jeu",
+              "type": "text",
+              "required": true
+            },
+            {
+              "name": "summary",
+              "label": "Résumé",
+              "placeholder": "Résumé du jeu",
+              "type": "text",
+              "required": true
+            },
+            {
+              "name": "start_ts",
+              "label": "Date d'ouverture",
+              "placeholder": "Ouverture du jeu",
+              "type": "date",
+              "required": true
+            },
+            {
+              "name": "end_ts",
+              "label": "Date de fermeture",
+              "placeholder": "Fermeture du jeu",
+              "type": "date",
+              "required": true
+            },
+            {
               "name": "games",
               "label": "Jeu",
               "placeholder": "Sélectionnez un jeu",
