@@ -34,7 +34,7 @@ class School extends BaseItem {
                   key: "id",
                   value: "name",
                   required: true,
-                  defaultValue: this.props.entity.school.id
+                  defaultValue: this.props.entity.school ? this.props.entity.school.id : null
                 },
               ]}
               service={{client: UserClient, func: "update"}}
