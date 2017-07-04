@@ -1,5 +1,7 @@
 import React from "react"
 
+import Select2 from 'react-select2-wrapper'
+
 class ListSelector extends React.Component {
 
   constructor(props) {
@@ -21,25 +23,21 @@ class ListSelector extends React.Component {
   }
 
   setValues(props) {
-    this.setState({values: props.defaultValue})
+    var options = this.props.options.map(value => {
+      return {text: value[this.props.field.listValue], id: value[this.props.field.listKey]}
+    })
+    this.setState({values: props.defaultValue, options: options})
   }
 
   render() {
     return (
-      <div id={"list-selector-for-" + this.props.field.name}>
-        <select onChange={this.handleSelectionChange} defaultValue="-1">
-          <option value="-1" selected="selected">{this.props.field.placeholder}</option>
-          {this.getAvailableValues().map(value => {
-            return <option key={this.props.field.name + "-item-" + value[this.props.field.listKey]} value={value[this.props.field.listKey]}>{value[this.props.field.listValue]}</option>
-          })}
-        </select>
-        {this.getCurrentValues().map(value => {
-          return <div key={"list-selector-for-" + this.props.field.name + "-for-" + value.id}>
-                   {value[this.props.field.listValue]}
-                   &nbsp;&nbsp;<a href="#" onClick={this.handleDeleteItem.bind(this, value.id)}>supprimer</a>
-                 </div>
-        })}
-      </div>
+      <Select2 ref="select"
+               multiple
+               value={this.state.values}
+               data={this.state.options}
+               options={{width: "100%"}}
+               onSelect={this.handleSelectionChange} 
+               onUnselect={this.handleSelectionChange} />
     )
   }
 
@@ -57,21 +55,8 @@ class ListSelector extends React.Component {
     })
   }
 
-  handleSelectionChange(e) {
-    var values = this.state.values
-    values.push(parseInt(e.target.value, 10))
-    this.setState({values: values})
-
-    this.handleChange()
-  }
-
-  handleDeleteItem(id, e) {
-    e.preventDefault()
-    var values = this.state.values
-    values.splice(values.indexOf(id), 1)
-    this.setState({values: values})
-
-    this.handleChange()
+  handleSelectionChange(e, obj) {
+    this.setState({values: this.refs.select.el.val()}, this.handleChange)
   }
 
   handleChange() {

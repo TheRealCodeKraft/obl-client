@@ -36,6 +36,7 @@
     "react-router": "^4.1.1",
     "react-router-dom": "^4.1.1",
     "react-scroll-to-component": "^1.0.1",
+    "react-select2-wrapper": "^1.0.4-beta5",
     "react-sidebar": "^2.3.2",
     "react-slick": "^0.14.11",
     "react-switchery": "^1.1.3",
