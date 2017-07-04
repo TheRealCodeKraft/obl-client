@@ -19,20 +19,8 @@ class BaseItem extends React.Component {
     return (
       <Row className="profile-field">
         <Col xs={12}>
-        <Panel header={<div className="panel-heading">
-                         <div className="panel-tools">
-                           <a href="#" className="panel-toggle-profile" onClick={this.handleToggle}>
-                             {this.state.opened 
-                              ? <i className={"fa fa-times text-warning"}></i> 
-                              : <i className={"fa fa-pencil text-warning"}></i>}
-                           </a>
-                         </div>
-                         {this.label}
-                         {!this.state.opened ? <div>{this.buildValue()}</div> : null}
-                       </div>} collapsible expanded={this.state.open} className="panel-profile" bsStyle="filled">
-          <div className="panel-body">
+        <Panel header={this.buildHeader()} collapsible expanded={this.state.open} className="panel-profile" bsStyle="">
           {this.buildFullContent()}
-          </div>
         </Panel>
         </Col>
       </Row>
@@ -58,6 +46,20 @@ class BaseItem extends React.Component {
                     </div>
       </div>
 */}
+  }
+
+  buildHeader() {
+    var header = []
+    header.push(<div className="panel-tools">
+                  <a href="#" className="panel-toggle-profile" onClick={this.handleToggle}>
+                    {this.state.open 
+                     ? <i className={"fa fa-times text-warning"}></i> 
+                     : <i className={"fa fa-pencil text-warning"}></i>}
+                  </a>
+                </div>)
+    header.push(this.label)
+    header.push(!this.state.opened ? <div>{this.buildValue()}</div> : null)
+    return header
   }
 
   buildValue() {
