@@ -33,7 +33,7 @@ class Header extends React.Component {
                           </div>
                       </div>
                       <Link to="/" className={"navbar-brand"}>
-                          <img src="assets/images/logo-obl-mini.png" alt="Open Business Labs" /> <span>OBL</span>
+                          <img src="/assets/images/logo-obl-mini.png" alt="Open Business Labs" /> <span>OBL</span>
                       </Link>
                   </div>
                   <div id="navbar" className={"navbar-collapse collapse"}>

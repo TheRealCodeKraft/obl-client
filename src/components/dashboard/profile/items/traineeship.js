@@ -22,7 +22,7 @@ class Traineeship extends BaseItem {
                 {
                   name: "traineeship",
                   label: "Stage recherché",
-                  type: "radio",
+                  type: "switch",
                   values: [{value: true, label: "Oui"}, {value: false, label: "Non"}],
                   required: true,
                   defaultValue: this.props.entity.traineeship

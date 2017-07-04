@@ -21,7 +21,9 @@ class Admin extends React.Component {
 
   componentWillMount() {
     for (var index in this.pages) {
-      this.pages[index].client = Clients[this.pages[index].client]
+      if (!(this.pages[index].client instanceof Object)) {
+        this.pages[index].client = Clients[this.pages[index].client]
+      }
     }
   }
 

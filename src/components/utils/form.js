@@ -5,6 +5,7 @@ var moment = require("moment")
 
 import * as Clients from 'clients'
 
+import Switch from 'react-switchery'
 import ListSelector from './form/list-selector'
 
 class Form extends React.Component {
@@ -128,6 +129,9 @@ class Form extends React.Component {
           }
         }
         input = radios
+        break
+      case "switch":
+        input = <Switch className="switch-class" onChange={this.handleChange} options={{color: '#474F79', size: 'small'}} checked />
         break
       case "select":
         var options = []
