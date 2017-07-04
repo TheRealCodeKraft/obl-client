@@ -22,7 +22,7 @@ class Contract extends BaseItem {
                 {
                   name: "contract",
                   label: "CDI recherché",
-                  type: "radio",
+                  type: "switch",
                   values: [{value: true, label: "Oui"}, {value: false, label: "Non"}],
                   required: true,
                   defaultValue: this.props.entity.contract

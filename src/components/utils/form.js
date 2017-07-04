@@ -5,7 +5,7 @@ var moment = require("moment")
 
 import * as Clients from 'clients'
 
-import Switch from 'react-switchery'
+import Switch from 'react-bootstrap-switch'
 import ListSelector from './form/list-selector'
 
 class Form extends React.Component {
@@ -90,7 +90,7 @@ class Form extends React.Component {
           }
 
           return (
-            <label key={this.props.id + "-field-" + field.name}>
+            <div className="form-group" key={this.props.id + "-field-" + field.name}>
               {field.label} : 
               {this.getInput(field)}
               {
@@ -99,7 +99,7 @@ class Form extends React.Component {
                 : null
               }
               <br />
-            </label>
+            </div>
           )
         })}
         {(this.state.submitError) ? [<span>{this.state.submitError}</span>, <br />] : null}
@@ -131,7 +131,7 @@ class Form extends React.Component {
         input = radios
         break
       case "switch":
-        input = <Switch className="switch-class" onChange={this.handleChange} options={{color: '#474F79', size: 'small'}} checked />
+        input = <Switch name={field.name} onChange={this.handleInputChange.bind(this, field, !this.state.values[field.name])} onText="OUI" offText="NON" defaultValue={this.state.values[field.name]} />
         break
       case "select":
         var options = []
@@ -170,17 +170,18 @@ class Form extends React.Component {
 
   handleInputChange(field, e) {
     var values = this.state.values;
-    values[e.target.name] = e.target.value
+    var value = e.target ? e.target.value : e
+    values[field.name] = value
 
     switch(field.type) {
       case "checkbox":
-        values[e.target.name] = (e.target.value === "on" ? false : true)
+        values[field.name] = (value === "on" ? false : true)
         break
       case "radio":
-        values[e.target.name] = (e.target.value === "true" ? true : false)
+        values[field.name] = (value === "true" ? true : false)
         break
       case "list-selector":
-        values[e.target.name] = e.target.value
+        values[field.name] = value
         break
       default:
         break
