@@ -6,4 +6,8 @@ if(process.env.NODE_ENV === "production") {
     config = ProdConfig;
 }
 
+config.moodle = {
+  url: "https://proto.openbusinesslabs.com/"
+}
+
 export default config;

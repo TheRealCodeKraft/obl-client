@@ -9,6 +9,11 @@
             {
               "label": "Titre",
               "name": "title"
+            },
+            {
+              "label": "Identifiant Moodle",
+              "name": "moodle_id",
+              "link": "[[MOODLE_URL]]course/view.php?id=[[VALUE]]"
             }
           ]
         },
@@ -18,6 +23,13 @@
               "name": "title",
               "label": "Titre",
               "placeholder": "Titre du jeu",
+              "type": "text",
+              "required": true
+            },
+            {
+              "name": "moodle_id",
+              "label": "Identifiant Moodle",
+              "placeholder": "identifiant section",
               "type": "text",
               "required": true
             }

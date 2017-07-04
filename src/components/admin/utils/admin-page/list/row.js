@@ -1,4 +1,5 @@
 import React from "react"
+import configs from 'config'
 
 class AdminPageListRow extends React.Component {
 
@@ -11,19 +12,34 @@ class AdminPageListRow extends React.Component {
   }
 
   render() {
-    var row = [], name = undefined
+    var row = [], attribute = undefined, name = undefined
     for (var attrIndex in this.props.attributes) {
-      name = this.props.attributes[attrIndex]
-      if (name instanceof Object) {
-        name = name.name
+      attribute = this.props.attributes[attrIndex]
+      if (attribute instanceof Object) {
+        name = attribute.name
+      } else {
+        name = attribute
       }
       if (this.props.attributes[attrIndex]) {
-        row.push(<div key={"row-" + this.props.item.id + "-attr-" + attrIndex}>{this.props.item[name]}</div>)
+        row.push(<div key={"row-" + this.props.item.id + "-attr-" + attrIndex}>{this.buildDisplayValue(name, attribute)}</div>)
       }
     }
     row.push(this.buildActions(this.props.item))
   
     return <div style={{display: "flex"}}>{row}</div>
+  }
+
+  buildDisplayValue(name, attribute) {
+   var value = this.props.item[name]
+console.dir(attribute)
+   if (attribute instanceof Object && attribute.link) {
+    var link = attribute.link.replace("[[VALUE]]", value)
+    if (link.indexOf("[[MOODLE_URL]]") !== -1) {
+      link = link.replace("[[MOODLE_URL]]", configs.moodle.url)
+    }
+    value = <a href={link} target="_blank">{value}</a>
+   }
+   return value
   }
 
   buildActions() {
