@@ -1,4 +1,8 @@
 import React from "react"
+import { connect } from 'react-redux';
+
+import Players from './tables-manager/players'
+import Tables from './tables-manager/tables'
 
 class TablesManager extends React.Component {
 
@@ -8,10 +12,18 @@ class TablesManager extends React.Component {
 
   render() {
     return (
-      <div>Tables manager</div>
+      <div>
+        <Players session={this.props.entity} />
+        <Tables />
+      </div>
     )
   }
 
 }
 
-export default TablesManager
+function mapStateToProps(state) {
+  return {
+  }
+}
+
+export default connect(mapStateToProps)(TablesManager)

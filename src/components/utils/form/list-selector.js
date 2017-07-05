@@ -23,8 +23,14 @@ class ListSelector extends React.Component {
   }
 
   setValues(props) {
-    var options = this.props.options.map(value => {
-      return {text: value[this.props.field.listValue], id: value[this.props.field.listKey]}
+    var val="", splitted=[]
+    var options = props.options.map(value => {
+      splitted = this.props.field.listValue.split(' ')
+      val = ""
+      for (var i in splitted) {
+        val += value[splitted[i]] + " "
+      }
+      return {text: val, id: value[this.props.field.listKey]}
     })
     this.setState({values: props.defaultValue, options: options})
   }
@@ -35,6 +41,7 @@ class ListSelector extends React.Component {
                multiple
                value={this.state.values}
                data={this.state.options}
+               placeholder={this.props.field.placeholder}
                options={{width: "100%"}}
                onSelect={this.handleSelectionChange} 
                onUnselect={this.handleSelectionChange} />

@@ -3,6 +3,17 @@ import BaseClient from './base'
 import store from 'reducers/index';
 
 var UserClient = function() {
+
+  var fetchAll = function(params, callback) {
+    BaseClient.get("users", params, function(data) {
+      store.dispatch({
+        type: "USERS",
+        users: data
+      })
+      if (callback) callback(data)
+    })
+  }
+
   var signup = function(params, callback) {
     BaseClient.post("users", params, callback, true)
   }
@@ -43,6 +54,7 @@ var UserClient = function() {
   }
 
   return {
+    fetchAll: fetchAll,
     signup: signup,
     me: me,
     resetMe: resetMe,

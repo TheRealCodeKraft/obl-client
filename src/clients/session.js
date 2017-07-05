@@ -15,6 +15,16 @@ var SessionClient = function() {
     })
   }
 
+  var fetchOne = function(id, callback) {
+    BaseClient.get("sessions", {id: id}, function(data) {
+      store.dispatch({
+        type: "SESSION",
+        session: data
+      })
+      if (callback) callback(data)
+    })
+  }
+
   var create = function(params, callback) {
     BaseClient.post(plural, params, function(data) {
       store.dispatch({

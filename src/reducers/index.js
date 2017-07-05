@@ -3,6 +3,8 @@ import { createStore, combineReducers } from 'redux';
 // The User Reducer
 const userReducer = function(state = {}, action) {
   switch(action.type) {
+    case "USERS":
+      return Object.assign({}, state, { users: action.users })
     case 'RESET_ME':
       return Object.assign({}, state, { me: null, authenticated: false, notFound: false })
     case 'ME':
@@ -49,6 +51,8 @@ const sessionReducer = function(state = {}, action) {
   switch(action.type) {
     case "SESSIONS":
       return Object.assign({}, state, { sessions: action.sessions })
+    case "SESSION":
+      return Object.assign({}, state, { session: action.session })
     case "NEW_SESSION":
       var sessions = pushNewEntityToState(action.session, state, "sessions")
       return Object.assign({}, state, { newSession: action.session, sessions: sessions })
