@@ -14,9 +14,13 @@ class TablesManager extends React.Component {
     return (
       <div>
         <Players session={this.props.entity} />
-        <Tables />
+        <Tables session={this.props.entity} players={this.getAvailablePlayers()} />
       </div>
     )
+  }
+
+  getAvailablePlayers() {
+    return this.props.entity.players
   }
 
 }

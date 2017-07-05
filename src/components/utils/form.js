@@ -66,16 +66,19 @@ class Form extends React.Component {
 
   loadValuesState() {
     var valuesState = {}
+    var currentValue = undefined
 
     for (var index in this.props.fields) {
       if (this.props.values) {
-        valuesState[this.props.fields[index].name] = this.props.values[this.props.fields[index].name]
-        if (valuesState[this.props.fields[index].name] instanceof Array) {
-          valuesState[this.props.fields[index].name] = valuesState[this.props.fields[index].name].map(value => { return value.id })
+        currentValue = this.props.values[this.props.fields[index].name]
+        if (currentValue instanceof Array) {
+          currentValue = currentValue.map(value => { return value.id })
         }
       } else {
-        valuesState[this.props.fields[index].name] = this.props.fields[index].defaultValue
+        currentValue = this.props.fields[index].defaultValue
       }
+
+      valuesState[this.props.fields[index].name] = currentValue
     }
 
     this.setState({values: valuesState});
@@ -89,18 +92,7 @@ class Form extends React.Component {
             return null
           }
 
-          return (
-            <div className="form-group" key={this.props.id + "-field-" + field.name}>
-              {field.label} : 
-              {this.getInput(field)}
-              {
-                this.state.errors[field.name] !== undefined
-                ? <span>{this.state.errors[field.name]}</span>
-                : null
-              }
-              <br />
-            </div>
-          )
+          return this.getInputs(field)
         })}
         {(this.state.submitError) ? [<span>{this.state.submitError}</span>, <br />] : null}
         {this.state.submitting
@@ -110,28 +102,83 @@ class Form extends React.Component {
     )
   }
 
+  getInputs(field) {
+    var inputs = null
+    if (field.type === "component") {
+      inputs = []
+
+      if (field.multiple) {
+        var occurences = field.occurences
+        if (occurences.indexOf("/") !== -1) {
+          var splitted = occurences.split("/")
+          var dividing = parseInt(splitted[0])
+          var key = splitted[1].replace(' ', '')
+          occurences = dividing / this.state.values[key]
+        } else {
+          occurences = this.state.values[field.occurences]
+        }
+
+        var input = null
+        for (var i=0; i < occurences; i++) {
+          input = []
+          for (var j in field.components) {
+            field.components[j].name = field.name + "[" + i + "][" + field.components[j].name + "]"
+            field.components[j].parent = field
+            input.push(this.getInput(field.components[j]))
+          }
+          input = <div className={field.name}>{input}</div>
+          inputs.push(input)
+        }
+      } else {
+        var input = []
+        for (var i in field.components) {
+          input.push(this.getInput(field.components[i]))
+        }
+        input = <div className={field.name}>{input}</div>
+        inputs.push(input)
+      }
+/*
+      inputs = []
+      for (var i=0; i < occurences; i++) {
+        for (var component in field.components) {
+        inputs.push(this.getInput(
+        }
+      }
+*/
+    } else {
+      inputs = this.getInput(field)
+    }
+    return inputs
+  }
+
   getInput(field) {
-    var input = null, value = undefined
+    var input = null, value = this.state.values[field.name]
+
+    if (field.name.indexOf('[') !== -1) {
+      var splitted = field.name.split('[')
+      value = this.state.values[splitted[0]][splitted[1].replace(']', '')][splitted[2].replace(']','')]
+    }
+
     switch(field.type) {
       case "checkbox":
-        input = <input name={field.name} type={field.type} value={this.state.values[field.name] === true ? "on" : "off"} placeholder={field.placeholder} onChange={this.handleInputChange.bind(this, field)} />
+        input = <input name={field.name} type={field.type} value={value === true ? "on" : "off"} placeholder={field.placeholder} onChange={this.handleInputChange.bind(this, field)} />
         break
       case "radio":
         var radios = []
         if (field.values) {
-          value = undefined
+          var val = undefined
           var radioId = undefined
           for (var index in field.values) {
-            value = field.values[index]
+            val = field.values[index]
             radioId = this.props.id + "-" + field.name + "-" + index
-            radios.push(<input key={radioId} id={radioId} name={field.name} type={field.type} value={value.value} onChange={this.handleInputChange.bind(this, field)} checked={this.state.values[field.name] === value.value ? "checked" : ""} />)
-            radios.push(<label key={radioId + "_label"} htmlFor={radioId}>{value.label}</label>)
+            radios.push(<input key={radioId} id={radioId} name={field.name} type={field.type} value={val.value} onChange={this.handleInputChange.bind(this, field)} checked={value === val.value ? "checked" : ""} />)
+            radios.push(<label key={radioId + "_label"} htmlFor={radioId}>{val.label}</label>)
           }
         }
         input = radios
         break
       case "switch":
-        input = <Switch name={field.name} onChange={this.handleInputChange.bind(this, field, !this.state.values[field.name])} onText="OUI" offText="NON" defaultValue={this.state.values[field.name]} />
+        input = <Switch name={field.name} onChange={this.handleInputChange.bind(this, field, !this.state.values[field.name])} onText="OUI" offText="NON" defaultValue={value} />
         break
       case "select":
         var options = []
@@ -140,10 +187,10 @@ class Form extends React.Component {
         } else if (field.values instanceof Object) {
           options = this.state.loadedData[field.name] || []
         }
-        input = <select name={field.name} onChange={this.handleInputChange.bind(this, field)} defaultValue={this.state.values[field.name]}>
-                  <option value="-1">{field.placeholder}</option>
-                  {options.map(value => {
-                    return <option value={value[field.key]}>{value[field.value]}</option>
+        input = <select name={field.name} onChange={this.handleInputChange.bind(this, field)} defaultValue={value}>
+                  {field.placeholder ? <option value="-1">{field.placeholder}</option> : null}
+                  {options.map(val => {
+                    return <option value={val[field.key]} selected={val[field.key] == value ? "selected" : "false"}>{val[field.value]}</option>
                   })}
                 </select>
         break
@@ -154,10 +201,9 @@ class Form extends React.Component {
         } else if (field.values instanceof Object) {
           options = this.state.loadedData[field.name] || []
         }
-        input = <ListSelector field={field} defaultValue={this.state.values[field.name]} options={options} onChange={this.handleInputChange.bind(this, field)} />
+        input = <ListSelector field={field} defaultValue={value} options={options} onChange={this.handleInputChange.bind(this, field)} />
         break
       default:
-        value = this.state.values[field.name]
         if (value == null) value = ""
         if (field.type === "date" && value !== "") {
           value=moment(value).format("YYYY-MM-DD")
@@ -165,13 +211,37 @@ class Form extends React.Component {
         input = <input name={field.name} type={field.type} value={value} placeholder={field.placeholder} onChange={this.handleInputChange.bind(this, field)} />
         break
     }
-    return input
+
+    return this.decorateInput(input, field)
+  }
+
+  decorateInput(input, field) {
+    input = <div className="form-group" key={this.props.id + "-field-" + field.name}>
+              {field.label} : 
+              {input}
+              {
+                this.state.errors[field.name] !== undefined
+                ? <span>{this.state.errors[field.name]}</span>
+                : null
+              }
+              <br />
+            </div>
+
+    return input 
   }
 
   handleInputChange(field, e) {
     var values = this.state.values;
     var value = e.target ? e.target.value : e
-    values[field.name] = value
+    if (field.name.indexOf("[") !== -1) {
+      var splitted = field.name.split("[")
+      var parentFieldName = splitted[0]
+      var index = splitted[1].replace(']', '')
+      var fieldName = splitted[2].replace(']', '')
+      values[parentFieldName][index][fieldName] = value
+    } else {
+      values[field.name] = value
+    }
 
     switch(field.type) {
       case "checkbox":

@@ -122,6 +122,20 @@
               "value": "title",
               "required": true,
               "defaultValue": []
+            },
+            {
+              "name": "status",
+              "label": "Etat de la session",
+              "type": "select",
+              "placeholder": false,
+              "values": [
+                {"id": 0, "title": "Inactive"},
+                {"id": 1, "title": "Active"}
+              ],
+              "key": "id",
+              "value": "title",
+              "required": true,
+              "defaultValue": -1
             }
           ]
         },
