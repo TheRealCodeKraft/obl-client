@@ -7,6 +7,7 @@ import Header from './dashboard/header'
 import Home from './dashboard/home'
 import Profile from './dashboard/profile'
 import Sessions from './dashboard/sessions'
+import Playground from './dashboard/playground'
 
 class Dashboard extends React.Component {
 
@@ -17,6 +18,7 @@ class Dashboard extends React.Component {
         <Switch>
           <Route exact path="/dashboard" component={Home} />
           <Route exact path="/dashboard/profile" component={Profile} />
+          <Route exact path="/dashboard/sessions/:identifier" component={Playground} />
           <Route exact path="/dashboard/sessions" component={Sessions} />
         </Switch>
       </div>

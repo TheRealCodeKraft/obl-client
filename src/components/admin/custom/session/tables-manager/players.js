@@ -42,7 +42,6 @@ class Players extends React.Component {
   }
 
   handleSubmitComplete(data) {
-    console.log("SUBMIT COMPLETE")
   }
 
 }

@@ -1,4 +1,5 @@
 import React from "react"
+import {Link} from "react-router-dom"
 
 var moment = require("moment")
 
@@ -6,8 +7,6 @@ class Session extends React.Component {
 
   constructor(props) {
     super(props)
-    
-    this.goToSession = this.goToSession.bind(this)
   }
 
   render() {
@@ -22,7 +21,7 @@ class Session extends React.Component {
             <div className="row">
               <div className="col-md-2">
                 <div className="panel-body">
-                  <img src="/assets/images/vignette-jeu.jpg" className="img-rounded" alt="vignette-jeu" />
+                  <img src={this.props.session.game.picture} className="img-rounded" alt="vignette-jeu" />
                 </div>
               </div>
               <div className="col-md-10">
@@ -35,7 +34,7 @@ class Session extends React.Component {
                 </div>
                 {this.props.session.playable == "open"
                  ? <div className="panel-footer">
-                     <a className={"btn btn-success"} href="#" onClick={this.goToSession}>Accéder à la salle de jeu</a>
+                     <Link className={"btn btn-success"} to={"/dashboard/sessions/" + this.props.session.id}>Accéder à la salle de jeu</Link>
                    </div>
                  : null}
               </div>
@@ -44,10 +43,6 @@ class Session extends React.Component {
         </div>
       </div>
     )
-  }
-
-  goToSession(e) {
-    e.prevenDefault()
   }
 
 }

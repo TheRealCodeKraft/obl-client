@@ -16,7 +16,7 @@ var SessionClient = function() {
   }
 
   var fetchOne = function(id, callback) {
-    BaseClient.get("sessions", {id: id}, function(data) {
+    BaseClient.get("sessions/" + id, {}, function(data) {
       store.dispatch({
         type: "SESSION",
         session: data
@@ -59,6 +59,7 @@ var SessionClient = function() {
     name: name,
 
     fetchAll: fetchAll,
+    fetchOne: fetchOne,
     create: create,
     update: update,
     destroy: destroy
