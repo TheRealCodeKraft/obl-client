@@ -49,27 +49,33 @@ export default function(config) {
       var attrIndex = undefined
 
       return (
-        <div>
-          <div style={{display: "flex", justifyContent: "space-between", alignItems: "center", flex: 1}}>
-            <h2>{config.title}</h2>
-            <a href="#" onClick={this.handleNew}>Nouveau</a>
+        <div className="container-fluid">
+          <div className="row">
+            <div className="col-xs-12">
+              <h1><i className={"pe pe-7s-user text-warning"}></i> {config.title}</h1>
+            </div>
           </div>
+          <div>
+            <div style={{display: "flex", justifyContent: "space-between", alignItems: "center", flex: 1}}>
+              <a href="#" onClick={this.handleNew}>Nouveau</a>
+            </div>
 
-          <AdminPageList attributes={config.list.attributes} 
-                         actions={config.list.actions}
-                         items={this.props[pluralName]}
-                         onDelete={this.handleDelete}
-                         onSee={this.handleSee}
-                         onEdit={this.handleEdit}
-                         onCustomAction={this.handleCustomAction}
-          />
+            <AdminPageList attributes={config.list.attributes} 
+                           actions={config.list.actions}
+                           items={this.props[pluralName]}
+                           onDelete={this.handleDelete}
+                           onSee={this.handleSee}
+                           onEdit={this.handleEdit}
+                           onCustomAction={this.handleCustomAction}
+            />
 
-          <AdminSidebar ref="sidebar" 
-                        onClose={this.handleCloseSidebar}
-                        tinify={this.state.mode === "delete"}>
-            {this.getSidebarContent()}
-          </AdminSidebar>
+            <AdminSidebar ref="sidebar" 
+                          onClose={this.handleCloseSidebar}
+                          tinify={this.state.mode === "delete"}>
+              {this.getSidebarContent()}
+            </AdminSidebar>
 
+          </div>
         </div>
       )
     }
