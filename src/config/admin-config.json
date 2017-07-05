@@ -53,6 +53,16 @@
               "label": "Titre",
               "name": "title"
             }
+          ],
+          "actions": [
+            "delete",
+            "edit",
+            "see",
+            {
+              "action": "manage_tables",
+              "label": "Gérer les tables",
+              "component": "TablesManager"
+            }
           ]
         },
         "form": {
@@ -93,18 +103,18 @@
               "required": true
             },
             {
-              "name": "games",
+              "name": "game_id",
               "label": "Jeu",
               "placeholder": "Sélectionnez un jeu",
-              "type": "list-selector",
+              "type": "select",
               "values": {
                 "targetState": "gameState",
                 "targetValue": "games",
                 "client": "GameClient",
                 "func": "fetchAll"
               },
-              "listKey": "id",
-              "listValue": "title",
+              "key": "id",
+              "value": "title",
               "required": true,
               "defaultValue": []
             }

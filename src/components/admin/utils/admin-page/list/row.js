@@ -31,7 +31,7 @@ class AdminPageListRow extends React.Component {
 
   buildDisplayValue(name, attribute) {
    var value = this.props.item[name]
-console.dir(attribute)
+
    if (attribute instanceof Object && attribute.link) {
     var link = attribute.link.replace("[[VALUE]]", value)
     if (link.indexOf("[[MOODLE_URL]]") !== -1) {
@@ -39,15 +39,36 @@ console.dir(attribute)
     }
     value = <a href={link} target="_blank">{value}</a>
    }
+
    return value
   }
 
   buildActions() {
-    return <div>
-             &nbsp;<a href="#" onClick={this.handleDelete}>supprimer</a>
-             &nbsp;<a href="#" onClick={this.handleSee}>voir</a>
-             &nbsp;<a href="#" onClick={this.handleEdit}>modifier</a>
-           </div>
+    var actions = []
+    if (!this.props.actions) {
+      actions.push(<a key="action-delete" href="#" onClick={this.handleDelete}>supprimer</a>)
+      actions.push(<a key="action-see" href="#" onClick={this.handleSee}>voir</a>)
+      actions.push(<a key="action-edit" href="#" onClick={this.handleEdit}>modifier</a>)
+    } else {
+      this.props.actions.map(action => {
+        if (action instanceof Object) {
+          actions.push(<a key={"action-" + action} onClick={this.handleCustomAction.bind(this, action)}>{action.label}</a>)
+        } else {
+          switch(action) {
+            case "delete":
+              actions.push(<a key="action-delete" href="#" onClick={this.handleDelete}>supprimer</a>)
+              break;
+            case "see":
+              actions.push(<a key="action-see" href="#" onClick={this.handleSee}>voir</a>)
+              break;
+            case "edit":
+              actions.push(<a key="action-edit" href="#" onClick={this.handleEdit}>modifier</a>)
+              break;
+          }
+        }
+      })
+    }
+    return <div>{actions}</div>
   }
 
   handleDelete(e) {
@@ -63,6 +84,11 @@ console.dir(attribute)
   handleEdit(e) {
     e.preventDefault()
     if (this.props.onEdit) this.props.onEdit(this.props.item.id)
+  }
+
+  handleCustomAction(action, e) {
+    e.preventDefault()
+    if (this.props.onCustomAction) this.props.onCustomAction(this.props.item.id, action)
   }
 
 }

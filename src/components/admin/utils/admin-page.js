@@ -7,14 +7,20 @@ import AdminSidebar from './admin-page/sidebar'
 import CreateEditForm from './form/create-edit'
 import DeleteForm from './form/delete'
 
+import * as CustomComponents from "../custom"
+
 export default function(config) {
+
+
   class AdminPage extends React.Component {
 
     constructor(props) {
       super(props)
 
       this.state = {
-        mode: "list"
+        currentId: undefined,
+        mode: "list",
+        currentAction: undefined,
       }
 
       this.handleCloseSidebar = this.handleCloseSidebar.bind(this)
@@ -24,6 +30,8 @@ export default function(config) {
       this.handleDeleted = this.handleDeleted.bind(this)
       this.handleSee = this.handleSee.bind(this)
       this.handleEdit = this.handleEdit.bind(this)
+      this.handleCustomAction = this.handleCustomAction.bind(this)
+      this.handleCustomActionFinished = this.handleCustomActionFinished.bind(this)
 
       this.handleSubmitComplete = this.handleSubmitComplete.bind(this)
     }
@@ -48,10 +56,12 @@ export default function(config) {
           </div>
 
           <AdminPageList attributes={config.list.attributes} 
+                         actions={config.list.actions}
                          items={this.props[pluralName]}
                          onDelete={this.handleDelete}
                          onSee={this.handleSee}
                          onEdit={this.handleEdit}
+                         onCustomAction={this.handleCustomAction}
           />
 
           <AdminSidebar ref="sidebar" 
@@ -73,12 +83,22 @@ export default function(config) {
       }
 
       switch(this.state.mode) {
+        case "list":
+          break
         case "create":
         case "edit":
           content = <CreateEditForm {...config} entity={entity} mode={this.state.mode} onSubmitComplete={this.handleSubmitComplete} />
           break
         case "delete":
           content = <DeleteForm {...config} entity={entity} onDeleted={this.handleDeleted} />
+          break
+        default:
+          if (this.state.currentAction !== undefined) {
+            if (CustomComponents[config.client.name] && CustomComponents[config.client.name][this.state.currentAction.component]) {
+              var Component = CustomComponents[config.client.name][this.state.currentAction.component]
+              content = <Component {...config} entity={entity} onFinished={this.handleCustomActionFinished} />
+            }
+          }
           break
       }
       return content
@@ -113,6 +133,14 @@ export default function(config) {
       this.setState({currentId: id, mode: "edit"}, this.openSidebar)
     }
 
+    handleCustomAction(id, action) {
+      this.setState({currentId: id, mode: action.action, currentAction: action}, this.openSidebar)
+    }
+
+    handleCustomActionFinished() {
+      this.closeSidebar()
+    }
+
     handleSubmitComplete(data) {
       if (!data.error) {
         this.refs.sidebar.close()
@@ -121,7 +149,7 @@ export default function(config) {
 
     handleCloseSidebar() {
       var self = this
-      setTimeout(function() { self.setState({currentId: undefined, mode: "list"}) }, 500)
+      setTimeout(function() { self.setState({currentId: undefined, mode: "list", currentAction: undefined}) }, 500)
     }
 
   }

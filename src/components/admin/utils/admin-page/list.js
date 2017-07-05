@@ -10,6 +10,7 @@ class AdminPageList extends React.Component {
     this.handleDelete = this.handleDelete.bind(this)
     this.handleSee = this.handleSee.bind(this)
     this.handleEdit = this.handleEdit.bind(this)
+    this.handleCustomAction = this.handleCustomAction.bind(this)
   }
 
   render() {
@@ -19,9 +20,11 @@ class AdminPageList extends React.Component {
         {this.props.items.map((item, index) => {
           return <AdminPageListRow item={item} 
                                    attributes={this.props.attributes} 
+                                   actions={this.props.actions}
                                    onDelete={this.handleDelete}
                                    onSee={this.handleSee}
                                    onEdit={this.handleEdit}
+                                   onCustomAction={this.handleCustomAction}
                  />
         })}
       </div>
@@ -38,6 +41,10 @@ class AdminPageList extends React.Component {
 
   handleEdit(id) {
     if (this.props.onEdit) this.props.onEdit(id)
+  }
+
+  handleCustomAction(id, action) {
+    if (this.props.onCustomAction) this.props.onCustomAction(id, action)
   }
 
 }
