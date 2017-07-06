@@ -1,12 +1,16 @@
+import configs from 'config'
+
 import React from "react"
 import { connect } from 'react-redux';
 
 var moment = require("moment")
 
 import * as Clients from 'clients'
+import BaseClient from 'clients/base'
 
 import Switch from 'react-bootstrap-switch'
 import ListSelector from './form/list-selector'
+import FileInput from "react-file-input"
 
 class Form extends React.Component {
 
@@ -19,12 +23,15 @@ class Form extends React.Component {
       submitError: undefined,
       values: {},
       loadingData: [],
-      loadedData: {}
+      loadedData: {},
+      uploading: {}
     }
 
     this.handleFormSubmit = this.handleFormSubmit.bind(this)
     this.handleFormSubmit = this.handleFormSubmit.bind(this)
     this.handleFormSubmitted = this.handleFormSubmitted.bind(this)
+
+    this.handleFileChanged = this.handleFileChanged.bind(this)
   }
 
   componentWillMount() {
@@ -87,7 +94,7 @@ class Form extends React.Component {
   render() {
     return (
       <div className="form-container">
-        {this.buildImageUploaders()}
+        {this.props.entityId ? this.buildImageUploaders() : null}
         <form id={this.props.id} onSubmit={this.handleFormSubmit}>
           {this.props.fields.map(field => {
             if (field.type === "image-uploader") { return null }
@@ -109,8 +116,39 @@ class Form extends React.Component {
 
   buildImageUploaders() {
     return this.props.fields.filter(field => { return field.type === "image-uploader" }).map(field => {
-      return <span>uploader</span>
+      return <form encType='multipart/form-data' className="upload-form">
+               <span className="upload-title">{field.label}</span>
+               {this.state.uploading[field.name] 
+                ? <span className="upload-file">Téléchargement en cours</span>
+                : <div className="upload-file">
+                    <FileInput name="sheet"
+                      accept=".png"
+                      placeholder="Cliquer pour choisir un fichier"
+                      className="upload-file"
+                      onChange={this.handleFileChange.bind(this, field)} />
+                      <div className="upload-file-title">Cliquez ici pour choisir un fichier</div>
+                      </div>
+               }
+             </form>
     })
+  }
+
+  handleFileChange(field, e) {
+    var file = e.target.files[0]
+    var self = this
+    var uploading = this.state.uploading
+    uploading[field.name] = true
+    this.setState({uploading: uploading}, function() {
+      var data = new FormData(); 
+      data.append(field.name, file)
+      BaseClient.put(this.props.service.client.plural + '/' + this.props.entityId + '/' + field.name, undefined, data, this.handleFileChanged.bind(this, field))
+    })
+  }
+
+  handleFileChanged(field) {
+    var uploading = this.state.uploading
+    uploading[field.name] = false
+    this.setState({uploading: uploading})
   }
 
   getInputs(field) {

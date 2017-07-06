@@ -5,6 +5,11 @@
         "client": "GameClient",
         "list": {
           "attributes": [
+            {
+              "name": "picture",
+              "type": "image",
+              "label": "Image"
+            },
             "id",
             {
               "label": "Titre",

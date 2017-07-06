@@ -10,7 +10,10 @@ import Auth from './auth'
 var BaseClient = function() {
   var call = function(method, endpoint, params, callback, offline=false, defaultParams=false) {
     var headers = {
-      'Content-Type': 'application/json'
+    }
+
+    if (!(params instanceof FormData)) {
+      headers['Content-Type'] = 'application/json'
     }
 
     if (offline) {
@@ -33,7 +36,11 @@ var BaseClient = function() {
     switch(method) {
       case "post":
       case "put":
-        fetchParams.body = JSON.stringify(params)
+        if (!(params instanceof FormData)) {
+          fetchParams.body = JSON.stringify(params)
+        } else {
+          fetchParams.body = params
+        }
         break
       case "get":
         if (params !== undefined && params.length > 0) {
@@ -97,7 +104,7 @@ var BaseClient = function() {
   }
 
   var put = function(endpoint, id, params, callback) {
-    return call("put", endpoint + "/" + id, params, callback)
+    return call("put", endpoint + (id ? ("/" + id) : ""), params, callback)
   }
 
   var destroy = function(endpoint, id, callback) {

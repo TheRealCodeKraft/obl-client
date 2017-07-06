@@ -32,12 +32,17 @@ class AdminPageListRow extends React.Component {
   buildDisplayValue(name, attribute) {
    var value = this.props.item[name]
 
-   if (attribute instanceof Object && attribute.link) {
-    var link = attribute.link.replace("[[VALUE]]", value)
-    if (link.indexOf("[[MOODLE_URL]]") !== -1) {
-      link = link.replace("[[MOODLE_URL]]", configs.moodle.url)
-    }
-    value = <a href={link} target="_blank">{value}</a>
+   if (attribute instanceof Object) {
+     if (attribute.link) {
+       var link = attribute.link.replace("[[VALUE]]", value)
+       if (link.indexOf("[[MOODLE_URL]]") !== -1) {
+         link = link.replace("[[MOODLE_URL]]", configs.moodle.url)
+       }
+       value = <a href={link} target="_blank">{value}</a>
+     }
+     if (attribute.type === "image") {
+       value = <img src={value} />
+     }
    }
 
    return value

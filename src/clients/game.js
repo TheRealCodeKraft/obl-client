@@ -47,6 +47,7 @@ var GameClient = function() {
 
   return {
     name: name,
+    plural: plural,
 
     fetchAll: fetchAll,
     create: create,
