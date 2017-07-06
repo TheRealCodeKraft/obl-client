@@ -311,16 +311,23 @@ class Form extends React.Component {
     var errors = this.validate()
     this.setState({errors: errors})
     if (Object.keys(errors).length === 0) {
+      var currentValues = []
+
+      for (var fIndex in this.props.fields) {
+        if (this.props.fields[fIndex].type !== "image-uploader") {
+          currentValues = this.state.values[this.props.fields[fIndex].name]
+        }
+      }
       if (this.props.service !== undefined) {
         this.setState({submitting: true, submitError: undefined}, function() {
           if (this.props.entityId !== undefined) {
-            this.props.service.client[this.props.service.func](this.props.entityId, this.state.values, this.handleFormSubmitted)
+            this.props.service.client[this.props.service.func](this.props.entityId, currentValues, this.handleFormSubmitted)
           } else {
-            this.props.service.client[this.props.service.func](this.state.values, this.handleFormSubmitted)
+            this.props.service.client[this.props.service.func](currentValues, this.handleFormSubmitted)
           }
         })
       }
-      if (this.props.onSubmit) this.props.onSubmit(this.state.values)
+      if (this.props.onSubmit) this.props.onSubmit(currentValues)
     }
   }
 
