@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Link, Redirect } from 'react-router-dom'
+import { NavLink, Link, Redirect } from 'react-router-dom'
 import Auth from 'clients/auth'
 import ShowForAcls from 'components/utils/auth/show-for-acls'
 
@@ -52,11 +52,11 @@ class Header extends React.Component {
                       <li className={"nav-category"}>
                           Navigation
                       </li>
-                      <li><Link to="/dashboard">Accueil</Link></li>
-                      <li><Link to="/dashboard/profile">Profil</Link></li>
-                      <li><Link to="/dashboard/sessions">Jeux</Link></li>
+                      <li><NavLink exact to="/dashboard">Accueil</NavLink></li>
+                      <li><NavLink exact to="/dashboard/profile">Profil</NavLink></li>
+                      <li><NavLink exact to="/dashboard/sessions">Jeux</NavLink></li>
                       <ShowForAcls grants={["admin"]}>
-                        <li><Link to="/admin">Administration</Link></li>
+                        <li><NavLink exact to="/admin">Administration</NavLink></li>
                       </ShowForAcls>
                       <li><a href="#" onClick={this.handleLogout}>Déconnexion</a></li>
                   </ul>
