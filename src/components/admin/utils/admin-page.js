@@ -50,16 +50,17 @@ export default function(config) {
 
       return (
         <div className="container-fluid">
+
           <div className="row">
-            <div className="col-xs-12">
+            <div className="col-xs-10">
               <h1><i className={"pe pe-7s-user text-warning"}></i> {config.title}</h1>
             </div>
-          </div>
-          <div>
-            <div style={{display: "flex", justifyContent: "space-between", alignItems: "center", flex: 1}}>
-              <a href="#" onClick={this.handleNew}>Nouveau</a>
+            <div className="col-xs-2 admin-new-button-row">
+              <a href="#" onClick={this.handleNew} className="admin-new-button"><i className="pe pe-7s-plus" /> Nouveau</a>
             </div>
+          </div>
 
+          <div>
             <AdminPageList attributes={config.list.attributes} 
                            actions={config.list.actions}
                            items={this.props[pluralName]}
@@ -74,7 +75,6 @@ export default function(config) {
                           tinify={this.state.mode === "delete"}>
               {this.getSidebarContent()}
             </AdminSidebar>
-
           </div>
         </div>
       )

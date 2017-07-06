@@ -89,6 +89,10 @@
               "name": "game.title"
             },
             {
+              "label": "Joueurs",
+              "name": "players.length"
+            },
+            {
               "label": "Identifiant Moodle",
               "name": "moodle_id",
               "link": "[[MOODLE_URL]]course/view.php?id=[[VALUE]]"

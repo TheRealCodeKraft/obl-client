@@ -16,7 +16,8 @@ class AdminPageListRow extends React.Component {
 
     this.tableCellStyles = {
       display: "table-cell",
-      padding: 5
+      padding: 5,
+      verticalAlign: "top"
     }
   }
 
@@ -64,7 +65,7 @@ class AdminPageListRow extends React.Component {
        value = <a href={link} target="_blank">{value}</a>
      }
      if (attribute.type === "image") {
-       value = <img src={value} style={{width: 100}} />
+       value = <img src={value} style={{height: 50}} />
      }
    }
 
@@ -98,7 +99,7 @@ class AdminPageListRow extends React.Component {
         }
       })
     }
-    return <div>{actions}</div>
+    return <div style={{textAlign: "right"}}>{actions}</div>
   }
 
   handleDelete(e) {

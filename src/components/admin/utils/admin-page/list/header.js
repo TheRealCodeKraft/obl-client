@@ -16,6 +16,9 @@ class AdminPageListHeader extends React.Component {
       padding: 5
     }
 
+    this.tableCellActionStyles = this.tableCellStyles
+    this.tableCellActionStyles.textAlign = "right"
+
   }
 
   render() {
@@ -27,7 +30,7 @@ class AdminPageListHeader extends React.Component {
       }
       header.push(<div key={"header-row-attr-" + attrIndex} style={this.tableCellStyles}>{label}</div>)
     }
-    header.push(<div key="header-row-attr-actions" style={this.tableCellStyles}>Actions</div>)
+    header.push(<div key="header-row-attr-actions" style={this.tableCellStyles}></div>)
     return <div style={this.tableRowStyles}>{header}</div>
   }
 

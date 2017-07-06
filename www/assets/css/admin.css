@@ -11,3 +11,22 @@
   color: black;
   text-decoration: none;
 }
+
+.admin-new-button-row {
+  padding-top: 20px;
+}
+
+.admin-new-button {
+  background: #414450;
+  color: #ffffff !important;
+  padding: 5px;
+  padding-right: 10px;
+  padding-left: 10px;
+  border-radius: 10px;
+}
+
+.admin-new-button:hover {
+  background: #fbfcff;
+  color: #000000 !important;
+  text-decoration: none;
+}
