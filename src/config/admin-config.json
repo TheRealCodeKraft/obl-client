@@ -20,6 +20,11 @@
         "form": {
           "attributes": [
             {
+              "name": "picture",
+              "label": "Image",
+              "type": "image-uploader"
+            },
+            {
               "name": "title",
               "label": "Titre",
               "placeholder": "Titre du jeu",
@@ -27,11 +32,32 @@
               "required": true
             },
             {
-              "name": "moodle_id",
-              "label": "Identifiant Moodle",
-              "placeholder": "identifiant section",
+              "name": "shortname",
+              "label": "Titre court",
+              "placeholder": "Titre court du jeu",
               "type": "text",
               "required": true
+            },
+            {
+              "name": "summary",
+              "label": "Résumé",
+              "placeholder": "Résumé du jeu",
+              "type": "text",
+              "required": true
+            },
+            {
+              "name": "status",
+              "label": "Etat de la session",
+              "type": "select",
+              "placeholder": false,
+              "values": [
+                {"id": 0, "title": "Inactive"},
+                {"id": 1, "title": "Active"}
+              ],
+              "key": "id",
+              "value": "title",
+              "required": true,
+              "defaultValue": -1
             }
           ]
         },

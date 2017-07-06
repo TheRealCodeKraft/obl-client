@@ -86,20 +86,31 @@ class Form extends React.Component {
 
   render() {
     return (
-      <form id={this.props.id} onSubmit={this.handleFormSubmit}>
-        {this.props.fields.map(field => {
-          if (field.displayIf && this.state.values[field.displayIf.name] !== field.displayIf.value) {
-            return null
-          }
+      <div className="form-container">
+        {this.buildImageUploaders()}
+        <form id={this.props.id} onSubmit={this.handleFormSubmit}>
+          {this.props.fields.map(field => {
+            if (field.type === "image-uploader") { return null }
+ 
+            if (field.displayIf && this.state.values[field.displayIf.name] !== field.displayIf.value) {
+              return null
+            }
 
-          return this.getInputs(field)
-        })}
-        {(this.state.submitError) ? [<span>{this.state.submitError}</span>, <br />] : null}
-        {this.state.submitting
-         ? <span>waiting for response</span>
-         : <button type="submit">{this.props.submitLabel ? this.props.submitLabel : "Enregistrer"}</button>}
-      </form>
+            return this.getInputs(field)
+          })}
+          {(this.state.submitError) ? [<span>{this.state.submitError}</span>, <br />] : null}
+          {this.state.submitting
+           ? <span>waiting for response</span>
+           : <button type="submit">{this.props.submitLabel ? this.props.submitLabel : "Enregistrer"}</button>}
+        </form>
+      </div>
     )
+  }
+
+  buildImageUploaders() {
+    return this.props.fields.filter(field => { return field.type === "image-uploader" }).map(field => {
+      return <span>uploader</span>
+    })
   }
 
   getInputs(field) {
