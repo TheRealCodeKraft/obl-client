@@ -1,0 +1,13 @@
+.admin-action-button {
+  padding: 5px;
+  margin: 5px;
+  cursor: pointer;
+  border-radius: 20%;
+  background: #414450;
+}
+
+.admin-action-button:hover {
+  background: #fbfcff;
+  color: black;
+  text-decoration: none;
+}

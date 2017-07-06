@@ -85,6 +85,10 @@
               "name": "title"
             },
             {
+              "label": "Jeu",
+              "name": "game.title"
+            },
+            {
               "label": "Identifiant Moodle",
               "name": "moodle_id",
               "link": "[[MOODLE_URL]]course/view.php?id=[[VALUE]]"
@@ -96,7 +100,8 @@
             "see",
             {
               "action": "manage_tables",
-              "label": "Gérer les tables",
+              "label": "Joueurs",
+              "icon": "users",
               "component": "TablesManager"
             }
           ]
