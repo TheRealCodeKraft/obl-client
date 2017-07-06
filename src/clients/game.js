@@ -45,6 +45,16 @@ var GameClient = function() {
     })
   }
 
+  var upload = function(id, fieldName, file, callback) {
+    BaseClient.upload(plural + '/' + id + '/' + fieldName, fieldName, file, function(data) {
+      store.dispatch({
+        type: "UPLOAD_FILE",
+        game: data
+      })
+      if (callback) callback(data)
+    })
+  }
+
   return {
     name: name,
     plural: plural,
@@ -52,7 +62,8 @@ var GameClient = function() {
     fetchAll: fetchAll,
     create: create,
     update: update,
-    destroy: destroy
+    destroy: destroy,
+    upload: upload
   }
 
 }()

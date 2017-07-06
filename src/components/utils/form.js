@@ -30,8 +30,6 @@ class Form extends React.Component {
     this.handleFormSubmit = this.handleFormSubmit.bind(this)
     this.handleFormSubmit = this.handleFormSubmit.bind(this)
     this.handleFormSubmitted = this.handleFormSubmitted.bind(this)
-
-    this.handleFileChanged = this.handleFileChanged.bind(this)
   }
 
   componentWillMount() {
@@ -117,6 +115,7 @@ class Form extends React.Component {
   buildImageUploaders() {
     return this.props.fields.filter(field => { return field.type === "image-uploader" }).map(field => {
       return <form encType='multipart/form-data' className="upload-form">
+               <img src={this.state.values[field.name]} style={{width: 100}} />
                <span className="upload-title">{field.label}</span>
                {this.state.uploading[field.name] 
                 ? <span className="upload-file">Téléchargement en cours</span>
@@ -139,9 +138,7 @@ class Form extends React.Component {
     var uploading = this.state.uploading
     uploading[field.name] = true
     this.setState({uploading: uploading}, function() {
-      var data = new FormData(); 
-      data.append(field.name, file)
-      BaseClient.put(this.props.service.client.plural + '/' + this.props.entityId + '/' + field.name, undefined, data, this.handleFileChanged.bind(this, field))
+      this.props.service.client.upload(this.props.entityId, field.name, file, this.handleFileChanged.bind(this, field))
     })
   }
 

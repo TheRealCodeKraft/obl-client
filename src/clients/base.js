@@ -111,11 +111,18 @@ var BaseClient = function() {
     return call("delete", endpoint + "/" + id, undefined, callback)
   }
 
+  var upload = function(endpoint, fieldName, file, callback) {
+    var data = new FormData(); 
+    data.append(fieldName, file)
+    return call("put", endpoint, data, callback)
+  }
+
   return {
     get: get,
     post: post,
     put: put,
     destroy: destroy,
+    upload: upload
   }
 }();
 

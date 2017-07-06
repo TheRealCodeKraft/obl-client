@@ -83,6 +83,9 @@ const gameReducer = function(state = {}, action) {
       var deletedGame = state.games.filter(game => { return game.id === action.id })[0]
       var games = removeEntityFromState(action.id, state, "games")
       return Object.assign({}, state, { deletedGame: deletedGame, games: games})
+    case "UPLOAD_FILE":
+      var games = mergeEntityAndState(action.game, state, "games")
+      return Object.assign({}, state, { games: games })
     default:
       break
   }
