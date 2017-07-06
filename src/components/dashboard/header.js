@@ -18,7 +18,7 @@ class Header extends React.Component {
 
   render() {
     if (this.state.logout) return <Redirect to="/" />
-
+console.log(this.props)
     return (
       <header id="header">   
 
@@ -52,9 +52,15 @@ class Header extends React.Component {
                       <li className={"nav-category"}>
                           Navigation
                       </li>
-                      <li><NavLink exact to="/dashboard">Accueil</NavLink></li>
-                      <li><NavLink exact to="/dashboard/profile">Profil</NavLink></li>
-                      <li><NavLink exact to="/dashboard/sessions">Jeux</NavLink></li>
+                      <li className={this.props.location.pathname == "/dashboard" ? "active" : ""}><NavLink exact to="/dashboard">Accueil</NavLink></li>
+                      <li className={this.props.location.pathname == "/dashboard/profile" ? "active" : ""}>
+                        <NavLink exact to="/dashboard/profile">Profil</NavLink>
+                      </li>
+
+                      <li className={this.props.location.pathname.includes("/dashboard/sessions") ? "active" : ""}>
+                        <NavLink exact to="/dashboard/sessions">Jeux</NavLink>
+                      </li>
+
                       <ShowForAcls grants={["admin"]}>
                         <li><NavLink exact to="/admin">Administration</NavLink></li>
                       </ShowForAcls>

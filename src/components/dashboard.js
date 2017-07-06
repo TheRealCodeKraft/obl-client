@@ -14,7 +14,7 @@ class Dashboard extends React.Component {
   render() {
     return (
       <div className="dashboard">
-        <Header />
+        <Header location={this.props.location} />
         <Switch>
           <Route exact path="/dashboard" component={Home} />
           <Route exact path="/dashboard/profile" component={Profile} />

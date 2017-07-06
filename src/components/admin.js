@@ -30,7 +30,7 @@ class Admin extends React.Component {
   render() {
     return (
       <div>
-        <Header />
+        <Header location={this.props.location} />
         <section className="content">
           <Switch>
             <Route exact path="/admin" component={Home} />
