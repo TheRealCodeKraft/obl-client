@@ -81,10 +81,7 @@ class AdminPageListRow extends React.Component {
     } else {
       this.props.actions.map(action => {
         if (action instanceof Object) {
-          if (!action.displayIf 
-             || (!action.displayIf.diff && (this.props.item[action.displayIf.property].toString() == action.displayIf.value.toString()))
-             || (action.displayIf.diff && (this.props.item[action.displayIf.property].toString() !== action.displayIf.value.toString()))
-) {
+          if (this.acceptCustomAction(action)) {
             actions.push(<a key={"action-" + action.action} onClick={this.handleCustomAction.bind(this, action)} className={"admin-action-button" + (action.icon ? (" pe pe-7s-" + action.icon) : "")} alt={action.label} title={action.label}>{action.icon ? "" : action.label}</a>)
           }
         } else {
@@ -105,6 +102,26 @@ class AdminPageListRow extends React.Component {
       })
     }
     return <div style={{textAlign: "right"}}>{actions}</div>
+  }
+
+  acceptCustomAction(action) {
+    var result = !action.displayIf
+    if (!result) {
+      if (action.displayIf.diff) {
+        if (action.displayIf.values) {
+          result = (action.displayIf.values.indexOf(this.props.item[action.displayIf.property].toString()) === -1)
+        } else {
+          result = (this.props.item[action.displayIf.property].toString() !== action.displayIf.value.toString())
+        }
+      } else {
+        if (action.displayIf.values) {
+          result = (action.displayIf.values.indexOf(this.props.item[action.displayIf.property]) !== -1)
+        } else {
+          result = (this.props.item[action.displayIf.property].toString() == action.displayIf.value.toString())
+        }
+      }
+    }
+    return result
   }
 
   handleDelete(e) {

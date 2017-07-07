@@ -27,7 +27,7 @@ class SessionLauncher extends React.Component {
 
   getMessage() {
     var message = <span>Êtes-vous sûr de vouloir <strong>lancer</strong> la session <strong>{this.props.entity.title}</strong> ?</span>
-    if (this.props.entity.current_step !== "sleeping" && this.props.entity.current_step !== "done") {
+    if (this.props.entity.playable === "play") {
       message = <span>Êtes-vous sûr de vouloir <strong>mettre en pause</strong> la session <strong>{this.props.entity.title}</strong> ?</span>
     }
     return message

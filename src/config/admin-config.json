@@ -115,7 +115,7 @@
               "component": "SessionLauncher",
               "displayIf": {
                 "property": "playable",
-                "value": "pause"
+                "values": ["to_launch", "pause"]
               },
               "tinify": true
             },
