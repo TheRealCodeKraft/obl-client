@@ -72,7 +72,7 @@ export default function(config) {
 
             <AdminSidebar ref="sidebar" 
                           onClose={this.handleCloseSidebar}
-                          tinify={this.state.mode === "delete"}>
+                          tinify={this.state.mode === "delete" || (this.state.currentAction && this.state.currentAction.tinify)}>
               {this.getSidebarContent()}
             </AdminSidebar>
           </div>

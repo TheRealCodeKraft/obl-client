@@ -55,6 +55,27 @@ var SessionClient = function() {
     })
   }
 
+  var launch = function(id, callback) {
+    BaseClient.put(plural + '/launch', id, {}, function(data) {
+      store.dispatch({
+        type: "SESSION_LAUNCH",
+        session: data
+      })
+      if (callback) callback(data)
+    })
+  }
+
+  var pause = function(id, callback) {
+    BaseClient.put(plural + '/pause', id, {}, function(data) {
+      store.dispatch({
+        type: "SESSION_PAUSE",
+        session: data
+      })
+      if (callback) callback(data)
+    })
+  }
+
+
   return {
     name: name,
 
@@ -62,7 +83,9 @@ var SessionClient = function() {
     fetchOne: fetchOne,
     create: create,
     update: update,
-    destroy: destroy
+    destroy: destroy,
+    launch: launch,
+    pause: pause,
   }
 
 }()

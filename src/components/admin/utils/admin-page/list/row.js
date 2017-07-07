@@ -75,25 +75,30 @@ class AdminPageListRow extends React.Component {
   buildActions() {
     var actions = []
     if (!this.props.actions) {
-      actions.push(<a key="action-delete" href="#" onClick={this.handleDelete} className="admin-action-button pe pe-7s-junk"></a>)
-      actions.push(<a key="action-see" href="#" onClick={this.handleSee} className="admin-action-button pe pe-7s-look"></a>)
-      actions.push(<a key="action-edit" href="#" onClick={this.handleEdit} className="admin-action-button pe pe-7s-pen"></a>)
+      actions.push(<a key="action-delete" href="#" onClick={this.handleDelete} className="admin-action-button pe pe-7s-junk" alt="Supprimer" title="Supprimer"></a>)
+      actions.push(<a key="action-see" href="#" onClick={this.handleSee} className="admin-action-button pe pe-7s-look" alt="Afficher" title="Afficher"></a>)
+      actions.push(<a key="action-edit" href="#" onClick={this.handleEdit} className="admin-action-button pe pe-7s-pen" alt="Modifier" title="Modifier"></a>)
     } else {
       this.props.actions.map(action => {
         if (action instanceof Object) {
-          actions.push(<a key={"action-" + action} onClick={this.handleCustomAction.bind(this, action)} className={"admin-action-button" + (action.icon ? (" pe pe-7s-" + action.icon) : "")}>{action.icon ? "" : action.label}</a>)
+          if (!action.displayIf 
+             || (!action.displayIf.diff && (this.props.item[action.displayIf.property].toString() == action.displayIf.value.toString()))
+             || (action.displayIf.diff && (this.props.item[action.displayIf.property].toString() !== action.displayIf.value.toString()))
+) {
+            actions.push(<a key={"action-" + action.action} onClick={this.handleCustomAction.bind(this, action)} className={"admin-action-button" + (action.icon ? (" pe pe-7s-" + action.icon) : "")} alt={action.label} title={action.label}>{action.icon ? "" : action.label}</a>)
+          }
         } else {
           switch(action) {
             case "delete":
-              actions.push(<a key="action-delete" href="#" onClick={this.handleDelete} className="admin-action-button pe pe-7s-junk"></a>)
+              actions.push(<a key="action-delete" href="#" onClick={this.handleDelete} className="admin-action-button pe pe-7s-junk" alt="Supprimer" title="Supprimer"></a>)
               break;
             case "see":
-              actions.push(<a key="action-see" href="#" onClick={this.handleSee} className="admin-action-button pe pe-7s-look"></a>)
+              actions.push(<a key="action-see" href="#" onClick={this.handleSee} className="admin-action-button pe pe-7s-look" alt="Afficher" title="Afficher"></a>)
               break;
             case "edit":
-              actions.push(<a key="action-delete" href="#" onClick={this.handleDelete} className="admin-action-button pe pe-7s-junk"></a>)
-              actions.push(<a key="action-see" href="#" onClick={this.handleSee} className="admin-action-button pe pe-7s-look"></a>)
-              actions.push(<a key="action-edit" href="#" onClick={this.handleEdit} className="admin-action-button pe pe-7s-pen"></a>)
+              actions.push(<a key="action-delete" href="#" onClick={this.handleDelete} className="admin-action-button pe pe-7s-junk" alt="Supprimer" title="Supprimer"></a>)
+              actions.push(<a key="action-see" href="#" onClick={this.handleSee} className="admin-action-button pe pe-7s-look" alt="Afficher" title="Afficher"></a>)
+              actions.push(<a key="action-edit" href="#" onClick={this.handleEdit} className="admin-action-button pe pe-7s-pen" alt="Modifier" title="Modifier"></a>)
               break;
           }
         }

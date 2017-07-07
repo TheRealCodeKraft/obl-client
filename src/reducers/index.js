@@ -63,6 +63,10 @@ const sessionReducer = function(state = {}, action) {
       var deletedSession = state.sessions.filter(session => { return session.id === action.id })[0]
       var sessions = removeEntityFromState(action.id, state, "sessions")
       return Object.assign({}, state, { deletedSession: deletedSession, sessions: sessions})
+    case "SESSION_LAUNCH":
+    case "SESSION_PAUSE":
+      var sessions = mergeEntityAndState(action.session, state, "sessions")
+      return Object.assign({}, state, { sessions: sessions })
     default:
       break
   }

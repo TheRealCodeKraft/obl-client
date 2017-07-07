@@ -107,6 +107,28 @@
               "label": "Joueurs",
               "icon": "users",
               "component": "TablesManager"
+            },
+            {
+              "action": "launch",
+              "label": "Lancer la session",
+              "icon": "play",
+              "component": "SessionLauncher",
+              "displayIf": {
+                "property": "playable",
+                "value": "pause"
+              },
+              "tinify": true
+            },
+            {
+              "action": "pause",
+              "label": "Stand-by",
+              "icon": "moon",
+              "component": "SessionLauncher",
+              "displayIf": {
+                "property": "playable",
+                "value": "play"
+              },
+              "tinify": true
             }
           ]
         },
