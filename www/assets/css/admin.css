@@ -13,7 +13,9 @@
 }
 
 .admin-new-button-row {
-  padding-top: 20px;
+  text-align: right;
+  padding-top:10px;
+  padding-bottom:10px;
 }
 
 .admin-new-button {
@@ -29,4 +31,12 @@
   background: #fbfcff;
   color: #000000 !important;
   text-decoration: none;
+}
+
+.admin-sidebar-overlay {
+  background-color:#44464F;
+}
+
+.admin-sidebar-container {
+  padding:20px;
 }

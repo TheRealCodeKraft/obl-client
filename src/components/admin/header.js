@@ -52,7 +52,7 @@ class Header extends React.Component {
                           Navigation
                       </li>
                       <li className={this.props.location.pathname == "/admin" ? "active" : ""}>
-                        <NavLink exact to="/admin">Admin dashboard</NavLink>
+                        <NavLink exact to="/admin">Tableau de bord</NavLink>
                       </li>
                       <li className={this.props.location.pathname == "/admin/games" ? "active" : ""}>
                         <NavLink exact to="/admin/games">Jeux</NavLink>

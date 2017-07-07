@@ -21,7 +21,7 @@ class Pseudo extends BaseItem {
               fields={[
                 {
                   name: "pseudo",
-                  label: "Pseudo",
+                  label: "Modifier votre pseudo",
                   placeholder: "Pseudo",
                   type: "text",
                   required: true,
@@ -30,6 +30,7 @@ class Pseudo extends BaseItem {
               ]}
               service={{client: UserClient, func: "update"}}
               onSubmitComplete={this.handleSubmitComplete}
+              submitClass={"btn btn-accent"}
         />
       </div>
     )

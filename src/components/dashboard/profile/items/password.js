@@ -21,15 +21,15 @@ class Password extends BaseItem {
               fields={[
                 {
                   name: "password",
-                  label: "Mot de passe",
+                  label: "Modifier votre mot de passe",
                   placeholder: "Mot de passe",
                   type: "password",
                   required: true
                 },
                 {
                   name: "password_confirm",
-                  label: "Confirmation du mot de passe",
-                  placeholder: "Confirmation du mot de passe",
+                  label: "Confirmation votre nouveau mot de passe",
+                  placeholder: "Confirmation votre nouveau mot de passe",
                   type: "password",
                   required: true,
                   confirmFor: "password"
@@ -37,6 +37,7 @@ class Password extends BaseItem {
               ]}
               service={{client: UserClient, func: "updatePassword"}}
               onSubmitComplete={this.handleSubmitComplete}
+              submitClass={"btn btn-accent"}
         />
       </div>
     )

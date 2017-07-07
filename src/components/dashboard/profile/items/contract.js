@@ -21,7 +21,7 @@ class Contract extends BaseItem {
               fields={[
                 {
                   name: "contract",
-                  label: "CDI recherché",
+                  label: "Vous recherchez un CDI : ",
                   type: "switch",
                   values: [{value: true, label: "Oui"}, {value: false, label: "Non"}],
                   required: true,
@@ -30,6 +30,7 @@ class Contract extends BaseItem {
               ]}
               service={{client: UserClient, func: "update"}}
               onSubmitComplete={this.handleSubmitComplete}
+              submitClass={"btn btn-accent"}
         />
 
       </div>

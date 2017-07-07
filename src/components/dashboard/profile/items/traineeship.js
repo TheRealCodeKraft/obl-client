@@ -21,7 +21,7 @@ class Traineeship extends BaseItem {
               fields={[
                 {
                   name: "traineeship",
-                  label: "Stage recherché",
+                  label: "Vous recherchez un stage : ",
                   type: "switch",
                   values: [{value: true, label: "Oui"}, {value: false, label: "Non"}],
                   required: true,
@@ -52,6 +52,7 @@ class Traineeship extends BaseItem {
               ]}
               service={{client: UserClient, func: "update"}}
               onSubmitComplete={this.handleSubmitComplete}
+              submitClass={"btn btn-accent"}
         />
 
       </div>

@@ -104,7 +104,7 @@ class Form extends React.Component {
 
             return this.getInputs(field)
           })}
-          {(this.state.submitError) ? [<span>{this.state.submitError}</span>, <br />] : null}
+          {(this.state.submitError) ? [<span>{this.state.submitError}</span>/*, <br />*/] : null}
           {this.state.submitting
            ? <div className="loader-dots"></div>
            : <button type="submit" className={this.props.submitClass}>{this.props.submitLabel ? this.props.submitLabel : "Enregistrer"}</button>}
@@ -266,14 +266,17 @@ class Form extends React.Component {
 
   decorateInput(input, field) {
     input = <div className="form-group" key={this.props.id + "-field-" + field.name}>
-              <label className="control-label" for={field.name}>{field.label}</label> 
+              {
+                field.label !== undefined
+                ? <label className="control-label" for={field.name}>{field.label}</label> 
+                : null
+              }
               {input}
               {
                 this.state.errors[field.name] !== undefined
                 ? <span>{this.state.errors[field.name]}</span>
                 : null
               }
-              <br />
             </div>
 
     return input 
