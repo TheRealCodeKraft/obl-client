@@ -28,6 +28,7 @@
     "moment": "^2.18.1",
     "optimist": "^0.6.1",
     "react": "^15.6.1",
+    "react-actioncable-provider": "^0.1.0",
     "react-bootstrap": "^0.31.0",
     "react-bootstrap-switch": "^15.5.0",
     "react-dev-utils": "^2.0.1",

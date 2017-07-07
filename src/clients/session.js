@@ -75,6 +75,12 @@ var SessionClient = function() {
     })
   }
 
+  var pushInState = function(session) {
+    store.dispatch({
+      type: "SESSION_PUSH",
+      session: session
+    })
+  }
 
   return {
     name: name,
@@ -86,6 +92,8 @@ var SessionClient = function() {
     destroy: destroy,
     launch: launch,
     pause: pause,
+
+    pushInState: pushInState
   }
 
 }()

@@ -6,4 +6,7 @@ export default {
         grantType: "client_credentials",
         app_token: "11dec774b37a3dd9e0d26e1a57796f1d46cbf71a74146bdd5a90b11ffe2abfb2"
     },
+    cable: {
+      url: "https://open-business-labs.herokuapp.com/"
+    }
 }

@@ -67,6 +67,9 @@ const sessionReducer = function(state = {}, action) {
     case "SESSION_PAUSE":
       var sessions = mergeEntityAndState(action.session, state, "sessions")
       return Object.assign({}, state, { sessions: sessions })
+    case "SESSION_PUSH":
+      var sessions = mergeEntityAndState(action.session, state, "sessions")
+      return Object.assign({}, state, { sessions: sessions, session: action.session })
     default:
       break
   }

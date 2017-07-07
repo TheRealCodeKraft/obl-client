@@ -35,7 +35,6 @@ var Auth = function() {
   }
 
   var login = function(params, callback) {
-console.log(params)
     params["grant_type"] = "password"
     BaseClient.post("oauth/token", params, function(data) {
       if (data.error) {
@@ -71,6 +70,7 @@ console.log(params)
   }
 
   return {
+    getToken: getToken,
     refreshToken: refreshToken,
     storeToken: storeToken,
     checkForToken: checkForToken,
