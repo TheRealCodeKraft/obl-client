@@ -11,10 +11,12 @@ class Header extends React.Component {
     super(props)
 
     this.state = {
-      logout: false
+      logout: false,
+      menu: false
     }
 
     this.handleLogout = this.handleLogout.bind(this)
+    this.handleHamburgerClick = this.handleHamburgerClick.bind(this)
   }
 
   render() {
@@ -27,7 +29,7 @@ class Header extends React.Component {
                   <div className={"navbar-header"}>
                       <div id="mobile-menu">
                           <div className={"left-nav-toggle"}>
-                              <a href="#">
+                              <a href="#" onClick={this.handleHamburgerClick}>
                                   <i className={"stroke-hamburgermenu"}></i>
                               </a>
                           </div>
@@ -38,7 +40,7 @@ class Header extends React.Component {
                   </div>
                   <div id="navbar" className={"navbar-collapse collapse"}>
                       <div className={"left-nav-toggle"}>
-                          <a href="">
+                          <a href="#" onClick={this.handleHamburgerClick}>
                               <i className={"stroke-hamburgermenu"}></i>
                           </a>
                       </div>
@@ -69,6 +71,17 @@ class Header extends React.Component {
       </header>
     );
 
+  }
+
+  handleHamburgerClick(e) {
+    e.preventDefault()
+    this.setState({menu: !this.state.menu}, function() {
+      if (this.state.menu) {
+        document.body.className += " nav-toggle"
+      } else {
+        document.body.className -= " nav-toggle"
+      }
+    })
   }
 
   handleLogout(e) {
