@@ -21,6 +21,7 @@ class Form extends React.Component {
       errors: {},
       submitting: false,
       submitError: undefined,
+      submitClass:{},
       values: {},
       loadingData: [],
       loadedData: {},
@@ -105,8 +106,8 @@ class Form extends React.Component {
           })}
           {(this.state.submitError) ? [<span>{this.state.submitError}</span>, <br />] : null}
           {this.state.submitting
-           ? <span>waiting for response</span>
-           : <button type="submit">{this.props.submitLabel ? this.props.submitLabel : "Enregistrer"}</button>}
+           ? <div className="loader-dots"></div>
+           : <button type="submit" className={this.props.submitClass}>{this.props.submitLabel ? this.props.submitLabel : "Enregistrer"}</button>}
         </form>
       </div>
     )
@@ -207,7 +208,7 @@ class Form extends React.Component {
 
     switch(field.type) {
       case "checkbox":
-        input = <input name={field.name} type={field.type} value={value === true ? "on" : "off"} placeholder={field.placeholder} onChange={this.handleInputChange.bind(this, field)} />
+        input = <input className={field.inputClass} title={field.title} name={field.name} type={field.type} value={value === true ? "on" : "off"} placeholder={field.placeholder} onChange={this.handleInputChange.bind(this, field)} />
         break
       case "radio":
         var radios = []
@@ -217,14 +218,14 @@ class Form extends React.Component {
           for (var index in field.values) {
             val = field.values[index]
             radioId = this.props.id + "-" + field.name + "-" + index
-            radios.push(<input key={radioId} id={radioId} name={field.name} type={field.type} value={val.value} onChange={this.handleInputChange.bind(this, field)} checked={value === val.value ? "checked" : ""} />)
+            radios.push(<input key={radioId} id={radioId} title={field.title} name={field.name} type={field.type} value={val.value} onChange={this.handleInputChange.bind(this, field)} checked={value === val.value ? "checked" : ""} />)
             radios.push(<label key={radioId + "_label"} htmlFor={radioId}>{val.label}</label>)
           }
         }
         input = radios
         break
       case "switch":
-        input = <Switch name={field.name} onChange={this.handleInputChange.bind(this, field, !this.state.values[field.name])} onText="OUI" offText="NON" defaultValue={value} />
+        input = <Switch title={field.title} name={field.name} onChange={this.handleInputChange.bind(this, field, !this.state.values[field.name])} onText="OUI" offText="NON" defaultValue={value} />
         break
       case "select":
         var options = []
@@ -233,7 +234,7 @@ class Form extends React.Component {
         } else if (field.values instanceof Object) {
           options = this.state.loadedData[field.name] || []
         }
-        input = <select name={field.name} onChange={this.handleInputChange.bind(this, field)} defaultValue={value}>
+        input = <select className="form-control" title={field.title} name={field.name} onChange={this.handleInputChange.bind(this, field)} defaultValue={value}>
                   {field.placeholder ? <option value="-1">{field.placeholder}</option> : null}
                   {options.map(val => {
                     return <option value={val[field.key]} selected={val[field.key] == value ? "selected" : "false"}>{val[field.value]}</option>
@@ -247,14 +248,14 @@ class Form extends React.Component {
         } else if (field.values instanceof Object) {
           options = this.state.loadedData[field.name] || []
         }
-        input = <ListSelector field={field} defaultValue={value} options={options} onChange={this.handleInputChange.bind(this, field)} />
+        input = <ListSelector className="form-control" field={field} defaultValue={value} options={options} onChange={this.handleInputChange.bind(this, field)} />
         break
       default:
         if (value == null) value = ""
         if (field.type === "date" && value !== "") {
           value=moment(value).format("YYYY-MM-DD")
         }
-        input = <input name={field.name} type={field.type} value={value} placeholder={field.placeholder} onChange={this.handleInputChange.bind(this, field)} />
+        input = <input className="form-control" title={field.title} name={field.name} type={field.type} value={value} placeholder={field.placeholder} onChange={this.handleInputChange.bind(this, field)} />
         break
     }
 
@@ -263,7 +264,7 @@ class Form extends React.Component {
 
   decorateInput(input, field) {
     input = <div className="form-group" key={this.props.id + "-field-" + field.name}>
-              {field.label} : 
+              <label className="control-label" for={field.name}>{field.label}</label> 
               {input}
               {
                 this.state.errors[field.name] !== undefined

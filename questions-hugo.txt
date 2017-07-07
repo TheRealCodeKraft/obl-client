@@ -1,0 +1,4 @@
+form.js-----
+> ajouté submitClass pour classe sur le bouton submit
+> ajouté class pour les input
+> ajouté title sur les input
