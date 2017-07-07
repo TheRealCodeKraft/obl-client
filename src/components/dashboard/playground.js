@@ -3,6 +3,8 @@ import { connect } from 'react-redux'
 
 import SessionClient from 'clients/session'
 
+import WaitingRoom from './playground/waiting-room'
+
 class Playground extends React.Component {
 
   constructor(props) {
@@ -19,19 +21,40 @@ class Playground extends React.Component {
     if (!this.props.session) {
       return <span>Chargement de la session en cours</span>
     } else {
-console.log(this.props.session)
       return (
         <section className="content">
           <div className="container-fluid">
             <div className="row">
+              <div className="col-xs-12 titre-accueil-jeu">
+                <div className="panel panel-filled panel-c-warning">
+                  <div className="panel-body">
+                    <img src={this.props.session.game.picture} className="img-rounded image-lg" alt={this.props.session.game.title} />
+                    <h1>{this.props.session.game.title}</h1>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="row">
               <div className="col-xs-12">
-                <h1><i className={"pe pe-7s-joy text-warning"}></i>{this.props.session.game.title}</h1>
+                {this.buildSection()}
               </div>
             </div>
           </div>
         </section>
       )
     }
+  }
+
+  buildSection() {
+    var section = null
+
+    switch(this.props.session.current_step) {
+      case "waiting_players":
+        section = <WaitingRoom session={this.props.session} />
+        break
+    }
+
+    return section
   }
 
 }

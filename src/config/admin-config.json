@@ -85,6 +85,14 @@
               "name": "title"
             },
             {
+              "label": "Jeu",
+              "name": "game.title"
+            },
+            {
+              "label": "Joueurs",
+              "name": "players.length"
+            },
+            {
               "label": "Identifiant Moodle",
               "name": "moodle_id",
               "link": "[[MOODLE_URL]]course/view.php?id=[[VALUE]]"
@@ -96,8 +104,31 @@
             "see",
             {
               "action": "manage_tables",
-              "label": "Gérer les tables",
+              "label": "Joueurs",
+              "icon": "users",
               "component": "TablesManager"
+            },
+            {
+              "action": "launch",
+              "label": "Lancer la session",
+              "icon": "play",
+              "component": "SessionLauncher",
+              "displayIf": {
+                "property": "playable",
+                "values": ["to_launch", "pause"]
+              },
+              "tinify": true
+            },
+            {
+              "action": "pause",
+              "label": "Stand-by",
+              "icon": "moon",
+              "component": "SessionLauncher",
+              "displayIf": {
+                "property": "playable",
+                "value": "play"
+              },
+              "tinify": true
             }
           ]
         },

@@ -15,7 +15,7 @@ class AdminPageList extends React.Component {
 
   render() {
     return (
-      <div style={{display: "flex", flexDirection: "column"}}>
+      <div style={{display: "table", width: "100%"}}>
         <AdminPageListHeader attributes={this.props.attributes} />
         {this.props.items.map((item, index) => {
           return <AdminPageListRow item={item} 

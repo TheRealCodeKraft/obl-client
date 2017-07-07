@@ -152,6 +152,7 @@ class Form extends React.Component {
   getInputs(field) {
     var inputs = null
     if (field.type === "component") {
+      /*
       inputs = []
 
       if (field.multiple) {
@@ -184,6 +185,7 @@ class Form extends React.Component {
         input = <div className={field.name}>{input}</div>
         inputs.push(input)
       }
+      */
 /*
       inputs = []
       for (var i=0; i < occurences; i++) {
@@ -312,11 +314,11 @@ class Form extends React.Component {
     var errors = this.validate()
     this.setState({errors: errors})
     if (Object.keys(errors).length === 0) {
-      var currentValues = []
+      var currentValues = {}
 
       for (var fIndex in this.props.fields) {
         if (this.props.fields[fIndex].type !== "image-uploader") {
-          currentValues = this.state.values[this.props.fields[fIndex].name]
+          currentValues[this.props.fields[fIndex].name] = this.state.values[this.props.fields[fIndex].name]
         }
       }
       if (this.props.service !== undefined) {

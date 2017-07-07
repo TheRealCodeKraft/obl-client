@@ -10,10 +10,27 @@ class Session extends React.Component {
   }
 
   render() {
-    var sessionStatus = {
-      color: this.props.session.playable == "waiting" ? "orange" : (this.props.session.playable == "open" ? "green" : "red"),
-      label: "Session " + (this.props.session.playable == "waiting" ? "à venir" : (this.props.session.playable == "open" ? "en cours" : "terminée"))
+    var sessionStatus = {}
+
+    switch(this.props.session.playable) {
+      case "to_launch":
+        sessionStatus.color = "orange"
+        sessionStatus.label = "Session à venir"
+        break
+      case "play":
+        sessionStatus.color = "green"
+        sessionStatus.label = "Session en cours"
+        break
+      case "pause":
+        sessionStatus.color = "orange"
+        sessionStatus.label = "Session en pause"
+        break
+      case "stop":
+        sessionStatus.color = "red"
+        sessionStatus.label = "Session terminée"
+        break
     }
+
     return (
       <div className="row">
         <div className="col-xs-12">
@@ -32,7 +49,7 @@ class Session extends React.Component {
                 <div className="panel-body">
                   <div><mark className={"mark-" + sessionStatus.color}>{sessionStatus.label}</mark></div>
                 </div>
-                {this.props.session.playable == "open"
+                {this.props.session.playable == "play"
                  ? <div className="panel-footer">
                      <Link className={"btn btn-success"} to={"/dashboard/sessions/" + this.props.session.id}>Accéder à la salle de jeu</Link>
                    </div>
