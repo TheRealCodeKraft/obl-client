@@ -21,7 +21,7 @@ class PIFullname extends BaseItem {
               fields={[
                 {
                   name: "lastname",
-                  label: "Nom",
+                  label: "Modifier votre nom",
                   placeholder: "Nom",
                   type: "text",
                   required: true,
@@ -30,7 +30,7 @@ class PIFullname extends BaseItem {
                 {
                   name: "firstname",
                   label: "Prénom",
-                  placeholder: "Prénom",
+                  placeholder: "Modifier votre prénom",
                   type: "text",
                   required: true,
                   defaultValue: this.props.entity.firstname
@@ -38,6 +38,7 @@ class PIFullname extends BaseItem {
               ]}
               service={{client: UserClient, func: "update"}}
               onSubmitComplete={this.handleSubmitComplete}
+              submitClass={"btn btn-accent"}
         />
       </div>
     )

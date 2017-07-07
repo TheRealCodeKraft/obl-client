@@ -27,7 +27,7 @@ class School extends BaseItem {
               fields={[
                 {
                   name: "school_id",
-                  label: "Ecole",
+                  label: "Indiquez votre écoles",
                   placeholder: "Aucune école",
                   type: "select",
                   values: this.props.schools,
@@ -39,6 +39,7 @@ class School extends BaseItem {
               ]}
               service={{client: UserClient, func: "update"}}
               onSubmitComplete={this.handleSubmitComplete}
+              submitClass={"btn btn-accent"}
         />
       </div>
     )

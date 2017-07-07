@@ -64,6 +64,7 @@ class BaseItem extends React.Component {
 
   buildValue() {
     return this.props.value ? this.props.value : "Non renseigné"
+    /* Ajouter balises <mark class="mark-red"></mark> ou <mark class="mark-green"></mark> si recherche job ou stage */
   }
 
   buildFullContent() {

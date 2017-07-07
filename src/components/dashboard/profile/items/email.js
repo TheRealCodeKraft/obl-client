@@ -21,7 +21,7 @@ class Email extends BaseItem {
               fields={[
                 {
                   name: "email",
-                  label: "Email",
+                  label: "Modifier votre email",
                   placeholder: "Email",
                   type: "email",
                   required: true,
@@ -30,6 +30,7 @@ class Email extends BaseItem {
               ]}
               service={{client: UserClient, func: "update"}}
               onSubmitComplete={this.handleSubmitComplete}
+              submitClass={"btn btn-accent"}
         />
       </div>
     )

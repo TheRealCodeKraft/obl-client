@@ -7,6 +7,10 @@ import AdminSidebar from './admin-page/sidebar'
 import CreateEditForm from './form/create-edit'
 import DeleteForm from './form/delete'
 
+import { Grid } from 'react-bootstrap';
+import { Row } from 'react-bootstrap';
+import { Col } from 'react-bootstrap';
+
 import * as CustomComponents from "../custom"
 
 export default function(config) {
@@ -49,16 +53,16 @@ export default function(config) {
       var attrIndex = undefined
 
       return (
-        <div className="container-fluid">
+        <Grid fluid>
 
-          <div className="row">
-            <div className="col-xs-10">
+          <Row>
+            <Col xs={10}>
               <h1><i className={"pe pe-7s-user text-warning"}></i> {config.title}</h1>
-            </div>
-            <div className="col-xs-2 admin-new-button-row">
+            </Col>
+            <Col xs={12} className="admin-new-button-row">
               <a href="#" onClick={this.handleNew} className="admin-new-button"><i className="pe pe-7s-plus" /> Nouveau</a>
-            </div>
-          </div>
+            </Col>
+          </Row>
 
           <div>
             <AdminPageList attributes={config.list.attributes} 
@@ -76,7 +80,7 @@ export default function(config) {
               {this.getSidebarContent()}
             </AdminSidebar>
           </div>
-        </div>
+        </Grid>
       )
     }
 

@@ -27,7 +27,7 @@ class Mobility extends BaseItem {
               fields={[
                 {
                   name: "areas",
-                  label: "Votre mobilité",
+                  label: "Quelle est votre mobilité ?",
                   type: "list-selector",
                   placeholder: "Sélectionnez une région pour l'ajouter",
                   values: this.props.areas,
@@ -39,6 +39,7 @@ class Mobility extends BaseItem {
               ]}
               service={{client: UserClient, func: "update"}}
               onSubmitComplete={this.handleSubmitComplete}
+              submitClass={"btn btn-accent"}
         />
       </div>
     )

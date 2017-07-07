@@ -17,7 +17,7 @@ class AdminPageListRow extends React.Component {
     this.tableCellStyles = {
       display: "table-cell",
       padding: 5,
-      verticalAlign: "top"
+      verticalAlign: "middle"
     }
   }
 
@@ -65,7 +65,7 @@ class AdminPageListRow extends React.Component {
        value = <a href={link} target="_blank">{value}</a>
      }
      if (attribute.type === "image") {
-       value = <img src={value} style={{height: 50}} />
+       value = <img src={value} style={{height: 50}} className="img-rounded" />
      }
    }
 
