@@ -6,6 +6,10 @@ import Form from 'components/utils/form'
 import { Link } from 'react-router-dom'
 import Auth from 'clients/auth'
 
+import { Grid } from 'react-bootstrap';
+import { Row } from 'react-bootstrap';
+import { Panel } from 'react-bootstrap';
+
 class Login extends React.Component {
 
   constructor(props) {
@@ -20,14 +24,16 @@ class Login extends React.Component {
       {
         name: "email",
         label: "Email",
+        title: "Email",
         placeholder: "Email",
         type: "text",
         required: true
       },
       {
         name: "password",
-        label: "Password",
-        placeholder: "Password",
+        label: "Mot de passe",
+        placeholder: "Mot de passe",
+        title: "Mot de passe",
         type: "password",
         required: true
       },
@@ -41,9 +47,9 @@ class Login extends React.Component {
     if (this.state.loggedIn) return <Redirect to="/dashboard" />
     return (
       
-      <div className={"container-center animated slideInDown"}>
+      <Grid className="container-center animated slideInDown">
 
-            <div className={"view-header"}>
+            <Row className="view-header">
                 <div className={"header-icon"}>
                     <i className={"pe page-header-icon pe-7s-unlock"}></i>
                 </div>
@@ -53,28 +59,27 @@ class Login extends React.Component {
                         Entrez vos identifiants pour vous connecter.
                     </small>
                 </div>
-            </div>
+            </Row>
 
-            <div className={"panel panel-filled"}>
-                <div className={"panel-body"}>
+            <Panel className="panel panel-filled">
                     
                     <Form id="login-form" 
                         fields={this.fields} 
                         submitLabel="Me connecter" 
-                        onSubmit={this.handleSubmit} 
+                        onSubmit={this.handleSubmit}
+                        submitClass={"btn btn-accent btn-signup"} 
                         service={{client: Auth, func: "login"}}
                         onSubmitComplete={this.handleSubmitComplete}
                     />
-                    <Link className={"btn btn-default"} to="/signup">Créer un compte</Link>
+                    <Link className={"btn btn-default btn-signup"} to="/signup">Créer un compte</Link>
+                
+            </Panel>
 
-                </div>
-            </div>
-
-            <div className={"text-center small"}>
+            <div className="text-center small">
                     <Link to="/">Mot de passe oublié</Link>
             </div>
 
-        </div>
+        </Grid>
     )
   }
 

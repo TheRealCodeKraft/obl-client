@@ -1,12 +1,49 @@
+/********* General ***********
+/* Checkbox */
+.checkbox {
+	float:left;
+}
+/********* End General ***********
+
 /* Fix the Pace default CSS class */
 .content > div {
     opacity: 1;
 }
 
+
+
+/***** Bootstrap components *****/
+.panel {
+    border: 0 none;
+    border-radius: 0;
+}
+.form-group {
+    margin-bottom: 0;
+}
+/***** End Bootstrap components *****/
+
+
+
+
+/**** Login ****/
+
 /* Fix left margin on login page */
 .content-no-sidebar {
   margin-left: 0;
 }
+
+/* Login page sign up button */
+.btn-signup {
+	float:left;
+	margin-right:5px;
+}
+
+/**** End Login ****/
+
+
+
+
+/**** Profile ****/
 
 /* Border between profil fields to replace hr */
 .profile-field {
@@ -17,3 +54,6 @@
 .profile-field:last-of-type {
   border-bottom: 0;
 }
+
+/**** End Profile ****/
+

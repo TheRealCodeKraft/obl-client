@@ -5,6 +5,10 @@ import { Link } from "react-router-dom"
 import Form from 'components/utils/form'
 import UserClient from 'clients/user'
 
+import { Grid } from 'react-bootstrap';
+import { Row } from 'react-bootstrap';
+import { Panel } from 'react-bootstrap';
+
 class Signup extends React.Component {
 
   constructor(props) {
@@ -13,6 +17,7 @@ class Signup extends React.Component {
     this.fields = [
       {
         name: "firstname",
+        title: "Entrez votre prénom",
         label: "Prénom",
         placeholder: "Prénom",
         type: "text",
@@ -21,6 +26,7 @@ class Signup extends React.Component {
       {
         name: "lastname",
         label: "Nom",
+        title: "Entrez votre nom",
         placeholder: "Nom",
         type: "text",
         required: true
@@ -28,6 +34,7 @@ class Signup extends React.Component {
       {
         name: "email",
         label: "Email",
+        title: "Entrez votre email",
         placeholder: "Email",
         type: "email",
         required: true
@@ -35,6 +42,7 @@ class Signup extends React.Component {
       {
         name: "pseudo",
         label: "Pseudo",
+        title: "Choississez un pseudo",
         placeholder: "Pseudo",
         type: "text",
         required: true
@@ -42,6 +50,7 @@ class Signup extends React.Component {
       {
         name: "password",
         label: "Mot de passe",
+        title: "Entrez votre mot de passe",
         placeholder: "Mot de passe",
         type: "password",
         required: true
@@ -49,6 +58,7 @@ class Signup extends React.Component {
       {
         name: "password_confirm",
         label: "Confirmation du mot de passe",
+        title: "Confirmation du mot de passe",
         placeholder: "Confirmation du mot de passe",
         type: "password",
         required: true,
@@ -57,9 +67,12 @@ class Signup extends React.Component {
       {
         name: "cgu",
         label: "J'accepte les condition générales d'utilisation",
+        title: "J'accepte les condition générales d'utilisation",
         type: "checkbox",
         required: true,
-        wanted: true
+        wanted: true,
+        inputClass:"checkbox",
+        className:"test"
       }
     ];
 
@@ -85,9 +98,9 @@ class Signup extends React.Component {
       return (
         
 
-        <div className={"container-center animated slideInDown"}>
+        <Grid className={"container-center animated slideInDown"}>
 
-            <div className={"view-header"}>
+            <Row className={"view-header"}>
                 <div className={"header-icon"}>
                     <i className={"page-header-icon pe pe-7s-user"}></i>
                 </div>
@@ -97,23 +110,21 @@ class Signup extends React.Component {
                         Entrez les infos suivantes pour créer votre compte Open Business Labs.
                     </small>
                 </div>
-            </div>
+            </Row>
 
-            <div className={"panel panel-filled"}>
-                    <div className={"panel-body"}>
+            <Panel className="panel panel-filled">
                         <Form id="signup-form" 
                               fields={this.fields} 
-                              submitLabel="M'enregistrer" 
+                              submitLabel="M'enregistrer"
+                              submitClass={"btn btn-accent btn-signup"}  
                               onSubmit={this.handleSubmit} 
                               service={{client: UserClient, func: "signup"}}
                               onSubmitComplete={this.handleSubmitComplete}
                               onSubmitError={this.handleSubmitError}
                         />
-                        
-                    </div>
-            </div>
+            </Panel>
 
-        </div>
+        </Grid>
 
       )
     }
