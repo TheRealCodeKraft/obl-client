@@ -3,6 +3,10 @@ import React from "react"
 import {Switch, Route} from "react-router"
 import { Link } from "react-router-dom"
 
+import AuthClient from 'clients/auth'
+import ActionCableProvider from 'react-actioncable-provider'
+import configs from 'config'
+
 import Header from './admin/header'
 import Home from './admin/home'
 
@@ -28,6 +32,9 @@ class Admin extends React.Component {
   }
 
   render() {
+
+    const token = AuthClient.getToken().access_token
+
     return (
       <div>
         <Header location={this.props.location} />

@@ -10,7 +10,9 @@ import UserClient from 'clients/user'
 var Auth = function() {
 
   var getToken = function() {
-    return JSON.parse(StorageService.get(STORAGE_KEY_FOR_TOKEN))
+    var storageToken = StorageService.get(STORAGE_KEY_FOR_TOKEN)
+    if (storageToken) return JSON.parse(storageToken)
+    else return null
   }
 
   var setToken = function(token) {

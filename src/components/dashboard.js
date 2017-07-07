@@ -2,6 +2,10 @@ import React from "react"
 
 import {Switch, Route} from "react-router"
 
+import AuthClient from 'clients/auth'
+import ActionCableProvider from 'react-actioncable-provider'
+import configs from 'config'
+
 import Header from './dashboard/header'
 
 import Home from './dashboard/home'
@@ -12,16 +16,21 @@ import Playground from './dashboard/playground'
 class Dashboard extends React.Component {
 
   render() {
+
+    const token = AuthClient.getToken().access_token
+
     return (
-      <div className="dashboard">
-        <Header location={this.props.location} />
-        <Switch>
-          <Route exact path="/dashboard" component={Home} />
-          <Route exact path="/dashboard/profile" component={Profile} />
-          <Route exact path="/dashboard/sessions/:identifier" component={Playground} />
-          <Route exact path="/dashboard/sessions" component={Sessions} />
-        </Switch>
-      </div>
+      <ActionCableProvider url={configs.cable.url + "/?token=" + token}>
+        <div className="dashboard">
+          <Header location={this.props.location} />
+          <Switch>
+            <Route exact path="/dashboard" component={Home} />
+            <Route exact path="/dashboard/profile" component={Profile} />
+            <Route exact path="/dashboard/sessions/:identifier" component={Playground} />
+            <Route exact path="/dashboard/sessions" component={Sessions} />
+          </Switch>
+        </div>
+      </ActionCableProvider>
     );
   }
 

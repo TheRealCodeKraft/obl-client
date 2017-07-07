@@ -27,10 +27,12 @@ var SessionClient = function() {
 
   var create = function(params, callback) {
     BaseClient.post(plural, params, function(data) {
-      store.dispatch({
-        type: "NEW_SESSION",
-        session: data
-      })
+      if (!data.error) {
+        store.dispatch({
+          type: "NEW_SESSION",
+          session: data
+        })
+      }
       if (callback) callback(data)
     })
   }

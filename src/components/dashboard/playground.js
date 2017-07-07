@@ -13,11 +13,21 @@ class Playground extends React.Component {
     super(props)
 
     this.handleCableReceived = this.handleCableReceived.bind(this)
+    this.doPing = this.doPing.bind(this)
   }
 
   componentDidMount() {
     if (this.props.match.params.identifier != undefined) {
       SessionClient.fetchOne(this.props.match.params.identifier)
+    }
+
+    this.startPolling()
+  }
+
+  componentWillUnmount() {
+    if (this._timer) {
+      clearInterval(this._timer);
+      this._timer = null;
     }
   }
 
@@ -83,14 +93,27 @@ class Playground extends React.Component {
     return section
   }
 
+  startPolling() {
+    var self = this;
+    setTimeout(function() {
+      self.doPing(); // do it once and then start it up ...
+      self._timer = setInterval(self.doPing, 15000);
+    }, 1000);
+  }
+
   handleCableReceived(data) {
     SessionClient.pushInState(data.session)
+  }
+
+  doPing() {
+    this.refs.sessionChannel.perform('ping', {user: this.props.me.id, session: this.props.session.id})
   }
 
 }
 
 function mapStateToProps(state) {
   return {
+    me: state.userState.me || null,
     session: state.sessionState.session || null
   }
 }

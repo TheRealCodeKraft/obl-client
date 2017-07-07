@@ -30,7 +30,11 @@ class WaitingRoom extends React.Component {
                 return (
                   <tr>
                     <td>{player.firstname}</td>
-                    <td className="statut"><i className="pe pe-7s-check text-success"></i></td>
+                    <td className="statut">
+                      {this.playerConnected(player)
+                       ? <i className="pe pe-7s-check text-success"></i>
+                       : null}
+                    </td>
                   </tr>
                 )
               })}
@@ -40,6 +44,10 @@ class WaitingRoom extends React.Component {
         </div>
       </div>
     )
+  }
+
+  playerConnected(player) {
+    return this.props.session.tables[0].userStates.filter(state => { return state.user == player.id && state.connected }).length > 0
   }
 
 }
