@@ -29,7 +29,7 @@ class Header extends React.Component {
                       <div id="mobile-menu">
                           <div className={"left-nav-toggle"}>
                               <a href="#" onClick={this.handleHamburgerClick}>
-                                  <i className={"stroke-hamburgermenuaa"}></i>
+                                  <i className={"stroke-hamburgermenu"}></i>
                               </a>
                           </div>
                       </div>
