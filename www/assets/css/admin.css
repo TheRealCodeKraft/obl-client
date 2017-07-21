@@ -1,9 +1,17 @@
+.navbar-default .navbar-admin {
+  background-color:#b53c3c;
+}
+
 .admin-action-button {
   padding: 5px;
   margin: 5px;
   cursor: pointer;
   border-radius: 20%;
   background: #414450;
+  width:36px;
+  height:36px;
+  font-size: 21px;
+  text-align: center;
 }
 
 .admin-action-button:hover {
@@ -39,4 +47,41 @@
 
 .admin-sidebar-container {
   padding:20px;
+  overflow:scroll;
 }
+
+/****************** SIDEBAR **********************/
+.admin-sidebar {
+   height: 0px;
+   //z-index: 1000;
+}
+.admin-sidebar .admin-sidebar-container {
+  position: fixed !important;
+  top: 90px !important;
+  background: #414450;
+  left: 20px;
+  z-index: 1000 !important;
+  overflow: hidden !important;
+  @media screen and (max-width: 650px ) {
+    width: 400px;
+  }
+  @media screen and (max-width: 400px ) {
+    width: 350px;
+  }
+}
+
+.admin-sidebar .admin-sidebar-container.tiny-sidebar {
+  bottom: auto !important;
+  left: auto;
+  width: 400px;
+}
+
+.admin-sidebar .admin-sidebar-overlay {
+  z-index: 999 !important;
+}
+
+.admin-sidebar .session-table-form-container {
+  margin-top:15px;
+}
+
+/****************** END SIDEBAR **********************/

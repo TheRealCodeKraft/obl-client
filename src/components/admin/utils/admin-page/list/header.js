@@ -8,7 +8,7 @@ class AdminPageListHeader extends React.Component {
     this.tableRowStyles = {
       display: "table-row",
       background: "#414450",
-      color: "#ffffff",
+      color: "#ffffff"
     }
 
     this.tableCellStyles = {

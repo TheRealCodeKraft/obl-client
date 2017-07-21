@@ -1,32 +1,25 @@
-/********* General ***********
+/*********************** GENERAL ****************************/
+
 /* Checkbox */
 .checkbox {
 	float:left;
 }
-
 
 /* Fix the Pace default CSS class */
 .content > div {
     opacity: 1;
 }
 
-
-/********* End General ***********
-
-
-
-/***** Bootstrap components *****/
+/* Bootstrap panels */
 .panel {
     border: 0 none;
     border-radius: 0;
 }
 
-/***** End Bootstrap components *****/
+/*********************** END GENERAL ****************************/
 
 
-
-
-/**** Login ****/
+/*********************** LOGIN ****************************/
 
 /* Fix left margin on login page */
 .content-no-sidebar {
@@ -39,12 +32,12 @@
 	margin-right:5px;
 }
 
-/**** End Login ****/
+/*********************** END LOGIN ****************************/
 
 
+/*********************** DASHBOARD ****************************/
 
-
-/**** Profile ****/
+/********* Profile *********/
 
 /* Border between profil fields to replace hr */
 .profile-field {
@@ -66,13 +59,28 @@
 	text-decoration: none;
 	color:inherit;
 }
-.bootstrap-switch .bootstrap-switch-handle-on.bootstrap-switch-primary, .bootstrap-switch .bootstrap-switch-handle-off.bootstrap-switch-primary {
+.profile-field .bootstrap-switch {
+	margin-left:6px;
+}
+.profile-field .bootstrap-switch .bootstrap-switch-handle-on.bootstrap-switch-primary, .bootstrap-switch .bootstrap-switch-handle-off.bootstrap-switch-primary {
 	background-color:#1BBF89
 }
-.bootstrap-switch .bootstrap-switch-handle-on.bootstrap-switch-default, .bootstrap-switch .bootstrap-switch-handle-off.bootstrap-switch-default {
+.profile-field .bootstrap-switch .bootstrap-switch-handle-on.bootstrap-switch-default, .bootstrap-switch .bootstrap-switch-handle-off.bootstrap-switch-default {
 	background-color:#DB524B;
 	color:#fff;
 }
+.profile-field .bootstrap-switch.bootstrap-switch-focused {
+  border-color: #F6A821;
+  outline: 0;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(246, 168, 33, 0.6);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(246, 168, 33, 0.6);
+}
+.profile-field .bootstrap-switch .bootstrap-switch-handle-on {
+	color:#035439;
+}
+.profile-field .bootstrap-switch .bootstrap-switch-handle-off {
+	color:#750c07;
+}
+/********* End Profile *********/
 
-/**** End Profile ****/
-
+/*********************** END DASHBOARD ****************************/

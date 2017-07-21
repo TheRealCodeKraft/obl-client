@@ -1,15 +1,15 @@
 import React from "react"
+import { connect } from 'react-redux'
 
 import { Link } from "react-router-dom"
 
-import { Grid } from 'react-bootstrap';
-import { Row } from 'react-bootstrap';
-import { Col } from 'react-bootstrap';
-import { Panel } from 'react-bootstrap';
+import { Grid, Row, Col, Panel } from 'react-bootstrap';
 
 class Home extends React.Component {
 
   render() {
+
+    var me = this.props.me
 
     return (
       	<section className={"content"}>
@@ -20,7 +20,7 @@ class Home extends React.Component {
 
                         <h1><i className={"pe pe-7s-home text-warning"}></i> Accueil</h1>
 
-                        <h2><small>Bienvenue sur ton compte Open Business Labs <span className={"c-white"}>this.props.me.firstname</span> !</small></h2>
+                        <h2><small>Bienvenue sur ton compte Open Business Labs <span className={"c-white"}>{this.props.me.firstname}</span> !</small></h2>
 
                     </Col>
                 </Row>
@@ -59,4 +59,10 @@ class Home extends React.Component {
 
 }
 
-export default Home
+function mapStateToProps(state) {
+  return {
+    me: state.userState.me || null
+  }
+}
+
+export default connect(mapStateToProps)(Home)

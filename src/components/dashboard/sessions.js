@@ -5,6 +5,8 @@ import SessionClient from 'clients/session'
 
 import Session from './sessions/session'
 
+import {Grid, Row, Col} from "react-bootstrap"
+
 class Sessions extends React.Component {
 
   componentWillMount() {
@@ -14,16 +16,16 @@ class Sessions extends React.Component {
   render() {
     return (
       <section className="content">
-        <div className="container-fluid">
-          <div className="row">
-            <div className="col-xs-12">
+        <Grid fluid>
+          <Row>
+            <Col xs={12}>
               <h1><i className={"pe pe-7s-joy text-warning"}></i> Jeux</h1>
-            </div>
-         </div>
+            </Col>
+         </Row>
          {this.props.sessions.map(session => {
            return <Session key={"session-" + session.id} session={session} />
          })}
-       </div>
+       </Grid>
       </section>
     )
   }

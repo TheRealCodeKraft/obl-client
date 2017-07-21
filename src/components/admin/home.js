@@ -2,10 +2,7 @@ import React from "react"
 
 import { Link } from "react-router-dom"
 
-import { Grid } from 'react-bootstrap';
-import { Row } from 'react-bootstrap';
-import { Col } from 'react-bootstrap';
-import { Panel } from 'react-bootstrap';
+import { Grid, Row, Col, Panel } from 'react-bootstrap';
 
 class Home extends React.Component {
 

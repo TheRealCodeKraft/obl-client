@@ -1,0 +1,36 @@
+------------------------
+Fait par Hugo
+------------------------
+> ajouté react-bootstrap partout où j'ai trouvé du bootstrap (sauf Panels dans dashboard/sessions/session.js car structure html du panel particulière)
+
+form.js-----
+> ajouté submitClass pour avoir une classe sur le bouton submit des form
+> ajouté class pour les input
+> ajouté title sur les input
+> ajouté pas d'affichage du label si vide sur les input
+
+Profil----
+> modifié les specialités par deux champs libres (input text au lieu de select)
+
+Home----
+> ajouté l'affichage du nom de l'utilisateur en accueil
+
+Admin----
+> mise en forme CSS générale, ajout de react-bootstrap.
+> j'ai pas trop touché aux composants, vu que c'est encore en dev
+> une bonne partie de mise en forme est faite directement dans les composants, peut-être que ca serait mieux d'utiliser des propriétés CSS à la place ?
+> supprimé sidebar.css pour tout mettre dans admin.css
+
+------------------------
+Demandes/questions pour Arnaud
+------------------------
+Profil----
+> ajouter la class panel-filled sur les panels deroulants ouverts
+> ajouter les balises <mark> autour de la valeur actuelle du champ pour traineeship et contract (ex: <mark class="mark-red">Non</mark>)
+
+Home----
+> vérifier le code ajouté par Hugo pour l'affichage du nom de l'utilisateur en accueil
+
+Admin---
+> pouvoir mettre une icone différent sur les titres des pages Sessions et Jeux
+> pas réussi à rendre scrollable react-sidebar pour les affichage sur mobile/petits écrans. j'ai fait quelques essais avec les propriétés mais pas trouvé.

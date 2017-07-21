@@ -37,6 +37,7 @@ class Players extends React.Component {
             ]}
             service={{client: SessionClient, func: "update"}}
             onSubmitComplete={this.handleSubmitComplete}
+            submitClass={"btn btn-accent"}
       />
     )
   }

@@ -3,6 +3,7 @@ import React from 'react'
 import { NavLink, Link, Redirect } from 'react-router-dom'
 import Auth from 'clients/auth'
 import ShowForAcls from 'components/utils/auth/show-for-acls'
+import { Navbar } from 'react-bootstrap';
 
 class Header extends React.Component {
 
@@ -23,9 +24,8 @@ class Header extends React.Component {
     return (
       <header id="header">   
 
-          <nav className={"navbar navbar-default navbar-fixed-top"}>
-              <div className={"container-fluid"}>
-                  <div className={"navbar-header"}>
+          <Navbar fixedTop fluid>
+                  <Navbar.Header>
                       <div id="mobile-menu">
                           <div className={"left-nav-toggle"}>
                               <a href="#" onClick={this.handleHamburgerClick}>
@@ -36,16 +36,15 @@ class Header extends React.Component {
                       <Link to="/" className={"navbar-brand"}>
                           <img src="/assets/images/logo-obl-mini.png" alt="Open Business Labs" /> <span>OBL</span>
                       </Link>
-                  </div>
-                  <div id="navbar" className={"navbar-collapse collapse"}>
+                  </Navbar.Header>
+                  <Navbar.Collapse id="navbar">
                       <div className={"left-nav-toggle"}>
                           <a href="#" onClick={this.handleHamburgerClick}>
                               <i className={"stroke-hamburgermenu"}></i>
                           </a>
                       </div>
-                  </div>
-              </div>
-          </nav>
+                  </Navbar.Collapse>
+          </Navbar>
 
           <aside className={"navigation"}>
               <nav>

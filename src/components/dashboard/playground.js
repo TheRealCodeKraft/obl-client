@@ -7,6 +7,8 @@ import {ActionCable} from 'react-actioncable-provider'
 
 import WaitingRoom from './playground/waiting-room'
 
+import { Grid, Row, Col, Panel } from 'react-bootstrap';
+
 class Playground extends React.Component {
 
   constructor(props) {
@@ -43,24 +45,28 @@ class Playground extends React.Component {
 
           <ActionCable ref="sessionChannel" channel={{channel: "SessionChannel", session: this.props.session.id}} onReceived={this.handleCableReceived} />
 
-          <div className="container-fluid">
-            <div className="row">
-              <div className="col-xs-12 titre-accueil-jeu">
-                <div className="panel panel-filled panel-c-warning">
-                  <div className="panel-body">
-                    <img src={this.props.session.game.picture} className="img-rounded image-lg" alt={this.props.session.game.title} />
-                    <h1>{this.props.session.game.title}</h1>
-                    <h2>{this.props.session.title}</h2>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="row">
-              <div className="col-xs-12">
+          <Grid fluid>
+            <Row>
+              <Col xs={12} className="titre-accueil-jeu">
+                <Panel className="panel-filled panel-c-warning">
+                  <Row>
+                    <Col md={2}>
+                      <img src={this.props.session.game.picture} className="img-rounded" alt={this.props.session.game.title} />
+                    </Col>
+                    <Col md={10}>
+                      <h1>{this.props.session.game.title}</h1>
+                      <div className="small">{this.props.session.title}</div>
+                    </Col>
+                  </Row>
+                </Panel>
+              </Col>
+            </Row>
+            <Row>
+              <Col xs={12}>
                 {this.buildSection()}
-              </div>
-            </div>
-          </div>
+              </Col>
+            </Row>
+          </Grid>
 
         </section>
       )

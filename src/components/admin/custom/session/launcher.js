@@ -1,5 +1,7 @@
 import React from "react"
 
+import {Grid, Col, Row} from "react-bootstrap"
+
 class SessionLauncher extends React.Component {
 
   constructor(props) {
@@ -12,16 +14,20 @@ class SessionLauncher extends React.Component {
 
   render() {
     return (
-      <div className="container-fluid">
-        <div className="col-xs-4">
-          <img src={this.props.entity.game.picture} />
-        </div>
-        <div className="col-xs-8">
-          <span>{this.getMessage()}</span>
-          <button onClick={this.handleLaunch}>Oui</button>
-          <button onClick={this.handleCancel}>Non</button>
-        </div>
-      </div>
+      <Grid fluid>
+        <Row>
+          <Col xs={4}>
+            <img src={this.props.entity.game.picture} className="img-rounded" />
+          </Col>
+          <Col xs={8}>
+            <span>{this.getMessage()}</span>
+            <div>
+              <button onClick={this.handleCancel} className="btn btn-danger">Non</button>
+              <button onClick={this.handleLaunch} className="btn btn-accent">Oui</button>
+            </div>
+          </Col>
+        </Row>
+      </Grid>
     )
   }
 

@@ -1,4 +1,5 @@
 import React from "react"
+import { Grid, Row, Col, Table } from 'react-bootstrap';
 
 class WaitingRoom extends React.Component {
 
@@ -8,17 +9,17 @@ class WaitingRoom extends React.Component {
 
   render() {
     return (
-      <div className="container-fluid">
-        <div className="row">
-          <div className="col-xs-12">
+      <Grid fluid>
+        <Row>
+          <Col xs={12}>
             <h2><i className="pe pe-7s-users text-warning"></i> Joueurs ayant rejoint la salle de jeu</h2>
-          </div>
-        </div>
+          </Col>
+        </Row>
 
-        <div className="row">
-          <div className="col-xs-12">
+        <Row>
+          <Col xs={12}>
 
-            <table className="table">
+            <Table responsive>
               <thead>
                 <tr>
                   <th>Pseudo</th>
@@ -39,10 +40,10 @@ class WaitingRoom extends React.Component {
                 )
               })}
               </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
+            </Table>
+          </Col>
+        </Row>
+      </Grid>
     )
   }
 

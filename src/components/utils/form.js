@@ -227,7 +227,7 @@ class Form extends React.Component {
         input = radios
         break
       case "switch":
-        input = <Switch title={field.title} name={field.name} onChange={this.handleInputChange.bind(this, field, !this.state.values[field.name])} onText="OUI" offText="NON" defaultValue={value} />
+        input = <Switch title={field.title} name={field.name} onChange={this.handleInputChange.bind(this, field, !this.state.values[field.name])} onText="OUI" offText="NON" defaultValue={value} bsSize="mini" />
         break
       case "select":
         var options = []

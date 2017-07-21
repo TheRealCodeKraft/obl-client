@@ -27,7 +27,7 @@ class Tables extends React.Component {
                 label: "Nombre de places par table",
                 required: true,
                 defaultValue: this.props.session.table_seat_count
-              },
+              }, 
 /*
               {
                 name: "tables",
@@ -59,6 +59,7 @@ class Tables extends React.Component {
             ]}
             service={{client: SessionClient, func: "update"}}
             onSubmitComplete={this.handleSubmitComplete}
+            submitClass={"btn btn-accent"}
       />
     )
   }

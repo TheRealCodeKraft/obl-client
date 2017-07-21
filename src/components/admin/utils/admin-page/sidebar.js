@@ -32,7 +32,7 @@ import Sidebar from 'react-sidebar'
       return (
         <div>
           <div style={{display: "flex", justifyContent: "space-between", padding: 10}}>
-            <span>[sidebar title]</span>
+            <h3>[sidebar title]</h3>
             <a href="#" onClick={this.handleClose}><i className="fa fa-times text-warning"></i></a>
           </div>
           {this.props.children}

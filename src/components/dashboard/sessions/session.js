@@ -1,5 +1,6 @@
 import React from "react"
 import {Link} from "react-router-dom"
+import {Grid, Row, Col} from "react-bootstrap"
 
 var moment = require("moment")
 
@@ -32,16 +33,16 @@ class Session extends React.Component {
     }
 
     return (
-      <div className="row">
-        <div className="col-xs-12">
+      <Row>
+        <Col xs={12}>
           <div className={"panel panel-filled panel-list-jeux panel-c-success"}>
-            <div className="row">
-              <div className="col-md-2">
+            <Row>
+              <Col md={2}>
                 <div className="panel-body">
                   <img src={this.props.session.game.picture} className="img-rounded" alt="vignette-jeu" />
                 </div>
-              </div>
-              <div className="col-md-10">
+              </Col>
+              <Col md={10}>
                 <div className="panel-heading">
                   <h4>{this.props.session.game.title}</h4>
                   <div className="small">{this.props.session.title} - {moment(this.props.session.start_ts).format("DD/MM/YYYY")}</div>
@@ -54,11 +55,11 @@ class Session extends React.Component {
                      <Link className={"btn btn-success"} to={"/dashboard/sessions/" + this.props.session.id}>Accéder à la salle de jeu</Link>
                    </div>
                  : null}
-              </div>
-            </div>
+              </Col>
+            </Row>
           </div>
-        </div>
-      </div>
+        </Col>
+      </Row>
     )
   }
 

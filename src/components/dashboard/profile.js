@@ -14,6 +14,8 @@ import School from './profile/items/school'
 import Specialities from './profile/items/specialities'
 import Personality from './profile/items/personality'
 
+import {Grid, Row, Col} from "react-bootstrap"
+
 class Profile extends React.Component {
 
   render() {
@@ -22,16 +24,16 @@ class Profile extends React.Component {
     return (
 
       <section className="content">
-            <div className="container-fluid">
+            <Grid fluid>
 
 
-                <div className="row">
-                    <div className="col-xs-12">
+                <Row>
+                    <Col xs={12}>
 
                         <h1><i className={"pe pe-7s-user text-warning"}></i> Profil</h1>
 
-                    </div>
-                </div>
+                    </Col>
+                </Row>
 
                 {me !== null 
                   ? [
@@ -50,7 +52,7 @@ class Profile extends React.Component {
                     ]
                   : null}
 
-            </div>
+            </Grid>
       </section>
 
     )

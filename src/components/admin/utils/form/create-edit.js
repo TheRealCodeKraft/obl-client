@@ -18,6 +18,7 @@ class CreateEditForm extends React.Component {
             submitLabel={this.props.form.submitLabel ? this.props.form.submitLabel : "Enregistrer"} 
             service={{client: this.props.client, func: this.props.mode === "edit" ? "update" : "create"}}
             onSubmitComplete={this.handleSubmitComplete}
+            submitClass={"btn btn-accent"} 
       />
     )
   }
