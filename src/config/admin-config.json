@@ -20,6 +20,11 @@
               "name": "moodle_id",
               "link": "[[MOODLE_URL]]course/view.php?id=[[VALUE]]"
             }
+          ],
+          "actions": [
+            "new",
+            "edit",
+            "delete"
           ]
         },
         "form": {
@@ -99,6 +104,7 @@
             }
           ],
           "actions": [
+            "new",
             "delete",
             "edit",
             "see",
@@ -192,6 +198,31 @@
             "entity": "la session",
             "identifier": "title"
           }
+        }
+      },
+      {
+        "route": "/admin/users",
+        "title": "Utilisateurs",
+        "client": "UserClient",
+        "list": {
+          "attributes": [
+            "id",
+            {
+              "label": "Nom",
+              "name": "lastname"
+            },
+            {
+              "label": "Prénom",
+              "name": "firstname"
+            },
+            {
+              "label": "Email",
+              "name": "email"
+            }
+          ],
+          "actions": [
+            "see"
+          ]
         }
       }
     ]

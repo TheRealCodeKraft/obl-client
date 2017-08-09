@@ -3,6 +3,7 @@ import BaseClient from './base'
 import store from 'reducers/index';
 
 var UserClient = function() {
+  var name = "user", plural = "users";
 
   var fetchAll = function(params, callback) {
     BaseClient.get("users", params, function(data) {
@@ -54,6 +55,8 @@ var UserClient = function() {
   }
 
   return {
+    name: name,
+    plural: plural,
     fetchAll: fetchAll,
     signup: signup,
     me: me,
