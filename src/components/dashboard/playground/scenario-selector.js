@@ -96,7 +96,7 @@ class ScenarioSelector extends React.Component {
   }
 
   checkReturn(data) {
-    if (data.result == "success") {
+    if (data.result === "success") {
       SessionClient.pushInState(data.session)
       this.setState({error: false, checking: false})
     } else {

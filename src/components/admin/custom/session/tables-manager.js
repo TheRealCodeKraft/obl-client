@@ -6,10 +6,6 @@ import Tables from './tables-manager/tables'
 
 class TablesManager extends React.Component {
 
-  constructor(props) {
-    super(props)
-  }
-
   render() {
     return (
       <div>

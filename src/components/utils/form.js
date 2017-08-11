@@ -1,12 +1,9 @@
-import configs from 'config'
-
 import React from "react"
 import { connect } from 'react-redux';
 
 var moment = require("moment")
 
 import * as Clients from 'clients'
-import BaseClient from 'clients/base'
 
 import Switch from 'react-bootstrap-switch'
 import ListSelector from './form/list-selector'
@@ -116,7 +113,7 @@ class Form extends React.Component {
   buildImageUploaders() {
     return this.props.fields.filter(field => { return field.type === "image-uploader" }).map(field => {
       return <form encType='multipart/form-data' className="upload-form">
-               <img src={this.state.values[field.name]} style={{width: 100}} />
+               <img src={this.state.values[field.name]} style={{width: 100}} alt={this.state.values[field.name]} />
                <span className="upload-title">{field.label}</span>
                {this.state.uploading[field.name] 
                 ? <span className="upload-file">Téléchargement en cours</span>
@@ -135,7 +132,6 @@ class Form extends React.Component {
 
   handleFileChange(field, e) {
     var file = e.target.files[0]
-    var self = this
     var uploading = this.state.uploading
     uploading[field.name] = true
     this.setState({uploading: uploading}, function() {
@@ -201,7 +197,7 @@ class Form extends React.Component {
   }
 
   getInput(field) {
-    var input = null, value = this.state.values[field.name]
+    var input = null, value = this.state.values[field.name], options = []
 
     if (field.name.indexOf('[') !== -1) {
       var splitted = field.name.split('[')
@@ -230,7 +226,6 @@ class Form extends React.Component {
         input = <Switch title={field.title} name={field.name} onChange={this.handleInputChange.bind(this, field, !this.state.values[field.name])} onText="OUI" offText="NON" defaultValue={value} bsSize="mini" />
         break
       case "select":
-        var options = []
         if (field.values instanceof Array) {
           options = field.values
         } else if (field.values instanceof Object) {
@@ -248,7 +243,6 @@ class Form extends React.Component {
                 </select>
         break
       case "list-selector":
-        var options = []
         if (field.values instanceof Array) {
           options = field.values
         } else if (field.values instanceof Object) {

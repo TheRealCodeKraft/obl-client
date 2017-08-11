@@ -50,7 +50,6 @@ export default function(config) {
 
     render() {
       const pluralName = getPluralName()
-      var attrIndex = undefined
 
       return (
         <Grid fluid>

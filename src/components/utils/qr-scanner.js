@@ -1,6 +1,6 @@
 import React from "react"
 
-import { Grid, Row, Col, Button } from 'react-bootstrap';
+import { Grid, Row, Col } from 'react-bootstrap';
 
 import QrReader from 'react-qr-reader'
 
@@ -47,7 +47,7 @@ class ScenarioSelector extends React.Component {
         </Row>
         <Row>
           <Col xs={12} className="text-center">
-            <form action="#" id="FormCodeJeu" className="form-inline" onSubmit={this.handleCodeInput}>
+            <form action="" id="FormCodeJeu" className="form-inline" onSubmit={this.handleCodeInput}>
               <div className="form-group">
                 <input ref="codeInput" type="text" title="Entrez le code du jeu" value={this.state.codeInput} name="game-code" id="game-code" className="form-control" required="" onChange={this.handleCodeInputChange} />
                 <button className="btn btn-accent">Valider</button>

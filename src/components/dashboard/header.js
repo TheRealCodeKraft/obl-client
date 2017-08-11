@@ -52,8 +52,8 @@ class Header extends React.Component {
                       <li className={"nav-category"}>
                           Navigation
                       </li>
-                      <li className={this.props.location.pathname == "/dashboard" ? "active" : ""}><NavLink exact to="/dashboard">Accueil</NavLink></li>
-                      <li className={this.props.location.pathname == "/dashboard/profile" ? "active" : ""}>
+                      <li className={this.props.location.pathname === "/dashboard" ? "active" : ""}><NavLink exact to="/dashboard">Accueil</NavLink></li>
+                      <li className={this.props.location.pathname === "/dashboard/profile" ? "active" : ""}>
                         <NavLink exact to="/dashboard/profile">Profil</NavLink>
                       </li>
 

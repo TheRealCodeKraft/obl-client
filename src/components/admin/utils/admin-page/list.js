@@ -18,7 +18,8 @@ class AdminPageList extends React.Component {
       <div style={{display: "table", width: "100%"}}>
         <AdminPageListHeader attributes={this.props.attributes} />
         {this.props.items.map((item, index) => {
-          return <AdminPageListRow item={item} 
+          return <AdminPageListRow key={"admin-list-row-" + index}
+                                   item={item} 
                                    attributes={this.props.attributes} 
                                    actions={this.props.actions}
                                    onDelete={this.handleDelete}

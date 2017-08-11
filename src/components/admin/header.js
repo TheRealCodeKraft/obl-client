@@ -3,8 +3,6 @@ import React from "react"
 import { NavLink, Link, Redirect } from 'react-router-dom'
 import Auth from 'clients/auth'
 
-import ShowForAcls from 'components/utils/auth/show-for-acls'
-
 import { Navbar } from 'react-bootstrap';
 
 class Header extends React.Component {
@@ -53,25 +51,25 @@ class Header extends React.Component {
                       <li className={"nav-category"}>
                           Navigation
                       </li>
-                      <li className={this.props.location.pathname == "/admin" ? "active" : ""}>
+                      <li className={this.props.location.pathname === "/admin" ? "active" : ""}>
                         <NavLink exact to="/admin">Tableau de bord</NavLink>
                       </li>
-                      <li className={this.props.location.pathname == "/admin/users" ? "active" : ""}>
+                      <li className={this.props.location.pathname === "/admin/users" ? "active" : ""}>
                         <NavLink exact to="/admin/users">Utilisateurs</NavLink>
                       </li>
-                      <li className={this.props.location.pathname == "/admin/games" ? "active" : ""}>
+                      <li className={this.props.location.pathname === "/admin/games" ? "active" : ""}>
                         <NavLink exact to="/admin/games">Jeux</NavLink>
                       </li>
-                      <li className={this.props.location.pathname == "/admin/scenarios" ? "active" : ""}>
+                      <li className={this.props.location.pathname === "/admin/scenarios" ? "active" : ""}>
                         <NavLink exact to="/admin/scenarios">Scenarii</NavLink>
                       </li>
-                      <li className={this.props.location.pathname == "/admin/opportunities" ? "active" : ""}>
+                      <li className={this.props.location.pathname === "/admin/opportunities" ? "active" : ""}>
                         <NavLink exact to="/admin/opportunities">Opportunités</NavLink>
                       </li>
-                      <li className={this.props.location.pathname == "/admin/indices" ? "active" : ""}>
+                      <li className={this.props.location.pathname === "/admin/indices" ? "active" : ""}>
                         <NavLink exact to="/admin/indices">Indices</NavLink>
                       </li>
-                      <li className={this.props.location.pathname == "/admin/sessions" ? "active" : ""}>
+                      <li className={this.props.location.pathname === "/admin/sessions" ? "active" : ""}>
                         <NavLink exact to="/admin/sessions">Sessions</NavLink>
                       </li>
                       <li><NavLink exact to="/dashboard">Retour au site</NavLink></li>

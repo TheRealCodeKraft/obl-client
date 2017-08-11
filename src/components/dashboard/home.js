@@ -9,8 +9,6 @@ class Home extends React.Component {
 
   render() {
 
-    var me = this.props.me
-
     return (
       	<section className={"content"}>
             <Grid fluid>

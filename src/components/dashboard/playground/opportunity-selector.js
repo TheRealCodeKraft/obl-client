@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 
 import SessionClient from 'clients/session'
 
-import { Grid, Row, Col, Table, Button } from 'react-bootstrap';
+import { Grid, Row, Col, Table } from 'react-bootstrap';
 
 import QrScanner from 'components/utils/qr-scanner'
 
@@ -95,7 +95,7 @@ class OpportunitySelector extends React.Component {
   }
 
   checkReturn(data) {
-    if (data.result == "success") {
+    if (data.result === "success") {
       SessionClient.pushInState(data.session)
       this.setState({error: false, checking: false})
     } else {

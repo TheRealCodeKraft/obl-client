@@ -65,7 +65,7 @@ class AdminPageListRow extends React.Component {
        value = <a href={link} target="_blank">{value}</a>
      }
      if (attribute.type === "image") {
-       value = <img src={value} style={{height: 50}} className="img-rounded" />
+       value = <img src={value} style={{height: 50}} className="img-rounded" alt={value} />
      }
    }
 
@@ -75,33 +75,34 @@ class AdminPageListRow extends React.Component {
   buildActions() {
     var actions = []
     if (!this.props.actions) {
-      actions.push(<a key="action-delete" href="#" onClick={this.handleDelete} className="admin-action-button pe pe-7s-junk" alt="Supprimer" title="Supprimer"></a>)
-      actions.push(<a key="action-see" href="#" onClick={this.handleSee} className="admin-action-button pe pe-7s-look" alt="Afficher" title="Afficher"></a>)
-      actions.push(<a key="action-edit" href="#" onClick={this.handleEdit} className="admin-action-button pe pe-7s-pen" alt="Modifier" title="Modifier"></a>)
+      actions.push(<a key={"action-delete-" + this.props.item.id} href="#" onClick={this.handleDelete} className="admin-action-button pe pe-7s-junk" alt="Supprimer" title="Supprimer"></a>)
+      actions.push(<a key={"action-see-" + this.props.item.id} href="#" onClick={this.handleSee} className="admin-action-button pe pe-7s-look" alt="Afficher" title="Afficher"></a>)
+      actions.push(<a key={"action-edit-" + this.props.item.id} href="#" onClick={this.handleEdit} className="admin-action-button pe pe-7s-pen" alt="Modifier" title="Modifier"></a>)
     } else {
       this.props.actions.map(action => {
         if (action instanceof Object) {
           if (this.acceptCustomAction(action)) {
-            actions.push(<a key={"action-" + action.action} onClick={this.handleCustomAction.bind(this, action)} className={"admin-action-button" + (action.icon ? (" pe pe-7s-" + action.icon) : "")} alt={action.label} title={action.label}>{action.icon ? "" : action.label}</a>)
+            actions.push(<a key={"action-" + action.action + "-" + this.props.item.id} onClick={this.handleCustomAction.bind(this, action)} className={"admin-action-button" + (action.icon ? (" pe pe-7s-" + action.icon) : "")} alt={action.label} title={action.label}>{action.icon ? "" : action.label}</a>)
           }
         } else {
           switch(action) {
             case "delete":
-              actions.push(<a key="action-delete" href="#" onClick={this.handleDelete} className="admin-action-button pe pe-7s-junk" alt="Supprimer" title="Supprimer"></a>)
-              break;
+              actions.push(<a key={"action-delete-" + this.props.item.id} href="#" onClick={this.handleDelete} className="admin-action-button pe pe-7s-junk" alt="Supprimer" title="Supprimer"></a>)
+              break
             case "see":
-              actions.push(<a key="action-see" href="#" onClick={this.handleSee} className="admin-action-button pe pe-7s-look" alt="Afficher" title="Afficher"></a>)
-              break;
+              actions.push(<a key={"action-see-" + this.props.item.id} href="#" onClick={this.handleSee} className="admin-action-button pe pe-7s-look" alt="Afficher" title="Afficher"></a>)
+              break
             case "edit":
-              actions.push(<a key="action-delete" href="#" onClick={this.handleDelete} className="admin-action-button pe pe-7s-junk" alt="Supprimer" title="Supprimer"></a>)
-              actions.push(<a key="action-see" href="#" onClick={this.handleSee} className="admin-action-button pe pe-7s-look" alt="Afficher" title="Afficher"></a>)
-              actions.push(<a key="action-edit" href="#" onClick={this.handleEdit} className="admin-action-button pe pe-7s-pen" alt="Modifier" title="Modifier"></a>)
-              break;
+              actions.push(<a key={"action-edit-" + this.props.item.id} href="#" onClick={this.handleEdit} className="admin-action-button pe pe-7s-pen" alt="Modifier" title="Modifier"></a>)
+              break
+            default:
+              break
           }
         }
+        return true
       })
     }
-    return <div style={{textAlign: "right"}}>{actions}</div>
+    return <div key={"actions-" + this.props.item.id} style={{textAlign: "right"}}>{actions}</div>
   }
 
   acceptCustomAction(action) {
@@ -117,7 +118,7 @@ class AdminPageListRow extends React.Component {
         if (action.displayIf.values) {
           result = (action.displayIf.values.indexOf(this.props.item[action.displayIf.property]) !== -1)
         } else {
-          result = (this.props.item[action.displayIf.property].toString() == action.displayIf.value.toString())
+          result = (this.props.item[action.displayIf.property].toString() === action.displayIf.value.toString())
         }
       }
     }

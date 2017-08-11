@@ -1,14 +1,10 @@
 import React from "react"
 import {Link} from "react-router-dom"
-import {Grid, Row, Col} from "react-bootstrap"
+import {Row, Col} from "react-bootstrap"
 
 var moment = require("moment")
 
 class Session extends React.Component {
-
-  constructor(props) {
-    super(props)
-  }
 
   render() {
     var sessionStatus = {}
@@ -30,6 +26,8 @@ class Session extends React.Component {
         sessionStatus.color = "red"
         sessionStatus.label = "Session terminée"
         break
+      default:
+        break
     }
 
     return (
@@ -50,7 +48,7 @@ class Session extends React.Component {
                 <div className="panel-body">
                   <div><mark className={"mark-" + sessionStatus.color}>{sessionStatus.label}</mark></div>
                 </div>
-                {this.props.session.playable == "play"
+                {this.props.session.playable === "play"
                  ? <div className="panel-footer">
                      <Link className={"btn btn-success"} to={"/dashboard/sessions/" + this.props.session.id}>Accéder à la salle de jeu</Link>
                    </div>

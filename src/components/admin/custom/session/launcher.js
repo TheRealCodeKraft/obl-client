@@ -17,7 +17,7 @@ class SessionLauncher extends React.Component {
       <Grid fluid>
         <Row>
           <Col xs={4}>
-            <img src={this.props.entity.game.picture} className="img-rounded" />
+            <img src={this.props.entity.game.picture} className="img-rounded" alt={this.props.entity.game.title} />
           </Col>
           <Col xs={8}>
             <span>{this.getMessage()}</span>
@@ -41,7 +41,7 @@ class SessionLauncher extends React.Component {
 
   handleLaunch() {
     this.setState({launching: true}, function() {
-      if (this.props.entity.playable == "play") {
+      if (this.props.entity.playable === "play") {
         this.props.client.pause(this.props.entity.id, this.handleLaunched)
       } else {
         this.props.client.launch(this.props.entity.id, this.handleLaunched)

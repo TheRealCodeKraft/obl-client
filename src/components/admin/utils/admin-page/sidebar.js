@@ -24,6 +24,7 @@ import Sidebar from 'react-sidebar'
                  sidebarClassName={"admin-sidebar-container" + (this.props.tinify ? " tiny-sidebar" : "")}
                  overlayClassName="admin-sidebar-overlay"
                  pullRight={true}>
+          <span />
         </Sidebar>
       )
     }
@@ -51,7 +52,6 @@ import Sidebar from 'react-sidebar'
     }
 
     handleSetSidebarOpen(open) {
-      var self = this;
       if (!open) this.close()
       else this.open()
     }

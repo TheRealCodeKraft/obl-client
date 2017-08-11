@@ -21,7 +21,7 @@ class Playground extends React.Component {
   }
 
   componentDidMount() {
-    if (this.props.match.params.identifier != undefined) {
+    if (this.props.match.params.identifier !== undefined) {
       SessionClient.fetchOne(this.props.match.params.identifier)
     }
 
@@ -88,6 +88,8 @@ class Playground extends React.Component {
           case "opportunity":
             section = <OpportunitySelector session={this.props.session} />
             break
+          default:
+            break
         }
         break
       case "pause":
@@ -95,6 +97,8 @@ class Playground extends React.Component {
         break
       case "stop":
         section = <span>[TODO] Jeu terminé [TODO]</span>
+        break
+      default:
         break
     }
 

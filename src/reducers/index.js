@@ -48,27 +48,28 @@ const schoolReducer = function(state = {}, action) {
 }
 
 const sessionReducer = function(state = {}, action) {
+  var sessions
   switch(action.type) {
     case "SESSIONS":
       return Object.assign({}, state, { sessions: action.sessions })
     case "SESSION":
       return Object.assign({}, state, { session: action.session })
     case "NEW_SESSION":
-      var sessions = pushNewEntityToState(action.session, state, "sessions")
+      sessions = pushNewEntityToState(action.session, state, "sessions")
       return Object.assign({}, state, { newSession: action.session, sessions: sessions })
     case "UPDATE_SESSION":
-      var sessions = mergeEntityAndState(action.session, state, "sessions")
+      sessions = mergeEntityAndState(action.session, state, "sessions")
       return Object.assign({}, state, { updatedSession: action.session, sessions: sessions})
     case "DESTROY_SESSION":
       var deletedSession = state.sessions.filter(session => { return session.id === action.id })[0]
-      var sessions = removeEntityFromState(action.id, state, "sessions")
+      sessions = removeEntityFromState(action.id, state, "sessions")
       return Object.assign({}, state, { deletedSession: deletedSession, sessions: sessions})
     case "SESSION_LAUNCH":
     case "SESSION_PAUSE":
-      var sessions = mergeEntityAndState(action.session, state, "sessions")
+      sessions = mergeEntityAndState(action.session, state, "sessions")
       return Object.assign({}, state, { sessions: sessions })
     case "SESSION_PUSH":
-      var sessions = mergeEntityAndState(action.session, state, "sessions")
+      sessions = mergeEntityAndState(action.session, state, "sessions")
       return Object.assign({}, state, { sessions: sessions, session: action.session })
     default:
       break
@@ -77,21 +78,22 @@ const sessionReducer = function(state = {}, action) {
 }
 
 const gameReducer = function(state = {}, action) {
+  var games
   switch(action.type) {
     case "GAMES":
       return Object.assign({}, state, { games: action.games })
     case "NEW_GAME":
-      var games = pushNewEntityToState(action.game, state, "games")
+      games = pushNewEntityToState(action.game, state, "games")
       return Object.assign({}, state, { newGame: action.game, games: games })
     case "UPDATE_GAME":
-      var games = mergeEntityAndState(action.game, state, "games")
+      games = mergeEntityAndState(action.game, state, "games")
       return Object.assign({}, state, { updatedGame: action.game, games: games})
     case "DESTROY_GAME":
       var deletedGame = state.games.filter(game => { return game.id === action.id })[0]
-      var games = removeEntityFromState(action.id, state, "games")
+      games = removeEntityFromState(action.id, state, "games")
       return Object.assign({}, state, { deletedGame: deletedGame, games: games})
     case "UPLOAD_FILE":
-      var games = mergeEntityAndState(action.game, state, "games")
+      games = mergeEntityAndState(action.game, state, "games")
       return Object.assign({}, state, { games: games })
     default:
       break
@@ -100,18 +102,19 @@ const gameReducer = function(state = {}, action) {
 }
 
 const scenarioReducer = function(state = {}, action) {
+  var scenarios
   switch(action.type) {
     case "SCENARIOS":
       return Object.assign({}, state, { scenarios: action.scenarios })
     case "NEW_SCENARIO":
-      var scenarios = pushNewEntityToState(action.scenario, state, "scenarios")
+      scenarios = pushNewEntityToState(action.scenario, state, "scenarios")
       return Object.assign({}, state, { newScenario: action.scenario, scenarios: scenarios })
     case "UPDATE_SCENARIO":
-      var scenarios = mergeEntityAndState(action.scenario, state, "scenarios")
+      scenarios = mergeEntityAndState(action.scenario, state, "scenarios")
       return Object.assign({}, state, { updatedScenario: action.scenario, scenarios: scenarios})
     case "DESTROY_SCENARIO":
       var deletedScenario = state.scenarios.filter(scenario => { return scenario.id === action.id })[0]
-      var scenarios = removeEntityFromState(action.id, state, "scenarios")
+      scenarios = removeEntityFromState(action.id, state, "scenarios")
       return Object.assign({}, state, { deletedScenario: deletedScenario, scenarios: scenarios})
     default:
       break
@@ -120,18 +123,19 @@ const scenarioReducer = function(state = {}, action) {
 }
 
 const opportunityReducer = function(state = {}, action) {
+  var opportunities
   switch(action.type) {
     case "OPPORTUNITIES":
       return Object.assign({}, state, { opportunities: action.opportunities })
     case "NEW_OPPORTUNITY":
-      var opportunities = pushNewEntityToState(action.opportunity, state, "opportunities")
+      opportunities = pushNewEntityToState(action.opportunity, state, "opportunities")
       return Object.assign({}, state, { newScenario: action.opportunity, opportunities: opportunities })
     case "UPDATE_OPPORTUNITY":
-      var opportunities = mergeEntityAndState(action.opportunity, state, "opportunities")
+      opportunities = mergeEntityAndState(action.opportunity, state, "opportunities")
       return Object.assign({}, state, { updatedScenario: action.opportunity, opportunities: opportunities})
     case "DESTROY_OPPORTUNITY":
       var deletedScenario = state.opportunities.filter(opportunity => { return opportunity.id === action.id })[0]
-      var opportunities = removeEntityFromState(action.id, state, "opportunities")
+      opportunities = removeEntityFromState(action.id, state, "opportunities")
       return Object.assign({}, state, { deletedScenario: deletedScenario, opportunities: opportunities})
     default:
       break
@@ -140,18 +144,19 @@ const opportunityReducer = function(state = {}, action) {
 }
 
 const indiceReducer = function(state = {}, action) {
+  var indices
   switch(action.type) {
     case "INDICES":
       return Object.assign({}, state, { indices: action.indices })
     case "NEW_INDICE":
-      var indices = pushNewEntityToState(action.indice, state, "indices")
+      indices = pushNewEntityToState(action.indice, state, "indices")
       return Object.assign({}, state, { newIndice: action.indice, indices: indices })
     case "UPDATE_INDICE":
-      var indices = mergeEntityAndState(action.indice, state, "indices")
+      indices = mergeEntityAndState(action.indice, state, "indices")
       return Object.assign({}, state, { updatedIndice: action.indice, indices: indices})
     case "DESTROY_INDICE":
       var deletedIndice = state.indices.filter(indice => { return indice.id === action.id })[0]
-      var indices = removeEntityFromState(action.id, state, "indices")
+      indices = removeEntityFromState(action.id, state, "indices")
       return Object.assign({}, state, { deletedIndice: deletedIndice, indices: indices})
     default:
       break
@@ -172,7 +177,7 @@ function removeEntityFromState(id, state, name) {
   var list = state[name], newList = []
   if (list && id !== undefined) {
     for(var index in list) {
-      if (list[index].id != id) {
+      if (list[index].id !== id) {
         newList.push(list[index])
       }
     }

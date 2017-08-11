@@ -1,6 +1,6 @@
 import React from "react"
 
-import {Row, Col, Panel, Button} from "react-bootstrap"
+import {Row, Col, Panel} from "react-bootstrap"
 
 class BaseItem extends React.Component {
 
@@ -25,27 +25,6 @@ class BaseItem extends React.Component {
         </Col>
       </Row>
     )
-{/*
-      <div className="row profile-field">
-                    <div className="col-xs-12">
-
-                        <div className={"panel panel-profile collapsed"}>
-                            <div className="panel-heading">
-                                <div className="panel-tools">
-                                    <a href="#" className={"panel-toggle-profile"} onClick={this.handleToggleOpen}>{this.state.opened ? <i className={"fa fa-times text-warning"}></i> : <i className={"fa fa-pencil text-warning"}></i>}</a>
-                                </div>
-                                {this.label}
-                                {!this.state.opened ? <div>{this.buildValue()}</div> : null}
-                            </div>
-                        </div>
-          
-                        <div className="panel-body">
-                          {this.state.opened ? this.buildFullContent() : null}
-                        </div>
-
-                    </div>
-      </div>
-*/}
   }
 
   buildHeader() {
