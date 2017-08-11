@@ -316,6 +316,10 @@
               "name": "name"
             },
             {
+              "label": "Jeu",
+              "name": "scenario.game.title"
+            },
+            {
               "label": "Scenario",
               "name": "scenario.name"
             },
@@ -382,7 +386,92 @@
             "identifier": "name"
           }
         }
+      },
+      {
+        "route": "/admin/indices",
+        "title": "Indices",
+        "client": "IndiceClient",
+        "list": {
+          "attributes": [
+            "id",
+            {
+              "label": "Titre",
+              "name": "name"
+            },
+            {
+              "label": "Jeu",
+              "name": "opportunity.scenario.game.title"
+            },
+            {
+              "label": "Scenario",
+              "name": "opportunity.scenario.name"
+            },
+            {
+              "label": "Opportunité",
+              "name": "opportunity.name"
+            },
+            {
+              "label": "QRCode",
+              "name": "qrcode"
+            },
+            {
+              "label": "Description",
+              "name": "description"
+            }
+          ],
+          "actions": [
+            "new",
+            "delete",
+            "edit",
+            "see"
+          ]
+        },
+        "form": {
+          "attributes": [
+            {
+              "name": "name",
+              "label": "Titre",
+              "placeholder": "Titre de l'indice",
+              "type": "text",
+              "required": true
+            },
+            {
+              "name": "qrcode",
+              "label": "QRCode",
+              "placeholder": "QRCode de l'indice",
+              "type": "text",
+              "required": true
+            },
+            {
+              "name": "description",
+              "label": "Description",
+              "placeholder": "Description de l'indice",
+              "type": "text",
+              "required": true
+            },
+            {
+              "name": "opportunity_id",
+              "label": "Opportunité",
+              "placeholder": "Sélectionnez une opportunité",
+              "type": "select",
+              "values": {
+                "targetState": "opportunityState",
+                "targetValue": "opportunities",
+                "client": "OpportunityClient",
+                "func": "fetchAll"
+              },
+              "key": "id",
+              "value": "name",
+              "required": true,
+              "defaultValue": "-1"
+            }
+          ]
+        },
+        "delete": {
+          "labels": {
+            "entity": "l'indice",
+            "identifier": "name"
+          }
+        }
       }
-
     ]
-

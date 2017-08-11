@@ -139,6 +139,26 @@ const opportunityReducer = function(state = {}, action) {
   return state
 }
 
+const indiceReducer = function(state = {}, action) {
+  switch(action.type) {
+    case "INDICES":
+      return Object.assign({}, state, { indices: action.indices })
+    case "NEW_INDICE":
+      var indices = pushNewEntityToState(action.indice, state, "indices")
+      return Object.assign({}, state, { newIndice: action.indice, indices: indices })
+    case "UPDATE_INDICE":
+      var indices = mergeEntityAndState(action.indice, state, "indices")
+      return Object.assign({}, state, { updatedIndice: action.indice, indices: indices})
+    case "DESTROY_INDICE":
+      var deletedIndice = state.indices.filter(indice => { return indice.id === action.id })[0]
+      var indices = removeEntityFromState(action.id, state, "indices")
+      return Object.assign({}, state, { deletedIndice: deletedIndice, indices: indices})
+    default:
+      break
+  }
+  return state
+}
+
 function pushNewEntityToState(entity, state, name) {
   var list = state[name]
   if (entity !== undefined) {
@@ -189,6 +209,7 @@ const reducers = combineReducers({
   gameState: gameReducer,
   scenarioState: scenarioReducer,
   opportunityState: opportunityReducer,
+  indiceState: indiceReducer,
 
 });
 

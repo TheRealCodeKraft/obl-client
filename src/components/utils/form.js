@@ -360,6 +360,9 @@ class Form extends React.Component {
         if (textTypes.indexOf(field.type) >= 0 && (this.state.values[field.name] === "" || this.state.values[field.name] === undefined)) {
           errors[field.name] = field.name + "_required"
         }
+        if (field.type === "select" && (this.state.values[field.name] === -1 || this.state.values[field.name] === "-1")) {
+          errors[field.name] = field.name + "_required"
+        }
       }
 
       if (!errors[field.name]) {
