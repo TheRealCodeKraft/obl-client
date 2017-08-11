@@ -33,6 +33,7 @@ class Sessions extends React.Component {
 }
 
 function mapStateToProps(state) {
+console.log(state)
   return {
     sessions: state.sessionState.sessions || []
   }

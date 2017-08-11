@@ -224,6 +224,165 @@
             "see"
           ]
         }
+      },
+      {
+        "route": "/admin/scenarios",
+        "title": "Scenarios",
+        "client": "ScenarioClient",
+        "list": {
+          "attributes": [
+            "id",
+            {
+              "label": "Titre",
+              "name": "name"
+            },
+            {
+              "label": "Jeu",
+              "name": "game.title"
+            },
+            {
+              "label": "QRCode",
+              "name": "qrcode"
+            },
+            {
+              "label": "Description",
+              "name": "description"
+            }
+          ],
+          "actions": [
+            "new",
+            "delete",
+            "edit",
+            "see"
+          ]
+        },
+        "form": {
+          "attributes": [
+            {
+              "name": "name",
+              "label": "Titre",
+              "placeholder": "Titre du scenario",
+              "type": "text",
+              "required": true
+            },
+            {
+              "name": "qrcode",
+              "label": "QRCode",
+              "placeholder": "QRCode du scenario",
+              "type": "text",
+              "required": true
+            },
+            {
+              "name": "description",
+              "label": "Description",
+              "placeholder": "Description du scenario",
+              "type": "text",
+              "required": true
+            },
+            {
+              "name": "game_id",
+              "label": "Jeu",
+              "placeholder": "Sélectionnez un jeu",
+              "type": "select",
+              "values": {
+                "targetState": "gameState",
+                "targetValue": "games",
+                "client": "GameClient",
+                "func": "fetchAll"
+              },
+              "key": "id",
+              "value": "title",
+              "required": true,
+              "defaultValue": []
+            }
+          ]
+        },
+        "delete": {
+          "labels": {
+            "entity": "le scenario",
+            "identifier": "name"
+          }
+        }
+      },
+      {
+        "route": "/admin/opportunities",
+        "title": "Opportunités",
+        "client": "OpportunityClient",
+        "list": {
+          "attributes": [
+            "id",
+            {
+              "label": "Titre",
+              "name": "name"
+            },
+            {
+              "label": "Scenario",
+              "name": "scenario.name"
+            },
+            {
+              "label": "QRCode",
+              "name": "qrcode"
+            },
+            {
+              "label": "Description",
+              "name": "description"
+            }
+          ],
+          "actions": [
+            "new",
+            "delete",
+            "edit",
+            "see"
+          ]
+        },
+        "form": {
+          "attributes": [
+            {
+              "name": "name",
+              "label": "Titre",
+              "placeholder": "Titre de l'opportunité",
+              "type": "text",
+              "required": true
+            },
+            {
+              "name": "qrcode",
+              "label": "QRCode",
+              "placeholder": "QRCode de l'opportunité",
+              "type": "text",
+              "required": true
+            },
+            {
+              "name": "description",
+              "label": "Description",
+              "placeholder": "Description de l'opportunité",
+              "type": "text",
+              "required": true
+            },
+            {
+              "name": "scenario_id",
+              "label": "Scenario",
+              "placeholder": "Sélectionnez un scenario",
+              "type": "select",
+              "values": {
+                "targetState": "scenarioState",
+                "targetValue": "scenarios",
+                "client": "ScenarioClient",
+                "func": "fetchAll"
+              },
+              "key": "id",
+              "value": "name",
+              "required": true,
+              "defaultValue": []
+            }
+          ]
+        },
+        "delete": {
+          "labels": {
+            "entity": "l'opportunité",
+            "identifier": "name"
+          }
+        }
       }
+
     ]
 

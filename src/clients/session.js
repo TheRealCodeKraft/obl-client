@@ -77,6 +77,32 @@ var SessionClient = function() {
     })
   }
 
+  var scenario = function(id, callback) {
+    BaseClient.put(plural + "/scenario", id, {}, function(data) {
+      store.dispatch({
+        type: "SESSION_PUSH",
+        session: data
+      })
+      if (callback) callback(data)
+    })
+  }
+
+  var opportunity = function(id, callback) {
+    BaseClient.put(plural + "/opportunity", id, {}, function(data) {
+      store.dispatch({
+        type: "SESSION_PUSH",
+        session: data
+      })
+      if (callback) callback(data)
+    })
+  }
+
+  var checkCode = function(session_id, code, callback) {
+    BaseClient.put(plural + "/code", session_id + "/" + code, {}, function(data) {
+      if (callback) callback(data)
+    })
+  }
+
   var pushInState = function(session) {
     store.dispatch({
       type: "SESSION_PUSH",
@@ -86,14 +112,20 @@ var SessionClient = function() {
 
   return {
     name: name,
+    plural: plural,
 
     fetchAll: fetchAll,
     fetchOne: fetchOne,
     create: create,
     update: update,
     destroy: destroy,
+
     launch: launch,
     pause: pause,
+    scenario: scenario,
+    opportunity: opportunity,
+
+    checkCode: checkCode,
 
     pushInState: pushInState
   }

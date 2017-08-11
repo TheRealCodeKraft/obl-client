@@ -1,10 +1,16 @@
 import React from "react"
-import { Grid, Row, Col, Table } from 'react-bootstrap';
+import { connect } from 'react-redux'
+
+import SessionClient from 'clients/session'
+
+import { Grid, Row, Col, Table, Button } from 'react-bootstrap';
 
 class WaitingRoom extends React.Component {
 
   constructor(props) {
     super(props)
+
+    this.goToScenario = this.goToScenario.bind(this)
   }
 
   render() {
@@ -28,6 +34,7 @@ class WaitingRoom extends React.Component {
               </thead>
               <tbody>
               {this.props.session.players.map(player => {
+                if (player.id === this.props.me.id) return null
                 return (
                   <tr>
                     <td>{player.firstname}</td>
@@ -41,6 +48,7 @@ class WaitingRoom extends React.Component {
               })}
               </tbody>
             </Table>
+            <Button onClick={this.goToScenario}>Prêts à jouer !</Button>
           </Col>
         </Row>
       </Grid>
@@ -48,9 +56,19 @@ class WaitingRoom extends React.Component {
   }
 
   playerConnected(player) {
-    return this.props.session.tables[0].userStates.filter(state => { return state.user == player.id && state.connected }).length > 0
+    return this.props.session.current_round.userStates.filter(state => { return state.user === player.id && state.connected }).length > 0
+  }
+
+  goToScenario() {
+    SessionClient.scenario(this.props.session.id)
   }
 
 }
 
-export default WaitingRoom
+function mapStateToProps(state) {
+  return {
+    me: state.userState.me || null,
+  }
+}
+
+export default connect(mapStateToProps, {SessionClient})(WaitingRoom)

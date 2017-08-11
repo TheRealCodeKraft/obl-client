@@ -99,6 +99,46 @@ const gameReducer = function(state = {}, action) {
   return state
 }
 
+const scenarioReducer = function(state = {}, action) {
+  switch(action.type) {
+    case "SCENARIOS":
+      return Object.assign({}, state, { scenarios: action.scenarios })
+    case "NEW_SCENARIO":
+      var scenarios = pushNewEntityToState(action.scenario, state, "scenarios")
+      return Object.assign({}, state, { newScenario: action.scenario, scenarios: scenarios })
+    case "UPDATE_SCENARIO":
+      var scenarios = mergeEntityAndState(action.scenario, state, "scenarios")
+      return Object.assign({}, state, { updatedScenario: action.scenario, scenarios: scenarios})
+    case "DESTROY_SCENARIO":
+      var deletedScenario = state.scenarios.filter(scenario => { return scenario.id === action.id })[0]
+      var scenarios = removeEntityFromState(action.id, state, "scenarios")
+      return Object.assign({}, state, { deletedScenario: deletedScenario, scenarios: scenarios})
+    default:
+      break
+  }
+  return state
+}
+
+const opportunityReducer = function(state = {}, action) {
+  switch(action.type) {
+    case "OPPORTUNITIES":
+      return Object.assign({}, state, { opportunities: action.opportunities })
+    case "NEW_OPPORTUNITY":
+      var opportunities = pushNewEntityToState(action.opportunity, state, "opportunities")
+      return Object.assign({}, state, { newScenario: action.opportunity, opportunities: opportunities })
+    case "UPDATE_OPPORTUNITY":
+      var opportunities = mergeEntityAndState(action.opportunity, state, "opportunities")
+      return Object.assign({}, state, { updatedScenario: action.opportunity, opportunities: opportunities})
+    case "DESTROY_OPPORTUNITY":
+      var deletedScenario = state.opportunities.filter(opportunity => { return opportunity.id === action.id })[0]
+      var opportunities = removeEntityFromState(action.id, state, "opportunities")
+      return Object.assign({}, state, { deletedScenario: deletedScenario, opportunities: opportunities})
+    default:
+      break
+  }
+  return state
+}
+
 function pushNewEntityToState(entity, state, name) {
   var list = state[name]
   if (entity !== undefined) {
@@ -147,6 +187,8 @@ const reducers = combineReducers({
   schoolState: schoolReducer,
   sessionState: sessionReducer,
   gameState: gameReducer,
+  scenarioState: scenarioReducer,
+  opportunityState: opportunityReducer,
 
 });
 

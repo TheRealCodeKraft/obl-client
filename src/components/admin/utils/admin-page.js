@@ -60,7 +60,7 @@ console.dir(config)
             <Col xs={10}>
               <h1><i className={"pe pe-7s-user text-warning"}></i> {config.title}</h1>
             </Col>
-            {config.list.actions.new
+            {(config.list.actions.indexOf("new") !== -1)
              ? <Col xs={12} className="admin-new-button-row">
                 <a href="#" onClick={this.handleNew} className="admin-new-button"><i className="pe pe-7s-plus" /> Nouveau</a>
               </Col>

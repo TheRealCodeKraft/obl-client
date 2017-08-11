@@ -6,6 +6,8 @@ import SessionClient from 'clients/session'
 import {ActionCable} from 'react-actioncable-provider'
 
 import WaitingRoom from './playground/waiting-room'
+import ScenarioSelector from './playground/scenario-selector'
+import OpportunitySelector from './playground/opportunity-selector'
 
 import { Grid, Row, Col, Panel } from 'react-bootstrap';
 
@@ -41,7 +43,7 @@ class Playground extends React.Component {
     } else {
 
       return (
-        <section className="content">
+        <section className="content jeu">
 
           <ActionCable ref="sessionChannel" channel={{channel: "SessionChannel", session: this.props.session.id}} onReceived={this.handleCableReceived} />
 
@@ -49,15 +51,9 @@ class Playground extends React.Component {
             <Row>
               <Col xs={12} className="titre-accueil-jeu">
                 <Panel className="panel-filled panel-c-warning">
-                  <Row>
-                    <Col md={2}>
-                      <img src={this.props.session.game.picture} className="img-rounded" alt={this.props.session.game.title} />
-                    </Col>
-                    <Col md={10}>
-                      <h1>{this.props.session.game.title}</h1>
-                      <div className="small">{this.props.session.title}</div>
-                    </Col>
-                  </Row>
+                  <img src={this.props.session.game.picture} className="img-rounded image-lg" alt={this.props.session.game.title} />
+                  <h1>{this.props.session.game.title}</h1>
+                  <div className="small">{this.props.session.title}</div>
                 </Panel>
               </Col>
             </Row>
@@ -85,6 +81,12 @@ class Playground extends React.Component {
         switch(this.props.session.current_step) {
           case "waiting_players":
             section = <WaitingRoom session={this.props.session} />
+            break
+          case "scenario":
+            section = <ScenarioSelector session={this.props.session} />
+            break
+          case "opportunity":
+            section = <OpportunitySelector session={this.props.session} />
             break
         }
         break
