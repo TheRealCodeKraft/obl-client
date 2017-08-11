@@ -8,6 +8,7 @@ import {ActionCable} from 'react-actioncable-provider'
 import WaitingRoom from './playground/waiting-room'
 import ScenarioSelector from './playground/scenario-selector'
 import OpportunitySelector from './playground/opportunity-selector'
+import CluesSelector from './playground/clues-selector'
 
 import { Grid, Row, Col, Panel } from 'react-bootstrap';
 
@@ -88,6 +89,8 @@ class Playground extends React.Component {
           case "opportunity":
             section = <OpportunitySelector session={this.props.session} />
             break
+          case "clues":
+            section = <CluesSelector session={this.props.session} />
           default:
             break
         }

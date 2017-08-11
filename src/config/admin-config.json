@@ -388,9 +388,9 @@
         }
       },
       {
-        "route": "/admin/indices",
+        "route": "/admin/clues",
         "title": "Indices",
-        "client": "IndiceClient",
+        "client": "ClueClient",
         "list": {
           "attributes": [
             "id",

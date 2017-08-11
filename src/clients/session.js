@@ -97,6 +97,16 @@ var SessionClient = function() {
     })
   }
 
+  var clues = function(id, callback) {
+    BaseClient.put(plural + "/clues", id, {}, function(data) {
+      store.dispatch({
+        type: "SESSION_PUSH",
+        session: data
+      })
+      if (callback) callback(data)
+    })
+  }
+
   var checkCode = function(session_id, code, callback) {
     BaseClient.put(plural + "/code", session_id + "/" + code, {}, function(data) {
       if (callback) callback(data)
@@ -124,6 +134,7 @@ var SessionClient = function() {
     pause: pause,
     scenario: scenario,
     opportunity: opportunity,
+    clues: clues,
 
     checkCode: checkCode,
 

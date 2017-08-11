@@ -143,21 +143,21 @@ const opportunityReducer = function(state = {}, action) {
   return state
 }
 
-const indiceReducer = function(state = {}, action) {
-  var indices
+const clueReducer = function(state = {}, action) {
+  var clues
   switch(action.type) {
-    case "INDICES":
-      return Object.assign({}, state, { indices: action.indices })
-    case "NEW_INDICE":
-      indices = pushNewEntityToState(action.indice, state, "indices")
-      return Object.assign({}, state, { newIndice: action.indice, indices: indices })
-    case "UPDATE_INDICE":
-      indices = mergeEntityAndState(action.indice, state, "indices")
-      return Object.assign({}, state, { updatedIndice: action.indice, indices: indices})
-    case "DESTROY_INDICE":
-      var deletedIndice = state.indices.filter(indice => { return indice.id === action.id })[0]
-      indices = removeEntityFromState(action.id, state, "indices")
-      return Object.assign({}, state, { deletedIndice: deletedIndice, indices: indices})
+    case "CLUES":
+      return Object.assign({}, state, { clues: action.clues })
+    case "NEW_CLUE":
+      clues = pushNewEntityToState(action.clue, state, "clues")
+      return Object.assign({}, state, { newClue: action.clue, clues: clues })
+    case "UPDATE_CLUE":
+      clues = mergeEntityAndState(action.clue, state, "clues")
+      return Object.assign({}, state, { updatedClue: action.clue, clues: clues})
+    case "DESTROY_CLUE":
+      var deletedClue = state.clues.filter(clue => { return clue.id === action.id })[0]
+      clues = removeEntityFromState(action.id, state, "clues")
+      return Object.assign({}, state, { deletedClue: deletedClue, clues: clues})
     default:
       break
   }
@@ -214,7 +214,7 @@ const reducers = combineReducers({
   gameState: gameReducer,
   scenarioState: scenarioReducer,
   opportunityState: opportunityReducer,
-  indiceState: indiceReducer,
+  clueState: clueReducer,
 
 });
 

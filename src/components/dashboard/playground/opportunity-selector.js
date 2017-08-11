@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 
 import SessionClient from 'clients/session'
 
-import { Grid, Row, Col, Table } from 'react-bootstrap';
+import { Grid, Row, Col, Table, Button } from 'react-bootstrap';
 
 import QrScanner from 'components/utils/qr-scanner'
 
@@ -20,6 +20,8 @@ class OpportunitySelector extends React.Component {
 
     this.handleQrScan = this.handleQrScan.bind(this)
     this.checkReturn = this.checkReturn.bind(this)
+
+    this.goToClues = this.goToClues.bind(this)
   }
 
   render() {
@@ -29,7 +31,7 @@ class OpportunitySelector extends React.Component {
         <Grid fluid>
           <Row>
             <Col xs={12}>
-              <h2><i className="pe pe-7s-users text-warning"></i> Joueurs ayant tiré leur opportunité</h2>
+              <h2><i className="pe pe-7s-users text-warning"></i> Joueurs ayant atteint leur opportunité</h2>
             </Col>
           </Row>
           <Row>
@@ -38,27 +40,31 @@ class OpportunitySelector extends React.Component {
                 <thead>
                   <tr>
                     <th>Pseudo</th>
+                    <th>Opportunité</th>
                     <th>Prêt</th>
                   </tr>
                 </thead>
                 <tbody>
-                {this.props.session.players.filter(player => { 
+                  {/*this.props.session.players.filter(player => { 
                    var state = this.getUserState(player)
                    return state.opportunity && state.opportunity.id === currentUserState.opportunity.id
-                  }).map(player => {
-                  if (player.id === this.props.me.id) return null
-                  return (
-                    <tr>
-                      <td>{player.firstname}</td>
-                      <td className="statut">
-                       <i className="pe pe-7s-check text-success"></i>
-                      </td>
-                    </tr>
-                  )
-                })}
+                  })*/
+                  this.props.session.players.map(player => {
+                    var state = this.getUserState(player)
+                    //if (player.id === this.props.me.id) return null
+                    return (
+                      <tr>
+                        <td>{player.firstname}</td>
+                        <td>{state.opportunity ? state.opportunity.name : ""}</td>
+                        <td className="statut">
+                          {state.opportunity ? <i className="pe pe-7s-check text-success"></i> : null}
+                        </td>
+                      </tr>
+                    )
+                  })}
                 </tbody>
               </Table>
-              {/*<Button onClick={this.goToOpportunity}>Prêts à jouer !</Button>*/}
+              {this.playersOk() ? <Button onClick={this.goToClues}>Prêts à jouer !</Button> : null}
             </Col>
           </Row>
         </Grid>
@@ -84,6 +90,10 @@ class OpportunitySelector extends React.Component {
     return this.props.session.current_round.userStates.filter(state => { return state.user === user.id })[0]
   }
 
+  playersOk() {
+    return this.props.session.players.length === this.props.session.players.filter(player => {return this.getUserState(player).opportunity}).length
+  }
+
   opportunityChosen() {
     return this.currentUserState().opportunity !== null
   }
@@ -101,6 +111,10 @@ class OpportunitySelector extends React.Component {
     } else {
       this.setState({error: true, errorMessage: /*data.message*/"Veuillez utiliser une carte OPPORTUNITE", checking: false}) 
     }
+  }
+
+  goToClues() {
+    SessionClient.clues(this.props.session.id)
   }
 }
 

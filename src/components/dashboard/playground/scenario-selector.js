@@ -30,7 +30,7 @@ class ScenarioSelector extends React.Component {
         <Grid fluid>
           <Row>
             <Col xs={12}>
-              <h2><i className="pe pe-7s-users text-warning"></i> Joueurs ayant rejoint le scénario {currentUserState.scenario.name}</h2>
+              <h2><i className="pe pe-7s-users text-warning"></i> Joueurs ayant choisi leur scénario</h2>
             </Col>
           </Row>
           <Row>
@@ -39,27 +39,31 @@ class ScenarioSelector extends React.Component {
                 <thead>
                   <tr>
                     <th>Pseudo</th>
+                    <th>Scenario</th>
                     <th>Prêt</th>
                   </tr>
                 </thead>
                 <tbody>
-                {this.props.session.players.filter(player => { 
-                   var state = this.getUserState(player)
-                   return state.scenario && state.scenario.id === currentUserState.scenario.id
-                  }).map(player => {
-                  if (player.id === this.props.me.id) return null
-                  return (
-                    <tr>
-                      <td>{player.firstname}</td>
-                      <td className="statut">
-                       <i className="pe pe-7s-check text-success"></i>
-                      </td>
-                    </tr>
-                  )
-                })}
+                  {/*this.props.session.players.filter(player => { 
+                     var state = this.getUserState(player)
+                     return state.scenario && state.scenario.id === currentUserState.scenario.id
+                    })*/}
+                  {this.props.session.players.map(player => {
+                     var state = this.getUserState(player)
+                     //if (player.id === this.props.me.id) return null
+                     return (
+                       <tr>
+                         <td>{player.firstname}</td>
+                         <td>{state.scenario ? state.scenario.name : ""}</td>
+                         <td className="statut">
+                           {state.scenario ? <i className="pe pe-7s-check text-success"></i> : null}
+                         </td>
+                       </tr>
+                     )
+                  })}
                 </tbody>
               </Table>
-              <Button onClick={this.goToOpportunity}>Prêts à jouer !</Button>
+              {this.playersConnected() ? <Button onClick={this.goToOpportunity}>Prêts à jouer !</Button> : null}
             </Col>
           </Row>
         </Grid>
@@ -83,6 +87,10 @@ class ScenarioSelector extends React.Component {
 
   getUserState(user) {
     return this.props.session.current_round.userStates.filter(state => { return state.user === user.id })[0]
+  }
+
+  playersConnected() {
+    return this.props.session.players.length === this.props.session.current_round.userStates.filter(state => { return state.scenario !== null }).length
   }
 
   scenarioChosen() {

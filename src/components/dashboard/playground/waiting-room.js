@@ -48,7 +48,7 @@ class WaitingRoom extends React.Component {
               })}
               </tbody>
             </Table>
-            <Button onClick={this.goToScenario}>Prêts à jouer !</Button>
+            {this.playersConnected() ? <Button onClick={this.goToScenario}>Prêts à jouer !</Button> : null}
           </Col>
         </Row>
       </Grid>
@@ -57,6 +57,10 @@ class WaitingRoom extends React.Component {
 
   playerConnected(player) {
     return this.props.session.current_round.userStates.filter(state => { return state.user === player.id && state.connected }).length > 0
+  }
+
+  playersConnected() {
+    return this.props.session.players.length === this.props.session.current_round.userStates.filter(state => { return state.connected }).length
   }
 
   goToScenario() {

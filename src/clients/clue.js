@@ -2,24 +2,24 @@ import BaseClient from './base'
 
 import store from 'reducers/index';
 
-var IndiceClient = function() {
-  var name = "indice", plural = "indices";
+var ClueClient = function() {
+  var name = "clue", plural = "clues";
 
   var fetchAll = function(params, callback) {
-    BaseClient.get("indices", params, function(data) {
+    BaseClient.get("clues", params, function(data) {
       store.dispatch({
-        type: "INDICES",
-        indices: data
+        type: "CLUES",
+        clues: data
       })
       if (callback) callback(data)
     })
   }
 
   var fetchOne = function(id, callback) {
-    BaseClient.get("indices/" + id, {}, function(data) {
+    BaseClient.get("clues/" + id, {}, function(data) {
       store.dispatch({
-        type: "INDICE",
-        indice: data
+        type: "CLUE",
+        clue: data
       })
       if (callback) callback(data)
     })
@@ -29,8 +29,8 @@ var IndiceClient = function() {
     BaseClient.post(plural, params, function(data) {
       if (!data.error) {
         store.dispatch({
-          type: "NEW_INDICE",
-          indice: data
+          type: "NEW_CLUE",
+          clue: data
         })
       }
       if (callback) callback(data)
@@ -40,8 +40,8 @@ var IndiceClient = function() {
   var update = function(id, params, callback) {
     BaseClient.put(plural, id, params, function(data) {
       store.dispatch({
-        type: "UPDATE_INDICE",
-        indice: data
+        type: "UPDATE_CLUE",
+        clue: data
       })
       if (callback) callback(data)
     })
@@ -50,7 +50,7 @@ var IndiceClient = function() {
   var destroy = function(id, callback) {
     BaseClient.destroy(plural, id, function(data) {
       store.dispatch({
-        type: "DESTROY_INDICE",
+        type: "DESTROY_CLUE",
         id: data.id
       })
       if (callback) callback(data)
@@ -70,4 +70,4 @@ var IndiceClient = function() {
 
 }()
 
-export default IndiceClient
+export default ClueClient
