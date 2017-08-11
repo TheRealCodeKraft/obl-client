@@ -85,7 +85,7 @@ class OpportunitySelector extends React.Component {
   }
 
   opportunityChosen() {
-    return this.currentUserState().opportunity !== undefined
+    return this.currentUserState().opportunity !== null
   }
 
   handleQrScan(data) {

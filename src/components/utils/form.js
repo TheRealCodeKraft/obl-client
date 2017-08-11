@@ -239,7 +239,11 @@ class Form extends React.Component {
         input = <select className="form-control" title={field.title} name={field.name} onChange={this.handleInputChange.bind(this, field)} defaultValue={value}>
                   {field.placeholder ? <option value="-1">{field.placeholder}</option> : null}
                   {options.map(val => {
-                    return <option value={val[field.key]} selected={val[field.key] == value ? "selected" : "false"}>{val[field.value]}</option>
+                    var properties = {}
+                    if (val[field.key] === value) {
+                      properties.selected = "selected"
+                    }
+                    return <option value={val[field.key]} {...properties}>{val[field.value]}</option>
                   })}
                 </select>
         break
