@@ -52,7 +52,6 @@ export default function(config) {
       const pluralName = getPluralName()
       var attrIndex = undefined
 
-console.dir(config)
       return (
         <Grid fluid>
 

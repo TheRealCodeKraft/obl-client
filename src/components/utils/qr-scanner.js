@@ -94,7 +94,7 @@ class ScenarioSelector extends React.Component {
   }
 
   handleQrError(err) {
-    console.log(err)
+    console.log("QR Scanner error : " + err)
   }
 
   handleQrScan(data) {
