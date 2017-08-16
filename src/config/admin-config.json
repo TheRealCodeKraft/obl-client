@@ -418,15 +418,11 @@
             },
             {
               "label": "Jeu",
-              "name": "room.scenario.game.title"
+              "name": "scenario.game.title"
             },
             {
               "label": "Scenario",
-              "name": "room.scenario.name"
-            },
-            {
-              "label": "Salle",
-              "name": "room.name"
+              "name": "scenario.name"
             },
             {
               "label": "Type",
@@ -445,7 +441,13 @@
             "new",
             "delete",
             "edit",
-            "see"
+            "see",
+            {
+              "action": "manage_levels",
+              "label": "Niveaux",
+              "icon": "medal",
+              "component": "ClueLevelsManager"
+            }
           ]
         },
         "form": {

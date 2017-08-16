@@ -57,6 +57,36 @@ var ClueClient = function() {
     })
   }
 
+  var createLevel = function(id, description, level, callback) {
+    BaseClient.put(plural, id + "/level", {description: description, level: level}, function(data) {
+      store.dispatch({
+        type: "UPDATE_CLUE",
+        clue: data
+      })
+      if (callback) callback(data)
+    })
+  }
+
+  var updateLevel = function(id, description, level, callback) {
+    BaseClient.put(plural + "/level", id, {description: description, level: level}, function(data) {
+      store.dispatch({
+        type: "UPDATE_CLUE",
+        clue: data
+      })
+      if (callback) callback(data)
+    })
+  }
+
+  var destroyLevel = function(id, callback) {
+    BaseClient.destroy(plural + "/level", id, function(data) {
+      store.dispatch({
+        type: "UPDATE_CLUE",
+        id: data.id
+      })
+      if (callback) callback(data)
+    })
+  }
+
   return {
     name: name,
     plural: plural,
@@ -66,6 +96,10 @@ var ClueClient = function() {
     create: create,
     update: update,
     destroy: destroy,
+
+    createLevel: createLevel,
+    updateLevel: updateLevel,
+    destroyLevel: destroyLevel
   }
 
 }()

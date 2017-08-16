@@ -152,7 +152,10 @@ const clueReducer = function(state = {}, action) {
       clues = pushNewEntityToState(action.clue, state, "clues")
       return Object.assign({}, state, { newClue: action.clue, clues: clues })
     case "UPDATE_CLUE":
+console.log("UPDATE")
+console.dir(action.clue)
       clues = mergeEntityAndState(action.clue, state, "clues")
+console.dir(clues)
       return Object.assign({}, state, { updatedClue: action.clue, clues: clues})
     case "DESTROY_CLUE":
       var deletedClue = state.clues.filter(clue => { return clue.id === action.id })[0]

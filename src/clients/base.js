@@ -36,6 +36,7 @@ var BaseClient = function() {
     switch(method) {
       case "post":
       case "put":
+      case "patch":
         if (!(params instanceof FormData)) {
           fetchParams.body = JSON.stringify(params)
         } else {
@@ -107,6 +108,10 @@ var BaseClient = function() {
     return call("put", endpoint + (id ? ("/" + id) : ""), params, callback)
   }
 
+  var patch = function(endpoint, id, params, callback) {
+    return call("patch", endpoint + (id ? ("/" + id) : ""), params, callback)
+  }
+
   var destroy = function(endpoint, id, callback) {
     return call("delete", endpoint + "/" + id, undefined, callback)
   }
@@ -121,6 +126,7 @@ var BaseClient = function() {
     get: get,
     post: post,
     put: put,
+    patch: patch,
     destroy: destroy,
     upload: upload
   }
