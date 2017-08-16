@@ -1,3 +1,6 @@
+/*******************
+ * QR CODE SCANNER *
+ *******************/
 .scanner-container {
   margin-bottom: 10px;
 }
@@ -66,4 +69,44 @@
   justify-content: center;
   border-radius: 6px;
   background-color: rgba(68, 70, 79, 0.5);
+}
+
+/***********************
+ * CLUE/LEVELS MANAGER *
+ ***********************/
+.clue-levels-list-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.clue-levels-level {
+  display: flex;
+}
+
+.up-and-down {
+  width: 100px;
+  margin: 10px;
+  padding: 10px;
+  background: #ffffff;
+  display: flex;
+  justify-content: space-between;
+}
+
+.level-level {
+  margin: 10px;
+  padding: 10px;
+  background: #ffffff;
+}
+
+.level-description {
+  margin: 10px;
+  padding: 10px;
+  background: #ffffff;
+  flex: 1;
+}
+
+.level-actions {
+  margin: 10px;
+  padding: 10px;
+  background: #ffffff;
 }

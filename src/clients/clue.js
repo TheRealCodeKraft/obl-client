@@ -81,7 +81,17 @@ var ClueClient = function() {
     BaseClient.destroy(plural + "/level", id, function(data) {
       store.dispatch({
         type: "UPDATE_CLUE",
-        id: data.id
+        clue: data
+      })
+      if (callback) callback(data)
+    })
+  }
+
+  var sortLevels = function(id, level_id, direction, callback) {
+    BaseClient.put(plural, "level/" + id + "/" + direction + "/" + level_id, {}, function(data) {
+      store.dispatch({
+        type: "UPDATE_CLUE",
+        clue: data
       })
       if (callback) callback(data)
     })
@@ -99,7 +109,8 @@ var ClueClient = function() {
 
     createLevel: createLevel,
     updateLevel: updateLevel,
-    destroyLevel: destroyLevel
+    destroyLevel: destroyLevel,
+    sortLevels: sortLevels,
   }
 
 }()
