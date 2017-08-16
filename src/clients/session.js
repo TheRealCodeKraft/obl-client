@@ -77,8 +77,8 @@ var SessionClient = function() {
     })
   }
 
-  var scenario = function(id, callback) {
-    BaseClient.put(plural + "/scenario", id, {}, function(data) {
+  var room = function(id, callback) {
+    BaseClient.put(plural + "/room", id, {}, function(data) {
       store.dispatch({
         type: "SESSION_PUSH",
         session: data
@@ -87,8 +87,8 @@ var SessionClient = function() {
     })
   }
 
-  var opportunity = function(id, callback) {
-    BaseClient.put(plural + "/opportunity", id, {}, function(data) {
+  var scenario = function(id, callback) {
+    BaseClient.put(plural + "/scenario", id, {}, function(data) {
       store.dispatch({
         type: "SESSION_PUSH",
         session: data
@@ -132,8 +132,8 @@ var SessionClient = function() {
 
     launch: launch,
     pause: pause,
+    room: room,
     scenario: scenario,
-    opportunity: opportunity,
     clues: clues,
 
     checkCode: checkCode,

@@ -7,7 +7,7 @@ import { Grid, Row, Col, Table, Button } from 'react-bootstrap';
 
 import QrScanner from 'components/utils/qr-scanner'
 
-class OpportunitySelector extends React.Component {
+class RoomSelector extends React.Component {
 
   constructor(props) {
     super(props)
@@ -21,17 +21,17 @@ class OpportunitySelector extends React.Component {
     this.handleQrScan = this.handleQrScan.bind(this)
     this.checkReturn = this.checkReturn.bind(this)
 
-    this.goToClues = this.goToClues.bind(this)
+    this.goToScenarii = this.goToScenarii.bind(this)
   }
 
   render() {
-    if (this.opportunityChosen()) {
+    if (this.roomChosen()) {
       var currentUserState = this.currentUserState() 
       return (
         <Grid fluid>
           <Row>
             <Col xs={12}>
-              <h2><i className="pe pe-7s-users text-warning"></i> Joueurs ayant atteint leur opportunité</h2>
+              <h2><i className="pe pe-7s-users text-warning"></i> Joueur ayant rejoint votre salle</h2>
             </Col>
           </Row>
           <Row>
@@ -40,31 +40,28 @@ class OpportunitySelector extends React.Component {
                 <thead>
                   <tr>
                     <th>Pseudo</th>
-                    <th>Opportunité</th>
                     <th>Prêt</th>
                   </tr>
                 </thead>
                 <tbody>
-                  {/*this.props.session.players.filter(player => { 
+                  {this.props.session.players.filter(player => { 
                    var state = this.getUserState(player)
-                   return state.opportunity && state.opportunity.id === currentUserState.opportunity.id
-                  })*/
-                  this.props.session.players.map(player => {
+                   return state.room && state.room.id === currentUserState.room.id
+                  }).map(player => {
                     var state = this.getUserState(player)
                     //if (player.id === this.props.me.id) return null
                     return (
                       <tr>
                         <td>{player.firstname}</td>
-                        <td>{state.opportunity ? state.opportunity.name : ""}</td>
                         <td className="statut">
-                          {state.opportunity ? <i className="pe pe-7s-check text-success"></i> : null}
+                          {state.room ? <i className="pe pe-7s-check text-success"></i> : null}
                         </td>
                       </tr>
                     )
                   })}
                 </tbody>
               </Table>
-              {this.playersOk() ? <Button onClick={this.goToClues}>Prêts à jouer !</Button> : null}
+              {this.playersOk() ? <Button onClick={this.goToScenarii}>Prêts à jouer !</Button> : null}
             </Col>
           </Row>
         </Grid>
@@ -72,7 +69,7 @@ class OpportunitySelector extends React.Component {
     } else {
       return (
         <QrScanner
-          title="Flash ici ta carte opportunité"
+          title="Flash ici ta carte salle"
           error={this.state.error}
           errorMessage={this.state.errorMessage}
           onScan={this.handleQrScan}
@@ -91,11 +88,11 @@ class OpportunitySelector extends React.Component {
   }
 
   playersOk() {
-    return this.props.session.players.length === this.props.session.players.filter(player => {return this.getUserState(player).opportunity}).length
+    return this.props.session.players.length === this.props.session.players.filter(player => {return this.getUserState(player).room}).length
   }
 
-  opportunityChosen() {
-    return this.currentUserState().opportunity !== null
+  roomChosen() {
+    return this.currentUserState().room !== null
   }
 
   handleQrScan(data) {
@@ -109,12 +106,12 @@ class OpportunitySelector extends React.Component {
       SessionClient.pushInState(data.session)
       this.setState({error: false, checking: false})
     } else {
-      this.setState({error: true, errorMessage: /*data.message*/"Veuillez utiliser une carte OPPORTUNITE", checking: false}) 
+      this.setState({error: true, errorMessage: /*data.message*/"Veuillez utiliser une carte SALLE", checking: false}) 
     }
   }
 
-  goToClues() {
-    SessionClient.clues(this.props.session.id)
+  goToScenarii() {
+    SessionClient.scenario(this.props.session.id)
   }
 }
 
@@ -124,4 +121,4 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps)(OpportunitySelector)
+export default connect(mapStateToProps)(RoomSelector)

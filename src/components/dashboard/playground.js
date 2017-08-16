@@ -7,7 +7,7 @@ import {ActionCable} from 'react-actioncable-provider'
 
 import WaitingRoom from './playground/waiting-room'
 import ScenarioSelector from './playground/scenario-selector'
-import OpportunitySelector from './playground/opportunity-selector'
+import RoomSelector from './playground/room-selector'
 import CluesSelector from './playground/clues-selector'
 
 import { Grid, Row, Col, Panel } from 'react-bootstrap';
@@ -83,11 +83,11 @@ class Playground extends React.Component {
           case "waiting_players":
             section = <WaitingRoom session={this.props.session} />
             break
+          case "room":
+            section = <RoomSelector session={this.props.session} />
+            break
           case "scenario":
             section = <ScenarioSelector session={this.props.session} />
-            break
-          case "opportunity":
-            section = <OpportunitySelector session={this.props.session} />
             break
           case "clues":
             section = <CluesSelector session={this.props.session} />

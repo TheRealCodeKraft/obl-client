@@ -112,6 +112,7 @@ class ScenarioSelector extends React.Component {
   handleCodeInput(e) {
     e.preventDefault()
     if (this.state.codeInput !== "" && this.props.onScan) this.props.onScan(this.state.codeInput)
+    this.setState({codeInput: ""})
   }
 }
 

@@ -20,7 +20,7 @@ class ScenarioSelector extends React.Component {
 
     this.handleQrScan = this.handleQrScan.bind(this)
     this.checkReturn = this.checkReturn.bind(this)
-    this.goToOpportunity = this.goToOpportunity.bind(this)
+    this.goToClues = this.goToClues.bind(this)
   }
 
   render() {
@@ -44,11 +44,10 @@ class ScenarioSelector extends React.Component {
                   </tr>
                 </thead>
                 <tbody>
-                  {/*this.props.session.players.filter(player => { 
+                  {this.props.session.players.filter(player => { 
                      var state = this.getUserState(player)
-                     return state.scenario && state.scenario.id === currentUserState.scenario.id
-                    })*/}
-                  {this.props.session.players.map(player => {
+                     return state.room && state.room.id === currentUserState.room.id
+                    }).map(player => {
                      var state = this.getUserState(player)
                      //if (player.id === this.props.me.id) return null
                      return (
@@ -63,7 +62,7 @@ class ScenarioSelector extends React.Component {
                   })}
                 </tbody>
               </Table>
-              {this.playersConnected() ? <Button onClick={this.goToOpportunity}>Prêts à jouer !</Button> : null}
+              {this.playersConnected() ? <Button onClick={this.goToClues}>Prêts à jouer !</Button> : null}
             </Col>
           </Row>
         </Grid>
@@ -112,8 +111,8 @@ class ScenarioSelector extends React.Component {
     }
   }
 
-  goToOpportunity() {
-    SessionClient.opportunity(this.props.session.id)
+  goToClues() {
+    SessionClient.clues(this.props.session.id)
   }
 }
 

@@ -6,6 +6,7 @@ import SessionClient from 'clients/session'
 import { Grid, Row, Col, Table, Button } from 'react-bootstrap';
 
 import QrScanner from 'components/utils/qr-scanner'
+import CluesList from './clues-selector/clues-list'
 
 class CluesSelector extends React.Component {
 
@@ -24,13 +25,18 @@ class CluesSelector extends React.Component {
 
   render() {
     return (
-      <QrScanner
-        title="Flash ici tes cartes indice"
-        error={this.state.error}
-        errorMessage={this.state.errorMessage}
-        onScan={this.handleQrScan}
-        searching={this.state.checking}
-      />
+      <div>
+        <QrScanner
+          title="Flash ici tes cartes indice"
+          error={this.state.error}
+          errorMessage={this.state.errorMessage}
+          onScan={this.handleQrScan}
+          searching={this.state.checking}
+        />
+        <hr />
+        <h2><i className="pe pe-7s-search text-warning"></i> Indices collectés</h2>
+        <CluesList clues={this.currentUserState().clues} />
+      </div>
     )
   }
 

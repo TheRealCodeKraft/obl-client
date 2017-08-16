@@ -2,24 +2,24 @@ import BaseClient from './base'
 
 import store from 'reducers/index';
 
-var OpportunityClient = function() {
-  var name = "opportunity", plural = "opportunities";
+var RoomClient = function() {
+  var name = "room", plural = "rooms";
 
   var fetchAll = function(params, callback) {
-    BaseClient.get("opportunities", params, function(data) {
+    BaseClient.get("rooms", params, function(data) {
       store.dispatch({
-        type: "OPPORTUNITIES",
-        opportunities: data
+        type: "ROOMS",
+        rooms: data
       })
       if (callback) callback(data)
     })
   }
 
   var fetchOne = function(id, callback) {
-    BaseClient.get("opportunities/" + id, {}, function(data) {
+    BaseClient.get("rooms/" + id, {}, function(data) {
       store.dispatch({
-        type: "OPPORTUNITY",
-        opportunity: data
+        type: "ROOM",
+        room: data
       })
       if (callback) callback(data)
     })
@@ -29,8 +29,8 @@ var OpportunityClient = function() {
     BaseClient.post(plural, params, function(data) {
       if (!data.error) {
         store.dispatch({
-          type: "NEW_OPPORTUNITY",
-          opportunity: data
+          type: "NEW_ROOM",
+          room: data
         })
       }
       if (callback) callback(data)
@@ -40,8 +40,8 @@ var OpportunityClient = function() {
   var update = function(id, params, callback) {
     BaseClient.put(plural, id, params, function(data) {
       store.dispatch({
-        type: "UPDATE_OPPORTUNITY",
-        opportunity: data
+        type: "UPDATE_ROOM",
+        room: data
       })
       if (callback) callback(data)
     })
@@ -50,7 +50,7 @@ var OpportunityClient = function() {
   var destroy = function(id, callback) {
     BaseClient.destroy(plural, id, function(data) {
       store.dispatch({
-        type: "DESTROY_OPPORTUNITY",
+        type: "DESTROY_ROOM",
         id: data.id
       })
       if (callback) callback(data)
@@ -70,4 +70,4 @@ var OpportunityClient = function() {
 
 }()
 
-export default OpportunityClient
+export default RoomClient

@@ -10,7 +10,10 @@
               "type": "image",
               "label": "Image"
             },
-            "id",
+            {
+              "name": "id",
+              "hidden": true
+            },
             {
               "label": "Titre",
               "name": "title"
@@ -84,7 +87,10 @@
         "client": "SessionClient",
         "list": {
           "attributes": [
-            "id",
+            {
+              "name": "id",
+              "hidden": true
+            },
             {
               "label": "Titre",
               "name": "title"
@@ -206,7 +212,10 @@
         "client": "UserClient",
         "list": {
           "attributes": [
-            "id",
+            {
+              "name": "id",
+              "hidden": true
+            },
             {
               "label": "Nom",
               "name": "lastname"
@@ -231,7 +240,10 @@
         "client": "ScenarioClient",
         "list": {
           "attributes": [
-            "id",
+            {
+              "name": "id",
+              "hidden": true
+            },
             {
               "label": "Titre",
               "name": "name"
@@ -305,23 +317,26 @@
         }
       },
       {
-        "route": "/admin/opportunities",
-        "title": "Opportunités",
-        "client": "OpportunityClient",
+        "route": "/admin/rooms",
+        "title": "Salles",
+        "client": "RoomClient",
         "list": {
           "attributes": [
-            "id",
+            {
+              "name": "id",
+              "hidden": true
+            },
             {
               "label": "Titre",
               "name": "name"
             },
             {
               "label": "Jeu",
-              "name": "scenario.game.title"
+              "name": "session.game.title"
             },
             {
-              "label": "Scenario",
-              "name": "scenario.name"
+              "label": "Session",
+              "name": "session.title"
             },
             {
               "label": "QRCode",
@@ -344,37 +359,37 @@
             {
               "name": "name",
               "label": "Titre",
-              "placeholder": "Titre de l'opportunité",
+              "placeholder": "Titre de la salle",
               "type": "text",
               "required": true
             },
             {
               "name": "qrcode",
               "label": "QRCode",
-              "placeholder": "QRCode de l'opportunité",
+              "placeholder": "QRCode de la salle",
               "type": "text",
               "required": true
             },
             {
               "name": "description",
               "label": "Description",
-              "placeholder": "Description de l'opportunité",
+              "placeholder": "Description de la salle",
               "type": "text",
               "required": true
             },
             {
-              "name": "scenario_id",
-              "label": "Scenario",
-              "placeholder": "Sélectionnez un scenario",
+              "name": "session_id",
+              "label": "Session",
+              "placeholder": "Sélectionnez une session",
               "type": "select",
               "values": {
-                "targetState": "scenarioState",
-                "targetValue": "scenarios",
-                "client": "ScenarioClient",
+                "targetState": "sessionState",
+                "targetValue": "sessions",
+                "client": "SessionClient",
                 "func": "fetchAll"
               },
               "key": "id",
-              "value": "name",
+              "value": "title",
               "required": true,
               "defaultValue": "-1"
             }
@@ -382,7 +397,7 @@
         },
         "delete": {
           "labels": {
-            "entity": "l'opportunité",
+            "entity": "la salle",
             "identifier": "name"
           }
         }
@@ -393,26 +408,33 @@
         "client": "ClueClient",
         "list": {
           "attributes": [
-            "id",
+            {
+              "name": "id",
+              "hidden": true
+            },
             {
               "label": "Titre",
               "name": "name"
             },
             {
               "label": "Jeu",
-              "name": "opportunity.scenario.game.title"
+              "name": "room.scenario.game.title"
             },
             {
               "label": "Scenario",
-              "name": "opportunity.scenario.name"
+              "name": "room.scenario.name"
             },
             {
-              "label": "Opportunité",
-              "name": "opportunity.name"
+              "label": "Salle",
+              "name": "room.name"
             },
             {
-              "label": "QRCode",
-              "name": "qrcode"
+              "label": "Type",
+              "name": "family"
+            },
+            {
+              "label": "QRCodes",
+              "name": "qrcodes"
             },
             {
               "label": "Description",
@@ -436,6 +458,22 @@
               "required": true
             },
             {
+              "name": "family",
+              "label": "Type d'indice",
+              "type": "select",
+              "placeholder": false,
+              "values": [
+                {"id": "none", "title": "Aucun"},
+                {"id": "budget", "title": "Budget"},
+                {"id": "decision", "title": "Moteur de décision"},
+                {"id": "technique", "title": "Contexte technique"}
+              ],
+              "key": "id",
+              "value": "title",
+              "required": true,
+              "defaultValue": -1
+            },
+            {
               "name": "qrcode",
               "label": "QRCode",
               "placeholder": "QRCode de l'indice",
@@ -450,14 +488,14 @@
               "required": true
             },
             {
-              "name": "opportunity_id",
-              "label": "Opportunité",
-              "placeholder": "Sélectionnez une opportunité",
+              "name": "room_id",
+              "label": "Salle",
+              "placeholder": "Sélectionnez une salle",
               "type": "select",
               "values": {
-                "targetState": "opportunityState",
-                "targetValue": "opportunities",
-                "client": "OpportunityClient",
+                "targetState": "roomState",
+                "targetValue": "rooms",
+                "client": "RoomClient",
                 "func": "fetchAll"
               },
               "key": "id",

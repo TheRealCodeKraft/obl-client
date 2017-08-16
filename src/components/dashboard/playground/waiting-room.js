@@ -10,7 +10,7 @@ class WaitingRoom extends React.Component {
   constructor(props) {
     super(props)
 
-    this.goToScenario = this.goToScenario.bind(this)
+    this.goToRoom = this.goToRoom.bind(this)
   }
 
   render() {
@@ -18,7 +18,7 @@ class WaitingRoom extends React.Component {
       <Grid fluid>
         <Row>
           <Col xs={12}>
-            <h2><i className="pe pe-7s-users text-warning"></i> Joueurs ayant rejoint la salle de jeu</h2>
+            <h2><i className="pe pe-7s-users text-warning"></i> Joueurs ayant rejoint la session</h2>
           </Col>
         </Row>
 
@@ -48,7 +48,7 @@ class WaitingRoom extends React.Component {
               })}
               </tbody>
             </Table>
-            {this.playersConnected() ? <Button onClick={this.goToScenario}>Prêts à jouer !</Button> : null}
+            {this.playersConnected() ? <Button onClick={this.goToRoom}>Prêts à jouer !</Button> : null}
           </Col>
         </Row>
       </Grid>
@@ -63,8 +63,8 @@ class WaitingRoom extends React.Component {
     return this.props.session.players.length === this.props.session.current_round.userStates.filter(state => { return state.connected }).length
   }
 
-  goToScenario() {
-    SessionClient.scenario(this.props.session.id)
+  goToRoom() {
+    SessionClient.room(this.props.session.id)
   }
 
 }

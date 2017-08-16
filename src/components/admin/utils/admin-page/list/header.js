@@ -26,6 +26,7 @@ class AdminPageListHeader extends React.Component {
     for (var attrIndex in this.props.attributes) {
       label = this.props.attributes[attrIndex]
       if (label instanceof Object) {
+        if (label.hidden) continue
         label = label.label
       }
       header.push(<div key={"header-row-attr-" + attrIndex} style={this.tableCellStyles}>{label}</div>)

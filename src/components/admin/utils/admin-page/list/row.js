@@ -26,6 +26,7 @@ class AdminPageListRow extends React.Component {
     for (var attrIndex in this.props.attributes) {
       attribute = this.props.attributes[attrIndex]
       if (attribute instanceof Object) {
+        if (attribute.hidden) continue
         name = attribute.name
       } else {
         name = attribute

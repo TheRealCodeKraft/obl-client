@@ -122,21 +122,21 @@ const scenarioReducer = function(state = {}, action) {
   return state
 }
 
-const opportunityReducer = function(state = {}, action) {
-  var opportunities
+const roomReducer = function(state = {}, action) {
+  var rooms
   switch(action.type) {
-    case "OPPORTUNITIES":
-      return Object.assign({}, state, { opportunities: action.opportunities })
-    case "NEW_OPPORTUNITY":
-      opportunities = pushNewEntityToState(action.opportunity, state, "opportunities")
-      return Object.assign({}, state, { newScenario: action.opportunity, opportunities: opportunities })
-    case "UPDATE_OPPORTUNITY":
-      opportunities = mergeEntityAndState(action.opportunity, state, "opportunities")
-      return Object.assign({}, state, { updatedScenario: action.opportunity, opportunities: opportunities})
-    case "DESTROY_OPPORTUNITY":
-      var deletedScenario = state.opportunities.filter(opportunity => { return opportunity.id === action.id })[0]
-      opportunities = removeEntityFromState(action.id, state, "opportunities")
-      return Object.assign({}, state, { deletedScenario: deletedScenario, opportunities: opportunities})
+    case "ROOMS":
+      return Object.assign({}, state, { rooms: action.rooms })
+    case "NEW_ROOM":
+      rooms = pushNewEntityToState(action.room, state, "rooms")
+      return Object.assign({}, state, { newScenario: action.room, rooms: rooms })
+    case "UPDATE_ROOM":
+      rooms = mergeEntityAndState(action.room, state, "rooms")
+      return Object.assign({}, state, { updatedScenario: action.room, rooms: rooms})
+    case "DESTROY_ROOM":
+      var deletedScenario = state.rooms.filter(room => { return room.id === action.id })[0]
+      rooms = removeEntityFromState(action.id, state, "rooms")
+      return Object.assign({}, state, { deletedScenario: deletedScenario, rooms: rooms})
     default:
       break
   }
@@ -213,7 +213,7 @@ const reducers = combineReducers({
   sessionState: sessionReducer,
   gameState: gameReducer,
   scenarioState: scenarioReducer,
-  opportunityState: opportunityReducer,
+  roomState: roomReducer,
   clueState: clueReducer,
 
 });
