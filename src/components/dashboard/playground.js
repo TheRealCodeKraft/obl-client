@@ -9,6 +9,8 @@ import WaitingRoom from './playground/waiting-room'
 import ScenarioSelector from './playground/scenario-selector'
 import RoomSelector from './playground/room-selector'
 import CluesSelector from './playground/clues-selector'
+import VideoGame from './playground/video-game'
+import FinalRoom from './playground/final-room'
 
 import { Grid, Row, Col, Panel } from 'react-bootstrap';
 
@@ -90,7 +92,12 @@ class Playground extends React.Component {
             section = <ScenarioSelector session={this.props.session} />
             break
           case "clues":
-            section = <CluesSelector session={this.props.session} />
+            if (this.currentUserState().decision_maker === null) {
+              section = <CluesSelector session={this.props.session} />
+            } else {
+              //section = <FinalRoom session={this.props.session} />
+              section = <VideoGame session={this.props.session} />
+            }
           default:
             break
         }
@@ -115,6 +122,15 @@ class Playground extends React.Component {
       self._timer = setInterval(self.doPing, 15000);
     }, 1000);
   }
+
+  currentUserState() {
+    return this.getUserState(this.props.me)
+  }
+
+  getUserState(user) {
+    return this.props.session.current_round.userStates.filter(state => { return state.user === user.id })[0]
+  }
+
 
   handleCableReceived(data) {
     SessionClient.pushInState(data.session)
