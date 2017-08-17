@@ -122,6 +122,29 @@ const scenarioReducer = function(state = {}, action) {
   return state
 }
 
+const decisionMakerReducer = function(state = {}, action) {
+  var decisionMakers
+  switch(action.type) {
+    case "DECISIONMAKERS":
+      return Object.assign({}, state, { decisionMakers: action.decisionMakers })
+    case "NEW_DECISIONMAKER":
+      decisionMakers = pushNewEntityToState(action.decisionMaker, state, "decisionMakers")
+      return Object.assign({}, state, { newDecisionMaker: action.decisionMaker, decisionMakers: decisionMakers })
+    case "UPDATE_DECISIONMAKER":
+      decisionMakers = mergeEntityAndState(action.decisionMaker, state, "decisionMakers")
+      return Object.assign({}, state, { updatedDecisionMaker: action.decisionMaker, decisionMakers: decisionMakers})
+    case "DESTROY_DECISIONMAKER":
+      var deletedDecisionMaker = state.decisionMakers.filter(decisionMaker => { return decisionMaker.id === action.id })[0]
+      decisionMakers = removeEntityFromState(action.id, state, "decisionMakers")
+      console.dir(Object.assign({}, state, { deletedDecisionMaker: deletedDecisionMaker, decisionMakers: decisionMakers}))
+      return Object.assign({}, state, { deletedDecisionMaker: deletedDecisionMaker, decisionMakers: decisionMakers})
+    default:
+      break
+  }
+  return state
+}
+
+
 const roomReducer = function(state = {}, action) {
   var rooms
   switch(action.type) {
@@ -177,7 +200,7 @@ function removeEntityFromState(id, state, name) {
   var list = state[name], newList = []
   if (list && id !== undefined) {
     for(var index in list) {
-      if (list[index].id !== id) {
+      if (list[index].id.toString() !== id.toString()) {
         newList.push(list[index])
       }
     }
@@ -215,6 +238,7 @@ const reducers = combineReducers({
   scenarioState: scenarioReducer,
   roomState: roomReducer,
   clueState: clueReducer,
+  decisionMakerState: decisionMakerReducer,
 
 });
 
