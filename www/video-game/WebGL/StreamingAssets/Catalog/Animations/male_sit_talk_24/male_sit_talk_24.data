@@ -1,0 +1,9 @@
+{
+  "Position":"Sit",
+  "Action":"Talk",
+  "Gender":"Man",
+  "Automatic":true,
+  "HeadLock":true,
+  "Mood":"MoodBad",
+  "Tags":""
+}
