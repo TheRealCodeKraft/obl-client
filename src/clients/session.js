@@ -113,6 +113,12 @@ var SessionClient = function() {
     })
   }
 
+  var setUserScores = function(session_id, user_id, scores, callback) {
+    BaseClient.put(plural, session_id + "/scores/" + user_id, {scores: JSON.stringify(scores)}, function(data) {
+      if (callback) callback(data)
+    })
+  }
+
   var pushInState = function(session) {
     store.dispatch({
       type: "SESSION_PUSH",
@@ -137,6 +143,7 @@ var SessionClient = function() {
     clues: clues,
 
     checkCode: checkCode,
+    setUserScores: setUserScores,
 
     pushInState: pushInState
   }

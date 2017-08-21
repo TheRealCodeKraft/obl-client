@@ -1,0 +1,51 @@
+{
+  "VtsType":"CatalogConfigFile",
+  "VtsTypeVersion":1,
+  "ID":"Avatar_m026",
+  "Name":
+  {
+    "DataType":"TextModel",
+    "DataTypeVersion":1,
+    "Texts":
+    {
+      "FR":
+      {
+        "ID":"e8gvJC3A",
+        "Text":"Homme 26"
+      },
+      "EN":
+      {
+        "ID":"5ZU19vzb",
+        "Text":"Man 26"
+      },
+      "FR-CA":
+      {
+        "ID":"FFkh0lxF",
+        "Text":""
+      },
+      "JP":
+      {
+        "ID":"XNfbQFSU",
+        "Text":""
+      },
+      "ES":
+      {
+        "Text":""
+      },
+      "PT-BR":
+      {
+        "Text":""
+      }
+    },
+    "ID":"tm_2tk3inzetvjzuc4y"
+  },
+  "Gender":"Man",
+  "DataType":"CatalogConfigFile",
+  "DataTypeVersion":1,
+  "Tags":
+  [
+    "Man",
+    "BrownHair"
+  ],
+  "BaseModel":"V2016"
+}
