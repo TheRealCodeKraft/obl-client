@@ -2,9 +2,18 @@ import React from "react"
 import {Link} from "react-router-dom"
 import {Row, Col} from "react-bootstrap"
 
+import SessionClient from 'clients/session'
+
+import {ActionCable} from 'react-actioncable-provider'
+
 var moment = require("moment")
 
 class Session extends React.Component {
+
+  constructor(props) {
+    super(props)
+    this.handleCableReceived = this.handleCableReceived.bind(this)
+  }
 
   render() {
     var sessionStatus = {}
@@ -57,8 +66,13 @@ class Session extends React.Component {
             </Row>
           </div>
         </Col>
+        <ActionCable ref="sessionChannel" channel={{channel: "SessionChannel", session: this.props.session.id}} onReceived={this.handleCableReceived} />
       </Row>
     )
+  }
+
+  handleCableReceived(data) {
+    SessionClient.pushInState(data.session)
   }
 
 }

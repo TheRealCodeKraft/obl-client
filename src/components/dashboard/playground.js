@@ -132,7 +132,6 @@ class Playground extends React.Component {
     return this.props.session.current_round.userStates.filter(state => { return state.user === user.id })[0]
   }
 
-
   handleCableReceived(data) {
     SessionClient.pushInState(data.session)
   }
