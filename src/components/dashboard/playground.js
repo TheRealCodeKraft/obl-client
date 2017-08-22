@@ -11,6 +11,7 @@ import RoomSelector from './playground/room-selector'
 import CluesSelector from './playground/clues-selector'
 import VideoGame from './playground/video-game'
 import FinalRoom from './playground/final-room'
+import GlobalScores from './playground/global-scores'
 
 import { Grid, Row, Col, Panel } from 'react-bootstrap';
 
@@ -99,6 +100,10 @@ class Playground extends React.Component {
             } else {
               section = <FinalRoom session={this.props.session} />
             }
+            break
+          case "end":
+            section = <GlobalScores session={this.props.session} />
+            break
           default:
             break
         }
