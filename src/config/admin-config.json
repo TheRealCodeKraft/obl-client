@@ -66,13 +66,6 @@
               "value": "title",
               "required": true,
               "defaultValue": -1
-            },
-            {
-              "name": "vts_archive",
-              "label": "Export Scorm VTS",
-              "type": "image-uploader",
-              "showImage": false,
-              "accept": ".zip"
             }
           ]
         },
@@ -287,6 +280,13 @@
               "placeholder": "Description du scenario",
               "type": "text",
               "required": true
+            },
+            {
+              "name": "vts_archive",
+              "label": "Export Scorm VTS",
+              "type": "image-uploader",
+              "showImage": false,
+              "accept": ".zip"
             },
             {
               "name": "game_id",

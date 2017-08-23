@@ -71,7 +71,7 @@ class VideoGame extends React.Component {
             <iframe id="video-game-content" 
                     frameborder="0" 
                     style={{visibility: this.state.running ? "visible" : "hidden"}}
-                    src="/video-game/Module/WebGL/WebPlayer.html"
+                    src="https://s3.eu-west-2.amazonaws.com/obl-production/video-games/example/WebPlayer.html"
                     width="100%"
                     height="100%"
             ></iframe>
