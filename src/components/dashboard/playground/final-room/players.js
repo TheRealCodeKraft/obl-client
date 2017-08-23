@@ -35,10 +35,10 @@ class FinalRoomPlayers extends React.Component {
                 {this.getPlayersStates().map(state => {
                   return (
                     <tr style={this.props.me.id === state.player.id ? {borderLeft: "3px solid #1bbf89"} : {}}>
-                      <td>{state.score.position}</td>
+                      <td>{state.score ? state.score.position : "-"}</td>
                       <td>{state.player.firstname}</td>
-                      <td>{state.score.raw} pts</td>
-                      <td>{this.playerHasFinished(state.player) ? (state.score.ca === 0 ? "-" : state.score.ca + "k€") : "-"}</td>
+                      <td>{state.score ? state.score.raw + " pts" : "-"}</td>
+                      <td>{this.playerHasFinished(state.player) ? ((!state.score || state.score.ca === 0) ? "-" : state.score.ca + "k€") : "-"}</td>
                     </tr>
                   )
                 })}
@@ -53,7 +53,9 @@ class FinalRoomPlayers extends React.Component {
 
   getPlayersStates() {
     return this.props.session.current_round.userStates.sort(function(a, b) {
-      return (a.score.position < b.score.position) ? -1 : 1;
+      if (a.score === null) return 1
+      else if (b.score === null) return -1
+      else return (a.score.position < b.score.position) ? -1 : 1;
     })
   }
 

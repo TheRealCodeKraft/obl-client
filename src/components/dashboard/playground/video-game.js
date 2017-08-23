@@ -1,5 +1,7 @@
 import React from "react"
 
+import configs from 'config'
+
 import { Grid, Row, Col, Button} from 'react-bootstrap';
 
 import SessionClient from 'clients/session'
@@ -57,6 +59,7 @@ class VideoGame extends React.Component {
   }
   
   render() {
+
     return (
       <Grid fluid>
         <Row>
@@ -71,7 +74,7 @@ class VideoGame extends React.Component {
             <iframe id="video-game-content" 
                     frameborder="0" 
                     style={{visibility: this.state.running ? "visible" : "hidden"}}
-                    src="https://s3.eu-west-2.amazonaws.com/obl-production/video-games/example/WebPlayer.html"
+                    src={this.currentUserState().scenario.game_url}
                     width="100%"
                     height="100%"
             ></iframe>
@@ -79,6 +82,14 @@ class VideoGame extends React.Component {
         </Row>
       </Grid>
     )
+  }
+
+  currentUserState() {
+    return this.getUserState(this.props.me)
+  }
+
+  getUserState(user) {
+    return this.props.session.current_round.userStates.filter(state => { return state.user === user.id })[0]
   }
 
   runGame() {
