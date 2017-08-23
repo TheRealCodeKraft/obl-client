@@ -59,7 +59,6 @@ class VideoGame extends React.Component {
   }
   
   render() {
-
     return (
       <Grid fluid>
         <Row>
