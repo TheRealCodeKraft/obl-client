@@ -30,7 +30,7 @@ class Main extends React.Component {
           <Switch>
             <Route path="/dashboard" component={AuthChecker(Dashboard)} />
             <Route path="/admin" component={AuthChecker(CheckForAcls(["admin"], Admin))} />
-            <Route path="/" component={Offline} />
+            <Route path="/" component={AuthChecker(Offline, true)} />
           </Switch>
         </div>
       </BrowserRouter>
