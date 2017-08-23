@@ -71,6 +71,13 @@
               "value": "title",
               "required": true,
               "defaultValue": -1
+            },
+            {
+              "name": "vts_archive",
+              "label": "Export Scorm VTS",
+              "type": "image-uploader",
+              "showImage": false,
+              "accept": ".zip"
             }
           ]
         },
