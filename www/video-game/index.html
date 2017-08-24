@@ -28,7 +28,8 @@
       if (getParameterByName("default")) {
         mediaUrl = "/video-game/default";
       } else {
-        mediaUrl = "http://media.openbusinesslabs.com.s3-website.eu-west-2.amazonaws.com/video-game/game-" + gameId + "/scenario-" + scenarioId;
+        //mediaUrl = "http://media.openbusinesslabs.com.s3-website.eu-west-2.amazonaws.com/video-game/game-" + gameId + "/scenario-" + scenarioId;
+        mediaUrl = "https://media.openbusinesslabs.com/video-game/game-" + gameId + "/scenario-" + scenarioId;
       }
       function loadXHook() {
         xhook.before(function(request) {
