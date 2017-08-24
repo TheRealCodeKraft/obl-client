@@ -73,7 +73,7 @@ class VideoGame extends React.Component {
             <iframe id="video-game-content" 
                     frameborder="0" 
                     style={{visibility: this.state.running ? "visible" : "hidden"}}
-                    src={this.currentUserState().scenario.game_url}
+                    src={this.getUrl()}
                     width="100%"
                     height="100%"
             ></iframe>
@@ -81,6 +81,16 @@ class VideoGame extends React.Component {
         </Row>
       </Grid>
     )
+  }
+
+  getUrl() {
+    var url = ""
+    //if(process.env.NODE_ENV === "production") {
+      url = this.currentUserState().scenario.game_url
+    //} else {
+    //  url = "/video-game/?default=1"
+    //}
+    return url
   }
 
   currentUserState() {
