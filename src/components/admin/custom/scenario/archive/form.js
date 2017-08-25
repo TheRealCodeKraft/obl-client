@@ -26,7 +26,7 @@ class ArchiveForm extends React.Component {
               }
             ]} 
             values={this.props.scenario}
-            submitLabel={false}
+            submitLabel="none"
             service={{client: ScenarioClient, func: "update"}}
             onSubmitComplete={this.handleSubmitComplete}
             submitClass={"btn btn-accent"} 
