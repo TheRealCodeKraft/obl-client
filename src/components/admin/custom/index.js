@@ -1,6 +1,7 @@
 import _TablesManager from './session/tables-manager'
 import _SessionLauncher from './session/launcher'
 import _ClueLevelsManager from './clues/levels-manager'
+import _Archive from './scenario/archive'
 
 export const session = {
   TablesManager: _TablesManager,
@@ -9,4 +10,8 @@ export const session = {
 
 export const clue = {
   ClueLevelsManager: _ClueLevelsManager
+}
+
+export const scenario = {
+  Archive: _Archive
 }

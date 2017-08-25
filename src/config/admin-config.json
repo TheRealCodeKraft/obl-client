@@ -263,7 +263,14 @@
             "new",
             "delete",
             "edit",
-            "see"
+            "see",
+            {
+              "action": "upload_archive",
+              "label": "Upload",
+              "icon": "upload",
+              "component": "Archive",
+              "tinify": true
+            }
           ]
         },
         "form": {
@@ -288,13 +295,6 @@
               "placeholder": "Description du scenario",
               "type": "text",
               "required": true
-            },
-            {
-              "name": "vts_archive",
-              "label": "Export Scorm VTS",
-              "type": "image-uploader",
-              "showImage": false,
-              "accept": ".zip"
             },
             {
               "name": "game_id",

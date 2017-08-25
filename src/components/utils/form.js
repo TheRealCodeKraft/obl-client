@@ -104,6 +104,10 @@ class Form extends React.Component {
   }
 
   render() {
+    var submitButton = this.state.submitting
+                       ? <div className="loader-dots"></div>
+                       : <button type="submit" className={this.props.submitClass}>{this.props.submitLabel ? this.props.submitLabel : "Enregistrer"}</button>
+
     return (
       <div className="form-container">
         {this.props.entityId ? this.buildImageUploaders() : null}
@@ -118,9 +122,10 @@ class Form extends React.Component {
             return this.getInputs(field)
           })}
           {(this.state.submitError) ? [<span>{this.state.submitError}</span>/*, <br />*/] : null}
-          {this.state.submitting
-           ? <div className="loader-dots"></div>
-           : <button type="submit" className={this.props.submitClass}>{this.props.submitLabel ? this.props.submitLabel : "Enregistrer"}</button>}
+          {this.state.submitLabel
+           ? submitButton
+           : null
+          }
         </form>
       </div>
     )
