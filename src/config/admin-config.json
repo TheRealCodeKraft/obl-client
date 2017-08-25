@@ -253,6 +253,10 @@
             {
               "label": "Déploiement",
               "name": "deployment"
+            },
+            {
+              "label": "Upload",
+              "name": "upload"
             }
           ],
           "actions": [
