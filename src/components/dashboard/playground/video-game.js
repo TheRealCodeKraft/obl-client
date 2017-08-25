@@ -2,6 +2,8 @@ import React from "react"
 
 import configs from 'config'
 
+import withUserAgent from 'react-useragent'
+
 import { Grid, Row, Col, Button} from 'react-bootstrap';
 
 import SessionClient from 'clients/session'
@@ -54,7 +56,7 @@ class VideoGame extends React.Component {
     }
   }
 
-  componentDidUnmount() {
+  componentWillUnmount() {
     window.API_1484_11 = undefined
   }
   
@@ -67,17 +69,20 @@ class VideoGame extends React.Component {
           </Col>
         </Row>
         <Row>
-          <Col xs={12}>
-            Vous allez participer à votre entretien, blablabla...
-            <Button onClick={this.runGame}>Commencer</Button>
-            <iframe id="video-game-content" 
-                    frameborder="0" 
-                    style={{visibility: this.state.running ? "visible" : "hidden"}}
-                    src={this.getUrl()}
-                    width="100%"
-                    height="100%"
-            ></iframe>
-          </Col>
+          {this.props.ua.mobile
+           ? <Col xs={12}><span>Contenu indisponible sur mobile</span></Col>
+           :<Col xs={12}>
+             Vous allez participer à votre entretien, blablabla...
+             <Button onClick={this.runGame}>Commencer</Button>
+             <iframe id="video-game-content" 
+                     frameborder="0" 
+                     style={{visibility: this.state.running ? "visible" : "hidden"}}
+                     src={this.getUrl()}
+                     width="100%"
+                     height="100%"
+             ></iframe>
+           </Col>
+          }
         </Row>
       </Grid>
     )
@@ -128,4 +133,4 @@ function fillHash(hash, address, value) {
   }
 }
 
-export default VideoGame
+export default withUserAgent(VideoGame)
