@@ -57,13 +57,16 @@ var ScenarioClient = function() {
     })
   }
 
+
   var upload = function(id, fieldName, file, callback) {
-    BaseClient.upload(plural + '/' + id + '/' + fieldName, fieldName, file, function(data) {
-      store.dispatch({
-        type: "UPLOAD_FILE",
-        game: data
+    BaseClient.put(plural + '/vts-archive-coming', id, {}, function(data) {
+      BaseClient.upload(plural + '/' + id + '/' + fieldName, fieldName, file, function(data) {
+        store.dispatch({
+          type: "UPLOAD_FILE",
+          game: data
+        })
+        if (callback) callback(data)
       })
-      if (callback) callback(data)
     })
   }
 
