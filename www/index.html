@@ -27,7 +27,9 @@
   <link rel="stylesheet" type="text/css" href="/assets/css/admin.css" />
 
   <script type="text/javascript">
-    document.domain="openbusinesslabs.com";
+    if (document.domain.indexOf("localhost") === -1) {
+      document.domain="openbusinesslabs.com";
+    }
   </script>
 
 </head>

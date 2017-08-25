@@ -11,7 +11,9 @@
     <script src="assets/js/xhook-min.js"></script>
     <script type="text/javascript">
 
-      document.domain="openbusinesslabs.com";
+      if (document.domain.indexOf("localhost") === -1) {
+        document.domain="openbusinesslabs.com";
+      }
 
       function getParameterByName(name, url) {
         if (!url) url = window.location.href;
@@ -25,12 +27,10 @@
 
       const gameId = getParameterByName("game_id");
       const scenarioId = getParameterByName("scenario_id");
-      //const mediaUrl = "https://media.openbusinesslabs.com/video-game/game-" + gameId + "/scenario-" + scenarioId;
       var mediaUrl = "";
       if (getParameterByName("default")) {
         mediaUrl = "/video-game/default";
       } else {
-        //mediaUrl = "http://media.openbusinesslabs.com.s3-website.eu-west-2.amazonaws.com/video-game/game-" + gameId + "/scenario-" + scenarioId;
         mediaUrl = "https://media.openbusinesslabs.com/video-game/game-" + gameId + "/scenario-" + scenarioId;
       }
       function loadXHook() {
@@ -42,10 +42,7 @@
               url = "StreamingAssets" + splitted[1]
             }
 
-            //url = "/video-game/example/Module/WebGL/" + url
             url = mediaUrl + "/" + url;
-            //request.headers["Access-Control-Allow-Origin"] =  "*";
-            //request.headers["Access-Control-Allow-Headers"] = "Origin, X-Requested-With, Content-Type, Accept";
             request.url = url;
           }
         });
