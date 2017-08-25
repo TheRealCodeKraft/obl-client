@@ -122,7 +122,7 @@ class Form extends React.Component {
             return this.getInputs(field)
           })}
           {(this.state.submitError) ? [<span>{this.state.submitError}</span>/*, <br />*/] : null}
-          {this.state.submitLabel
+          {this.state.submitLabel !== false
            ? submitButton
            : null
           }

@@ -8,9 +8,16 @@ class Archive extends React.Component {
   render() {
     return (
       <div>
-        <div className="clue-levels-form">
-          <ArchiveForm scenario={this.props.entity} />
-        </div>
+        {this.props.entity.upload === "En cours" || this.props.entity.deployment === "En cours"
+         ? <div>
+             <span>
+               {this.props.entity.upload === "En cours"
+                ? "En cours de téléchargement"
+                : "En cours de déploiement"}
+             </span>
+           </div>
+         : <ArchiveForm scenario={this.props.entity} />
+        }
       </div>
     )
   }
