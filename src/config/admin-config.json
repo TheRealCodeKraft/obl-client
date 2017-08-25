@@ -249,6 +249,10 @@
             {
               "label": "Description",
               "name": "description"
+            },
+            {
+              "label": "Déploiement",
+              "name": "deployment"
             }
           ],
           "actions": [
