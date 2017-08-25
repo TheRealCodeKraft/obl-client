@@ -45,6 +45,22 @@ class Form extends React.Component {
     } else {
       this.loadValuesState()
     }
+  
+    var self = this
+     window.onbeforeunload = function() {
+      console.log("PAG");
+      if (self.state.uploading) {
+        var uploading = false;
+        for (var index in self.state.uploading) {
+          if (self.state.uploading[index] === true) {
+            uploading = true;
+          }
+        }
+        if (uploading) {
+          return "Un upload de fichier est en cours. Êtes-vous sûr de vouloir quitter cette fenêtre ?";
+        }
+      }
+    }
   }
 
   componentWillReceiveProps(props) {

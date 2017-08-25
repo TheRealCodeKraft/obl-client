@@ -60,6 +60,11 @@ var ScenarioClient = function() {
 
   var upload = function(id, fieldName, file, callback) {
     BaseClient.put(plural + '/vts-archive-coming', id, {}, function(data) {
+      store.dispatch({
+        type: "UPDATE_SCENARIO",
+        scenario: data
+      })
+
       BaseClient.upload(plural + '/' + id + '/' + fieldName, fieldName, file, function(data) {
         store.dispatch({
           type: "UPLOAD_FILE",
