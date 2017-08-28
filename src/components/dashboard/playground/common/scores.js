@@ -48,7 +48,7 @@ class FinalRoomScores extends React.Component {
                       {objective.title}
                     </Col>
                     <Col xs={3} sm={6} md={8}>
-                      {Math.round(objective.scaled * 100)} % {/*<a href="#" className="infobulle" data-toggle="tooltip" title="" data-original-title="Score sur la compétence"><i className="pe pe-7s-info text-warning"></i></a>*/}
+                      {(objective.scaled * 100) > 100 ? "100" : Math.round(objective.scaled * 100)} % {/*<a href="#" className="infobulle" data-toggle="tooltip" title="" data-original-title="Score sur la compétence"><i className="pe pe-7s-info text-warning"></i></a>*/}
                     </Col>
                   </Row>
                   )
