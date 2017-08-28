@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { Grid, Row, Col, Table, Button } from 'react-bootstrap';
 
 import Players from './final-room/players'
-import Scores from './final-room/scores'
+import Scores from './common/scores'
 
 class FinalRoom extends React.Component {
 
@@ -13,7 +13,7 @@ class FinalRoom extends React.Component {
       <div>
         <Scores session={this.props.session} me={this.props.me} />
         <hr />
-        <Players session={this.props.session} me={this.props.me} />
+        <Players title="Classement provisoire" session={this.props.session} me={this.props.me} />
       </div>
     )
   }

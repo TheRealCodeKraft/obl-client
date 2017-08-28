@@ -127,3 +127,58 @@
   background: #000000;
   z-index: 10000;
 }
+
+/**********
+ * PODIUM *
+ **********/
+.podium {
+  height: 150px;
+  display: flex;
+}
+
+.podium-box {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.podium-score {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  font-size: 3em;
+  color: #ffffff;
+}
+
+.podium-step {
+  border-top: 1px solid #949ba2;
+  display: flex;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.podium-step .podium-ca {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.podium-box.first .podium-step {
+  height: 80%;
+  font-size: 4em;
+  background: #949ba2;
+}
+
+.podium-box.second .podium-step {
+  height: 50%;
+  font-size: 3em;
+  border-left: 1px solid #949ba2;
+}
+
+.podium-box.third .podium-step {
+  height: 33%;
+  font-size: 1.5em;
+  border-right: 1px solid #949ba2;
+}

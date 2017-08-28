@@ -216,5 +216,8 @@ module.exports = {
     fs: 'empty',
     net: 'empty',
     tls: 'empty'
+  },
+  watchOptions: {
+    poll: true
   }
 }

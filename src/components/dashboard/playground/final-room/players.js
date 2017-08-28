@@ -16,7 +16,7 @@ class FinalRoomPlayers extends React.Component {
       <Grid fluid>
         <Row>
           <Col xs={12}>
-            <h2><i className="pe pe-7s-users text-warning"></i> Classement provisoire</h2>
+            <h2><i className="pe pe-7s-users text-warning"></i> {this.props.title}</h2>
             <h5>Sessions terminées : {this.finishedPlayersCount()} / {this.props.session.players.length}</h5>
           </Col>
         </Row>
