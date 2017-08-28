@@ -3,6 +3,7 @@ import React from "react"
 import SessionClient from 'clients/session'
 
 import { Grid, Row, Col, Button } from 'react-bootstrap';
+import Podium from '../common/podium'
 
 class FinalRoomPlayers extends React.Component {
 
@@ -20,6 +21,13 @@ class FinalRoomPlayers extends React.Component {
             <h5>Sessions terminées : {this.finishedPlayersCount()} / {this.props.session.players.length}</h5>
           </Col>
         </Row>
+        <hr />
+        <Row>
+          <Col xs={12}>
+            <Podium session={this.props.session} />
+          </Col>
+        </Row>
+        <hr />
         <Row>
           <Col xs={12}>
             <table className="table">

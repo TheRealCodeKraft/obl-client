@@ -108,7 +108,7 @@ export default function(config) {
           if (this.state.currentAction !== undefined) {
             if (CustomComponents[config.client.name] && CustomComponents[config.client.name][this.state.currentAction.component]) {
               var Component = CustomComponents[config.client.name][this.state.currentAction.component]
-              content = <Component {...config} entity={entity} onFinished={this.handleCustomActionFinished} />
+              content = <Component {...config} entity={entity} action={this.state.currentAction.action} onFinished={this.handleCustomActionFinished} />
             }
           }
           break

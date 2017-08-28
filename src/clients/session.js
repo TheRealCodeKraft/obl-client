@@ -77,6 +77,16 @@ var SessionClient = function() {
     })
   }
 
+  var nextRound = function(id, callback) {
+    BaseClient.put(plural + '/next-round', id, {}, function(data) {
+      store.dispatch({
+        type: "SESSION_PUSH",
+        session: data
+      })
+      if (callback) callback(data)
+    })
+  }
+
   var room = function(id, callback) {
     BaseClient.put(plural + "/room", id, {}, function(data) {
       store.dispatch({
@@ -143,6 +153,7 @@ var SessionClient = function() {
 
     launch: launch,
     pause: pause,
+    nextRound: nextRound,
     room: room,
     scenario: scenario,
     clues: clues,

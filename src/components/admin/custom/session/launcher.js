@@ -32,19 +32,33 @@ class SessionLauncher extends React.Component {
   }
 
   getMessage() {
-    var message = <span>Êtes-vous sûr de vouloir <strong>lancer</strong> la session <strong>{this.props.entity.title}</strong> ?</span>
-    if (this.props.entity.playable === "play") {
-      message = <span>Êtes-vous sûr de vouloir <strong>mettre en pause</strong> la session <strong>{this.props.entity.title}</strong> ?</span>
+    var message = null
+    switch(this.props.action) {
+      case "launch":
+        message = <span>Êtes-vous sûr de vouloir <strong>lancer</strong> la session <strong>{this.props.entity.title}</strong> ?</span>
+        break
+      case "pause":
+        message = <span>Êtes-vous sûr de vouloir <strong>mettre en pause</strong> la session <strong>{this.props.entity.title}</strong> ?</span>
+        break
+      case "next-round":
+        message = <span>Êtes-vous sûr de vouloir <strong>lancer le prochain round</strong> de la session <strong>{this.props.entity.title}</strong></span>
+        break
     }
     return message
   }
 
   handleLaunch() {
     this.setState({launching: true}, function() {
-      if (this.props.entity.playable === "play") {
-        this.props.client.pause(this.props.entity.id, this.handleLaunched)
-      } else {
-        this.props.client.launch(this.props.entity.id, this.handleLaunched)
+      switch(this.props.action) {
+        case "launch":
+          this.props.client.launch(this.props.entity.id, this.handleLaunched)
+          break
+        case "pause":
+          this.props.client.pause(this.props.entity.id, this.handleLaunched)
+          break
+        case "next-round":
+          this.props.client.nextRound(this.props.entity.id, this.handleLaunched)
+          break
       }
     })
   }

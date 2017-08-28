@@ -131,6 +131,17 @@
                 "value": "play"
               },
               "tinify": true
+            },
+            {
+              "action": "next-round",
+              "label": "Continuer la session",
+              "icon": "next",
+              "component": "SessionLauncher",
+              "displayIf": {
+                "property": "current_step",
+                "value": "end"
+              },
+              "tinify": true
             }
           ]
         },
