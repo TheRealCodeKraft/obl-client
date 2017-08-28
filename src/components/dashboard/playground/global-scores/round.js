@@ -1,5 +1,7 @@
 import React from "react"
 
+import Moment from 'react-moment'
+
 import { Grid, Row, Col } from 'react-bootstrap';
 import Podium from '../common/podium'
 
@@ -43,6 +45,7 @@ class RoundScores extends React.Component {
                       <th>Position</th>
                       <th>Pseudo</th>
                       <th>Score</th>
+                      <th>Temps</th>
                       <th>Chiffre d'affaire</th>
                     </tr>
                   </thead>
@@ -53,6 +56,7 @@ class RoundScores extends React.Component {
                           <td>{state.score ? state.score.position : "-"}</td>
                           <td>{state.player.firstname}</td>
                           <td>{state.score ? state.score.raw + " pts" : "-"}</td>
+                          <td>{state.score ? <Moment format="mm:ss">{state.score.session_time}</Moment> : "-"}</td>
                           <td>{(!state.score || state.score.ca === 0) ? "-" : state.score.ca + "k€"}</td>
                         </tr>
                       )

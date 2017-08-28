@@ -1,5 +1,7 @@
 import React from "react"
 
+import Moment from 'react-moment'
+
 import SessionClient from 'clients/session'
 
 import { Grid, Row, Col, Button } from 'react-bootstrap';
@@ -47,7 +49,7 @@ class FinalRoomPlayers extends React.Component {
                       <td>{state.score ? state.score.position : "-"}</td>
                       <td>{state.player.firstname}</td>
                       <td>{state.score ? state.score.raw + " pts" : "-"}</td>
-                      <td>{state.score ? state.score.session_time : "-"}</td>
+                      <td>{state.score ? <Moment format="mm:ss">{state.score.session_time}</Moment> : "-"}</td>
                       <td>{this.playerHasFinished(state.player) ? ((!state.score || state.score.ca === 0) ? "-" : state.score.ca + "k€") : "-"}</td>
                     </tr>
                   )
