@@ -16,11 +16,15 @@ class CluesSelector extends React.Component {
     this.state = {
       checking: false,
       error: false,
-      value: ""
+      value: "",
+      show_last: false,
+      last: null
     }
 
     this.handleQrScan = this.handleQrScan.bind(this)
     this.checkReturn = this.checkReturn.bind(this)
+
+    this.hideLast = this.hideLast.bind(this)
   }
 
   render() {
@@ -33,11 +37,24 @@ class CluesSelector extends React.Component {
           onScan={this.handleQrScan}
           searching={this.state.checking}
         />
+        {this.showLast()}
         <hr />
         <h2><i className="pe pe-7s-search text-warning"></i> Indices collectés</h2>
         <CluesList clues={this.currentUserState().clues} />
       </div>
     )
+  }
+  
+  showLast() {
+    if (this.state.show_last) {
+      return <div className="alert alert-success">
+               <h4>Dernier indice trouvé :</h4>
+               {this.state.last.map(item => {
+                 return <p>{item.description}</p>
+               })}
+               <p><Button onClick={this.hideLast}>Fermer</Button></p>
+             </div>
+    }
   }
 
   currentUserState() {
@@ -57,10 +74,14 @@ class CluesSelector extends React.Component {
   checkReturn(data) {
     if (data.result === "success") {
       SessionClient.pushInState(data.session)
-      this.setState({error: false, checking: false})
+      this.setState({error: false, checking: false, show_last: true, last: data.item})
     } else {
       this.setState({error: true, errorMessage: /*data.message*/"Veuillez utiliser une carte INDICE", checking: false}) 
     }
+  }
+
+  hideLast() {
+    this.setState({show_last: false, last: null})
   }
 }
 

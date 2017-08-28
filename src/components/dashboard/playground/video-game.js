@@ -70,7 +70,14 @@ class VideoGame extends React.Component {
         </Row>
         <Row>
           {this.props.ua.mobile
-           ? <Col xs={12}><span>Contenu indisponible sur mobile</span></Col>
+           ? <Col xs={12}>
+               <div className="alert alert-danger">
+                 <h4>Resource indisponible sur mobile</h4>
+                 <p>Ce mode de simulation n'est à ce jour pas compatible sur mobile.</p>
+                 <p>Merci d'accéder à ce module sur PC/MAC fixe ou portable.</p>
+               </div>
+               <span>Contenu indisponible sur mobile</span>
+             </Col>
            :<Col xs={12}>
              Vous allez participer à votre entretien, blablabla...
              <Button onClick={this.runGame}>Commencer</Button>
