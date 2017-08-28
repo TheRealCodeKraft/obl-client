@@ -37,7 +37,7 @@ class FinalRoomScores extends React.Component {
                 <div className="panel-tools">
                   <a className="panel-toggle" onClick={this.toggleScoreCollapse}><i className="fa fa-chevron-up text-warning"></i></a>
                 </div>
-                Score : <span className="score">{this.currentUserState().score.scaled * 100} %</span> <a href="#" className="infobulle" data-toggle="tooltip" title="" data-original-title="Score global sur cette simulation"><i className="pe pe-7s-info text-warning"></i></a>
+                Score : <span className="score"> {Math.round(this.currentUserState().score.scaled * 100)}%</span> <a href="#" className="infobulle" data-toggle="tooltip" title="" data-original-title="Score global sur cette simulation"><i className="pe pe-7s-info text-warning"></i></a>
               </div>
               <div className="panel-body">
                 {this.currentUserState().score.objectives.map(objective => {

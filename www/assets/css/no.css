@@ -156,11 +156,8 @@
   display: flex;
   font-weight: bold;
   color: #ffffff;
-}
-
-.podium-step .podium-ca {
-  flex: 1;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
@@ -170,15 +167,45 @@
   font-size: 4em;
   background: #949ba2;
 }
+.podium-box.first .podium-step .podium-ca {
+  font-size: 1em;
+  line-height: 1em;
+}
+.podium-box.first .podium-step .podium-raw {
+  font-size: 0.2em;
+}
+.podium-box.first .podium-step .podium-time {
+  font-size: 0.2em;
+}
 
 .podium-box.second .podium-step {
   height: 50%;
   font-size: 3em;
   border-left: 1px solid #949ba2;
 }
+.podium-box.second .podium-step .podium-ca {
+  font-size: 1em;
+  line-height: 1em;
+}
+.podium-box.second .podium-step .podium-raw {
+  font-size: 0.2em;
+}
+.podium-box.second .podium-step .podium-time {
+  font-size: 0.2em;
+}
 
 .podium-box.third .podium-step {
   height: 33%;
   font-size: 1.5em;
   border-right: 1px solid #949ba2;
+}
+.podium-box.third .podium-step .podium-ca {
+  font-size: 1em;
+  line-height: 1em;
+}
+.podium-box.third .podium-step .podium-raw {
+  font-size: 0.2em;
+}
+.podium-box.third .podium-step .podium-time {
+  font-size: 0.2em;
 }

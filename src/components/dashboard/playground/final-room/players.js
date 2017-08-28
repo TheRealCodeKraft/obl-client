@@ -24,7 +24,7 @@ class FinalRoomPlayers extends React.Component {
         <hr />
         <Row>
           <Col xs={12}>
-            <Podium session={this.props.session} />
+            <Podium session={this.props.session} totalsForSession={false} />
           </Col>
         </Row>
         <hr />
@@ -36,6 +36,7 @@ class FinalRoomPlayers extends React.Component {
                   <th>Position</th>
                   <th>Pseudo</th>
                   <th>Score</th>
+                  <th>Temps</th>
                   <th>Chiffre d'affaire</th>
                 </tr>
               </thead>
@@ -46,6 +47,7 @@ class FinalRoomPlayers extends React.Component {
                       <td>{state.score ? state.score.position : "-"}</td>
                       <td>{state.player.firstname}</td>
                       <td>{state.score ? state.score.raw + " pts" : "-"}</td>
+                      <td>{state.score ? state.score.session_time : "-"}</td>
                       <td>{this.playerHasFinished(state.player) ? ((!state.score || state.score.ca === 0) ? "-" : state.score.ca + "k€") : "-"}</td>
                     </tr>
                   )

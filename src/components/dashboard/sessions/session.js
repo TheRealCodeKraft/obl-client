@@ -62,6 +62,11 @@ class Session extends React.Component {
                      <Link className={"btn btn-success"} to={"/dashboard/sessions/" + this.props.session.id}>Accéder à la salle de jeu</Link>
                    </div>
                  : null}
+                {this.props.session.playable === "stop"
+                 ? <div className="panel-footer">
+                     <Link className={"btn btn-danger"} to={"/dashboard/sessions/" + this.props.session.id}>Voir les résultats</Link>
+                   </div>
+                 : null}
               </Col>
             </Row>
           </div>

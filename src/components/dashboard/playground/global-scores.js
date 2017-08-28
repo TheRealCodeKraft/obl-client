@@ -20,7 +20,7 @@ class GlobalScores extends React.Component {
         </Row>
         <Row>
           <Col xs={12}>
-            <Podium session={this.props.session} />
+            <Podium session={this.props.session} totalsForSession={true} />
           </Col>
         </Row>
         <hr />

@@ -101,9 +101,6 @@ class Playground extends React.Component {
               section = <FinalRoom session={this.props.session} />
             }
             break
-          case "end":
-            section = <GlobalScores session={this.props.session} />
-            break
           default:
             break
         }
@@ -112,7 +109,7 @@ class Playground extends React.Component {
         section = <span>[TODO] Jeu en pause [TODO]</span>
         break
       case "stop":
-        section = <span>[TODO] Jeu terminé [TODO]</span>
+        section = <GlobalScores session={this.props.session} />
         break
       default:
         break
