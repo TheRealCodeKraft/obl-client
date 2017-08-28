@@ -30,7 +30,7 @@ class RoundScores extends React.Component {
                 <Grid fluid>
                   <Row style={{display: "flex", alignItems: "center"}}>
                     <Col xs={4}>
-                      <h4><i className="pe pe-7s-medal text-warning"></i> Round {this.props.roundIndex} / {this.props.totalRounds}</h4>
+                      <h3><i className="pe pe-7s-medal text-warning"></i> Round {this.props.roundIndex} / {this.props.totalRounds}</h3>
                     </Col>
                     <Col xs={8}>
                       <Podium round={this.props.round} tinyfy={true} />

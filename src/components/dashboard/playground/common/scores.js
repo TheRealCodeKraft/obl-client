@@ -20,7 +20,7 @@ class FinalRoomScores extends React.Component {
         <Row>
           <Col xs={12}>
             {this.props.round
-            ? <h4><i className="pe pe-7s-light text-warning"></i> Round {this.props.roundIndex} / {this.props.totalRounds}</h4>
+            ? <h3><i className="pe pe-7s-light text-warning"></i> Round {this.props.roundIndex} / {this.props.totalRounds}</h3>
             : <h2><i className="pe pe-7s-medal text-warning"></i> Votre score individuel pour cette simulation</h2>}
           </Col>
         </Row>
@@ -40,6 +40,7 @@ class FinalRoomScores extends React.Component {
                 Score : <span className="score"> {Math.round(this.currentUserState().score.scaled * 100)}%</span> <a href="#" className="infobulle" data-toggle="tooltip" title="" data-original-title="Score global sur cette simulation"><i className="pe pe-7s-info text-warning"></i></a>
               </div>
               <div className="panel-body">
+                <Grid fluid><Row><Col xs={12}>
                 {this.currentUserState().score.objectives.map(objective => {
                   return (
                   <Row className="detail-score">
@@ -52,6 +53,7 @@ class FinalRoomScores extends React.Component {
                   </Row>
                   )
                 })}
+                </Col></Row></Grid>
               </div>
             </div>
           </Col>
