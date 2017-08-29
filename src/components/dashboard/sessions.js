@@ -23,10 +23,9 @@ class Sessions extends React.Component {
               <h1><i className={"pe pe-7s-joy text-warning"}></i> Jeux</h1>
             </Col>
          </Row>
-         {/*sessions.filter(session => {return session !== null }).length > 0
+         {sessions.filter(session => {return session !== null }).length > 0
           ? sessions
-          : <Row><Col xs={12}>Vous n'avez été invité à aucune session pour le moment</Col></Row>*/}
-         {sessions}
+          : <Row><Col xs={12}>Vous n'avez été invité à aucune session pour le moment</Col></Row>}
        </Grid>
       </section>
     )
@@ -35,9 +34,9 @@ class Sessions extends React.Component {
   buildSessions() {
     return this.props.sessions.map(session => {
              var ui = <Session key={"session-" + session.id} session={session} />
-             if (this.props.me.role === "admin" && session.players.filter(player => {player.id === this.props.me.id}).length === 0) {
-               ui = null
-             }
+             //if (this.props.me.role === "admin" && session.players.filter(player => {player.id === this.props.me.id}).length === 0) {
+             //  ui = null
+             //}
              return ui
            })
   }
