@@ -37,7 +37,7 @@ class WaitingRoom extends React.Component {
                 if (player.id === this.props.me.id) return null
                 return (
                   <tr>
-                    <td>{player.firstname}</td>
+                    <td>{player.shortname}</td>
                     <td className="statut">
                       {this.playerConnected(player)
                        ? <i className="pe pe-7s-check text-success"></i>

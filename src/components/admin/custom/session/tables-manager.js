@@ -11,7 +11,7 @@ class TablesManager extends React.Component {
       <div>
         {this.props.entity.playable === "to_launch" || (this.props.entity.playable === "pause" && this.props.entity.rounds.length == 1 && this.props.entity.current_step == "waiting_players")
         ? <div className="session-player-form-container">
-             <Players session={this.props.entity} />
+             <Players session={this.props.entity} onFinished={this.handleFinished.bind(this)} />
             </div>
         : <span>Tu ne peux pas modifier les joueurs d'une session qui a déjà été lancée</span>}
       </div>
@@ -25,6 +25,10 @@ class TablesManager extends React.Component {
 
   getAvailablePlayers() {
     return this.props.entity.players
+  }
+
+  handleFinished() {
+    this.props.onFinished()
   }
 
 }

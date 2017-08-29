@@ -217,6 +217,7 @@ module.exports = {
     net: 'empty',
     tls: 'empty'
   },
+  watch: true,
   watchOptions: {
     poll: true
   }

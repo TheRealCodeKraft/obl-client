@@ -20,29 +20,39 @@ class Players extends React.Component {
 
   render() {
     return (
-      <Form id="session-users-form"
-            entityId={this.props.session.id}
-            fields={[
-              {
-                name: "players",
-                label: "Sélectionnez les joueurs",
-                type: "list-selector",
-                placeholder: "Sélectionnez les joueurs pour cette session",
-                values: this.props.players,
-                listKey: "id",
-                listValue: "firstname lastname",
-                required: true,
-                defaultValue: this.props.session.players.map(user => { return user.id })
-              },
-            ]}
-            service={{client: SessionClient, func: "update"}}
-            onSubmitComplete={this.handleSubmitComplete}
-            submitClass={"btn btn-accent"}
-      />
+      <div>
+        <Form id="session-users-form"
+              entityId={this.props.session.id}
+              fields={[
+                {
+                  name: "players",
+                  label: "Sélectionnez les joueurs",
+                  type: "list-selector",
+                  placeholder: "Sélectionnez les joueurs pour cette session",
+                  values: this.props.players,
+                  listKey: "id",
+                  listValue: "fullname",
+                  required: true,
+                  defaultValue: this.props.session.players.map(user => { return user.id })
+                },
+                {
+                  name: "mails",
+                  label: "Saisissez les emails (1 par ligne)",
+                  type: "textarea",
+                  placeholder: "Saisissez les emails des joueurs à inviter",
+                  required: true
+                },
+              ]}
+              service={{client: SessionClient, func: "update"}}
+              onSubmitComplete={this.handleSubmitComplete}
+              submitClass={"btn btn-accent"}
+        />
+      </div>
     )
   }
 
   handleSubmitComplete(data) {
+    if (this.props.onFinished) this.props.onFinished();
   }
 
 }

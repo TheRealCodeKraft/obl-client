@@ -273,6 +273,10 @@ class Form extends React.Component {
         }
         input = <ListSelector className="form-control" field={field} defaultValue={value} options={options} onChange={this.handleInputChange.bind(this, field)} />
         break
+      case "textarea":
+        if (value == null) value = ""
+        input = <textarea className="form-control" title={field.title} name={field.name} value={value} placeholder={field.placeholder} onChange={this.handleInputChange.bind(this, field)} rows={5} />
+        break
       default:
         if (value == null) value = ""
         if (field.type === "date" && value !== "") {

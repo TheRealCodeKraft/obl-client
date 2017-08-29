@@ -134,6 +134,28 @@ var SessionClient = function() {
     })
   }
 
+  var invite = function(session, user, callback) {
+    BaseClient.put(plural, session.id + "/invite/" + user.id, {}, function(data) {
+      store.dispatch({
+        type: "SESSION_PUSH",
+        session: data
+      })
+
+      if (callback) callback(data)
+    })
+  }
+
+  var inviteAll = function(session, user, callback) {
+    BaseClient.put(plural, session.id + "/invite", {}, function(data) {
+      store.dispatch({
+        type: "SESSION_PUSH",
+        session: data
+      })
+
+      if (callback) callback(data)
+    })
+  }
+
   var pushInState = function(session) {
     store.dispatch({
       type: "SESSION_PUSH",
@@ -160,6 +182,9 @@ var SessionClient = function() {
 
     checkCode: checkCode,
     setUserScores: setUserScores,
+
+    invite: invite,
+    inviteAll: inviteAll,
 
     pushInState: pushInState
   }

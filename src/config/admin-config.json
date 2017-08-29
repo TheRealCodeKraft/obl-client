@@ -111,6 +111,13 @@
               "component": "TablesManager"
             },
             {
+              "action": "invite",
+              "label": "Envoyer des invitations",
+              "icon": "paper-plane",
+              "component": "Inviter"
+            },
+
+            {
               "action": "launch",
               "label": "Lancer la session",
               "icon": "play",
