@@ -27,11 +27,15 @@ export default function(ComposedComponent, offline=false) {
           var splitted = this.props.location.search.replace("?", "").split("&")
           var emailSplit = splitted[0].split("=")
           var stampSplit = splitted[1].split("=")
-          Auth.login({email: emailSplit[1], password: stampSplit[1]}, function() {
-            self.setState({checking: true}, function () {
-              UserClient.me()
-              self.props.history.push(this.props.location.pathname)
-            })
+          Auth.login({email: emailSplit[1], password: stampSplit[1]}, function(data) {
+            if (data.error) {
+              self.props.history.push("/")
+            } else {
+              self.setState({checking: true}, function () {
+                UserClient.me()
+                self.props.history.push(self.props.location.pathname)
+              })
+            }
           })
         })
       } else {

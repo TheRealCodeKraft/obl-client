@@ -37,16 +37,19 @@ class Header extends React.Component {
                           <img src="/assets/images/logo-obl-mini.png" alt="Open Business Labs" /> <span>OBL</span>
                       </Link>
                   </Navbar.Header>
-                  <Navbar.Collapse id="navbar">
-                      <div className={"left-nav-toggle"}>
-                          <a href="#" onClick={this.handleHamburgerClick}>
-                              <i className={"stroke-hamburgermenu"}></i>
-                          </a>
-                      </div>
-                  </Navbar.Collapse>
+                  {this.props.showAside
+                   ? <Navbar.Collapse id="navbar">
+                       <div className={"left-nav-toggle"}>
+                         <a href="#" onClick={this.handleHamburgerClick}>
+                           <i className={"stroke-hamburgermenu"}></i>
+                         </a>
+                       </div>
+                     </Navbar.Collapse>
+                   : null}
           </Navbar>
 
-          <aside className={"navigation"}>
+          {this.props.showAside
+           ? <aside className={"navigation"}>
               <nav>
                   <ul className={"nav luna-nav"}>
                       <li className={"nav-category"}>
@@ -66,8 +69,9 @@ class Header extends React.Component {
                       </ShowForAcls>
                       <li><a href="#" onClick={this.handleLogout}>Déconnexion</a></li>
                   </ul>
-              </nav>
-          </aside>
+               </nav>
+             </aside>
+           : null}
 
       </header>
     );
@@ -87,8 +91,11 @@ class Header extends React.Component {
 
   handleLogout(e) {
     e.preventDefault()
-    Auth.logout()
-    this.setState({logout: true})
+    var self = this
+    Auth.logout(function() {
+      self.props.history.push("/")
+      self.setState({logout: true})
+    })
   }
 
 }
