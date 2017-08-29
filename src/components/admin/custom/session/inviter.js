@@ -27,6 +27,10 @@ class Inviter extends React.Component {
                     </tr>
                   )
                 })}
+                <tr>
+                  <td></td>
+                  <td><Button onClick={this.sendInvitationToAll.bind(this)}>Inviter tout le monde</Button></td>
+                </tr>
               </tbody>
             </Table>
           </Col>
@@ -37,6 +41,10 @@ class Inviter extends React.Component {
 
   sendInvitation(player) {
     SessionClient.invite(this.props.entity, player)
+  }
+
+  sendInvitationToAll() {
+    SessionClient.inviteAll(this.props.entity)
   }
 
 }
