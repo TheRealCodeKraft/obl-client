@@ -21,35 +21,50 @@ export default function(ComposedComponent, offline=false) {
     }
 
     componentWillMount() {
-      if (Auth.checkForToken() === true) {
-        // I HAVE A TOKEN
-        if (offline) { 
-          // I NEED OFFLINE GRANTS
-          this.props.history.push("/dashboard") 
-        }
-        else { 
-          // I NEED ONLINE GRANTS
-          if (this.props.me === null) {
-            // NOT ME DATA
-            this.setState({checking: true}, function () {
+      if (this.props.location.search.indexOf("stamp") !== -1) {
+        var self = this
+        this.setState({loggingIn: true}, function() {
+          var splitted = this.props.location.search.replace("?", "").split("&")
+          var emailSplit = splitted[0].split("=")
+          var stampSplit = splitted[1].split("=")
+          Auth.login({email: emailSplit[1], password: stampSplit[1]}, function() {
+            self.setState({checking: true}, function () {
               UserClient.me()
+              self.props.history.push(this.props.location.pathname)
             })
-          } else {
-            // RESETTING ME DATA
-            this.setState({resetting: true}, function() {
-              UserClient.resetMe()
-            })
-          }
-        }
+          })
+        })
       } else {
-        // I HAVE NO TOKEN
-        if (offline) { 
-          // I NEED OFFLINE GRANTS
-          this.setState({connectionOk: true}) 
-        }
-        else {
-          // I NEED ONLINE GRANTS
-          this.props.history.push('/login')
+        if (Auth.checkForToken() === true) {
+          // I HAVE A TOKEN
+          if (offline) { 
+            // I NEED OFFLINE GRANTS
+            this.props.history.push("/dashboard") 
+          }
+          else { 
+            // I NEED ONLINE GRANTS
+            if (this.props.me === null) {
+              // NOT ME DATA
+              this.setState({checking: true}, function () {
+                UserClient.me()
+              })
+            } else {
+             // RESETTING ME DATA
+              this.setState({resetting: true}, function() {
+                UserClient.resetMe()
+              })
+            }
+          }
+        } else {
+          // I HAVE NO TOKEN
+          if (offline) { 
+            // I NEED OFFLINE GRANTS
+            this.setState({connectionOk: true}) 
+          }
+          else {
+            // I NEED ONLINE GRANTS
+            this.props.history.push('/login')
+          }
         }
       }
     }
@@ -69,6 +84,8 @@ export default function(ComposedComponent, offline=false) {
           // CONNECTION FAILED
           this.props.history.push("/login")
         }
+      } else if (this.state.loggingIn) {
+
       }
     }
 
