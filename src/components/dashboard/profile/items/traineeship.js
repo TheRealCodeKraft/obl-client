@@ -59,6 +59,13 @@ class Traineeship extends BaseItem {
     )
   }
 
+  buildValue() {
+    var value = this.props.entity.traineeship
+    if (value) value = <mark className="mark-green">Oui</mark>
+    else value = <mark className="mark-red">Non</mark>
+    return value
+  }
+
 }
 
 export default Traineeship

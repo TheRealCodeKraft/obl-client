@@ -56,7 +56,7 @@ export default function(config) {
 
           <Row>
             <Col xs={10}>
-              <h1><i className={"pe pe-7s-user text-warning"}></i> {config.title}</h1>
+              <h1><i className={"pe pe-7s-" + (config.icon ? config.icon : "pin") + " text-warning"}></i> {config.title}</h1>
             </Col>
             {(config.list.actions.indexOf("new") !== -1)
              ? <Col xs={12} className="admin-new-button-row">
@@ -79,7 +79,9 @@ export default function(config) {
             <AdminSidebar ref="sidebar" 
                           onClose={this.handleCloseSidebar}
                           tinify={this.state.mode === "delete" || (this.state.currentAction && this.state.currentAction.tinify)}>
-              {this.getSidebarContent()}
+              <div>
+                {this.getSidebarContent()}
+              </div>
             </AdminSidebar>
           </div>
         </Grid>

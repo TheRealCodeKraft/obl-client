@@ -3,6 +3,7 @@
         "route": "/admin/games",
         "title": "Jeux",
         "client": "GameClient",
+        "icon": "joy",
         "list": {
           "attributes": [
             {

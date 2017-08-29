@@ -25,13 +25,22 @@ Admin----
 Demandes/questions pour Arnaud
 ------------------------
 Profil----
+> ajouter les datepicker
+
+Admin---
+> pas réussi à rendre scrollable react-sidebar pour les affichage sur mobile/petits écrans. j'ai fait quelques essais avec les propriétés mais pas trouvé.
+
+--------------------
+Fait par Arnaud
+--------------------
+Profil----
 > ajouter la class panel-filled sur les panels deroulants ouverts
 > ajouter les balises <mark> autour de la valeur actuelle du champ pour traineeship et contract (ex: <mark class="mark-red">Non</mark>)
-> ajouter les datepicker
 
 Home----
 > vérifier le code ajouté par Hugo pour l'affichage du nom de l'utilisateur en accueil
 
 Admin---
 > pouvoir mettre une icone différent sur les titres des pages Sessions et Jeux
-> pas réussi à rendre scrollable react-sidebar pour les affichage sur mobile/petits écrans. j'ai fait quelques essais avec les propriétés mais pas trouvé.
+[==> dans src/config/admin-config.js, renseigner icon sur les objets racines. Ex sur games]
+

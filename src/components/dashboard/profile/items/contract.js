@@ -37,6 +37,13 @@ class Contract extends BaseItem {
     )
   }
 
+  buildValue() {
+    var value = this.props.entity.contract
+    if (value) value = <mark className="mark-green">Oui</mark>
+    else value = <mark className="mark-red">Non</mark>
+    return value
+  }
+
 }
 
 export default Contract

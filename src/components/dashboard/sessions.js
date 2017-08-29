@@ -23,9 +23,10 @@ class Sessions extends React.Component {
               <h1><i className={"pe pe-7s-joy text-warning"}></i> Jeux</h1>
             </Col>
          </Row>
-         {sessions.filter(session => {return session !== null }).length > 0
+         {/*sessions.filter(session => {return session !== null }).length > 0
           ? sessions
-          : <Row><Col xs={12}>Vous n'avez été invité à aucune session pour le moment</Col></Row>}
+          : <Row><Col xs={12}>Vous n'avez été invité à aucune session pour le moment</Col></Row>*/}
+         {sessions}
        </Grid>
       </section>
     )

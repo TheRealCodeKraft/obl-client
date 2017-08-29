@@ -19,7 +19,7 @@ class BaseItem extends React.Component {
     return (
       <Row className="profile-field">
         <Col xs={12}>
-        <Panel header={this.buildHeader()} collapsible expanded={this.state.open} className="panel-profile" bsStyle="">
+        <Panel header={this.buildHeader()} collapsible expanded={this.state.open} className={"panel-profile" + (this.state.open ? " panel-filled" : "")} bsStyle="">
           {this.buildFullContent()}
         </Panel>
         </Col>
@@ -43,7 +43,6 @@ class BaseItem extends React.Component {
 
   buildValue() {
     return this.props.value ? this.props.value : "Non renseigné"
-    /* Ajouter balises <mark class="mark-red"></mark> ou <mark class="mark-green"></mark> si recherche job ou stage */
   }
 
   buildFullContent() {
