@@ -18,9 +18,20 @@ const userReducer = function(state = {}, action) {
 }
 
 const areaReducer = function(state = {}, action) {
+  var areas
   switch(action.type) {
     case "AREAS":
-      return Object.assign({}, state, { areas: action.areas })
+      return Object.assign({}, state, { areas: action.areas })
+    case "NEW_AREA":
+      areas = pushNewEntityToState(action.area, state, "areas")
+      return Object.assign({}, state, { newArea: action.area, areas: areas })
+    case "UPDATE_AREA":
+      areas = mergeEntityAndState(action.area, state, "areas")
+      return Object.assign({}, state, { updatedArea: action.area, areas: areas})
+    case "DESTROY_AREA":
+      var deletedArea = state.areas.filter(area => { return area.id === action.id })[0]
+      areas = removeEntityFromState(action.id, state, "areas")
+      return Object.assign({}, state, { deletedArea: deletedArea, areas: areas})
     default:
       break
   }
@@ -28,9 +39,20 @@ const areaReducer = function(state = {}, action) {
 }
 
 const specialityReducer = function(state = {}, action) {
+  var specialities
   switch(action.type) {
     case "SPECIALITIES":
-      return Object.assign({}, state, { specialities: action.specialities })
+      return Object.assign({}, state, { specialities: action.specialities })
+    case "NEW_SPECIALITY":
+      specialities = pushNewEntityToState(action.speciality, state, "specialities")
+      return Object.assign({}, state, { newSpeciality: action.speciality, specialities: specialities })
+    case "UPDATE_SPECIALITY":
+      specialities = mergeEntityAndState(action.speciality, state, "specialities")
+      return Object.assign({}, state, { updatedSpeciality: action.speciality, specialities: specialities})
+    case "DESTROY_SPECIALITY":
+      var deletedSpeciality = state.specialities.filter(speciality => { return speciality.id === action.id })[0]
+      specialities = removeEntityFromState(action.id, state, "specialities")
+      return Object.assign({}, state, { deletedSpeciality: deletedSpeciality, specialities: specialities})
     default:
       break
   }
@@ -38,9 +60,20 @@ const specialityReducer = function(state = {}, action) {
 }
 
 const schoolReducer = function(state = {}, action) {
+  var schools
   switch(action.type) {
     case "SCHOOLS":
-      return Object.assign({}, state, { schools: action.schools })
+      return Object.assign({}, state, { schools: action.schools })
+    case "NEW_SCHOOL":
+      schools = pushNewEntityToState(action.school, state, "schools")
+      return Object.assign({}, state, { newSchool: action.school, schools: schools })
+    case "UPDATE_SCHOOL":
+      schools = mergeEntityAndState(action.school, state, "schools")
+      return Object.assign({}, state, { updatedSchool: action.school, schools: schools})
+    case "DESTROY_SCHOOL":
+      var deletedSchool = state.schools.filter(school => { return school.id === action.id })[0]
+      schools = removeEntityFromState(action.id, state, "schools")
+      return Object.assign({}, state, { deletedSchool: deletedSchool, schools: schools})
     default:
       break
   }

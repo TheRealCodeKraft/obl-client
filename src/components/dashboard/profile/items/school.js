@@ -16,7 +16,7 @@ class School extends BaseItem {
   }
 
   componentWillMount() {
-    SchoolClient.schools()
+    SchoolClient.fetchAll()
   }
 
   buildFullContent() {

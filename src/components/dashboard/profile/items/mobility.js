@@ -16,7 +16,7 @@ class Mobility extends BaseItem {
   }
 
   componentWillMount() {
-    AreaClient.areas()
+    AreaClient.fetchAll()
   }
 
   buildFullContent() {

@@ -608,6 +608,126 @@
             "identifier": "name"
           }
         }
+      },
+      {
+        "route": "/admin/areas",
+        "title": "Zones géo.",
+        "client": "AreaClient",
+        "icon": "pin",
+        "list": {
+          "attributes": [
+            {
+              "name": "id",
+              "hidden": true
+            },
+            {
+              "label": "Name",
+              "name": "name"
+            }
+          ],
+          "actions": [
+            "new",
+            "edit",
+            "delete"
+          ]
+        },
+        "form": {
+          "attributes": [
+            {
+              "name": "name",
+              "label": "Nom",
+              "placeholder": "Nom de la zone géo",
+              "type": "text",
+              "required": true
+            }
+          ]
+        },
+        "delete": {
+          "labels": {
+            "entity": "la zone géo",
+            "identifier": "name"
+          }
+        }
+      },
+      {
+        "route": "/admin/schools",
+        "title": "Ecoles",
+        "client": "SchoolClient",
+        "icon": "pin",
+        "list": {
+          "attributes": [
+            {
+              "name": "id",
+              "hidden": true
+            },
+            {
+              "label": "Name",
+              "name": "name"
+            }
+          ],
+          "actions": [
+            "new",
+            "edit",
+            "delete"
+          ]
+        },
+        "form": {
+          "attributes": [
+            {
+              "name": "name",
+              "label": "Nom",
+              "placeholder": "Nom de l'école",
+              "type": "text",
+              "required": true
+            }
+          ]
+        },
+        "delete": {
+          "labels": {
+            "entity": "l'école",
+            "identifier": "name"
+          }
+        }
+      },
+      {
+        "route": "/admin/specialities",
+        "title": "Spécialités",
+        "client": "SpecialityClient",
+        "icon": "pin",
+        "list": {
+          "attributes": [
+            {
+              "name": "id",
+              "hidden": true
+            },
+            {
+              "label": "Name",
+              "name": "name"
+            }
+          ],
+          "actions": [
+            "new",
+            "edit",
+            "delete"
+          ]
+        },
+        "form": {
+          "attributes": [
+            {
+              "name": "name",
+              "label": "Nom",
+              "placeholder": "Nom de la spécialité",
+              "type": "text",
+              "required": true
+            }
+          ]
+        },
+        "delete": {
+          "labels": {
+            "entity": "la spécialité",
+            "identifier": "name"
+          }
+        }
       }
 
     ]

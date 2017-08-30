@@ -16,7 +16,7 @@ class Specialities extends BaseItem {
   }
 
   componentWillMount() {
-    SpecialityClient.specialities()
+    SpecialityClient.fetchAll()
   }
 
   buildFullContent() {
