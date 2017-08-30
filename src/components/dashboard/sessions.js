@@ -34,9 +34,9 @@ class Sessions extends React.Component {
   buildSessions() {
     return this.props.sessions.map(session => {
              var ui = <Session key={"session-" + session.id} session={session} />
-             //if (this.props.me.role === "admin" && session.players.filter(player => {player.id === this.props.me.id}).length === 0) {
-             //  ui = null
-             //}
+             if (this.props.me.role === "admin" && session.players.filter(player => {return player.id === this.props.me.id}).length === 0) {
+               ui = null
+             }
              return ui
            })
   }
