@@ -213,6 +213,13 @@
             "entity": "la session",
             "identifier": "title"
           }
+        },
+        "watcher": {
+          "channel": "SessionChannel",
+          "if": {
+            "property": "playable",
+            "value": "play"
+          }
         }
       },
       {

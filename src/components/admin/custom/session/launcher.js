@@ -75,7 +75,7 @@ class SessionLauncher extends React.Component {
   }
 
   handleCancel() {
-
+    if (this.props.onFinished) this.props.onFinished()
   }
 
   handleLaunched(data) {

@@ -3,10 +3,6 @@ import { connect } from 'react-redux'
 
 import {Switch, Route} from "react-router"
 
-import AuthClient from 'clients/auth'
-import ActionCableProvider from 'react-actioncable-provider'
-import configs from 'config'
-
 import Header from './dashboard/header'
 
 import Home from './dashboard/home'
@@ -19,10 +15,7 @@ class Dashboard extends React.Component {
 
   render() {
 
-    const token = AuthClient.getToken().access_token
-
     return (
-      <ActionCableProvider url={configs.cable.url + "/?token=" + token}>
         <div className="dashboard">
           <Header location={this.props.location} history={this.props.history} showAside={!this.props.me || this.props.me.firstname !== null} />
           {this.props.me && this.props.me.firstname === null
@@ -34,7 +27,6 @@ class Dashboard extends React.Component {
                <Route exact path="/dashboard/sessions" component={Sessions} />
              </Switch>}
         </div>
-      </ActionCableProvider>
     );
   }
 

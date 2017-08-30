@@ -7,6 +7,8 @@ import AdminSidebar from './admin-page/sidebar'
 import CreateEditForm from './form/create-edit'
 import DeleteForm from './form/delete'
 
+import {ActionCable} from 'react-actioncable-provider'
+
 import { Grid } from 'react-bootstrap';
 import { Row } from 'react-bootstrap';
 import { Col } from 'react-bootstrap';
@@ -38,6 +40,8 @@ export default function(config) {
       this.handleCustomActionFinished = this.handleCustomActionFinished.bind(this)
 
       this.handleSubmitComplete = this.handleSubmitComplete.bind(this)
+
+      this.handleCableReceived = this.handleCableReceived.bind(this)
     }
 
     componentWillMount() {
@@ -65,7 +69,7 @@ export default function(config) {
              : null
             }
           </Row>
-
+          {this.buildWatchers()}
           <div>
             <AdminPageList attributes={config.list.attributes} 
                            actions={config.list.actions}
@@ -84,6 +88,26 @@ export default function(config) {
           </div>
         </Grid>
       )
+    }
+
+    buildWatchers() {
+      var watchers = []
+      if (config.watcher) {
+        if (this.props[getPluralName()]) {
+          this.props[getPluralName()].map(entity => {
+            if (config.watcher.if) {
+              if (entity[config.watcher.if.property] === config.watcher.if.value) {
+console.log(config.watcher.channel)
+console.log(entity.id)
+                watchers.push(<ActionCable channel={{channel: config.watcher.channel, session: entity.id}} onReceived={this.handleCableReceived} />)
+              }
+            } else {
+             watchers.push(<ActionCable channel={{channel: config.watcher, session: entity.id}} onReceived={this.handleCableReceived} />)
+            }
+          })
+        }
+      }
+      return watchers
     }
 
     getSidebarContent() {
@@ -122,6 +146,10 @@ export default function(config) {
 
     closeSidebar() {
       this.refs.sidebar.close()
+    }
+
+    handleCableReceived(data) {
+      config.client.pushInState(data[config.client.name])
     }
 
     handleNew(e) {
