@@ -97,8 +97,6 @@ export default function(config) {
           this.props[getPluralName()].map(entity => {
             if (config.watcher.if) {
               if (entity[config.watcher.if.property] === config.watcher.if.value) {
-console.log(config.watcher.channel)
-console.log(entity.id)
                 watchers.push(<ActionCable channel={{channel: config.watcher.channel, session: entity.id}} onReceived={this.handleCableReceived} />)
               }
             } else {
