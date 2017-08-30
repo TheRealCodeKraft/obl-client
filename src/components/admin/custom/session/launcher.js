@@ -13,6 +13,7 @@ class SessionLauncher extends React.Component {
   }
 
   render() {
+    const localState = this.getState()
     return (
       <Grid fluid>
         <Row>
@@ -20,31 +21,41 @@ class SessionLauncher extends React.Component {
             <img src={this.props.entity.game.picture} className="img-rounded" alt={this.props.entity.game.title} />
           </Col>
           <Col xs={8}>
-            <span>{this.getMessage()}</span>
-            <div>
-              <button onClick={this.handleCancel} className="btn btn-danger">Non</button>
-              <button onClick={this.handleLaunch} className="btn btn-accent">Oui</button>
-            </div>
+            <span>{localState.message}</span>
+            {localState.toProceed
+             ? <div>
+                 <button onClick={this.handleCancel} className="btn btn-danger">Non</button>
+                 <button onClick={this.handleLaunch} className="btn btn-accent">Oui</button>
+               </div>
+             : null}
           </Col>
         </Row>
       </Grid>
     )
   }
 
-  getMessage() {
-    var message = null
+  getState() {
+    var state = {
+      message: null,
+      toProceed: true
+    }
     switch(this.props.action) {
       case "launch":
-        message = <span>Êtes-vous sûr de vouloir <strong>lancer</strong> la session <strong>{this.props.entity.title}</strong> ?</span>
+        state.message = <span>Êtes-vous sûr de vouloir <strong>lancer</strong> la session <strong>{this.props.entity.title}</strong> ?</span>
         break
       case "pause":
-        message = <span>Êtes-vous sûr de vouloir <strong>mettre en pause</strong> la session <strong>{this.props.entity.title}</strong> ?</span>
+        if (this.props.entity.current_round.userStates.filter(us => {return us.decision_maker !== null}).length > 0) {
+          state.message = <span>Vous ne pouvez pas mettre le jeu en pause : il y a des joueurs qui passent leur entretien actuellement</span>
+          state.toProceed = false
+        } else {
+          state.message = <span>Êtes-vous sûr de vouloir <strong>mettre en pause</strong> la session <strong>{this.props.entity.title}</strong> ?</span>
+        }
         break
       case "next-round":
-        message = <span>Êtes-vous sûr de vouloir <strong>lancer le prochain round</strong> de la session <strong>{this.props.entity.title}</strong></span>
+        state.message = <span>Êtes-vous sûr de vouloir <strong>lancer le prochain round</strong> de la session <strong>{this.props.entity.title}</strong></span>
         break
     }
-    return message
+    return state
   }
 
   handleLaunch() {
