@@ -102,9 +102,14 @@
           ],
           "actions": [
             "new",
+            {
+              "action": "see",
+              "label": "Suivre la session",
+              "icon": "look",
+              "component": "SessionView"
+            },
             "delete",
             "edit",
-            "see",
             {
               "action": "manage_tables",
               "label": "Joueurs",
@@ -289,7 +294,6 @@
             "new",
             "delete",
             "edit",
-            "see",
             {
               "action": "upload_archive",
               "label": "Upload",
@@ -381,8 +385,7 @@
           "actions": [
             "new",
             "delete",
-            "edit",
-            "see"
+            "edit"
           ]
         },
         "form": {
@@ -472,7 +475,6 @@
             "new",
             "delete",
             "edit",
-            "see",
             {
               "action": "manage_levels",
               "label": "Niveaux",
@@ -571,8 +573,7 @@
           "actions": [
             "new",
             "delete",
-            "edit",
-            "see"
+            "edit"
           ]
         },
         "form": {
