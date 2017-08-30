@@ -27,7 +27,7 @@ class School extends BaseItem {
               fields={[
                 {
                   name: "school_id",
-                  label: "Indiquez votre écoles",
+                  label: "Indiquez votre école",
                   placeholder: "Aucune école",
                   type: "select",
                   values: this.props.schools,

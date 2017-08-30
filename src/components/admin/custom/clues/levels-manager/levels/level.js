@@ -16,13 +16,13 @@ class Level extends React.Component {
     return (
       <div className="clue-levels-level">
         <div className="up-and-down">
-          {this.props.index !== 1 ? <a href="#" onClick={this.goUp}>UP</a> : <span />}
-          {this.props.last ? <span /> : <a href="#" onClick={this.goDown}>DOWN</a>}
+          {this.props.index !== 1 ? <a href="#" onClick={this.goUp}><span className="pe-7s-angle-up"></span></a> : <span />}
+          {this.props.last ? <span /> : <a href="#" onClick={this.goDown}><span className="pe-7s-angle-down"></span></a>}
         </div>
         <span className="level-level">{this.props.index}</span>
         <span className="level-description">{this.props.level.description}</span>
         <div className="level-actions">
-          <a href="#" onClick={this.onDestroy}>destroy</a>
+          <a className="admin-action-button pe pe-7s-junk" href="#" alt="Supprimer" title="Supprimer" onClick={this.onDestroy}></a>
         </div>
       </div>
     )

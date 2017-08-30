@@ -106,7 +106,10 @@ class Playground extends React.Component {
         }
         break
       case "pause":
-        section = <span>[TODO] Jeu en pause [TODO]</span>
+        section = <div className="alert alert-danger">
+                  <h4>Jeu en pause</h4>
+                  <p>Attendez que l'animateur lance la session de jeu pour pouvoir commencer.</p>
+                  </div>
         break
       case "stop":
         section = <GlobalScores session={this.props.session} />

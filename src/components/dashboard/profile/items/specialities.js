@@ -21,7 +21,7 @@ class Specialities extends BaseItem {
 
   buildFullContent() {
     return (
-      /*<div>
+      <div>
         <Form id="user-specialities-form"
               entityId={this.props.entity.id}
               fields={[
@@ -35,31 +35,6 @@ class Specialities extends BaseItem {
                   listValue: "name",
                   required: true,
                   defaultValue: this.props.entity.specialities.map(speciality => {return speciality.id})
-                },
-              ]}
-              service={{client: UserClient, func: "update"}}
-              onSubmitComplete={this.handleSubmitComplete}
-              submitClass={"btn btn-accent"}
-        />
-      </div>*/
-      <div>
-        <Form id="user-specialty-form"
-              entityId={this.props.entity.id}
-              fields={[
-                {
-                  name: "specialty-1",
-                  label: "Entrez vos spécialités",
-                  placeholder: "Spécialité 1",
-                  value: "Spécialité 1",
-                  type: "text",
-                  required: true
-                },
-                {
-                  name: "specialty-2",
-                  placeholder: "Spécialité 2",
-                  value: "Spécialité 2",
-                  type: "text",
-                  required: false
                 },
               ]}
               service={{client: UserClient, func: "update"}}

@@ -85,3 +85,50 @@
 }
 
 /****************** END SIDEBAR **********************/
+
+/***********************
+ * CLUE/LEVELS MANAGER *
+ ***********************/
+.clue-levels-list-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.clue-levels-level {
+  display: flex;
+}
+
+.up-and-down {
+  width: 100px;
+  margin-top: 1px;
+  margin-bottom: 1px;
+  padding: 5px;
+  background: #32343D;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 24px;
+}
+
+.level-level {
+  margin-top: 1px;
+  margin-bottom: 1px;
+  padding: 10px;
+  background: #32343D;
+}
+
+.level-description {
+  margin-top: 1px;
+  margin-bottom: 1px;
+  padding: 10px;
+  background: #32343D;
+  flex: 1;
+  align-items: center;
+}
+
+.level-actions {
+  margin-top: 1px;
+  margin-bottom: 1px;
+  padding: 5px;
+  background: #32343D;
+}

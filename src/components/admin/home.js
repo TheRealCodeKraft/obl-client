@@ -27,19 +27,19 @@ class Home extends React.Component {
                                     <h2>
                                         <i className={"pe-7s-date pe-3x pe-va text-warning"}></i> Sessions
                                     </h2>
-                                    <div>Compléter ton profil et tes infos personnelles.</div>
+                                    <div>Voir les sessions de jeu.</div>
                             </Panel>
                         </Link>
 
                     </Col>
                     <Col md={6}>
 
-                        <Link to="/admin/games" className={"panel-home-student"}>
+                        <Link to="/admin/users" className={"panel-home-student"}>
                             <Panel className={"panel-filled"}>
                                     <h2>
-                                        <i className={"pe pe-7s-joy pe-3x pe-va text-warning"}></i> Jeux
+                                        <i className={"pe pe-7s-users pe-3x pe-va text-warning"}></i> Utilisateurs
                                     </h2>
-                                    <div>Consulter les jeux auxquels tu es inscrit et les résultats de ceux auxquels tu as participé.</div>
+                                    <div>Voir les utilisateurs.</div>
                             </Panel>
                         </Link>
 

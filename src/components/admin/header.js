@@ -49,13 +49,32 @@ class Header extends React.Component {
               <nav>
                   <ul className={"nav luna-nav"}>
                       <li className={"nav-category"}>
-                          Navigation
+                        Général
                       </li>
                       <li className={this.props.location.pathname === "/admin" ? "active" : ""}>
-                        <NavLink exact to="/admin">Tableau de bord</NavLink>
+                        <NavLink exact to="/admin">Tableau de bord admin</NavLink>
+                      </li>
+                      <li><NavLink exact to="/dashboard">Retour au site</NavLink></li>
+                      <li className={"nav-category"}>
+                        Utilisateurs
                       </li>
                       <li className={this.props.location.pathname === "/admin/users" ? "active" : ""}>
-                        <NavLink exact to="/admin/users">Utilisateurs</NavLink>
+                        <NavLink exact to="/admin/users">Liste des utilisateurs</NavLink>
+                      </li>
+                      <li className={this.props.location.pathname === "/admin/areas" ? "active" : ""}>
+                        <NavLink exact to="/admin/areas">Zones géo.</NavLink>
+                      </li>
+                      <li className={this.props.location.pathname === "/admin/schools" ? "active" : ""}>
+                        <NavLink exact to="/admin/schools">Ecoles</NavLink>
+                      </li>
+                      <li className={this.props.location.pathname === "/admin/specialities" ? "active" : ""}>
+                        <NavLink exact to="/admin/specialities">Spécialités</NavLink>
+                      </li>
+                      <li className={"nav-category"}>
+                        Sessions
+                      </li>
+                      <li className={this.props.location.pathname === "/admin/sessions" ? "active" : ""}>
+                        <NavLink exact to="/admin/sessions">Liste des sessions</NavLink>
                       </li>
                       <li className={this.props.location.pathname === "/admin/games" ? "active" : ""}>
                         <NavLink exact to="/admin/games">Jeux</NavLink>
@@ -69,23 +88,13 @@ class Header extends React.Component {
                       <li className={this.props.location.pathname === "/admin/decision_makers" ? "active" : ""}>
                         <NavLink exact to="/admin/decision_makers">Décideurs</NavLink>
                       </li>
-                      <li className={this.props.location.pathname === "/admin/sessions" ? "active" : ""}>
-                        <NavLink exact to="/admin/sessions">Sessions</NavLink>
-                      </li>
                       <li className={this.props.location.pathname === "/admin/rooms" ? "active" : ""}>
                         <NavLink exact to="/admin/rooms">Salles</NavLink>
                       </li>
-                      <li className={this.props.location.pathname === "/admin/areas" ? "active" : ""}>
-                        <NavLink exact to="/admin/areas">Zones géo.</NavLink>
+                      <li className={"nav-category"}>
+                        Déconnexion
                       </li>
-                      <li className={this.props.location.pathname === "/admin/schools" ? "active" : ""}>
-                        <NavLink exact to="/admin/schools">Ecoles</NavLink>
-                      </li>
-                      <li className={this.props.location.pathname === "/admin/specialities" ? "active" : ""}>
-                        <NavLink exact to="/admin/specialities">Spécialités</NavLink>
-                      </li>
-                      <li><NavLink exact to="/dashboard">Retour au site</NavLink></li>
-                      <li><a href="#" onClick={this.handleLogout}>Déconnexion</a></li>
+                      <li><a href="#" onClick={this.handleLogout}>Se déconnecter</a></li>
                   </ul>
               </nav>
           </aside>

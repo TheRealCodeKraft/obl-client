@@ -81,6 +81,7 @@
         "route": "/admin/sessions",
         "title": "Sessions",
         "client": "SessionClient",
+        "icon": "date",
         "list": {
           "attributes": [
             {
@@ -226,6 +227,7 @@
         "route": "/admin/users",
         "title": "Utilisateurs",
         "client": "UserClient",
+        "icon": "users",
         "list": {
           "attributes": [
             {
@@ -254,6 +256,7 @@
         "route": "/admin/scenarios",
         "title": "Scenarios",
         "client": "ScenarioClient",
+        "icon": "news-paper",
         "list": {
           "attributes": [
             {
@@ -351,6 +354,7 @@
         "route": "/admin/rooms",
         "title": "Salles",
         "client": "RoomClient",
+        "icon": "airplay",
         "list": {
           "attributes": [
             {
@@ -549,6 +553,7 @@
         "route": "/admin/decision_makers",
         "title": "Décideurs",
         "client": "DecisionMakerClient",
+        "icon": "id",
         "list": {
           "attributes": [
             {
@@ -620,7 +625,7 @@
         "route": "/admin/areas",
         "title": "Zones géo.",
         "client": "AreaClient",
-        "icon": "pin",
+        "icon": "map-marker",
         "list": {
           "attributes": [
             {
@@ -660,7 +665,7 @@
         "route": "/admin/schools",
         "title": "Ecoles",
         "client": "SchoolClient",
-        "icon": "pin",
+        "icon": "study",
         "list": {
           "attributes": [
             {
@@ -700,7 +705,7 @@
         "route": "/admin/specialities",
         "title": "Spécialités",
         "client": "SpecialityClient",
-        "icon": "pin",
+        "icon": "share",
         "list": {
           "attributes": [
             {

@@ -21,11 +21,13 @@ class LevelForm extends React.Component {
 
   render() {
     return (
-      <div className="clue-level-form">
-        {/*<input type="number" value={this.state.level} onChange={this.handleLevelChange} />*/}
-        <input type="text" value={this.state.description} onChange={this.handleDescriptionChange} />
-        <Button onClick={this.handleSave}>Enregistrer</Button>
-      </div>
+        <div className="clue-level-form">
+          <hr/>
+          {/*<input type="number" value={this.state.level} onChange={this.handleLevelChange} />*/}
+          <label>Entrez ci-dessous un indice</label>
+          <textarea className="form-control" type="text" value={this.state.description} onChange={this.handleDescriptionChange}></textarea>
+          <Button onClick={this.handleSave}>Enregistrer l'indice</Button>
+        </div>
     )
   }
 

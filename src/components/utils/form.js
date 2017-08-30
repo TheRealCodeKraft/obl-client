@@ -136,18 +136,17 @@ class Form extends React.Component {
     return this.props.fields.filter(field => { return field.type === "image-uploader" }).map(field => {
       return <form encType='multipart/form-data' className="upload-form">
                {(field.showImage === undefined || field.showImage)
-               ? <img src={this.state.values[field.name]} style={{width: 100}} alt={this.state.values[field.name]} />
+               ? <img src={this.state.values[field.name]} className={"img-rounded"} style={{width: 100}} alt={this.state.values[field.name]} />
                : null}
-               <span className="upload-title">{field.label}</span>
+               {/*<span className="upload-title">{field.label}</span>*/}
                {this.state.uploading[field.name] 
                 ? <span className="upload-file">Téléchargement en cours</span>
                 : <div className="upload-file">
                     <FileInput name="sheet"
                       accept={field.accept !== undefined ? field.accept : ".png"}
-                      placeholder="Cliquer pour choisir un fichier"
-                      className="upload-file"
+                      placeholder="Cliquer ici pour choisir un fichier"
+                      className="form-control"
                       onChange={this.handleFileChange.bind(this, field)} />
-                      <div className="upload-file-title">Cliquez ici pour choisir un fichier</div>
                       </div>
                }
              </form>
