@@ -32,6 +32,7 @@
     "react-actioncable-provider": "^0.1.0",
     "react-bootstrap": "^0.31.2",
     "react-bootstrap-switch": "^15.5.1",
+    "react-datetime": "^2.10.1",
     "react-dev-utils": "^2.0.1",
     "react-dom": "^15.6.1",
     "react-file-input": "^0.2.5",

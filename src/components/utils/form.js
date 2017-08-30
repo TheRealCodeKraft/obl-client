@@ -6,6 +6,7 @@ var moment = require("moment")
 import * as Clients from 'clients'
 
 import Switch from 'react-bootstrap-switch'
+import DatePicker from 'react-datetime'
 import ListSelector from './form/list-selector'
 import FileInput from "react-file-input"
 
@@ -277,11 +278,18 @@ class Form extends React.Component {
         if (value == null) value = ""
         input = <textarea className="form-control" title={field.title} name={field.name} value={value} placeholder={field.placeholder} onChange={this.handleInputChange.bind(this, field)} rows={5} />
         break
+      case "date":
+        if (!value) value=""
+        else if (value !== "") {
+          value=moment(value).format("DD/MM/YYYY")
+        }
+        input = <DatePicker value={value} 
+                            dateFormat="DD/MM/YYYY"
+                            onChange={this.handleInputChange.bind(this, field)}
+                />
+        break
       default:
         if (value == null) value = ""
-        if (field.type === "date" && value !== "") {
-          value=moment(value).format("YYYY-MM-DD")
-        }
         input = <input className="form-control" title={field.title} name={field.name} type={field.type} value={value} placeholder={field.placeholder} onChange={this.handleInputChange.bind(this, field)} />
         break
     }

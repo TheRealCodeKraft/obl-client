@@ -5,6 +5,8 @@ import UserClient from 'clients/user'
 import BaseItem from "../base-item"
 import Form from 'components/utils/form'
 
+import Moment from 'react-moment'
+
 class Traineeship extends BaseItem {
 
   constructor(props) {
@@ -61,9 +63,22 @@ class Traineeship extends BaseItem {
 
   buildValue() {
     var value = this.props.entity.traineeship
-    if (value) value = <mark className="mark-green">Oui</mark>
-    else value = <mark className="mark-red">Non</mark>
-    return value
+    var values = []
+    if (this.props.entity.traineeship) {
+      values.push(<mark className="mark-green">Oui</mark>)
+    } else {
+      values.push(<mark className="mark-red">Non</mark>)
+    }
+
+    if (this.props.entity.traineeship_start_ts) {
+      if (this.props.entity.traineeship_end_ts) {
+        values.push(<span>&nbsp;Du <Moment format="DD/MM/YYYY">{this.props.entity.traineeship_start_ts}</Moment> au <Moment format="DD/MM/YYYY">{this.props.entity.traineeship_end_ts}</Moment></span>)
+      } else {
+        values.push(<span>&nbsp;A partir du <Moment format="DD/MM/YYYY">{this.props.entity.traineeship_start_ts}</Moment></span>)
+      }
+    }
+
+    return values
   }
 
 }
