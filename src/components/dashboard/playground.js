@@ -40,36 +40,30 @@ class Playground extends React.Component {
   }
 
   render() {
-    if (!this.props.session || !this.props.session.game) {
-      return <span>Chargement de la session en cours</span>
-    } else {
+    return (
+      <section className="content jeu">
 
-      return (
-        <section className="content jeu">
+        <ActionCable ref="sessionChannel" channel={{channel: "SessionChannel", session: this.props.session.id}} onReceived={this.handleCableReceived} />
 
-          <ActionCable ref="sessionChannel" channel={{channel: "SessionChannel", session: this.props.session.id}} onReceived={this.handleCableReceived} />
+        <Grid fluid>
+          <Row>
+            <Col xs={12} className="titre-accueil-jeu">
+              <Panel className="panel-filled panel-c-warning">
+                <img src={this.props.session.game.picture} className="img-rounded image-lg" alt={this.props.session.game.title} />
+                <h1>{this.props.session.game.title}</h1>
+                <div className="small">{this.props.session.title}</div>
+              </Panel>
+            </Col>
+          </Row>
+          <Row>
+            <Col xs={12}>
+              {this.buildSection()}
+            </Col>
+          </Row>
+        </Grid>
 
-          <Grid fluid>
-            <Row>
-              <Col xs={12} className="titre-accueil-jeu">
-                <Panel className="panel-filled panel-c-warning">
-                  <img src={this.props.session.game.picture} className="img-rounded image-lg" alt={this.props.session.game.title} />
-                  <h1>{this.props.session.game.title}</h1>
-                  <div className="small">{this.props.session.title}</div>
-                </Panel>
-              </Col>
-            </Row>
-            <Row>
-              <Col xs={12}>
-                {this.buildSection()}
-              </Col>
-            </Row>
-          </Grid>
-
-        </section>
-      )
-
-    }
+      </section>
+    )
   }
 
   buildSection() {

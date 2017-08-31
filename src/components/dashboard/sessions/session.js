@@ -38,7 +38,7 @@ class Session extends React.Component {
       default:
         break
     }
-    if (!this.props.session || !this.props.session.game) {
+    if (!this.props.session) {
       return <span>Chargement de la session en cours</span>
     } else {
       return (
