@@ -21,18 +21,22 @@ class Session extends React.Component {
     switch(this.props.session.playable) {
       case "to_launch":
         sessionStatus.color = "orange"
+        sessionStatus.css = "warning"
         sessionStatus.label = "Session à venir"
         break
       case "play":
         sessionStatus.color = "green"
+        sessionStatus.css = "success"
         sessionStatus.label = "Session en cours"
         break
       case "pause":
         sessionStatus.color = "orange"
+        sessionStatus.css = "warning"
         sessionStatus.label = "Session en pause"
         break
       case "stop":
         sessionStatus.color = "red"
+        sessionStatus.css = "danger"
         sessionStatus.label = "Session terminée"
         break
       default:
@@ -42,7 +46,7 @@ class Session extends React.Component {
     return (
       <Row>
         <Col xs={12}>
-          <div className={"panel panel-filled panel-list-jeux panel-c-success"}>
+          <div className={"panel panel-filled panel-list-jeux panel-c-" + sessionStatus.css}>
             <Row>
               <Col md={2}>
                 <div className="panel-body">
