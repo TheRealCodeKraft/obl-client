@@ -6,12 +6,12 @@ class PodiumStep extends React.Component {
     return (
       <div className={"podium-box " + this.props.position}>
         <div className="podium-score">
-          {(this.props.state && this.props.state.score) ? this.props.state.player.firstname : "-"}
+          {(this.props.state && this.props.state.score && ((this.props.showTotals && this.props.state.score.total_ca) || this.props.state.score.ca)) ? this.props.state.player.firstname : "-"}
         </div>
         <div className="podium-step">
           <div className="podium-ca">
             {(this.props.state && this.props.state.score)
-             ? (this.props.showTotals ? (this.props.state.score.total_ca === null ? "?" : this.props.state.score.total_ca) : this.props.state.score.ca) + "k€"
+             ? this.props.showTotals ? (this.props.state.score.total_ca === null ? "?" : this.props.state.score.total_ca) + "k€" : (this.props.state.score.ca ? this.props.state.score.ca + "k€" : "-")
              : "-"}
           </div>
         </div>

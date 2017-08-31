@@ -26,7 +26,7 @@ class FinalRoomPlayers extends React.Component {
         <hr />
         <Row>
           <Col xs={12}>
-            <Podium session={this.props.session} totalsForSession={false} />
+            <Podium round={this.props.session.current_round} totalsForSession={false} />
           </Col>
         </Row>
         <hr />
@@ -46,11 +46,11 @@ class FinalRoomPlayers extends React.Component {
                 {this.getPlayersStates().map(state => {
                   return (
                     <tr style={this.props.me.id === state.player.id ? {borderLeft: "3px solid #1bbf89"} : {}}>
-                      <td>{state.score ? state.score.position : "-"}</td>
+                      <td>{(state.score && state.score.raw) ? state.score.position : "-"}</td>
                       <td>{state.player.firstname}</td>
-                      <td>{state.score ? state.score.raw + " pts" : "-"}</td>
-                      <td>{state.score ? <Moment format="mm:ss">{state.score.session_time}</Moment> : "-"}</td>
-                      <td>{this.playerHasFinished(state.player) ? ((!state.score || state.score.ca === 0) ? "-" : state.score.ca + "k€") : "-"}</td>
+                      <td>{(state.score && state.score.raw) ? state.score.raw + " pts" : "-"}</td>
+                      <td>{(state.score && state.score.session_time) ? <Moment format="mm:ss">{state.score.session_time}</Moment> : "-"}</td>
+                      <td>{this.playerHasFinished(state.player) ? ((state.score && state.score.ca && state.score.ca !== 0) ? state.score.ca + "k€" : "-") : "-"}</td>
                     </tr>
                   )
                 })}

@@ -24,7 +24,7 @@ class SessionView extends React.Component {
         <hr style={{borderColor: "#636363", marginBottom: 40}} />
         <Row>
           <Col xs={12}>
-            <Podium round={this.props.entity.rounds.length === 1 ? this.props.entity.current_round : this.props.entity.rounds[this.props.entity.rounds.length - 2]} showTotals={true} />
+            <Podium session={this.props.entity} />
           </Col>
         </Row>
         <hr style={{borderColor: "#636363", marginBottom: 40}} />
@@ -37,7 +37,7 @@ class SessionView extends React.Component {
                       <th rowSpan="2">Pseudo</th>
                       <th rowSpan="2">Salle</th>
                       {this.props.entity.rounds.map((round, index) => {
-                        return <th colSpan="3">Round {index+1}</th>
+                        return <th colSpan={round.id === this.props.entity.current_round.id ? 4 : 3}>Round {index+1}</th>
                       })}
                       <th colSpan="3">GLOBAL</th>
                     </tr>
@@ -73,14 +73,14 @@ class SessionView extends React.Component {
                             if (round.id === this.props.entity.current_round.id) {
                               cols.push(<td>{roundState.scenario ? state.scenario.name : "-"}</td>)
                             }
-                            cols.push(<td>{roundState.score ? roundState.score.raw + " pts" : "-"}</td>)
-                            cols.push(<td>{roundState.score ? <Moment format="mm:ss">{roundState.score.session_time}</Moment> : "-"}</td>)
-                            cols.push(<td>{(!roundState.score || roundState.score.ca === 0) ? "-" : roundState.score.ca + "k€"}</td>)
+                            cols.push(<td>{(roundState.score && roundState.score.raw) ? roundState.score.raw + " pts" : "-"}</td>)
+                            cols.push(<td>{(roundState.score && roundState.score.session_time) ? <Moment format="mm:ss">{roundState.score.session_time}</Moment> : "-"}</td>)
+                            cols.push(<td>{(roundState.score && roundState.score.ca) ? roundState.score.ca + "k€" : "-"}</td>)
                             return cols
                           })}
-                          <td>{state.score ? state.score.total_raw + " pts" : "-"}</td>
-                          <td>{state.score ? <Moment format="mm:ss">{state.score.total_session_time}</Moment> : "-"}</td>
-                          <td>{(!state.score || state.score.total_ca === 0) ? "-" : state.score.total_ca + "k€"}</td>
+                          <td>{(state.score && state.score.total_raw) ? state.score.total_raw + " pts" : "-"}</td>
+                          <td>{(state.score && state.score.total_session_time) ? <Moment format="mm:ss">{state.score.total_session_time}</Moment> : "-"}</td>
+                          <td>{(state.score && state.score.total_ca) ? state.score.total_ca + "k€" : "-"}</td>
                         </tr>
                       )
                     })}
@@ -113,9 +113,6 @@ class SessionView extends React.Component {
 
   getUserStates() {
     var round = this.props.entity.current_round
-    if (this.props.entity.rounds.length > 1) {
-      round = this.props.entity.rounds[this.props.entity.rounds.length - 2]
-    }
     return round.userStates.sort(function(a, b) {
       if (a.score === null) return 1
       else if (b.score === null) return -1

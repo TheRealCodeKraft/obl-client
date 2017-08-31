@@ -15,9 +15,9 @@ class Podium extends React.Component {
     }
     return (
       <div className="podium" style={styles}>
-        <Step state={states[1]} showTotals={this.props.showTotals} position="second" />
-        <Step state={states[0]} showTotals={this.props.showTotals} position="first" />
-        <Step state={states[2]} showTotals={this.props.showTotals} position="third" />
+        <Step state={states[1]} showTotals={this.props.session} position="second" />
+        <Step state={states[0]} showTotals={this.props.session} position="first" />
+        <Step state={states[2]} showTotals={this.props.session} position="third" />
       </div>
     )
   }
@@ -32,19 +32,11 @@ class Podium extends React.Component {
         else return (a.score.total_position < b.score.total_position) ? -1 : 1;
       })
     } else {
-      if (this.props.showTotals) {
-        return round.userStates.sort(function(a, b) {
-          if (a.score === null) return 1
-          else if (b.score === null) return -1
-          else return (a.score.total_position < b.score.total_position) ? -1 : 1;
-        })
-      } else {
-        return round.userStates.sort(function(a, b) {
-          if (a.score === null) return 1
-          else if (b.score === null) return -1
-          else return (a.score.position < b.score.position) ? -1 : 1;
-        })
-      }
+      return round.userStates.sort(function(a, b) {
+        if (a.score === null) return 1
+        else if (b.score === null) return -1
+        else return (a.score.position < b.score.position) ? -1 : 1;
+      })
     } 
   }
 
