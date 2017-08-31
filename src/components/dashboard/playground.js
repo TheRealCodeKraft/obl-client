@@ -40,10 +40,8 @@ class Playground extends React.Component {
   }
 
   render() {
-    if (!this.props.session) {
-
+    if (!this.props.session || !this.props.session.game) {
       return <span>Chargement de la session en cours</span>
-
     } else {
 
       return (
