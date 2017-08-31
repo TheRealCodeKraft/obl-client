@@ -30,18 +30,24 @@ class Main extends React.Component {
 
   render() {
 
-    const token = AuthClient.getToken().access_token
+    const token = AuthClient.getToken() ? AuthClient.getToken().access_token : null
 
     return (
       <BrowserRouter>
         <div id="main-container" className={"wrapper"}>
-          <ActionCableProvider url={configs.cable.url + "/?token=" + token}>
-            <Switch>
-              <Route path="/dashboard" component={AuthChecker(Dashboard)} />
-              <Route path="/admin" component={AuthChecker(CheckForAcls(["admin"], Admin))} />
-              <Route path="/" component={AuthChecker(Offline, true)} />
-            </Switch>
-          </ActionCableProvider>
+          {token
+           ? <ActionCableProvider url={configs.cable.url + "/?token=" + token}>
+               <Switch>
+                 <Route path="/dashboard" component={AuthChecker(Dashboard)} />
+                 <Route path="/admin" component={AuthChecker(CheckForAcls(["admin"], Admin))} />
+                 <Route path="/" component={AuthChecker(Offline, true)} />
+               </Switch>
+             </ActionCableProvider>
+           : <Switch>
+               <Route path="/dashboard" component={AuthChecker(Dashboard)} />
+               <Route path="/admin" component={AuthChecker(CheckForAcls(["admin"], Admin))} />
+               <Route path="/" component={AuthChecker(Offline, true)} />
+             </Switch>}
         </div>
       </BrowserRouter>
     );

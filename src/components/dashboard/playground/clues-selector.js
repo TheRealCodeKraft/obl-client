@@ -39,6 +39,13 @@ class CluesSelector extends React.Component {
         />
         {this.showLast()}
         <hr />
+        <div style={{border: "1px solid #949ba2", padding: 20}}>
+          <h5>[TEMPORAIRE] Codes dispos</h5>
+          <div><strong>FINANCIERS</strong> F1BAJL | A2RAZ | E3FAG | R4EAB | J5MAP | P6TAO | Z7YAU | A8AAT | E9PAP</div>
+          <div><strong>TECHNIQUES</strong> ZAE1E | M1S1P | P2F1S | J3Z1P | U4M1K | Y5T1N | S6E1Q | C7H1D | R8J1J</div>
+          <div><strong>DECISIONS</strong> C9Q1S | QAD2X | J1X2F | X2S2W | P3E2V | X4M2L | C5G2N | S6Y2U</div>
+          <div><strong>DECIDEURS</strong> U9C3S MAS4R C1J4A F2N4D</div>
+        </div>
         <h2><i className="pe pe-7s-search text-warning"></i> Indices collectés</h2>
         <CluesList clues={this.currentUserState().clues} />
       </div>
