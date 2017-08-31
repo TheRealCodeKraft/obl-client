@@ -48,7 +48,7 @@ class WaitingRoom extends React.Component {
               })}
               </tbody>
             </Table>
-            {this.playersConnected() ? <Button onClick={this.goToRoom}>Prêts à jouer !</Button> : null}
+            {(this.props.session.players.length === 1 || this.playersConnected()) ? <Button onClick={this.goToRoom}>Prêts à jouer !</Button> : null}
           </Col>
         </Row>
       </Grid>

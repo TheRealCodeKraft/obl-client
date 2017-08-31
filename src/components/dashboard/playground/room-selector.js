@@ -61,7 +61,7 @@ class RoomSelector extends React.Component {
                   })}
                 </tbody>
               </Table>
-              {this.playersOk() ? <Button onClick={this.goToScenarii}>Prêts à jouer !</Button> : null}
+              {(this.props.session.players.length === 1 || this.playersOk()) ? <Button onClick={this.goToScenarii}>Prêts à jouer !</Button> : null}
             </Col>
           </Row>
         </Grid>
