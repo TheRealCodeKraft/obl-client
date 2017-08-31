@@ -24,7 +24,6 @@ class SessionView extends React.Component {
         <hr style={{borderColor: "#636363", marginBottom: 40}} />
         <Row>
           <Col xs={12}>
-            <Podium round={this.props.entity.rounds.length === 1 ? this.props.entity.current_round : this.props.entity.rounds[this.props.entity.rounds.length - 2]} showTotals={true} />
             <Podium session={this.props.entity} />
           </Col>
         </Row>
@@ -78,14 +77,6 @@ class SessionView extends React.Component {
                             cols.push(<td>{roundState.score ? roundState.score.raw + " pts" : "-"}</td>)
                             cols.push(<td>{roundState.score ? <Moment format="mm:ss">{roundState.score.session_time}</Moment> : "-"}</td>)
                             cols.push(<td>{(!roundState.score || roundState.score.ca === 0) ? "-" : roundState.score.ca + "k€"}</td>)
-                            return cols
-                          })}
-                          <td>{state.score ? state.score.total_raw + " pts" : "-"}</td>
-                          <td>{state.score ? <Moment format="mm:ss">{state.score.total_session_time}</Moment> : "-"}</td>
-                          <td>{(!state.score || state.score.total_ca === 0) ? "-" : state.score.total_ca + "k€"}</td>
-                            cols.push(<td>{(roundState.score && roundState.score.raw) ? roundState.score.raw + " pts" : "-"}</td>)
-                            cols.push(<td>{(roundState.score && roundState.score.session_time) ? <Moment format="mm:ss">{roundState.score.session_time}</Moment> : "-"}</td>)
-                            cols.push(<td>{(roundState.score && roundState.score.ca) ? roundState.score.ca + "k€" : "-"}</td>)
                             return cols
                           })}
                           <td>{(state.score && state.score.total_raw) ? state.score.total_raw + " pts" : "-"}</td>
