@@ -79,7 +79,10 @@ class Playground extends React.Component {
 
     switch(this.props.session.playable) {
       case "to_launch":
-        section = <span>[TODO] Jeu en attente de lancement [TODO]</span>
+        section = <div className="alert alert-danger">
+                  <h4>Jeu en pause</h4>
+                  <p>Attendez que l'animateur lance la session de jeu pour pouvoir commencer.</p>
+                  </div>
         break
       case "play":
         switch(this.props.session.current_step) {

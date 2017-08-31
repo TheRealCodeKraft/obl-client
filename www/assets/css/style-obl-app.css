@@ -27,6 +27,14 @@
   color:#fff;
 }
 
+/* Panel heading on global scores page */
+.panel-heading-global-scores {
+  padding:0;
+}
+.panel-body-global-scores {
+  padding:0;
+}
+
 /*********************** END GENERAL ****************************/
 
 

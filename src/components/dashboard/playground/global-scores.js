@@ -15,48 +15,53 @@ class GlobalScores extends React.Component {
       <Grid fluid>
         <Row>
           <Col xs={12}>
-            <h2><i className="pe pe-7s-paper-plane text-warning"></i> Podium</h2>
+                <h2><i className="pe pe-7s-paper-plane text-warning"></i> Podium</h2>
+                <Podium session={this.props.session} totalsForSession={true} />
           </Col>
         </Row>
+        <hr/>
         <Row>
           <Col xs={12}>
-            <Podium session={this.props.session} totalsForSession={true} />
-          </Col>
-        </Row>
-        <hr />
-        <Row>
-          <Col xs={12}>
-            <h2><i className="pe pe-7s-medal text-warning"></i> Détails des scores</h2>
-          </Col>
-        </Row>
-        <Row>
-          <Col xs={12}>
-            {this.props.session.rounds.map((round, index) => {
+            <div className={"panel panel-filled panel-default"}>
+              <div className="panel-body">
+                <h2><i className="pe pe-7s-graph3 text-warning"></i> Classement par round</h2>
+                <Row>
+                  <Col xs={12}>
+                    {this.props.session.rounds.map((round, index) => {
               return <RoundScores me={this.props.me}
                                   round={round}
                                   roundIndex={index+1}
                                   totalRounds={this.props.session.rounds.length}
                      />
             })}
+                  </Col>
+                </Row>
+              </div>
+            </div>
           </Col>
         </Row>
-        <hr />
+
         <Row>
           <Col xs={12}>
-            <h2><i className="pe pe-7s-gleam text-warning"></i> Détails de mes scores</h2>
+            <div className={"panel panel-filled panel-default"}>
+              <div className="panel-body">
+                <h2><i className="pe pe-7s-graph text-warning"></i> Détails de mes scores</h2>
+                <Row>
+                  <Col xs={12}>
+                    {this.props.session.rounds.map((round, index) => {
+                      return <Scores me={this.props.me}
+                                     round={round}
+                                     roundIndex={index+1}
+                                     totalRounds={this.props.session.rounds.length}
+                             />
+                    })}
+                  </Col>
+                </Row>
+              </div>
+            </div>
           </Col>
         </Row>
-        <Row>
-          <Col xs={12}>
-            {this.props.session.rounds.map((round, index) => {
-              return <Scores me={this.props.me}
-                             round={round}
-                             roundIndex={index+1}
-                             totalRounds={this.props.session.rounds.length}
-                     />
-            })}
-          </Col>
-        </Row>
+        
       </Grid>
     )
   }
