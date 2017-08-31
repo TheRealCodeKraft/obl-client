@@ -34,7 +34,7 @@ class WaitingRoom extends React.Component {
               </thead>
               <tbody>
               {this.props.session.players.map(player => {
-                if (player.id === this.props.me.id) return null
+                /*if (player.id === this.props.me.id) return null*/
                 return (
                   <tr>
                     <td>{player.shortname}</td>
