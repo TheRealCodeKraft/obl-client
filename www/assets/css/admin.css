@@ -85,3 +85,66 @@
 }
 
 /****************** END SIDEBAR **********************/
+
+/***********************
+ * CLUE/LEVELS MANAGER *
+ ***********************/
+.clue-levels-list-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.clue-levels-level {
+  display: flex;
+}
+
+.up-and-down {
+  width: 100px;
+  margin-top: 1px;
+  margin-bottom: 1px;
+  padding: 5px;
+  background: #33353E;
+  display: flex;
+  align-items: center;
+  font-size:24px;
+  justify-content: space-between;
+}
+
+.level-level {
+  margin-top: 1px;
+  margin-bottom: 1px;
+  padding: 10px;
+  background: #33353E;
+}
+
+.level-description {
+  margin-top: 1px;
+  margin-bottom: 1px;
+  padding: 10px;
+  background: #33353E;
+  flex: 1;
+}
+
+.level-actions {
+  margin-top: 1px;
+  margin-bottom: 1px;
+  padding: 5px;
+  background: #33353E;
+}
+
+/**************
+ * VIDEO GAME *
+ **************/
+#video-game-content {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  overflow: hidden;
+  border: 0;
+  width: 100%;
+  height: 100%;
+  background: #000000;
+  z-index: 10000;
+}

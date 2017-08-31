@@ -16,6 +16,10 @@
     border: 0 none;
     border-radius: 0;
 }
+/* Background nav category in menu */
+.luna-nav.nav .nav-category {
+    background-color:#3B3E46;
+}
 
 /*********************** END GENERAL ****************************/
 
