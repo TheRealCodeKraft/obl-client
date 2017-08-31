@@ -82,7 +82,8 @@ export default function(config) {
 
             <AdminSidebar ref="sidebar" 
                           onClose={this.handleCloseSidebar}
-                          tinify={this.state.mode === "delete" || (this.state.currentAction && this.state.currentAction.tinify)}>
+                          tinify={this.state.mode === "delete" || (this.state.currentAction && this.state.currentAction.tinify)}
+                          title={this.getSidebarTitle()}>
               {this.getSidebarContent()}
             </AdminSidebar>
           </div>
@@ -106,6 +107,29 @@ export default function(config) {
         }
       }
       return watchers
+    }
+
+    getSidebarTitle() {
+      var title = "";
+      switch(this.state.mode) {
+        case "list":
+          break
+        case "create":
+          title = "Créer " + config.delete.labels.entity
+        case "edit":
+          title = "Modifier " + config.delete.labels.entity
+          break
+        case "delete":
+          title = "Supprimer " + config.delete.labels.entity
+          break
+        default:
+          if (this.state.currentAction !== undefined) {
+            title = this.state.currentAction.label
+          }
+          break
+      }
+      return title;
+
     }
 
     getSidebarContent() {

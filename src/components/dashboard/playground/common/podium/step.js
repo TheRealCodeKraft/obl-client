@@ -11,21 +11,9 @@ class PodiumStep extends React.Component {
         <div className="podium-step">
           <div className="podium-ca">
             {(this.props.state && this.props.state.score)
-             ? (this.props.totals ? (this.props.state.score.total_ca === null ? "?" : this.props.state.score.total_ca) : this.props.state.score.ca) + "k€"
+             ? (this.props.showTotals ? (this.props.state.score.total_ca === null ? "?" : this.props.state.score.total_ca) : this.props.state.score.ca) + "k€"
              : "-"}
           </div>
-{/*
-          <div className="podium-raw">
-            {(this.props.state && this.props.state.score)
-             ? (this.props.totals ? this.props.state.score.total_raw : this.props.state.score.raw) + "pts"
-             : "-"}
-          </div>
-          <div className="podium-time">
-            {(this.props.state && this.props.state.score)
-             ? (this.props.totals ? this.props.state.score.total_session_time : this.props.state.score.session_time)
-             : "-"}
-          </div>
-*/}
         </div>
       </div>
     )
