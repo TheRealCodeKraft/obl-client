@@ -467,10 +467,6 @@
               "name": "family"
             },
             {
-              "label": "QRCodes",
-              "name": "qrcodes"
-            },
-            {
               "label": "Description",
               "name": "description"
             }
@@ -484,6 +480,12 @@
               "label": "Niveaux",
               "icon": "medal",
               "component": "ClueLevelsManager"
+            },
+            {
+              "action": "manage_qrcodes",
+              "label": "QR Codes",
+              "icon": "gleam",
+              "component": "QrCodesManager"
             }
           ]
         },

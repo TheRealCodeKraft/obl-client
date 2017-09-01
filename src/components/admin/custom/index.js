@@ -4,6 +4,7 @@ import _SessionLauncher from './session/launcher'
 import _Inviter from './session/inviter'
 
 import _ClueLevelsManager from './clues/levels-manager'
+import _QrCodesManager from './clues/qr-codes'
 
 import _Archive from './scenario/archive'
 
@@ -15,7 +16,8 @@ export const session = {
 }
 
 export const clue = {
-  ClueLevelsManager: _ClueLevelsManager
+  ClueLevelsManager: _ClueLevelsManager,
+  QrCodesManager: _QrCodesManager
 }
 
 export const scenario = {

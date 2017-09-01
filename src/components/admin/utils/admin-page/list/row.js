@@ -103,7 +103,8 @@ class AdminPageListRow extends React.Component {
         return true
       })
     }
-    return <div key={"actions-" + this.props.item.id} style={{textAlign: "right"}}>{actions}</div>
+
+    return <div key={"actions-" + this.props.item.id} style={{textAlign: "right", whiteSpace: "nowrap"}}>{actions}</div>
   }
 
   acceptCustomAction(action) {

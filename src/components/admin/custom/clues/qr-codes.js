@@ -14,7 +14,7 @@ class QrCodes extends React.Component {
         <Row>
           <Col xs={12}>
             <Form id="scenario-qrcodes-form"
-              entityId={this.props.clue.id}
+              entityId={this.props.entity.id}
               fields={[
                 {
                   name: "qrcodes",
@@ -23,7 +23,7 @@ class QrCodes extends React.Component {
                   tags: true,
                   placeholder: "Entrez un QR Code pour l'ajouter à la liste",
                   required: true,
-                  defaultValue: this.props.clue.qrcodes
+                  defaultValue: this.props.entity.qrcodes
                 } 
               ]}
               service={{client: ClueClient, func: "update"}}
