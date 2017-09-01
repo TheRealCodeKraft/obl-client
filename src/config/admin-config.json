@@ -507,7 +507,8 @@
                 {"id": "none", "title": "Aucun"},
                 {"id": "budget", "title": "Budget"},
                 {"id": "decision", "title": "Moteur de décision"},
-                {"id": "technique", "title": "Contexte technique"}
+                {"id": "technique", "title": "Contexte technique"},
+                {"id": "bonus", "title": "Bonus"}
               ],
               "key": "id",
               "value": "title",
@@ -518,31 +519,24 @@
               "name": "qrcode",
               "label": "QRCode",
               "placeholder": "QRCode de l'indice",
-              "type": "text",
-              "required": true
+              "type": "text"
             },
             {
               "name": "description",
-              "label": "Description",
-              "placeholder": "Description de l'indice",
+              "label": "Libellé",
+              "placeholder": "Libellé de l'indice",
               "type": "text",
               "required": true
             },
             {
-              "name": "room_id",
-              "label": "Salle",
-              "placeholder": "Sélectionnez une salle",
-              "type": "select",
-              "values": {
-                "targetState": "roomState",
-                "targetValue": "rooms",
-                "client": "RoomClient",
-                "func": "fetchAll"
-              },
-              "key": "id",
-              "value": "name",
-              "required": true,
-              "defaultValue": "-1"
+              "name": "unblock_rule",
+              "label": "Règle de déblocage",
+              "placeholder": "Entrez la règle de déblocage (exemple: 'budget|2;technique:3' pour un déblocage au niveau 2 budget et 3 technique)",
+              "type": "text",
+              "displayIf": {
+                "name": "family",
+                "value": "bonus"
+              }
             }
           ]
         },

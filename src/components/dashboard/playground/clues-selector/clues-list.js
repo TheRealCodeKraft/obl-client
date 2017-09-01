@@ -18,7 +18,7 @@ class CluesList extends React.Component {
                   {this.props.clues.map(clue => {
                     return (
                       <tr>
-                        <td>{clue.family}</td>
+                        <td>{clue.i18nfamily}</td>
                         <td>Tous</td>
                         <td>{clue.description}</td>
                       </tr>
