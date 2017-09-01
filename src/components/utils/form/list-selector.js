@@ -24,25 +24,33 @@ class ListSelector extends React.Component {
 
   setValues(props) {
     var val="", splitted=[]
-    var options = props.options.map(value => {
-      splitted = this.props.field.listValue.split(' ')
-      val = ""
-      for (var i in splitted) {
-        val += value[splitted[i]] + " "
-      }
-      return {text: val, id: value[this.props.field.listKey]}
-    })
+    var options = [], values = []
+    if (this.props.tags) {
+      options = props.options
+    } else {
+      options = props.options.map(value => {
+                  splitted = this.props.field.listValue.split(' ')
+                  val = ""
+                  for (var i in splitted) {
+                    val += value[splitted[i]] + " "
+                  }
+                  return {text: val, id: value[this.props.field.listKey]}
+      })
+    }
     this.setState({values: props.defaultValue, options: options})
   }
 
   render() {
+    var props = {}
+    if (!this.props.tags) {
+      props.data = this.state.options
+    }
+
     return (
-      <Select2 ref="select"
-               multiple
+      <Select2 ref="select" multiple {...props}
                value={this.state.values}
-               data={this.state.options}
                placeholder={this.props.field.placeholder}
-               options={{width: "100%"}}
+               options={{tags: this.props.tags ? this.state.values : false, width: "100%"}}
                onSelect={this.handleSelectionChange} 
                onUnselect={this.handleSelectionChange} />
     )

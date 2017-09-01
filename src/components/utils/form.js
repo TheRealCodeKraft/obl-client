@@ -271,7 +271,7 @@ class Form extends React.Component {
         } else if (field.values instanceof Object) {
           options = this.state.loadedData[field.name] || []
         }
-        input = <ListSelector className="form-control" field={field} defaultValue={value} options={options} onChange={this.handleInputChange.bind(this, field)} />
+        input = <ListSelector className="form-control" field={field} defaultValue={value} options={options} tags={field.tags ? field.tags : false} onChange={this.handleInputChange.bind(this, field)} />
         break
       case "textarea":
         if (value == null) value = ""
