@@ -134,6 +134,27 @@ const gameReducer = function(state = {}, action) {
   return state
 }
 
+const objectiveReducer = function(state = {}, action) {
+  var objectives
+  switch(action.type) {
+    case "OBJECTIVES":
+      return Object.assign({}, state, { objectives: action.objectives })
+    case "NEW_OBJECTIVE":
+      objectives = pushNewEntityToState(action.objective, state, "objectives")
+      return Object.assign({}, state, { newObjective: action.objective, objectives: objectives })
+    case "UPDATE_OBJECTIVE":
+      objectives = mergeEntityAndState(action.objective, state, "objectives")
+      return Object.assign({}, state, { updatedObjective: action.objective, objectives: objectives})
+    case "DESTROY_OBJECTIVE":
+      var deletedObjective = state.objectives.filter(objective => { return objective.id === action.id })[0]
+      objectives = removeEntityFromState(action.id, state, "objectives")
+      return Object.assign({}, state, { deletedObjective: deletedObjective, objectives: objectives})
+    default:
+      break
+  }
+  return state
+}
+
 const scenarioReducer = function(state = {}, action) {
   var scenarios
   switch(action.type) {
@@ -268,6 +289,7 @@ const reducers = combineReducers({
   schoolState: schoolReducer,
   sessionState: sessionReducer,
   gameState: gameReducer,
+  objectiveState: objectiveReducer,
   scenarioState: scenarioReducer,
   roomState: roomReducer,
   clueState: clueReducer,

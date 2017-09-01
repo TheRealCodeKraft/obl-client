@@ -71,13 +71,13 @@ class Header extends React.Component {
                         <NavLink exact to="/admin/specialities">Spécialités</NavLink>
                       </li>
                       <li className={"nav-category"}>
-                        Sessions
-                      </li>
-                      <li className={this.props.location.pathname === "/admin/sessions" ? "active" : ""}>
-                        <NavLink exact to="/admin/sessions">Liste des sessions</NavLink>
+                        Jeux
                       </li>
                       <li className={this.props.location.pathname === "/admin/games" ? "active" : ""}>
-                        <NavLink exact to="/admin/games">Jeux</NavLink>
+                        <NavLink exact to="/admin/games">Liste des jeux</NavLink>
+                      </li>
+                      <li className={this.props.location.pathname === "/admin/objectives" ? "active" : ""}>
+                        <NavLink exact to="/admin/objectives">Objectifs</NavLink>
                       </li>
                       <li className={this.props.location.pathname === "/admin/scenarios" ? "active" : ""}>
                         <NavLink exact to="/admin/scenarios">Scenarii</NavLink>
@@ -87,6 +87,12 @@ class Header extends React.Component {
                       </li>
                       <li className={this.props.location.pathname === "/admin/decision_makers" ? "active" : ""}>
                         <NavLink exact to="/admin/decision_makers">Décideurs</NavLink>
+                      </li>
+                      <li className={"nav-category"}>
+                        Sessions
+                      </li>
+                      <li className={this.props.location.pathname === "/admin/sessions" ? "active" : ""}>
+                        <NavLink exact to="/admin/sessions">Liste des sessions</NavLink>
                       </li>
                       <li className={this.props.location.pathname === "/admin/rooms" ? "active" : ""}>
                         <NavLink exact to="/admin/rooms">Salles</NavLink>
