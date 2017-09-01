@@ -91,7 +91,7 @@ class ScenarioSelector extends React.Component {
   }
 
   openScanner() {
-    this.setState({flashing: true, error: false}, {
+    this.setState({flashing: true, error: false}, function() {
       if (this.props.ua.os === "iOS") {
         this.refs.qrscanner.openImageDialog()
       }
