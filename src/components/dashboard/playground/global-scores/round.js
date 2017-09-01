@@ -23,20 +23,18 @@ class RoundScores extends React.Component {
         <Row>
           <Col xs={12}>
             <div className={"panel panel-jeu" + (this.state.collapsed ? " collapsed" : "")}>
-              <div className="panel-heading">
+              <div className="panel-heading panel-heading-global-scores">
                 <div className="panel-tools">
                   <a className="panel-toggle" onClick={this.toggleCollapse}><i className="fa fa-chevron-up text-warning"></i></a>
                 </div>
-                <Grid fluid>
                   <Row style={{display: "flex", alignItems: "center"}}>
-                    <Col xs={4}>
-                      <h3><i className="pe pe-7s-medal text-warning"></i> Round {this.props.roundIndex} / {this.props.totalRounds}</h3>
+                    <Col xs={12}>
+                      <h4>Round {this.props.roundIndex} / {this.props.totalRounds}</h4>
                     </Col>
-                    <Col xs={8}>
+                    {/*<Col xs={8}>
                       <Podium round={this.props.round} tinyfy={true} />
-                    </Col>
+                    </Col>*/}
                   </Row>
-                </Grid>
               </div>
               <div className="panel-body">
                 <table className="table">

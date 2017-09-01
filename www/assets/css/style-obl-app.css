@@ -16,6 +16,24 @@
     border: 0 none;
     border-radius: 0;
 }
+/* Background nav category in menu */
+.luna-nav.nav .nav-category {
+    background-color:#3B3E46;
+}
+
+/* Mark orange */
+.mark-orange {
+  background-color: #F7AF3E;
+  color:#fff;
+}
+
+/* Panel heading on global scores page */
+.panel-heading-global-scores {
+  padding:0;
+}
+.panel-body-global-scores {
+  padding:0;
+}
 
 /*********************** END GENERAL ****************************/
 

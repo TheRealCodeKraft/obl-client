@@ -218,10 +218,16 @@ select.form-control {
 .panel-jeu .panel-heading {
   color:#848c94;
 }
-.panel-jeu .panel-heading .score {
+.panel-jeu .score {
   color:#fff;
-  font-size:32px;
+}
+.panel-jeu .chiffre-affaire {
+  color:#fff;
+  font-size:64px;
   font-weight:bold;
+}
+.panel-jeu .title-chiffre-affaire {
+  color:#949BA2;
 }
 .panel-jeu .detail-score {
   margin-bottom:5px;
