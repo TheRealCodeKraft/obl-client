@@ -24,12 +24,6 @@ class ScenarioSelector extends React.Component {
   }
 
   render() {
-    if (!this.props.session) {
-      return (
-        <span>Chargement de la session en cours</span>
-      )
-    }
-
     if (this.scenarioChosen()) {
       var currentUserState = this.currentUserState() 
       return (
