@@ -99,10 +99,155 @@ class ScenarioSelector extends React.Component {
 
   handleQrScan(data) {
     if (data) {
+      /****************************************************
+       * CODE TEMPORAIRE                                  *
+       * A SUPPRIMER LORSQUE LES QR CODES SERONT CORRIGES *
+       ****************************************************/
+      if (data.indexOf("www.openbusinesslabs.com") !== -1) {
+        data = this.tempInverse(data)
+      }
       this.setState({flashing: false, codeInput: "", code: data}, function() {
         if (this.props.onScan) this.props.onScan(data)
       })
     }
+  }
+
+  tempInverse(code) {
+    var nCode = ""
+
+console.log(code)
+console.log(code.split("indice10"))
+    var id = code.split("indice10")[1]
+    switch(id) {
+      case "01":
+        nCode = "F1BAJL"
+        break
+      case "02":
+        nCode = "A2RAZ"
+        break
+      case "03":
+        nCode = "E3FAG"
+        break
+      case "04":
+        nCode = "R4EAB"
+        break
+      case "05":
+        nCode = "J5MAP"
+        break
+      case "06":
+        nCode = "P6TAO"
+        break
+      case "07":
+        nCode = "Z7YAU"
+        break
+      case "08":
+        nCode = "A8AAT"
+        break
+      case "09":
+        nCode = "E9PAP"
+        break
+      case "10":
+        nCode = "ZAE1E"
+        break
+      case "11":
+        nCode = "M1S1P"
+        break
+      case "12":
+        nCode = "P2F1S"
+        break
+      case "13":
+        nCode = "J3Z1P"
+        break
+      case "14":
+        nCode = "U4M1K"
+        break
+      case "15":
+        nCode = "Y5T1N"
+        break
+      case "16":
+        nCode = "S6E1Q"
+        break
+      case "17":
+        nCode = "C7H1D"
+        break
+      case "18":
+        nCode = "R8J1J"
+        break
+      case "19":
+        nCode = "C9Q1S"
+        break
+      case "20":
+        nCode = "QAD2X"
+        break
+      case "21":
+        nCode = "J1X2F"
+        break
+      case "22":
+        nCode = "X2S2W"
+        break
+      case "23":
+        nCode = "P3E2V"
+        break
+      case "24":
+        nCode = "X4M2L"
+        break
+      case "25":
+        nCode = "C5G2N"
+        break
+      case "26":
+        nCode = "S6Y2U"
+        break
+      case "27":
+        nCode = "K7H2G"
+        break
+      case "28":
+        nCode = "B8L2M"
+        break
+      case "29":
+        nCode = "X9C2V"
+        break
+      case "30":
+        nCode = "WAV3D"
+        break
+      case "31":
+        nCode = "F1D3R"
+        break
+      case "32":
+        nCode = "U2U3H"
+        break
+      case "33":
+        nCode = "E3Z3Z"
+        break
+      case "34":
+        nCode = "M4M3L"
+        break
+      case "35":
+        nCode = "Y5T3N"
+        break
+      case "36":
+        nCode = "X6B3D"
+        break
+      case "37":
+        nCode = "T7X3C"
+        break
+      case "38":
+        nCode = "M8V3H"
+        break
+      case "39":
+        nCode = "U9C3S"
+        break
+      case "40":
+        nCode = "MAS4R"
+        break
+      case "41":
+        nCode = "C1J4A"
+        break
+      case "42":
+        nCode = "F2N4D"
+        break
+    }
+    
+    return nCode
   }
 
   handleCodeInputChange(e) {
