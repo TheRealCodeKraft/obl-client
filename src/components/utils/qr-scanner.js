@@ -1,5 +1,7 @@
 import React from "react"
 
+import withUserAgent from 'react-useragent'
+
 import { Grid, Row, Col } from 'react-bootstrap';
 
 import QrReader from 'react-qr-reader'
@@ -68,8 +70,10 @@ class ScenarioSelector extends React.Component {
                       delay={500}
                       onError={this.handleQrError}
                       onScan={this.handleQrScan}
+                      legacyMode={this.props.ua.os == "iOS"}
                     />
                     <a href="javascript:void(0);" onClick={this.closeScanner}>Annuler</a>
+<span>tmp : {this.props.ua.os}</span>
                   </div>
     } else if (this.props.searching) {
       component = <div className="searching-code"><span>Recherche du code en cours ...</span></div>
@@ -261,4 +265,4 @@ console.log(code.split("indice10"))
   }
 }
 
-export default ScenarioSelector
+export default withUserAgent(ScenarioSelector)
