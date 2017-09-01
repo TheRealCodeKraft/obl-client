@@ -67,10 +67,11 @@ class ScenarioSelector extends React.Component {
     if (this.state.flashing) {
       component = <div className="qr-scanner">
                     <QrReader
+                      ref="qrscanner"
                       delay={500}
                       onError={this.handleQrError}
                       onScan={this.handleQrScan}
-                      legacyMode={this.props.ua.os == "ios"}
+                      legacyMode={this.props.ua.os === "iOS"}
                     />
                     <a href="javascript:void(0);" onClick={this.closeScanner}>Annuler</a>
 <span>tmp : {this.props.ua.os}</span>
@@ -90,7 +91,11 @@ class ScenarioSelector extends React.Component {
   }
 
   openScanner() {
-    this.setState({flashing: true, error: false})
+    this.setState({flashing: true, error: false}, {
+      if (this.props.ua.os === "iOS") {
+        this.refs.qrscanner.openImageDialog()
+      }
+    })
   }
 
   closeScanner() {
@@ -119,8 +124,6 @@ class ScenarioSelector extends React.Component {
   tempInverse(code) {
     var nCode = ""
 
-console.log(code)
-console.log(code.split("indice10"))
     var id = code.split("indice10")[1]
     switch(id) {
       case "01":
