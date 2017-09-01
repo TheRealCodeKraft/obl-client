@@ -74,7 +74,6 @@ class ScenarioSelector extends React.Component {
                       legacyMode={this.props.ua.os === "iOS"}
                     />
                     <a href="javascript:void(0);" onClick={this.closeScanner}>Annuler</a>
-<span>tmp : {this.props.ua.os}</span>
                   </div>
     } else if (this.props.searching) {
       component = <div className="searching-code"><span>Recherche du code en cours ...</span></div>
