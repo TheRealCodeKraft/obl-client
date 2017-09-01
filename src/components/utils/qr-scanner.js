@@ -70,7 +70,7 @@ class ScenarioSelector extends React.Component {
                       delay={500}
                       onError={this.handleQrError}
                       onScan={this.handleQrScan}
-                      legacyMode={this.props.ua.os == "iOS"}
+                      legacyMode={this.props.ua.os == "ios"}
                     />
                     <a href="javascript:void(0);" onClick={this.closeScanner}>Annuler</a>
 <span>tmp : {this.props.ua.os}</span>
