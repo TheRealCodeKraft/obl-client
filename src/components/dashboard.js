@@ -1,7 +1,8 @@
 import React from "react"
-import { connect } from 'react-redux'
 
 import {Switch, Route} from "react-router"
+
+import AuthChecker from 'components/utils/auth-checker'
 
 import Header from './dashboard/header'
 
@@ -21,10 +22,10 @@ class Dashboard extends React.Component {
           {this.props.me && this.props.me.firstname === null
            ? <ProfileFiller me={this.props.me} />
            : <Switch>
-               <Route exact path="/dashboard" component={Home} />
-               <Route exact path="/dashboard/profile" component={Profile} />
-               <Route exact path="/dashboard/sessions/:identifier" component={Playground} />
-               <Route exact path="/dashboard/sessions" component={Sessions} />
+               <Route exact path="/dashboard" component={AuthChecker(Home)} />
+               <Route exact path="/dashboard/profile" component={AuthChecker(Profile)} />
+               <Route exact path="/dashboard/sessions/:identifier" component={AuthChecker(Playground)} />
+               <Route exact path="/dashboard/sessions" component={AuthChecker(Sessions)} />
              </Switch>}
         </div>
     );
@@ -32,10 +33,4 @@ class Dashboard extends React.Component {
 
 }
 
-function mapStateToProps(state) {
-  return {
-    me: state.userState.me || null
-  }
-}
-
-export default connect(mapStateToProps)(Dashboard)
+export default Dashboard

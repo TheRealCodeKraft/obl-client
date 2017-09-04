@@ -1,5 +1,15 @@
 import { createStore, combineReducers } from 'redux';
 
+const authReducer = function(state = {}, action) {
+  switch(action.type) {
+    case "TOKEN":
+      return Object.assign({}, state, { token: action.token })
+    default:
+      break
+  }
+  return state
+}
+
 // The User Reducer
 const userReducer = function(state = {}, action) {
   switch(action.type) {
@@ -282,6 +292,7 @@ function mergeEntityAndState(entity, state, name) {
 
 // Combine Reducers
 const reducers = combineReducers({
+  authState: authReducer,
   userState: userReducer,
 
   areaState: areaReducer,

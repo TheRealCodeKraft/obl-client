@@ -86,7 +86,6 @@ class RoundScores extends React.Component {
   }
 
   toggleCollapse() {
-console.log("COLLAPSE");
     this.setState({collapsed: !this.state.collapsed})
   }
 

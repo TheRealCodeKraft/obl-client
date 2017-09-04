@@ -2,6 +2,9 @@ import React from "react"
 
 import {Switch, Route} from "react-router"
 
+import AuthChecker from 'components/utils/auth-checker'
+import CheckForAcls from 'components/utils/auth/check-for-acls'
+
 import Header from './admin/header'
 import Home from './admin/home'
 
@@ -33,9 +36,9 @@ class Admin extends React.Component {
         <Header location={this.props.location} />
         <section className="content">
           <Switch>
-            <Route exact path="/admin" component={Home} />
+            <Route exact path="/admin" component={AuthChecker(CheckForAcls(["admin"], Home))} />
             {this.pages.map(page => {
-              return <Route key={page.route} exact path={page.route} component={AdminPage(page)} />
+              return <Route key={page.route} exact path={page.route} component={AuthChecker(CheckForAcls(["admin"], AdminPage(page)))} />
             })}
           </Switch>
         </section>

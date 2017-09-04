@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux'
 
 import configs from 'config'
 
@@ -8,7 +9,6 @@ import { Route/*, Link*/, Switch } from 'react-router-dom'
 import ActionCableProvider from 'react-actioncable-provider'
 
 import AuthChecker from 'components/utils/auth-checker'
-import CheckForAcls from 'components/utils/auth/check-for-acls'
 
 import Offline from 'components/offline'
 import Admin from 'components/admin'
@@ -22,31 +22,29 @@ import AuthClient from 'clients/auth'
 class Main extends React.Component {
   constructor(props) {
     super(props);
+  }
 
-    this.state = {
-    };
-
+  componentWillMount() {
+    AuthClient.getToken()
   }
 
   render() {
 
-    const token = AuthClient.getToken() ? AuthClient.getToken().access_token : null
-
     return (
       <BrowserRouter>
         <div id="main-container" className={"wrapper"}>
-          {token
-           ? <ActionCableProvider url={configs.cable.url + "/?token=" + token}>
+          {this.props.token
+           ? <ActionCableProvider url={configs.cable.url + "/?token=" + this.props.token.access_token}>
                <Switch>
-                 <Route path="/dashboard" component={AuthChecker(Dashboard)} />
-                 <Route path="/admin" component={AuthChecker(CheckForAcls(["admin"], Admin))} />
-                 <Route path="/" component={AuthChecker(Offline, true)} />
+                 <Route path="/dashboard" component={Dashboard} />
+                 <Route path="/admin" component={Admin} />
+                 <Route path="/" component={Offline} />
                </Switch>
              </ActionCableProvider>
            : <Switch>
-               <Route path="/dashboard" component={AuthChecker(Dashboard)} />
-               <Route path="/admin" component={AuthChecker(CheckForAcls(["admin"], Admin))} />
-               <Route path="/" component={AuthChecker(Offline, true)} />
+               <Route path="/dashboard" component={Dashboard} />
+               <Route path="/admin" component={Admin} />
+               <Route path="/" component={Offline} />
              </Switch>}
         </div>
       </BrowserRouter>
@@ -54,4 +52,10 @@ class Main extends React.Component {
   }
 }
 
-export default Main;
+function mapStateToProps(state) {
+  return {
+    token: state.authState.token || null
+  }
+}
+
+export default connect(mapStateToProps)(Main);

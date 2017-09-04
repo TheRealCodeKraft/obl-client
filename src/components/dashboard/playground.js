@@ -40,8 +40,6 @@ class Playground extends React.Component {
   }
 
   render() {
-console.log("SESSION")
-console.log(this.props.session)
     if (!this.props.session) return <span>Chargement de la session en cours</span>
     else {
       return (
@@ -138,6 +136,8 @@ console.log(this.props.session)
   }
 
   handleCableReceived(data) {
+    //console.dir("CABLE RECEIVED")
+    //console.dir(data)
     SessionClient.pushInState(data.session)
   }
 

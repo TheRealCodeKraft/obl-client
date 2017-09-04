@@ -16,7 +16,7 @@ class Offline extends React.Component {
       <section className="content content-no-sidebar">
           <Header />
           <Switch>
-            <Route exact path="/" component={Home} />
+            <Route exact path="/" component={AuthChecker(Home, true)} />
             <Route exact path="/login" component={AuthChecker(Login, true)} />
             <Route exact path="/signup" component={AuthChecker(Signup, true)} />
           </Switch>

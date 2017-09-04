@@ -11,12 +11,24 @@ var Auth = function() {
 
   var getToken = function() {
     var storageToken = StorageService.get(STORAGE_KEY_FOR_TOKEN)
-    if (storageToken) return JSON.parse(storageToken)
-    else return null
+    var token = null
+    if (storageToken) token = JSON.parse(storageToken)
+
+    store.dispatch({
+      type: "TOKEN",
+      token: token
+    })
+
+    return token
   }
 
   var setToken = function(token) {
     StorageService.set(STORAGE_KEY_FOR_TOKEN, JSON.stringify(token));
+
+    store.dispatch({
+      type: "TOKEN",
+      token: token
+    })
   }
 
   var refreshToken = function(callback) {
@@ -65,6 +77,11 @@ var Auth = function() {
 
   var logout = function(callback) {
     StorageService.delete(STORAGE_KEY_FOR_TOKEN)
+    store.dispatch({
+      type: "TOKEN",
+      token: null
+    })
+
     store.dispatch({
       type: "USER_NOT_FOUND"
     })

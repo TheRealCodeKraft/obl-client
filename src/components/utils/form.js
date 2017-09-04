@@ -49,7 +49,6 @@ class Form extends React.Component {
   
     var self = this
      window.onbeforeunload = function() {
-      console.log("PAG");
       if (self.state.uploading) {
         var uploading = false;
         for (var index in self.state.uploading) {
