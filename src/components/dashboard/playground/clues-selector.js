@@ -83,7 +83,11 @@ class CluesSelector extends React.Component {
       SessionClient.pushInState(data.session)
       this.setState({error: false, checking: false, show_last: true, last: data.item})
     } else {
-      this.setState({error: true, errorMessage: /*data.message*/"Veuillez utiliser une carte INDICE", checking: false}) 
+      var message = "Veuillez utiliser une carte INDICE"
+      if (data.message.indexOf("already use") > 0) {
+        message = "Tricheur ? Cette carte a déjà été utilisée ..."
+      }
+      this.setState({error: true, errorMessage: message, checking: false}) 
     }
   }
 

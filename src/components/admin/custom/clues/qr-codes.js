@@ -8,6 +8,11 @@ import Form from 'components/utils/form'
 
 class QrCodes extends React.Component {
 
+  constructor(props) {
+    super(props)
+    this.handleSubmitComplete = this.handleSubmitComplete.bind(this)
+  }
+
   render() {
     return (
       <Grid>
@@ -28,11 +33,18 @@ class QrCodes extends React.Component {
               ]}
               service={{client: ClueClient, func: "update"}}
               submitClass={"btn btn-accent"}
+              onSubmitComplete={this.handleSubmitComplete}
             />
           </Col>
         </Row>
       </Grid>
     )
+  }
+
+  handleSubmitComplete(data) {
+    if (!data.error) {
+      if (this.props.onFinished) this.props.onFinished()
+    }
   }
 
 }
