@@ -23,29 +23,32 @@ class Podium extends React.Component {
   }
 
   getPlayersStates() {
+    var position = "position"
     var round = this.props.round
     if (!round) {
       round = this.props.session.current_round
-      return round.userStates.sort(function(a, b) {
-        if (a.score === null) return 1
-        else if (b.score === null) return -1
-        else return (a.score.total_position < b.score.total_position) ? -1 : 1;
-      })
+      position = "total_position"
     } else {
       if (this.props.showTotals) {
-        return round.userStates.sort(function(a, b) {
-          if (a.score === null) return 1
-          else if (b.score === null) return -1
-          else return (a.score.total_position < b.score.total_position) ? -1 : 1;
-        })
-      } else {
-        return round.userStates.sort(function(a, b) {
-          if (a.score === null) return 1
-          else if (b.score === null) return -1
-          else return (a.score.position < b.score.position) ? -1 : 1;
-        })
+        position = "total_position"
       }
     } 
+
+    var states = round.userStates
+    if (this.props.room) {
+      states = states.filter(state => { return state.room.id === this.props.room.id })
+      position = "table_position"
+      if (this.props.scenario) {
+        states = states.filter(state => { return state.scenario.id === this.props.scenario.id })
+        position = "scenario_position"
+      }
+    }
+
+    return states.sort(function(a, b) {
+      if (a.score === null) return 1
+      else if (b.score === null) return -1
+      else return (a.score[position] < b.score[position]) ? -1 : 1;
+    })
   }
 
 }
