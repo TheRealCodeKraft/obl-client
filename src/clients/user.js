@@ -22,12 +22,13 @@ var UserClient = function() {
   var me = function(callback) {
     BaseClient.get("users/me", {}, function(data) {
       if (data.error) {
-
+        if (callback) callback(data)
       } else {
         store.dispatch({
           type: "ME",
           user: data
         })
+        if (callback) callback(data)
       }
     })
   }

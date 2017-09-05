@@ -2,6 +2,8 @@ import React from "react"
 
 import {Switch, Route} from "react-router"
 
+import UserClient from 'clients/user'
+
 import AuthChecker from 'components/utils/auth-checker'
 
 import Header from './dashboard/header'
@@ -14,13 +16,27 @@ import ProfileFiller from './dashboard/profile-filler'
 
 class Dashboard extends React.Component {
 
+  constructor(props) {
+    super(props)
+    this.state = {}
+  }
+
+  componentWillMount() {
+    var self = this
+    UserClient.me(function(me) {
+      if (!me.error) {
+        self.setState({me: me})
+      }
+    })
+  }
+
   render() {
 
     return (
         <div className="dashboard">
-          <Header location={this.props.location} history={this.props.history} showAside={!this.props.me || this.props.me.firstname !== null} />
-          {this.props.me && this.props.me.firstname === null
-           ? <ProfileFiller me={this.props.me} />
+          <Header location={this.props.location} history={this.props.history} showAside={!this.state.me || this.state.me.firstname !== null} />
+          {this.state.me && this.state.me.firstname === null
+           ? <ProfileFiller me={this.state.me} />
            : <Switch>
                <Route exact path="/dashboard" component={AuthChecker(Home)} />
                <Route exact path="/dashboard/profile" component={AuthChecker(Profile)} />

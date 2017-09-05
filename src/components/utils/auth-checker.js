@@ -11,6 +11,7 @@ export default function(ComposedComponent, offline=false) {
     constructor(props) {
       super(props)
       this.state = {
+        loggingIn: false,
         refreshing: false,
         resetting: false,
         checking: false,
@@ -27,7 +28,9 @@ export default function(ComposedComponent, offline=false) {
           var splitted = this.props.location.search.replace("?", "").split("&")
           var emailSplit = splitted[0].split("=")
           var stampSplit = splitted[1].split("=")
+          self.props.history.push(self.props.location.pathname)
           Auth.login({email: emailSplit[1], password: stampSplit[1]}, function(data) {
+/*
             if (data.error) {
               self.props.history.push("/")
             } else {
@@ -36,6 +39,7 @@ export default function(ComposedComponent, offline=false) {
                 self.props.history.push(self.props.location.pathname)
               })
             }
+*/
           })
         })
       } else {

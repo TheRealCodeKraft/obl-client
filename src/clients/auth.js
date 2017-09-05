@@ -49,14 +49,20 @@ var Auth = function() {
   }
 
   var login = function(params, callback) {
-    params["grant_type"] = "password"
-    BaseClient.post("oauth/token", params, function(data) {
-      if (data.error) {
-        if (callback) callback(data)
-      } else {
-        Auth.storeToken(data, callback)
-      }
-    }, false, true)
+    if (checkForToken()) {
+      logout(function() {
+        login(params, callback)
+      })
+    } else {
+      params["grant_type"] = "password"
+      BaseClient.post("oauth/token", params, function(data) {
+        if (data.error) {
+          if (callback) callback(data)
+        } else {
+          Auth.storeToken(data, callback)
+        }
+      }, false, true)
+    }
   }
 
   var checkForToken = function() {

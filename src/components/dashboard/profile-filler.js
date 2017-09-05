@@ -1,5 +1,7 @@
 import React from "react"
 
+import {withRouter} from 'react-router'
+
 import UserClient from 'clients/user'
 
 import {Grid, Row, Col} from "react-bootstrap"
@@ -110,7 +112,9 @@ class ProfileFiller extends React.Component {
   }
 
   handleSubmitComplete(data) {
-    this.setState({submitted: true})
+    this.setState({submitted: true}, function() {
+      this.props.history.push("/")
+    })
   }
 
   handleSubmitError(data) {
@@ -119,4 +123,4 @@ class ProfileFiller extends React.Component {
 
 }
 
-export default ProfileFiller
+export default withRouter(ProfileFiller)
