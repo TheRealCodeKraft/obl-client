@@ -20,13 +20,19 @@ class Playground extends React.Component {
   constructor(props) {
     super(props)
 
+    this.state = {
+      current_session_id: undefined
+    }
+
     this.handleCableReceived = this.handleCableReceived.bind(this)
     this.doPing = this.doPing.bind(this)
   }
 
   componentDidMount() {
     if (this.props.match.params.identifier !== undefined) {
-      SessionClient.fetchOne(this.props.match.params.identifier)
+      this.setState({current_session_id: parseInt(this.props.match.params.identifier)}, function() {
+        SessionClient.fetchOne(this.props.match.params.identifier)
+      })
     }
 
     this.startPolling()
@@ -40,7 +46,7 @@ class Playground extends React.Component {
   }
 
   render() {
-    if (!this.props.session) return <span>Chargement de la session en cours</span>
+    if (!this.props.session || this.props.session.id !== this.state.current_session_id) return <span>Chargement de la session en cours</span>
     else {
       return (
         <section className="content jeu">
@@ -136,13 +142,15 @@ class Playground extends React.Component {
   }
 
   handleCableReceived(data) {
-    console.dir("CABLE RECEIVED")
-    console.dir(data)
-    SessionClient.pushInState(data.session)
+    if (this.props.session.id === data.session.id) {
+      SessionClient.pushInState(data.session)
+    }
   }
 
   doPing() {
-    this.refs.sessionChannel.perform('ping', {user: this.props.me.id, session: this.props.session.id})
+    if (this.refs.sessionChannel) {
+      this.refs.sessionChannel.perform('ping', {user: this.props.me.id, session: this.props.session.id})
+    }
   }
 
 }
