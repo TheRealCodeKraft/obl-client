@@ -136,8 +136,8 @@ class Playground extends React.Component {
   }
 
   handleCableReceived(data) {
-    //console.dir("CABLE RECEIVED")
-    //console.dir(data)
+    console.dir("CABLE RECEIVED")
+    console.dir(data)
     SessionClient.pushInState(data.session)
   }
 
