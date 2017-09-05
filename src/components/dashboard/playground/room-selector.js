@@ -22,6 +22,7 @@ class RoomSelector extends React.Component {
     this.checkReturn = this.checkReturn.bind(this)
 
     this.goToScenarii = this.goToScenarii.bind(this)
+
   }
 
   render() {
@@ -34,6 +35,14 @@ class RoomSelector extends React.Component {
               <h2><i className="pe pe-7s-users text-warning"></i> Joueur ayant rejoint votre salle</h2>
             </Col>
           </Row>
+          <Row>
+          <Col xs={12}>
+            <div className="alert alert-info">
+                  <h4>En attente</h4>
+                  <p>Quand tous les joueurs auront rejoint la salle, vous pourrez continuer en cliquant sur "Prêts à jouer".</p>
+            </div>
+          </Col>
+        </Row>
           <Row>
             <Col xs={12}>
               <Table responsive>
@@ -70,6 +79,7 @@ class RoomSelector extends React.Component {
       return (
         <QrScanner
           title="Flash ici ta carte salle"
+          description="La carte salle est la carte que tu as obtenue par tirage au sort."
           error={this.state.error}
           errorMessage={this.state.errorMessage}
           onScan={this.handleQrScan}

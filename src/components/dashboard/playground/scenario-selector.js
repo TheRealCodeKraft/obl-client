@@ -21,6 +21,7 @@ class ScenarioSelector extends React.Component {
     this.handleQrScan = this.handleQrScan.bind(this)
     this.checkReturn = this.checkReturn.bind(this)
     this.goToClues = this.goToClues.bind(this)
+
   }
 
   render() {
@@ -30,9 +31,17 @@ class ScenarioSelector extends React.Component {
         <Grid fluid>
           <Row>
             <Col xs={12}>
-              <h2><i className="pe pe-7s-users text-warning"></i> Joueurs ayant choisi leur scénario</h2>
+              <h2><i className="pe pe-7s-users text-warning"></i> Joueurs ayant choisi validé leur lead commercial</h2>
             </Col>
           </Row>
+          <Row>
+          <Col xs={12}>
+            <div className="alert alert-info">
+                  <h4>En attente</h4>
+                  <p>Quand tous les joueurs auront choisi leur lead commercial, vous pourrez cliquer sur le bouton "Prêts à jouer" qui apparaîtra.</p>
+            </div>
+          </Col>
+        </Row>
           <Row>
             <Col xs={12}>
               <Table responsive>
@@ -70,7 +79,8 @@ class ScenarioSelector extends React.Component {
     } else {
       return (
         <QrScanner
-          title="Flash ici ta carte scenario"
+          title="Flash ici ta carte lead commercial"
+          description="La carte lead commercial est celle que tu as obtenu lors du jeu introductif de génération de lead commercial."
           error={this.state.error}
           errorMessage={this.state.errorMessage}
           onScan={this.handleQrScan}

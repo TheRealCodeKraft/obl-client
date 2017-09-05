@@ -6,6 +6,12 @@
 	float:left;
 }
 
+/* Alerts */
+.alert {
+  margin-top:10px;
+  margin-bottom:10px;
+}
+
 /* Fix the Pace default CSS class */
 .content > div {
     opacity: 1;

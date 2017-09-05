@@ -66,7 +66,7 @@ class VideoGame extends React.Component {
       <Grid fluid>
         <Row>
           <Col xs={12}>
-            <h2><i className="pe pe-7s-users text-warning"></i> Participez à votre entretien</h2>
+            <h2><i className="pe pe-7s-users text-warning"></i> Participe à ton entretien</h2>
           </Col>
         </Row>
         <Row>
@@ -87,8 +87,15 @@ class VideoGame extends React.Component {
                         <span>Calcul du score en cours</span>
                       </Col>
                     : <Col xs={12}>
-                        Vous allez participer à votre entretien, blablabla...
-                        <Button onClick={this.runGame}>Commencer</Button>
+                        <p>Tu vas maintenant participer à ton entretien avec le décideur. Il se déroulera en trois phases :</p>
+                        <ul>
+                          <li>Prise de contact</li>
+                          <li>Découverte du besoin</li>
+                          <li>Formulation de l'offre</li>
+                        </ul>
+                        <p>Le temps est limité et c'est toi qui mene l'entretien, donne la cadence et choisi d'avancer à l'étape suivante quand tu es satisfait des infos que tu as.</p>
+                        <p>Bonne chance !</p>
+                        <Button className={"btn-warning"} onClick={this.runGame}>Commencer l'entretien</Button>
                         <iframe id="video-game-content" 
                           frameborder="0" 
                           style={{visibility: this.state.running ? "visible" : "hidden"}}

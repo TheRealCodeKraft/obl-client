@@ -31,7 +31,7 @@ class CluesSelector extends React.Component {
     return (
       <div>
         <QrScanner
-          title="Flash ici tes cartes indice"
+          title="Flash ici tes cartes business-battle (cartes indices et carte décideur)"
           error={this.state.error}
           errorMessage={this.state.errorMessage}
           onScan={this.handleQrScan}
@@ -55,7 +55,7 @@ class CluesSelector extends React.Component {
   showLast() {
     if (this.state.show_last) {
       return <div className="alert alert-success">
-               <h4>Dernier indice trouvé :</h4>
+               <h4>Nouvel indice récolté</h4>
                {this.state.last.map(item => {
                  return <p>{item.description}</p>
                })}
