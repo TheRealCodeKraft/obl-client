@@ -60,7 +60,7 @@ class CluesSelector extends React.Component {
                {this.state.last.map(item => {
                  return <p>{item.description}</p>
                })}
-               <p><Button onClick={this.hideLast} className={"btn btn-success"}>Fermer</Button></p>
+               <p><Button onClick={this.hideLast} bsStyle="info">Fermer</Button></p>
              </div>
     }
   }

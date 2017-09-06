@@ -13,7 +13,7 @@ import VideoGame from './playground/video-game'
 import FinalRoom from './playground/final-room'
 import GlobalScores from './playground/global-scores'
 
-import { Grid, Row, Col, Panel } from 'react-bootstrap';
+import { Grid, Row, Col, Panel, Button } from 'react-bootstrap';
 
 class Playground extends React.Component {
 
@@ -57,9 +57,16 @@ class Playground extends React.Component {
             <Row>
               <Col xs={12} className="titre-accueil-jeu">
                 <Panel className="panel-filled panel-c-warning">
-                  <img src={this.props.session.game.picture} className="img-rounded image-lg" alt={this.props.session.game.title} />
-                  <h1>{this.props.session.game.title}</h1>
-                  <div className="small">{this.props.session.title}</div>
+                  <Row>
+                    <Col md={9}>
+                      <img src={this.props.session.game.picture} className="img-rounded image-lg" alt={this.props.session.game.title} />
+                      <h1>{this.props.session.game.title}</h1>
+                      <div className="small">{this.props.session.title}</div>
+                    </Col>
+                    <Col md={3}>
+                      <Button href="/dashboard/sessions" className="btn-retour-liste-jeu">Retour à la liste des sessions</Button>
+                    </Col>
+                  </Row>
                 </Panel>
               </Col>
             </Row>

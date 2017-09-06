@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 
 import SessionClient from 'clients/session'
 
-import { Grid, Row, Col, Table, Button } from 'react-bootstrap';
+import { Grid, Row, Col, Table, Button, Alert } from 'react-bootstrap';
 
 import QrScanner from 'components/utils/qr-scanner'
 
@@ -36,13 +36,13 @@ class RoomSelector extends React.Component {
             </Col>
           </Row>
           <Row>
-          <Col xs={12}>
-            <div className="alert alert-info">
-                  <h4>En attente</h4>
-                  <p>Quand tous les joueurs auront rejoint la salle, vous pourrez continuer en cliquant sur "Prêts à jouer".</p>
-            </div>
-          </Col>
-        </Row>
+            <Col xs={12}>
+              <Alert bsStyle="info">
+                <h4>En attente</h4>
+                <p>Quand tous les joueurs auront rejoint la salle, vous pourrez continuer en cliquant sur "Prêts à jouer".</p>
+              </Alert>
+            </Col>
+          </Row>
           <Row>
             <Col xs={12}>
               <Table responsive>
@@ -123,6 +123,7 @@ class RoomSelector extends React.Component {
   goToScenarii() {
     SessionClient.scenario(this.props.session.id)
   }
+
 }
 
 function mapStateToProps(state) {

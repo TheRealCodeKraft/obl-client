@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 
 import SessionClient from 'clients/session'
 
-import { Grid, Row, Col, Table, Button } from 'react-bootstrap';
+import { Grid, Row, Col, Table, Button, Alert } from 'react-bootstrap';
 
 class WaitingRoom extends React.Component {
 
@@ -24,10 +24,10 @@ class WaitingRoom extends React.Component {
         </Row>
         <Row>
           <Col xs={12}>
-            <div className="alert alert-info">
-                  <h4>En attente</h4>
-                  <p>Quand tous les joueurs seront prêts, vous pourrez cliquer sur le bouton "Prêts à jouer" qui apparaîtra.</p>
-            </div>
+            <Alert bsStyle="info">
+              <h4>En attente</h4>
+              <p>Quand tous les joueurs seront prêts, vous pourrez cliquer sur le bouton "Prêts à jouer" qui apparaîtra.</p>
+            </Alert>
           </Col>
         </Row>
         <Row>

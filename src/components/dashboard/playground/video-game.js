@@ -93,7 +93,7 @@ class VideoGame extends React.Component {
                           <li>Découverte du besoin</li>
                           <li>Formulation de l'offre</li>
                         </ul>
-                        <p>Le temps est limité et c'est toi qui mene l'entretien, donne la cadence et choisi d'avancer à l'étape suivante quand tu es satisfait des infos que tu as.</p>
+                        <p>Le temps est limité et c'est toi qui mène l'entretien, donne la cadence et choisi d'avancer à l'étape suivante quand tu es satisfait des infos que tu as.</p>
                         <p>Bonne chance !</p>
                         <Button className={"btn-warning"} onClick={this.runGame}>Commencer l'entretien</Button>
                         <iframe id="video-game-content" 

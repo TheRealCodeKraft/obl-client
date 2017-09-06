@@ -284,3 +284,10 @@
 .podium-box.third .podium-step .podium-time {
   font-size: 0.2em;
 }
+
+/**************
+ * PLAYGROUND *
+ **************/
+ .btn-retour-liste-jeu {
+  margin-top:24px;
+ }
