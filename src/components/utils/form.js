@@ -113,6 +113,7 @@ class Form extends React.Component {
         {this.props.entityId ? this.buildImageUploaders() : null}
         <form id={this.props.id} onSubmit={this.handleFormSubmit}>
           {this.props.fields.map(field => {
+            if (field.show === false) { return null }
             if (field.type === "image-uploader") { return null }
  
             if (field.displayIf && this.state.values[field.displayIf.name] !== field.displayIf.value) {
@@ -383,7 +384,7 @@ class Form extends React.Component {
     var field = undefined, errors = {};
     for (var index in this.props.fields) {
       field = this.props.fields[index]
-      if (field.required) {
+      if (field.required && field.show !== false) {
         if (textTypes.indexOf(field.type) >= 0 && (this.state.values[field.name] === "" || this.state.values[field.name] === undefined)) {
           errors[field.name] = field.name + "_required"
         }

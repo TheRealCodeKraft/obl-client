@@ -45,7 +45,8 @@
               "label": "Titre court",
               "placeholder": "Titre court du jeu",
               "type": "text",
-              "required": true
+              "required": true,
+              "show": false
             },
             {
               "name": "summary",
@@ -66,7 +67,8 @@
               "key": "id",
               "value": "title",
               "required": true,
-              "defaultValue": -1
+              "defaultValue": -1,
+              "show": false
             }
           ]
         },
@@ -173,28 +175,32 @@
               "label": "Titre court",
               "placeholder": "Titre court du jeu",
               "type": "text",
-              "required": true
+              "required": true,
+              "show": false
             },
             {
               "name": "summary",
               "label": "Résumé",
               "placeholder": "Résumé du jeu",
               "type": "text",
-              "required": true
+              "required": true,
+              "show": false
             },
             {
               "name": "start_ts",
               "label": "Date d'ouverture",
               "placeholder": "Ouverture du jeu",
               "type": "date",
-              "required": true
+              "required": true,
+              "show": false
             },
             {
               "name": "end_ts",
               "label": "Date de fermeture",
               "placeholder": "Fermeture du jeu",
               "type": "date",
-              "required": true
+              "required": true,
+              "show": false
             },
             {
               "name": "game_id",
@@ -413,7 +419,8 @@
               "label": "Description",
               "placeholder": "Description de la salle",
               "type": "text",
-              "required": true
+              "required": true,
+              "show": false
             },
             {
               "name": "session_id",
