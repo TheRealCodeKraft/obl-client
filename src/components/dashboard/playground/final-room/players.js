@@ -33,7 +33,7 @@ class FinalRoomPlayers extends React.Component {
 
         <Row>
           <Col xs={12}>
-            <Podium round={this.props.session.current_round} room={this.currentUserState().room} scenario={this.currentUserState().scenario} totalsForSession={false} />
+            <Podium round={this.props.session.current_round} room={this.currentUserState().room} scenario={this.currentUserState().scenario} />
           </Col>
         </Row>
 
@@ -79,7 +79,7 @@ class FinalRoomPlayers extends React.Component {
 
         <Row>
           <Col xs={12}>
-            <Podium round={this.props.session.current_round} room={this.currentUserState().room} totalsForSession={false} />
+            <Podium round={this.props.session.current_round} room={this.currentUserState().room} />
           </Col>
         </Row>
         <hr />
@@ -123,7 +123,7 @@ class FinalRoomPlayers extends React.Component {
 
         <Row>
           <Col xs={12}>
-            <Podium round={this.props.session.current_round} totalsForSession={false} />
+            <Podium round={this.props.session.current_round} />
           </Col>
         </Row>
         <hr />

@@ -37,16 +37,16 @@ class Podium extends React.Component {
     var states = round.userStates
     if (this.props.room) {
       states = states.filter(state => { return state.room.id === this.props.room.id })
-      position = "table_position"
+      position = "room_position"
       if (this.props.scenario) {
         states = states.filter(state => { return state.scenario.id === this.props.scenario.id })
-        position = "scenario_position"
+        position = "table_position"
       }
     }
 
     return states.sort(function(a, b) {
-      if (a.score === null) return 1
-      else if (b.score === null) return -1
+      if (a.score[position] === null) return 1
+      else if (b.score[position] === null) return -1
       else return (a.score[position] < b.score[position]) ? -1 : 1;
     })
   }
