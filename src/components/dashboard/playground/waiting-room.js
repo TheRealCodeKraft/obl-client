@@ -11,6 +11,7 @@ class WaitingRoom extends React.Component {
     super(props)
 
     this.goToRoom = this.goToRoom.bind(this)
+
   }
 
   render() {
@@ -21,7 +22,14 @@ class WaitingRoom extends React.Component {
             <h2><i className="pe pe-7s-users text-warning"></i> Joueurs ayant rejoint la session</h2>
           </Col>
         </Row>
-
+        <Row>
+          <Col xs={12}>
+            <div className="alert alert-info">
+                  <h4>En attente</h4>
+                  <p>Quand tous les joueurs seront prêts, vous pourrez cliquer sur le bouton "Prêts à jouer" qui apparaîtra.</p>
+            </div>
+          </Col>
+        </Row>
         <Row>
           <Col xs={12}>
 

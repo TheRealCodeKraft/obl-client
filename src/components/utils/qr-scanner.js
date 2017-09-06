@@ -38,6 +38,11 @@ class ScenarioSelector extends React.Component {
           </Col>
         </Row>
         <Row>
+          <Col xs={12}>
+            <p>{this.props.description}</p>
+          </Col>
+        </Row>
+        <Row>
           <Col xs={12} className="text-center scanner-container">
             {this.buildContent()}
           </Col>
