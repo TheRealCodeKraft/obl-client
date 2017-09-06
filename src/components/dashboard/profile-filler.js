@@ -85,7 +85,7 @@ class ProfileFiller extends React.Component {
 
   render() {
     return (
-      <section className="content" style={{marginLeft: 0}}>
+      <section className="content">
         <Grid fluid>
           <Row>
             <Col xs={12}>

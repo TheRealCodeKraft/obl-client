@@ -117,11 +117,7 @@ class VideoGame extends React.Component {
 
   getUrl() {
     var url = ""
-    //if(process.env.NODE_ENV === "production") {
-      url = this.currentUserState().scenario.game_url
-    //} else {
-    //  url = "/video-game/?default=1"
-    //}
+    url = this.currentUserState().scenario.game_url
     return url
   }
 

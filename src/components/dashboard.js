@@ -34,7 +34,7 @@ class Dashboard extends React.Component {
 
     return (
         <div className="dashboard">
-          <Header location={this.props.location} history={this.props.history} showAside={!this.state.me || this.state.me.firstname !== null} />
+          <Header location={this.props.location} history={this.props.history} showAside={true} />
           {this.state.me && this.state.me.firstname === null
            ? <ProfileFiller me={this.state.me} />
            : <Switch>

@@ -24,8 +24,7 @@ class Main extends React.Component {
     super(props);
   }
 
-  componentWillMount() {
-    AuthClient.getToken()
+  componentDidMount() {
   }
 
   render() {

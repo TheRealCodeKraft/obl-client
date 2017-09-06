@@ -200,7 +200,6 @@ const decisionMakerReducer = function(state = {}, action) {
     case "DESTROY_DECISIONMAKER":
       var deletedDecisionMaker = state.decisionMakers.filter(decisionMaker => { return decisionMaker.id === action.id })[0]
       decisionMakers = removeEntityFromState(action.id, state, "decisionMakers")
-      console.dir(Object.assign({}, state, { deletedDecisionMaker: deletedDecisionMaker, decisionMakers: decisionMakers}))
       return Object.assign({}, state, { deletedDecisionMaker: deletedDecisionMaker, decisionMakers: decisionMakers})
     default:
       break

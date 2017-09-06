@@ -28,9 +28,9 @@ export default function(ComposedComponent, offline=false) {
           var splitted = this.props.location.search.replace("?", "").split("&")
           var emailSplit = splitted[0].split("=")
           var stampSplit = splitted[1].split("=")
-          self.props.history.push(self.props.location.pathname)
-          Auth.login({email: emailSplit[1], password: stampSplit[1]}, function(data) {
-            self.setState({loggingIn: false})
+          if (!this.props.me || this.props.me.email !== emailSplit[1]) {
+            Auth.login({email: emailSplit[1], password: stampSplit[1]}, function(data) {
+              UserClient.me()
 /*
             if (data.error) {
               self.props.history.push("/")
@@ -41,9 +41,12 @@ export default function(ComposedComponent, offline=false) {
               })
             }
 */
-          })
+            })
+          } else {
+            this.props.history.push(this.props.location.pathname)
+          }
         })
-      } else {
+      } else if (!this.state.loggingIn) {
         if (Auth.checkForToken() === true) {
           // I HAVE A TOKEN
           if (offline) { 
@@ -93,8 +96,8 @@ export default function(ComposedComponent, offline=false) {
           // CONNECTION FAILED
           this.props.history.push("/login")
         }
-      } else if (this.state.loggingIn) {
-
+      } else if (this.state.loggingIn && props.token) {
+          this.props.history.push(this.props.location.pathname)
       }
     }
 
@@ -126,6 +129,7 @@ export default function(ComposedComponent, offline=false) {
 function mapStateToProps(state) {
   return {
     me: state.userState.me,
-    notFound: state.userState.notFound || false
+    notFound: state.userState.notFound || false,
+    token: state.authState.token || null
   }
 }
