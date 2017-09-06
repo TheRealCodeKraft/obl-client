@@ -30,6 +30,7 @@ export default function(ComposedComponent, offline=false) {
           var stampSplit = splitted[1].split("=")
           self.props.history.push(self.props.location.pathname)
           Auth.login({email: emailSplit[1], password: stampSplit[1]}, function(data) {
+            self.setState({loggingIn: false})
 /*
             if (data.error) {
               self.props.history.push("/")
@@ -98,7 +99,7 @@ export default function(ComposedComponent, offline=false) {
     }
 
     render() {
-      if (!this.state.connectionOk) {
+      if (!this.state.connectionOk || this.state.loggingIn === true) {
         return (
           <section className="content">
             <div className="loader-dots"></div>
