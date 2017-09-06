@@ -32,6 +32,7 @@ class CluesSelector extends React.Component {
       <div>
         <QrScanner
           title="Flash ici tes cartes business-battle (cartes indices et carte décideur)"
+          description="Tu recoltes les cartes indices au cours du jeu de plateau. La carte décideur est celle que tu obtiens à la fin du jeu de plateau."
           error={this.state.error}
           errorMessage={this.state.errorMessage}
           onScan={this.handleQrScan}
