@@ -1,5 +1,7 @@
 import BaseClient from './base'
 
+import AuthClient from './auth'
+
 import store from 'reducers/index';
 
 var UserClient = function() {
@@ -20,17 +22,21 @@ var UserClient = function() {
   }
 
   var me = function(callback) {
-    BaseClient.get("users/me", {}, function(data) {
-      if (data.error) {
-        if (callback) callback(data)
-      } else {
-        store.dispatch({
-          type: "ME",
-          user: data
-        })
-        if (callback) callback(data)
-      }
-    })
+    if (AuthClient.checkForToken()) {
+      BaseClient.get("users/me", {}, function(data) {
+        if (data.error) {
+          if (callback) callback(data)
+        } else {
+          store.dispatch({
+            type: "ME",
+            user: data
+          })
+          if (callback) callback(data)
+        }
+      })
+    } else {
+      callback({error: "Unable to find some token"})
+    }
   }
 
   var resetMe = function(callback) {

@@ -26,6 +26,7 @@ class Form extends React.Component {
       uploading: {}
     }
 
+    this.handleCancelButton = this.handleCancelButton.bind(this)
     this.handleFormSubmit = this.handleFormSubmit.bind(this)
     this.handleFormSubmit = this.handleFormSubmit.bind(this)
     this.handleFormSubmitted = this.handleFormSubmitted.bind(this)
@@ -106,7 +107,8 @@ class Form extends React.Component {
   render() {
     var submitButton = this.state.submitting
                        ? <div className="loader-dots"></div>
-                       : <button type="submit" className={this.props.submitClass}>{this.props.submitLabel ? this.props.submitLabel : "Enregistrer"}</button>
+                       : [<button type="submit" className={this.props.submitClass}>{this.props.submitLabel ? this.props.submitLabel : "Enregistrer"}</button>,
+                         this.props.cancelButton === true ? <button className={this.props.submitClass} onClick={this.handleCancelButton}>Ignorer</button> : null]
 
     return (
       <div className="form-container">
@@ -341,6 +343,10 @@ class Form extends React.Component {
         break
     }
     this.setState({values: values});
+  }
+
+  handleCancelButton() {
+    if (this.props.onCancel) this.props.onCancel()
   }
 
   handleFormSubmit(e) {

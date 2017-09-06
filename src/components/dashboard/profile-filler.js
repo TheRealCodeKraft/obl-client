@@ -2,7 +2,10 @@ import React from "react"
 
 import {withRouter} from 'react-router'
 
+import AuthClient from 'clients/auth'
 import UserClient from 'clients/user'
+
+import AuthChecker from 'components/utils/auth-checker'
 
 import {Grid, Row, Col} from "react-bootstrap"
 import Form from 'components/utils/form'
@@ -75,6 +78,7 @@ class ProfileFiller extends React.Component {
       submitted: false
     }
 
+    this.handleCancel = this.handleCancel.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleSubmitComplete = this.handleSubmitComplete.bind(this)
   }
@@ -96,8 +100,10 @@ class ProfileFiller extends React.Component {
                     fields={this.fields} 
                     submitLabel="M'enregistrer"
                     submitClass={"btn btn-accent btn-signup"}  
+                    cancelButton={true}
                     onSubmit={this.handleSubmit} 
                     service={{client: UserClient, func: "update"}}
+                    onCancel={this.handleCancel}
                     onSubmitComplete={this.handleSubmitComplete}
                     onSubmitError={this.handleSubmitError}
               />
@@ -106,6 +112,10 @@ class ProfileFiller extends React.Component {
         </Grid>
       </section>
     )
+  }
+
+  handleCancel() {
+    AuthClient.logout()
   }
 
   handleSubmit(values) {
