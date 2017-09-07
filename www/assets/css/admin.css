@@ -1,6 +1,7 @@
-.navbar-default .navbar-admin {
+.navbar-default .navbar-admin, .navbar-default .navbar-admin:hover {
   background-color:#b53c3c;
 }
+
 
 .admin-action-button {
   padding: 5px;

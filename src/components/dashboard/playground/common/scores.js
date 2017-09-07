@@ -26,7 +26,7 @@ class FinalRoomScores extends React.Component {
                 </div>
                 {this.props.round
                 ? <h4>Round {this.props.roundIndex} / {this.props.totalRounds}</h4>
-                : <h4>Votre score individuel pour cette simulation</h4>}
+                : <h2>Votre score individuel pour cette simulation</h2>}
               </div>
               <div className="panel-body panel-body-global-scores">
                 <Grid fluid>
