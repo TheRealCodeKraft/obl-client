@@ -11,7 +11,7 @@
     "babel-preset-react": "^6.24.1",
     "caniuse-lite": "^1.0.30000726",
     "case-sensitive-paths-webpack-plugin": "^2.1.1",
-    "codekraft-react-frontend": "^1.0.7",
+    "codekraft-react-frontend": "^1.0.8",
     "detect-port": "^1.2.1",
     "dotenv": "^4.0.0",
     "enhanced-resolve": "^0.9.1",
