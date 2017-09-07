@@ -358,7 +358,7 @@ class Form extends React.Component {
       var currentValues = {}
 
       for (var fIndex in this.props.fields) {
-        if (this.props.fields[fIndex].type !== "image-uploader") {
+        if (this.props.fields[fIndex].type !== "image-uploader" && this.props.fields[fIndex].show !== false) {
           currentValues[this.props.fields[fIndex].name] = this.state.values[this.props.fields[fIndex].name]
         }
       }

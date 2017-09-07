@@ -67,7 +67,7 @@ var ScenarioClient = function() {
 
       BaseClient.upload(plural + '/' + id + '/' + fieldName, fieldName, file, function(data) {
         store.dispatch({
-          type: "UPLOAD_FILE",
+          type: "UPDATE_SCENARIO",
           game: data
         })
         if (callback) callback(data)

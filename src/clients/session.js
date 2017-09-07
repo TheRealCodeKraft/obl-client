@@ -60,7 +60,7 @@ var SessionClient = function() {
   var launch = function(id, callback) {
     BaseClient.put(plural + '/launch', id, {}, function(data) {
       store.dispatch({
-        type: "SESSION_LAUNCH",
+        type: "UPDATE_SESSION",
         session: data
       })
       if (callback) callback(data)
@@ -70,7 +70,7 @@ var SessionClient = function() {
   var pause = function(id, callback) {
     BaseClient.put(plural + '/pause', id, {}, function(data) {
       store.dispatch({
-        type: "SESSION_PAUSE",
+        type: "UPDATE_SESSION",
         session: data
       })
       if (callback) callback(data)
@@ -80,7 +80,7 @@ var SessionClient = function() {
   var nextRound = function(id, callback) {
     BaseClient.put(plural + '/next-round', id, {}, function(data) {
       store.dispatch({
-        type: "SESSION_PUSH",
+        type: "UPDATE_SESSION",
         session: data
       })
       if (callback) callback(data)
@@ -90,7 +90,7 @@ var SessionClient = function() {
   var room = function(id, callback) {
     BaseClient.put(plural + "/room", id, {}, function(data) {
       store.dispatch({
-        type: "SESSION_PUSH",
+        type: "UPDATE_SESSION",
         session: data
       })
       if (callback) callback(data)
@@ -100,7 +100,7 @@ var SessionClient = function() {
   var scenario = function(id, callback) {
     BaseClient.put(plural + "/scenario", id, {}, function(data) {
       store.dispatch({
-        type: "SESSION_PUSH",
+        type: "UPDATE_SESSION",
         session: data
       })
       if (callback) callback(data)
@@ -110,7 +110,7 @@ var SessionClient = function() {
   var clues = function(id, callback) {
     BaseClient.put(plural + "/clues", id, {}, function(data) {
       store.dispatch({
-        type: "SESSION_PUSH",
+        type: "UPDATE_SESSION",
         session: data
       })
       if (callback) callback(data)
@@ -126,7 +126,7 @@ var SessionClient = function() {
   var setUserScores = function(session_id, user_id, scores, callback) {
     BaseClient.put(plural, session_id + "/scores/" + user_id, {scores: JSON.stringify(scores)}, function(data) {
       store.dispatch({
-        type: "SESSION_PUSH",
+        type: "UPDATE_SESSION",
         session: data
       })
 
@@ -137,7 +137,7 @@ var SessionClient = function() {
   var invite = function(session, user, callback) {
     BaseClient.put(plural, session.id + "/invite/" + user.id, {}, function(data) {
       store.dispatch({
-        type: "SESSION_PUSH",
+        type: "UPDATE_SESSION",
         session: data
       })
 
@@ -148,7 +148,7 @@ var SessionClient = function() {
   var inviteAll = function(session, user, callback) {
     BaseClient.put(plural, session.id + "/invite", {}, function(data) {
       store.dispatch({
-        type: "SESSION_PUSH",
+        type: "UPDATE_SESSION",
         session: data
       })
 
@@ -158,7 +158,7 @@ var SessionClient = function() {
 
   var pushInState = function(session) {
     store.dispatch({
-      type: "SESSION_PUSH",
+      type: "UPDATE_SESSION",
       session: session
     })
   }

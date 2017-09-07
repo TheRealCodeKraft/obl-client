@@ -45,8 +45,8 @@ class Podium extends React.Component {
     }
 
     return states.sort(function(a, b) {
-      if (a.score[position] === null) return 1
-      else if (b.score[position] === null) return -1
+      if (a.score === null || a.score[position] === null) return 1
+      else if (b.score === null || b.score[position] === null) return -1
       else return (a.score[position] < b.score[position]) ? -1 : 1;
     })
   }

@@ -50,7 +50,7 @@ var GameClient = function() {
   var upload = function(id, fieldName, file, callback) {
     BaseClient.upload(plural + '/' + id + '/' + fieldName, fieldName, file, function(data) {
       store.dispatch({
-        type: "UPLOAD_FILE",
+        type: "UPDATE_GAME",
         game: data
       })
       if (callback) callback(data)
