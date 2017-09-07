@@ -11,7 +11,7 @@
     "babel-preset-react": "^6.24.1",
     "caniuse-lite": "^1.0.30000726",
     "case-sensitive-paths-webpack-plugin": "^2.1.1",
-    "codekraft-react-frontend": "^1.0.5",
+    "codekraft-react-frontend": "^1.0.6",
     "detect-port": "^1.2.1",
     "dotenv": "^4.0.0",
     "enhanced-resolve": "^0.9.1",
@@ -55,7 +55,7 @@
     "webpack": "^1.15.0",
     "webpack-dev-middleware": "^1.12.0",
     "webpack-dev-server": "^1.16.5",
-    "webpack-hot-middleware": "^2.19.0"
+    "webpack-hot-middleware": "^2.19.1"
   },
   "description": "OBL Web Client",
   "keywords": [],
