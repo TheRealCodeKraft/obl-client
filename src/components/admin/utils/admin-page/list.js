@@ -17,6 +17,11 @@ class AdminPageList extends React.Component {
     return (
       <div style={{display: "table", width: "100%"}}>
         <AdminPageListHeader attributes={this.props.attributes} />
+        {/*this.props.items.length === 0
+         ? <section className="content">
+             <div className="loader-dots"></div>
+           </section>
+         : null*/}
         {this.props.items.map((item, index) => {
           return <AdminPageListRow key={"admin-list-row-" + index}
                                    item={item} 

@@ -82,10 +82,6 @@ export default function(ComposedComponent, offline=false) {
     }
 
     componentWillReceiveProps(props) {
-console.log("PROPS")
-console.log(props)
-console.log("STATE")
-console.log(this.state)
       if (this.state.resetting && props.me == null) {
         // SESSION HAS BEEN RESET
         this.setState({resetting: false, checking: true}, function() {
