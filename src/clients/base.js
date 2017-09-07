@@ -1,3 +1,6 @@
+require('es6-promise').polyfill();
+require('isomorphic-fetch');
+
 import configs from 'config'
 
 import Logger from 'js-logger'
