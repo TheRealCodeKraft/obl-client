@@ -1,4 +1,5 @@
-import { createStore, combineReducers } from 'redux';
+//import { createStore, combineReducers } from 'redux';
+import { createStore } from 'codekraft-react-frontend'
 
 const authReducer = function(state = {}, action) {
   switch(action.type) {
@@ -290,7 +291,7 @@ function mergeEntityAndState(entity, state, name) {
 }
 
 // Combine Reducers
-const reducers = combineReducers({
+const reducers = /*combineReducers(*/{
   authState: authReducer,
   userState: userReducer,
 
@@ -305,7 +306,7 @@ const reducers = combineReducers({
   clueState: clueReducer,
   decisionMakerState: decisionMakerReducer,
 
-});
+}/*);*/
 
 const store = createStore(reducers);
 

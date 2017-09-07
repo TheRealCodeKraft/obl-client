@@ -14,7 +14,7 @@ import Sessions from './dashboard/sessions'
 import Playground from './dashboard/playground'
 import ProfileFiller from './dashboard/profile-filler'
 
-//import Index from 'codekraft-react-frontend'
+import {Index} from 'codekraft-react-frontend'
 
 class Dashboard extends React.Component {
 
@@ -45,7 +45,7 @@ class Dashboard extends React.Component {
                <Route exact path="/dashboard/sessions/:identifier" component={AuthChecker(Playground)} />
                <Route exact path="/dashboard/sessions" component={AuthChecker(Sessions)} />
              </Switch>}
-          {/*<Index />*/}
+          <Index />
         </div>
     );
   }
