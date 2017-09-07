@@ -22,13 +22,17 @@ var Auth = function() {
     return token
   }
 
-  var setToken = function(token) {
+  var setToken = function(token, reduxToken=true) {
+console.log("TOKEN")
+console.log(reduxToken)
     StorageService.set(STORAGE_KEY_FOR_TOKEN, JSON.stringify(token));
 
-    store.dispatch({
-      type: "TOKEN",
-      token: token
-    })
+    if (reduxToken) {
+      store.dispatch({
+        type: "TOKEN",
+        token: token
+      })
+    }
   }
 
   var refreshToken = function(callback) {
@@ -43,12 +47,12 @@ var Auth = function() {
    });
   }
 
-  var storeToken = function(data, callback) {
-    setToken(data)
+  var storeToken = function(data, callback, reduxToken=true) {
+    setToken(data, reduxToken)
     callback(data)
   }
 
-  var login = function(params, callback) {
+  var login = function(params, callback, reduxToken=true) {
     if (checkForToken()) {
       logout(function() {
         login(params, callback)
@@ -59,7 +63,7 @@ var Auth = function() {
         if (data.error) {
           if (callback) callback(data)
         } else {
-          Auth.storeToken(data, callback)
+          Auth.storeToken(data, callback, reduxToken)
         }
       }, false, true)
     }

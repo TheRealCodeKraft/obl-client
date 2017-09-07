@@ -28,8 +28,12 @@ class Main extends React.Component {
     }
   }
 
+  componentWillMount() {
+    AuthClient.getToken()
+  }
+
   componentDidMount() {
-    this.setState({token: AuthClient.getToken()})
+    //this.setState({token: AuthClient.getToken()})
   }
 
   render() {
@@ -37,8 +41,8 @@ class Main extends React.Component {
     return (
       <BrowserRouter>
         <div id="main-container" className={"wrapper"}>
-          {this.state.token
-           ? <ActionCableProvider url={configs.cable.url + "/?token=" + this.state.token.access_token}>
+          {this.props.token
+           ? <ActionCableProvider url={configs.cable.url + "/?token=" + this.props.token.access_token}>
                <Switch>
                  <Route path="/dashboard" component={Dashboard} />
                  <Route path="/admin" component={Admin} />
@@ -59,7 +63,7 @@ class Main extends React.Component {
 function mapStateToProps(state) {
   return {
     //me: state.userState.me || null,
-    //token: state.authState.token || null
+    token: state.authState.token || null
   }
 }
 

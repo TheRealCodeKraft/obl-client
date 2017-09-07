@@ -82,6 +82,10 @@ export default function(ComposedComponent, offline=false) {
     }
 
     componentWillReceiveProps(props) {
+console.log("PROPS")
+console.log(props)
+console.log("STATE")
+console.log(this.state)
       if (this.state.resetting && props.me == null) {
         // SESSION HAS BEEN RESET
         this.setState({resetting: false, checking: true}, function() {
@@ -97,7 +101,14 @@ export default function(ComposedComponent, offline=false) {
           this.props.history.push("/login")
         }
       } else if (this.state.loggingIn && props.token) {
-          this.props.history.push(this.props.location.pathname)
+/*
+        if (!props.token) {
+          console.log("BLUP")
+          Auth.getToken()
+        }
+        this.props.history.push(this.props.location.pathname)
+*/
+        this.setState({loggingIn: false})
       }
     }
 
