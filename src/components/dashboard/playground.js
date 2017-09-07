@@ -64,7 +64,7 @@ class Playground extends React.Component {
                       <div className="small">{this.props.session.title}</div>
                     </Col>
                     <Col md={3}>
-                      <Button href="/dashboard/sessions" className="btn-retour-liste-jeu">Retour à la liste des sessions</Button>
+                      <Button href="/dashboard/sessions" className="btn-retour-liste-jeu">Retour à la liste des jeux</Button>
                     </Col>
                   </Row>
                 </Panel>

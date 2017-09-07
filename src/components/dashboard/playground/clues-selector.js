@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 
 import SessionClient from 'clients/session'
 
-import { Grid, Row, Col, Table, Button } from 'react-bootstrap';
+import { Grid, Row, Col, Table, Button, Alert } from 'react-bootstrap';
 
 import QrScanner from 'components/utils/qr-scanner'
 import CluesList from './clues-selector/clues-list'
@@ -55,13 +55,17 @@ class CluesSelector extends React.Component {
   
   showLast() {
     if (this.state.show_last) {
-      return <div className="alert alert-success">
-               <h4>Nouvel indice récolté</h4>
-               {this.state.last.map(item => {
-                 return <p>{item.description}</p>
-               })}
-               <p><Button onClick={this.hideLast} bsStyle="info">Fermer</Button></p>
-             </div>
+      return  <Row>
+                <Col xs={12}>
+                  <Alert bsStyle="success">
+                    <h4>Nouvel indice récolté</h4>
+                     {this.state.last.map(item => {
+                       return <p>{item.description}</p>
+                     })}
+                     <p><Button onClick={this.hideLast} bsStyle="success">Fermer</Button></p>
+                  </Alert>
+                </Col>
+              </Row>
     }
   }
 
