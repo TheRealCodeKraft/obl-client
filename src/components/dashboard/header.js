@@ -60,7 +60,7 @@ class Header extends React.Component {
                         <NavLink exact to="/dashboard/profile">Profil</NavLink>
                       </li>
 
-                      <li className={this.props.location.pathname.includes("/dashboard/sessions") ? "active" : ""}>
+                      <li className={(this.props.location.pathname.indexOf("/dashboard/sessions") > 0) ? "active" : ""}>
                         <NavLink exact to="/dashboard/sessions">Jeux</NavLink>
                       </li>
 
