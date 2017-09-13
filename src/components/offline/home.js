@@ -1,6 +1,6 @@
 import React from "react";
 
-import Login from './login';
+import { Login } from 'codekraft-react-frontend'
 
 class Home extends React.Component {
 

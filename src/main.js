@@ -5,6 +5,7 @@ import ClueClient from 'clients/clue'
 import GameClient from 'clients/game'
 import ScenarioClient from 'clients/scenario'
 
+import OfflineNav from './config/navigation/offline'
 import DashboardNav from './config/navigation/dashboard'
 import AdminNav from './config/navigation/admin'
 
@@ -37,9 +38,7 @@ const config = {
     }
   ],
   navigation: {
-    offline: {
-      
-    },
+    offline: OfflineNav,
     dashboard: DashboardNav,
     admin: AdminNav
   }
