@@ -47,11 +47,9 @@ class Playground extends React.Component {
     if (!this.props.session || this.props.session.id !== this.state.current_session_id) return <span>Chargement de la session en cours</span>
     else {
       return (
-        <section className="content jeu">
-
-          <ActionCable channel={{channel: "SessionChannel", session: this.props.session.id}} onReceived={this.handleCableReceived} />
 
           <Grid fluid>
+          <ActionCable channel={{channel: "SessionChannel", session: this.props.session.id}} onReceived={this.handleCableReceived} />
             <Row>
               <Col xs={12} className="titre-accueil-jeu">
                 <Panel className="panel-filled panel-c-warning">
@@ -75,7 +73,6 @@ class Playground extends React.Component {
             </Row>
           </Grid>
 
-        </section>
       )
     }
   }
