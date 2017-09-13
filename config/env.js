@@ -16,7 +16,6 @@ function getClientEnvironment(publicUrl) {
       // Useful for determining whether we’re running in production mode.
       // Most importantly, it switches React into the correct mode.
       'NODE_ENV': process.env.NODE_ENV || 'development',
-      'DEV_MODE': process.env.DEV_MODE || 'cloud',
       'CLIENT_ID': process.env.CLIENT_ID || '',
       'CLIENT_SECRET': process.env.CLIENT_SECRET || '',
       'APP_TOKEN': process.env.APP_TOKEN || '',
