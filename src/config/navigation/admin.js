@@ -12,6 +12,23 @@ import _specialities from './admin/specialities'
 
 const config = {
   menu: {
+    general: {
+      label: "Général",
+      items: [
+        {
+          title: "Tableau de bord admin",
+          type: "admin"
+        },
+        {
+          title: "Retour au site",
+          type: "dashboard"
+        },
+        {
+          title: "Se déconnecter",
+          type: "logout"
+        }
+      ]
+    },
     users: {
       label: "Utilisateurs",
       items: [

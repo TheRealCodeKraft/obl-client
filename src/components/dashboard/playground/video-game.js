@@ -1,8 +1,6 @@
 import React from "react"
 import { connect } from 'react-redux'
 
-import configs from 'config'
-
 import withUserAgent from 'react-useragent'
 
 import { Grid, Row, Col, Button} from 'react-bootstrap';

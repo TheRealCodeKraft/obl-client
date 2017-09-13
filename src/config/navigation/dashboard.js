@@ -4,33 +4,42 @@ import Sessions from 'components/dashboard/sessions'
 import Playground from 'components/dashboard/playground'
 
 const dashboard = {
-  items: [
-    {
+  menu: {
+    navigation: {
       label: "Navigation",
       items: [
         {
-          label: "Accueil",
+          title: "Accueil",
           component: Home
         },
         {
-          label: "Profil",
-          path: "profile",
+          title: "Profil",
+          route: "profile",
           component: Profile
         },
         {
-          label: "Jeux",
-          path: "sessions",
+          title: "Jeux",
+          route: "sessions",
           component: Sessions
         },
         {
-          label: "",
-          path: "sessions/:identifier",
+          title: "",
+          route: "sessions/:identifier",
           component: Playground,
           display: false
+        },
+        {
+          title: "Administration",
+          type: "admin",
+          grants: ["admin"]
+        },
+        {
+          title: "Se déconnecter",
+          type: "logout"
         }
       ]
     }
-  ]
+  }
 }
 
 export default dashboard
