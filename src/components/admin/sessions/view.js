@@ -30,7 +30,7 @@ class SessionView extends React.Component {
         <hr style={{borderColor: "#636363", marginBottom: 40}} />
         <Row>
           <Col xs={12}>
-                <table className="table">
+                <Table responsive>
                   <thead>
                     <tr>
                       <th rowSpan="2">Position</th>
@@ -46,9 +46,9 @@ class SessionView extends React.Component {
                       {this.props.entity.rounds.map((round, index) => {
                         var cols = []
 
-                        if (round.id === this.props.entity.current_round.id) {
+                        {/*if (round.id === this.props.entity.current_round.id) {
                           cols.push(<th>Scenario</th>)
-                        }
+                        }*/}
 
                         cols.push(<th>Score</th>)
                         cols.push(<th>Temps</th>)
@@ -86,7 +86,7 @@ class SessionView extends React.Component {
                       )
                     })}
                   </tbody>
-                </table>
+                </Table>
           </Col>
         </Row>
       </Grid>
