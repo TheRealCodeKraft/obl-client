@@ -59,6 +59,9 @@
     "webpack-dev-server": "^1.16.5",
     "webpack-hot-middleware": "^2.19.1"
   },
+  "engines": {
+   "node": "7.10.0"
+  },
   "description": "OBL Web Client",
   "keywords": [],
   "license": "ISC",
