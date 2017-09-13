@@ -1,9 +1,8 @@
 import React from "react"
-
-import UserClient from 'clients/user'
+import { connect } from 'react-redux'
 
 import BaseItem from "../base-item"
-import Form from 'components/utils/form'
+import { Form } from 'codekraft-react-frontend'
 
 import Moment from 'react-moment'
 
@@ -52,7 +51,7 @@ class Traineeship extends BaseItem {
                   }
                 },
               ]}
-              service={{client: UserClient, func: "update"}}
+              service={{client: this.props.clients.UserClient, func: "update"}}
               onSubmitComplete={this.handleSubmitComplete}
               submitClass={"btn btn-accent"}
         />
@@ -83,4 +82,10 @@ class Traineeship extends BaseItem {
 
 }
 
-export default Traineeship
+function mapStateToProps(state) {
+  return {
+    clients: state.bootstrap.clients
+  }
+}
+
+export default connect(mapStateToProps)(Traineeship)

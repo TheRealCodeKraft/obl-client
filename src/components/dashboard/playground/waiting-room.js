@@ -1,8 +1,6 @@
 import React from "react"
 import { connect } from 'react-redux'
 
-import SessionClient from 'clients/session'
-
 import { Grid, Row, Col, Table, Button, Alert } from 'react-bootstrap';
 
 class WaitingRoom extends React.Component {
@@ -72,15 +70,16 @@ class WaitingRoom extends React.Component {
   }
 
   goToRoom() {
-    SessionClient.room(this.props.session.id)
+    this.props.clients.SessionClient.room(this.props.session.id)
   }
 
 }
 
 function mapStateToProps(state) {
   return {
+    clients: state.bootstrap.clients,
     me: state.userState.me || null,
   }
 }
 
-export default connect(mapStateToProps, {SessionClient})(WaitingRoom)
+export default connect(mapStateToProps)(WaitingRoom)

@@ -2,7 +2,6 @@ import React from "react"
 import { connect } from 'react-redux'
 
 var moment = require("moment")
-
 import Fullname from './profile/items/fullname'
 import Email from './profile/items/email'
 import Pseudo from './profile/items/pseudo'

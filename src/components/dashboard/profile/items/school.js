@@ -1,11 +1,8 @@
 import React from "react"
 import { connect } from 'react-redux'
 
-import UserClient from 'clients/user'
-import SchoolClient from 'clients/school'
-
 import BaseItem from "../base-item"
-import Form from 'components/utils/form'
+import { Form } from 'codekraft-react-frontend'
 
 class School extends BaseItem {
 
@@ -15,8 +12,8 @@ class School extends BaseItem {
     this.label = "Ecole"
   }
 
-  componentWillMount() {
-    SchoolClient.fetchAll()
+  componentDidMount() {
+    this.props.clients.SchoolClient.fetchAll()
   }
 
   buildFullContent() {
@@ -37,7 +34,7 @@ class School extends BaseItem {
                   defaultValue: this.props.entity.school ? this.props.entity.school.id : null
                 },
               ]}
-              service={{client: UserClient, func: "update"}}
+              service={{client: this.props.clients.UserClient, func: "update"}}
               onSubmitComplete={this.handleSubmitComplete}
               submitClass={"btn btn-accent"}
         />
@@ -49,7 +46,8 @@ class School extends BaseItem {
 
 function mapStateToProps(state) {
   return {
-    schools: state.schoolState.schools || []
+    schools: state.schoolState.schools || [],
+    clients: state.bootstrap.clients
   }
 }
 

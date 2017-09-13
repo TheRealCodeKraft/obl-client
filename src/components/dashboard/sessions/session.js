@@ -75,7 +75,7 @@ class Session extends React.Component {
             </Row>
           </div>
         </Col>
-        <ActionCable ref="sessionChannel" channel={{channel: "SessionChannel", session: this.props.session.id}} onReceived={this.handleCableReceived} />
+        <ActionCable channel={{channel: "SessionChannel", session: this.props.session.id}} onReceived={this.handleCableReceived} />
       </Row>
     )
   }

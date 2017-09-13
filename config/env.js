@@ -17,6 +17,12 @@ function getClientEnvironment(publicUrl) {
       // Most importantly, it switches React into the correct mode.
       'NODE_ENV': process.env.NODE_ENV || 'development',
       'DEV_MODE': process.env.DEV_MODE || 'cloud',
+      'CLIENT_ID': process.env.CLIENT_ID || '',
+      'CLIENT_SECRET': process.env.CLIENT_SECRET || '',
+      'APP_TOKEN': process.env.APP_TOKEN || '',
+      'API_URL': process.env.API_URL || '',
+      'CLIENT_GRANT_TYPE': process.env.CLIENT_GRANT_TYPE || '',
+      'CABLE_URL': process.env.CABLE_URL || '',
       // Useful for resolving the correct path to static assets in `public`.
       // For example, <img src={process.env.PUBLIC_URL + '/img/logo.png'} />.
       // This should only be used as an escape hatch. Normally you would put

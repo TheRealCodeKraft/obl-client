@@ -1,9 +1,8 @@
 import React from "react"
-
-import UserClient from 'clients/user'
+import { connect } from 'react-redux'
 
 import BaseItem from "../base-item"
-import Form from 'components/utils/form'
+import { Form } from 'codekraft-react-frontend'
 
 class Password extends BaseItem {
 
@@ -35,7 +34,7 @@ class Password extends BaseItem {
                   confirmFor: "password"
                 },
               ]}
-              service={{client: UserClient, func: "updatePassword"}}
+              service={{client: this.props.clients.UserClient, func: "updatePassword"}}
               onSubmitComplete={this.handleSubmitComplete}
               submitClass={"btn btn-accent"}
         />
@@ -46,4 +45,10 @@ class Password extends BaseItem {
 
 }
 
-export default Password
+function mapStateToProps(state) {
+  return {
+    clients: state.bootstrap.clients
+  }
+}
+
+export default connect(mapStateToProps)(Password)

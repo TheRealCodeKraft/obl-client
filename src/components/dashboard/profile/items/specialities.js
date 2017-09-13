@@ -1,11 +1,8 @@
 import React from "react"
 import { connect } from 'react-redux'
 
-import UserClient from 'clients/user'
-import SpecialityClient from 'clients/speciality'
-
 import BaseItem from "../base-item"
-import Form from 'components/utils/form'
+import { Form } from 'codekraft-react-frontend'
 
 class Specialities extends BaseItem {
 
@@ -15,8 +12,8 @@ class Specialities extends BaseItem {
     this.label = "Spécialités"
   }
 
-  componentWillMount() {
-    SpecialityClient.fetchAll()
+  componentDidMount() {
+    this.props.clients.SpecialityClient.fetchAll()
   }
 
   buildFullContent() {
@@ -37,7 +34,7 @@ class Specialities extends BaseItem {
                   defaultValue: this.props.entity.specialities.map(speciality => {return speciality.id})
                 },
               ]}
-              service={{client: UserClient, func: "update"}}
+              service={{client: this.props.clients.UserClient, func: "update"}}
               onSubmitComplete={this.handleSubmitComplete}
               submitClass={"btn btn-accent"}
         />
@@ -49,7 +46,8 @@ class Specialities extends BaseItem {
 
 function mapStateToProps(state) {
   return {
-    specialities: state.specialityState.specialities || []
+    specialities: state.specialityState.specialities || [],
+    clients: state.bootstrap.clients
   }
 }
 

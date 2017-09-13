@@ -1,9 +1,7 @@
 import React from "react"
+import { connect } from 'react-redux'
 
 import {withRouter} from 'react-router'
-
-import AuthClient from 'clients/auth'
-import UserClient from 'clients/user'
 
 import AuthChecker from 'components/utils/auth-checker'
 
@@ -102,7 +100,7 @@ class ProfileFiller extends React.Component {
                     submitClass={"btn btn-accent btn-signup"}  
                     cancelButton={true}
                     onSubmit={this.handleSubmit} 
-                    service={{client: UserClient, func: "update"}}
+                    service={{client: this.props.clients.UserClient, func: "update"}}
                     onCancel={this.handleCancel}
                     onSubmitComplete={this.handleSubmitComplete}
                     onSubmitError={this.handleSubmitError}
@@ -115,7 +113,7 @@ class ProfileFiller extends React.Component {
   }
 
   handleCancel() {
-    AuthClient.logout()
+    this.props.clients.ApiClient.logout()
   }
 
   handleSubmit(values) {
@@ -133,4 +131,10 @@ class ProfileFiller extends React.Component {
 
 }
 
-export default withRouter(ProfileFiller)
+function mapStateToProps(state) {
+  return {
+    clients: state.bootstrap.clients || {}
+  }
+}
+
+export default withRouter(connect(mapStateToProps)(ProfileFiller))

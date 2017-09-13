@@ -1,9 +1,8 @@
 import React from "react"
-
-import UserClient from 'clients/user'
+import { connect } from 'react-redux'
 
 import BaseItem from "../base-item"
-import Form from 'components/utils/form'
+import { Form } from 'codekraft-react-frontend'
 
 class Email extends BaseItem {
 
@@ -28,7 +27,7 @@ class Email extends BaseItem {
                   defaultValue: this.props.entity.email
                 },
               ]}
-              service={{client: UserClient, func: "update"}}
+              service={{client: this.props.clients.UserClient, func: "update"}}
               onSubmitComplete={this.handleSubmitComplete}
               submitClass={"btn btn-accent"}
         />
@@ -38,4 +37,10 @@ class Email extends BaseItem {
 
 }
 
-export default Email
+function mapStateToProps(state) {
+  return {
+    clients: state.bootstrap.clients
+  }
+}
+
+export default connect(mapStateToProps)(Email)

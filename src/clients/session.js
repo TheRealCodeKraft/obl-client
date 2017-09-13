@@ -1,64 +1,7 @@
-import BaseClient from './base'
-
-import store from 'reducers/index';
-
-var SessionClient = function() {
-  var name = "session", plural = "sessions";
-
-  var fetchAll = function(params, callback) {
-    BaseClient.get("sessions", params, function(data) {
-      store.dispatch({
-        type: "SESSIONS",
-        sessions: data
-      })
-      if (callback) callback(data)
-    })
-  }
-
-  var fetchOne = function(id, callback) {
-    BaseClient.get("sessions/" + id, {}, function(data) {
-      store.dispatch({
-        type: "SESSION",
-        session: data
-      })
-      if (callback) callback(data)
-    })
-  }
-
-  var create = function(params, callback) {
-    BaseClient.post(plural, params, function(data) {
-      if (!data.error) {
-        store.dispatch({
-          type: "NEW_SESSION",
-          session: data
-        })
-      }
-      if (callback) callback(data)
-    })
-  }
-
-  var update = function(id, params, callback) {
-    BaseClient.put(plural, id, params, function(data) {
-      store.dispatch({
-        type: "UPDATE_SESSION",
-        session: data
-      })
-      if (callback) callback(data)
-    })
-  }
-
-  var destroy = function(id, callback) {
-    BaseClient.destroy(plural, id, function(data) {
-      store.dispatch({
-        type: "DESTROY_SESSION",
-        id: data.id
-      })
-      if (callback) callback(data)
-    })
-  }
+var SessionClient = function(name, plural, store, client) {
 
   var launch = function(id, callback) {
-    BaseClient.put(plural + '/launch', id, {}, function(data) {
+    client.put(plural + '/launch', id, {}, function(data) {
       store.dispatch({
         type: "UPDATE_SESSION",
         session: data
@@ -68,7 +11,7 @@ var SessionClient = function() {
   }
 
   var pause = function(id, callback) {
-    BaseClient.put(plural + '/pause', id, {}, function(data) {
+    client.put(plural + '/pause', id, {}, function(data) {
       store.dispatch({
         type: "UPDATE_SESSION",
         session: data
@@ -78,7 +21,7 @@ var SessionClient = function() {
   }
 
   var nextRound = function(id, callback) {
-    BaseClient.put(plural + '/next-round', id, {}, function(data) {
+    client.put(plural + '/next-round', id, {}, function(data) {
       store.dispatch({
         type: "UPDATE_SESSION",
         session: data
@@ -88,7 +31,7 @@ var SessionClient = function() {
   }
 
   var room = function(id, callback) {
-    BaseClient.put(plural + "/room", id, {}, function(data) {
+    client.put(plural + "/room", id, {}, function(data) {
       store.dispatch({
         type: "UPDATE_SESSION",
         session: data
@@ -98,7 +41,7 @@ var SessionClient = function() {
   }
 
   var scenario = function(id, callback) {
-    BaseClient.put(plural + "/scenario", id, {}, function(data) {
+    client.put(plural + "/scenario", id, {}, function(data) {
       store.dispatch({
         type: "UPDATE_SESSION",
         session: data
@@ -108,7 +51,7 @@ var SessionClient = function() {
   }
 
   var clues = function(id, callback) {
-    BaseClient.put(plural + "/clues", id, {}, function(data) {
+    client.put(plural + "/clues", id, {}, function(data) {
       store.dispatch({
         type: "UPDATE_SESSION",
         session: data
@@ -118,13 +61,13 @@ var SessionClient = function() {
   }
 
   var checkCode = function(session_id, code, callback) {
-    BaseClient.put(plural + "/code", session_id + "/" + code, {}, function(data) {
+    client.put(plural + "/code", session_id + "/" + code, {}, function(data) {
       if (callback) callback(data)
     })
   }
 
   var setUserScores = function(session_id, user_id, scores, callback) {
-    BaseClient.put(plural, session_id + "/scores/" + user_id, {scores: JSON.stringify(scores)}, function(data) {
+    client.put(plural, session_id + "/scores/" + user_id, {scores: JSON.stringify(scores)}, function(data) {
       store.dispatch({
         type: "UPDATE_SESSION",
         session: data
@@ -135,7 +78,7 @@ var SessionClient = function() {
   }
 
   var invite = function(session, user, callback) {
-    BaseClient.put(plural, session.id + "/invite/" + user.id, {}, function(data) {
+    client.put(plural, session.id + "/invite/" + user.id, {}, function(data) {
       store.dispatch({
         type: "UPDATE_SESSION",
         session: data
@@ -146,12 +89,18 @@ var SessionClient = function() {
   }
 
   var inviteAll = function(session, user, callback) {
-    BaseClient.put(plural, session.id + "/invite", {}, function(data) {
+    client.put(plural, session.id + "/invite", {}, function(data) {
       store.dispatch({
         type: "UPDATE_SESSION",
         session: data
       })
 
+      if (callback) callback(data)
+    })
+  }
+
+  var doPing = function(session, callback) {
+    client.get(plural + "/ping/" + session.id, function(data) {
       if (callback) callback(data)
     })
   }
@@ -164,15 +113,6 @@ var SessionClient = function() {
   }
 
   return {
-    name: name,
-    plural: plural,
-
-    fetchAll: fetchAll,
-    fetchOne: fetchOne,
-    create: create,
-    update: update,
-    destroy: destroy,
-
     launch: launch,
     pause: pause,
     nextRound: nextRound,
@@ -186,9 +126,11 @@ var SessionClient = function() {
     invite: invite,
     inviteAll: inviteAll,
 
+    doPing: doPing,
+
     pushInState: pushInState
   }
 
-}()
+}
 
 export default SessionClient

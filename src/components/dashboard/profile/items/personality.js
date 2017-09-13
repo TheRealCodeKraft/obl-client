@@ -1,4 +1,5 @@
 import BaseItem from "../base-item"
+import { connect } from 'react-redux'
 
 class Personality extends BaseItem {
 
@@ -10,4 +11,10 @@ class Personality extends BaseItem {
 
 }
 
-export default Personality
+function mapStateToProps(state) {
+  return {
+    clients: state.bootstrap.clients
+  }
+}
+
+export default connect(mapStateToProps)(Personality)

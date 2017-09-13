@@ -1,8 +1,6 @@
 import React from "react"
 import { connect } from 'react-redux'
 
-import SessionClient from 'clients/session'
-
 import { Grid, Row, Col, Table, Button, Alert } from 'react-bootstrap';
 
 import QrScanner from 'components/utils/qr-scanner'
@@ -108,13 +106,13 @@ class ScenarioSelector extends React.Component {
 
   handleQrScan(data) {
     this.setState({checking: true, value: data}, function() {
-      SessionClient.checkCode(this.props.session.id, data, this.checkReturn)
+      this.props.clients.SessionClient.checkCode(this.props.session.id, data, this.checkReturn)
     })
   }
 
   checkReturn(data) {
     if (data.result === "success") {
-      SessionClient.pushInState(data.session)
+      this.props.clients.SessionClient.pushInState(data.session)
       this.setState({error: false, checking: false})
     } else {
       this.setState({error: true, errorMessage: /*data.message*/"Veuillez utiliser une carte SCENARIO", checking: false}) 
@@ -122,12 +120,13 @@ class ScenarioSelector extends React.Component {
   }
 
   goToClues() {
-    SessionClient.clues(this.props.session.id)
+    this.props.clients.SessionClient.clues(this.props.session.id)
   }
 }
 
 function mapStateToProps(state) {
   return {
+    clients: state.bootstrap.clients,
     me: state.userState.me || null,
   }
 }

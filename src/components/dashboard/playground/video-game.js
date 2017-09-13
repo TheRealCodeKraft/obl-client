@@ -1,12 +1,11 @@
 import React from "react"
+import { connect } from 'react-redux'
 
 import configs from 'config'
 
 import withUserAgent from 'react-useragent'
 
 import { Grid, Row, Col, Button} from 'react-bootstrap';
-
-import SessionClient from 'clients/session'
 
 class VideoGame extends React.Component {
 
@@ -136,7 +135,7 @@ class VideoGame extends React.Component {
   endGame() {
     var self=this
     this.setState({finished: true}, function() {
-      SessionClient.setUserScores(this.props.session.id, this.props.me.id, this.state.scores, function() {
+      this.props.clients.SessionClient.setUserScores(this.props.session.id, this.props.me.id, this.state.scores, function() {
         self.setState({running: false})
       })
     })
@@ -158,4 +157,10 @@ function fillHash(hash, address, value) {
   }
 }
 
-export default withUserAgent(VideoGame)
+function mapStateToProps(state) {
+  return {
+    clients: state.bootstrap.clients,
+  }
+}
+
+export default withUserAgent(connect(mapStateToProps)(VideoGame))

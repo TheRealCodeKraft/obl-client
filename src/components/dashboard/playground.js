@@ -1,8 +1,6 @@
 import React from "react"
 import { connect } from 'react-redux'
 
-import SessionClient from 'clients/session'
-
 import {ActionCable} from 'react-actioncable-provider'
 
 import WaitingRoom from './playground/waiting-room'
@@ -31,7 +29,7 @@ class Playground extends React.Component {
   componentDidMount() {
     if (this.props.match.params.identifier !== undefined) {
       this.setState({current_session_id: parseInt(this.props.match.params.identifier)}, function() {
-        SessionClient.fetchOne(this.props.match.params.identifier)
+        this.props.clients.SessionClient.fetchOne(this.props.match.params.identifier)
       })
     }
 
@@ -51,7 +49,7 @@ class Playground extends React.Component {
       return (
         <section className="content jeu">
 
-          <ActionCable ref="sessionChannel" channel={{channel: "SessionChannel", session: this.props.session.id}} onReceived={this.handleCableReceived} />
+          <ActionCable channel={{channel: "SessionChannel", session: this.props.session.id}} onReceived={this.handleCableReceived} />
 
           <Grid fluid>
             <Row>
@@ -150,14 +148,17 @@ class Playground extends React.Component {
 
   handleCableReceived(data) {
     if (this.props.session.id === data.session.id) {
-      SessionClient.pushInState(data.session)
+      this.props.clients.SessionClient.pushInState(data.session)
     }
   }
 
   doPing() {
-    if (this.refs.sessionChannel) {
-      this.refs.sessionChannel.perform('ping', {user: this.props.me.id, session: this.props.session.id})
+    if (this.props.session) {
+      this.props.clients.SessionClient.doPing(this.props.session)
     }
+    /*if (this.refs.sessionChannel) {
+      this.refs.sessionChannel.perform('ping', {user: this.props.me.id, session: this.props.session.id})
+    }*/
   }
 
 }
@@ -165,7 +166,8 @@ class Playground extends React.Component {
 function mapStateToProps(state) {
   return {
     me: state.userState.me || null,
-    session: state.sessionState.session || null
+    session: state.sessionState.session || null,
+    clients: state.bootstrap.clients || {}
   }
 }
 

@@ -1,8 +1,6 @@
 import React from "react"
 import { connect } from 'react-redux'
 
-import SessionClient from 'clients/session'
-
 import Session from './sessions/session'
 
 import {Grid, Row, Col} from "react-bootstrap"
@@ -10,7 +8,7 @@ import {Grid, Row, Col} from "react-bootstrap"
 class Sessions extends React.Component {
 
   componentWillMount() {
-    SessionClient.fetchAll({current: true})
+    this.props.clients.SessionClient.fetchAll({current: true})
   }
 
   render() {
@@ -46,7 +44,8 @@ class Sessions extends React.Component {
 function mapStateToProps(state) {
   return {
     me: state.userState.me || null,
-    sessions: state.sessionState.sessions || []
+    sessions: state.sessionState.sessions || [],
+    clients: state.bootstrap.clients || {}
   }
 }
 
