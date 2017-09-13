@@ -22,7 +22,6 @@ class Profile extends React.Component {
 
     return (
 
-      <section className="content">
             <Grid fluid>
 
 
@@ -52,7 +51,6 @@ class Profile extends React.Component {
                   : null}
 
             </Grid>
-      </section>
 
     )
   }

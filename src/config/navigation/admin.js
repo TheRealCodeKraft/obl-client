@@ -11,17 +11,21 @@ import _objectives from './admin/objectives'
 import _specialities from './admin/specialities'
 
 const config = {
+  root: "/admin",
+  restricted: true,
+  grants: ["admin"],
   menu: {
     general: {
       label: "Général",
+      hiddenOnHome: true,
       items: [
         {
           title: "Tableau de bord admin",
-          type: "admin"
+          root: true
         },
         {
           title: "Retour au site",
-          type: "dashboard"
+          switch: "/dashboard"
         },
         {
           title: "Se déconnecter",

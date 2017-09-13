@@ -14,7 +14,6 @@ class Sessions extends React.Component {
   render() {
     var sessions = this.buildSessions()
     return (
-      <section className="content">
         <Grid fluid>
           <Row>
             <Col xs={12}>
@@ -25,7 +24,6 @@ class Sessions extends React.Component {
           ? sessions
           : <Row><Col xs={12}>Vous n'avez été invité à aucune session pour le moment</Col></Row>}
        </Grid>
-      </section>
     )
   }
 

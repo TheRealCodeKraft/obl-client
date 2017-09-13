@@ -4,12 +4,15 @@ import Sessions from 'components/dashboard/sessions'
 import Playground from 'components/dashboard/playground'
 
 const dashboard = {
+  root: "/dashboard",
+  restricted: true,
   menu: {
     navigation: {
       label: "Navigation",
       items: [
         {
           title: "Accueil",
+          root: true,
           component: Home
         },
         {
@@ -30,7 +33,7 @@ const dashboard = {
         },
         {
           title: "Administration",
-          type: "admin",
+          switch: "/admin",
           grants: ["admin"]
         },
         {

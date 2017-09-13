@@ -10,7 +10,6 @@ class Home extends React.Component {
   render() {
 
     return (
-      <section className={"content"}>
         <Grid fluid>
           <Row>
             <Col xs={12}>
@@ -41,7 +40,6 @@ class Home extends React.Component {
             </Col>
           </Row>
         </Grid>
-      </section>
     )
   }
 
