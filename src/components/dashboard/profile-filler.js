@@ -3,10 +3,9 @@ import { connect } from 'react-redux'
 
 import {withRouter} from 'react-router'
 
-import AuthChecker from 'components/utils/auth-checker'
+import { AuthChecker, Form } from 'codekraft-react-frontend'
 
 import {Grid, Row, Col} from "react-bootstrap"
-import Form from 'components/utils/form'
 
 class ProfileFiller extends React.Component {
 
@@ -83,7 +82,6 @@ class ProfileFiller extends React.Component {
 
   render() {
     return (
-      <section className="content">
         <Grid fluid>
           <Row>
             <Col xs={12}>
@@ -108,7 +106,6 @@ class ProfileFiller extends React.Component {
             </Col>
           </Row>
         </Grid>
-      </section>
     )
   }
 
@@ -133,7 +130,8 @@ class ProfileFiller extends React.Component {
 
 function mapStateToProps(state) {
   return {
-    clients: state.bootstrap.clients || {}
+    clients: state.bootstrap.clients || {},
+    me: state.userState.me
   }
 }
 

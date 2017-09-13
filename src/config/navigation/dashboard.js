@@ -2,10 +2,12 @@ import Home from 'components/dashboard/home'
 import Profile from 'components/dashboard/profile'
 import Sessions from 'components/dashboard/sessions'
 import Playground from 'components/dashboard/playground'
+import ProfileFiller from 'components/dashboard/profile-filler'
 
 const dashboard = {
   root: "/dashboard",
   restricted: true,
+  profileFiller: ProfileFiller,
   menu: {
     navigation: {
       label: "Navigation",
