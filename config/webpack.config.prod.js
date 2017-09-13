@@ -7,6 +7,13 @@ var CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
 var InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
 var getClientEnvironment = require('./env');
 var paths = require('./paths');
+
+// `publicUrl` is just like `publicPath`, but we will provide it to our app
+// as %PUBLIC_URL% in `index.html` and `process.env.PUBLIC_URL` in JavaScript.
+// Omit trailing slash as %PUBLIC_PATH%/xyz looks better than %PUBLIC_PATH%xyz.
+var publicUrl = '';
+// Get environment variables to inject into our app.
+var env = getClientEnvironment(publicUrl);
  
 module.exports = {
   context: paths.appSrc,
@@ -138,8 +145,7 @@ module.exports = {
     ];
   },
   plugins: [
-    new webpack.DefinePlugin({
-    }),
+    new webpack.DefinePlugin(env.stringified),
   ],
   // Some libraries import Node modules but don't use them in the browser.
   // Tell Webpack to provide empty mocks for them so importing them works.
