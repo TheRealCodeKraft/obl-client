@@ -139,9 +139,6 @@ module.exports = {
   },
   plugins: [
     new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: JSON.stringify('production')
-      }
     }),
   ],
   // Some libraries import Node modules but don't use them in the browser.
