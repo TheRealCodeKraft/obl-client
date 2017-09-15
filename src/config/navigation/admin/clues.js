@@ -78,17 +78,27 @@ const config = {
         defaultValue: -1
       },
       {
-        name: "qrcode",
-        label: "QRCode",
-        placeholder: "QRCode de l'indice",
-        type: "text"
-      },
-      {
         name: "description",
         label: "Libellé",
         placeholder: "Libellé de l'indice",
         type: "text",
         required: true
+      },
+      {
+        name: "scenario_id",
+        label: "Scénario",
+        placeholder: "Sélectionnez un scénario",
+        type: "select",
+        values: {
+          targetState: "scenarioState",
+          targetValue: "scenarios",
+          client: "ScenarioClient",
+          func: "fetchAll"
+        },
+        key: "id",
+        value: "name",
+        required: true,
+        defaultValue: -1
       },
       {
         name: "unblock_rule",
