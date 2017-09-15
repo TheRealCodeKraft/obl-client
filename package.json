@@ -1,5 +1,5 @@
 {
-   "name": "obl-client",
+  "name": "obl-client",
   "author": "Arnaud DRAZEK",
   "homepage": "https://github.com/TheRealCodeKraft/obl-client#readme",
   "dependencies": {
@@ -11,7 +11,7 @@
     "babel-preset-react": "^6.24.1",
     "caniuse-lite": "^1.0.30000727",
     "case-sensitive-paths-webpack-plugin": "^2.1.1",
-    "codekraft-react-frontend": "^1.0.17",
+    "codekraft-react-frontend": "^1.0.18",
     "detect-port": "^1.2.1",
     "dotenv": "^4.0.0",
     "enhanced-resolve": "^0.9.1",
@@ -41,6 +41,7 @@
     "react-dev-utils": "^2.0.1",
     "react-dom": "^15.6.1",
     "react-file-input": "^0.2.5",
+    "react-hot-loader": "^1.3.1",
     "react-moment": "^0.6.5",
     "react-qr-reader": "^1.2.1",
     "react-redux": "^5.0.6",
@@ -60,7 +61,7 @@
     "webpack-hot-middleware": "^2.19.1"
   },
   "engines": {
-   "node": "7.10.0"
+    "node": "7.10.0"
   },
   "description": "OBL Web Client",
   "keywords": [],
@@ -70,7 +71,7 @@
     "compile": "webpack",
     "build": "webpack -p --config ./config/webpack.config.prod.js --progress",
     "heroku-postbuild": "webpack -p --config ./config/webpack.config.prod.js --progress",
-    "start": "node scripts/server.js",
+    "start": "node --preserve-symlinks scripts/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "bugs": {

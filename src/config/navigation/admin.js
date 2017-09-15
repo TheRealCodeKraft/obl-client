@@ -1,3 +1,6 @@
+import Header from '../../components/common/header'
+import MainWrapper from '../../components/common/main-wrapper'
+
 import _games from './admin/games'
 import _sessions from './admin/sessions'
 import _users from './admin/users'
@@ -14,6 +17,10 @@ const config = {
   root: "/admin",
   restricted: true,
   grants: ["admin"],
+  header: Header,
+  wrapper: {
+    component: MainWrapper
+  },
   menu: {
     general: {
       label: "Général",

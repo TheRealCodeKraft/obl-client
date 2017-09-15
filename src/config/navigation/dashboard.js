@@ -1,3 +1,6 @@
+import Header from 'components/common/header'
+import MainWrapper from '../../components/common/main-wrapper'
+
 import Home from 'components/dashboard/home'
 import Profile from 'components/dashboard/profile'
 import Sessions from 'components/dashboard/sessions'
@@ -8,6 +11,10 @@ const dashboard = {
   root: "/dashboard",
   restricted: true,
   profileFiller: ProfileFiller,
+  header: Header,
+  wrapper: {
+    component: MainWrapper
+  },
   menu: {
     navigation: {
       label: "Navigation",

@@ -1,10 +1,18 @@
 import Header from '../../components/offline/header'
+import MainWrapper from '../../components/common/main-wrapper'
 import Home from '../../components/offline/home'
 import { Login, Signup } from 'codekraft-react-frontend'
 
 const offline = {
   root: "/",
   header: Header,
+  mainSectionClass: "content content-no-sidebar",
+  wrapper: {
+    component: MainWrapper,
+    config: {
+      mainSectionClass: "content content-no-sidebar"
+    }
+  },
   menu: {
     navigation: {
       items: [

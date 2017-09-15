@@ -11,11 +11,9 @@ class Header extends React.Component {
   render() {
 
     return (
-
       <div className="back-link">
-            <Link to="/"><img src="assets/images/logo-obl-small.png" alt="Open Business Labs" /></Link>
+        <Link to="/"><img src="assets/images/logo-obl-small.png" alt="Open Business Labs" /></Link>
       </div>
-
     )
   }
 }
