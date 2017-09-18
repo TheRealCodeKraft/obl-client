@@ -103,7 +103,7 @@ console.log("Browser : " + Browser.name)
 
   openScanner() {
     this.setState({flashing: true, error: false}, function() {
-      if (this.props.ua.os === "iOS") {
+      if (this.props.ua.os === "iOS" && Browser.name === "safari") {
         //this.refs.qrscanner.openImageDialog()
       }
     })
