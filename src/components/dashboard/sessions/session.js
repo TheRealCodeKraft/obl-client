@@ -56,7 +56,7 @@ class Session extends React.Component {
               <Col md={10}>
                 <div className="panel-heading">
                   <h4>{this.props.session.game.title}</h4>
-                  <div className="small">{this.props.session.title} - {moment(this.props.session.start_ts).format("DD/MM/YYYY")}</div>
+                  <div className="small">{this.props.session.title}{/*- {moment(this.props.session.start_ts).format("DD/MM/YYYY")*/}</div>
                 </div>
                 <div className="panel-body">
                   <div><mark className={"mark-" + sessionStatus.color}>{sessionStatus.label}</mark></div>
