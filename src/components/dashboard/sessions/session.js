@@ -1,8 +1,8 @@
 import React from "react"
+import { connect } from 'react-redux'
+
 import {Link} from "react-router-dom"
 import {Row, Col} from "react-bootstrap"
-
-import SessionClient from 'clients/session'
 
 import {ActionCable} from 'react-actioncable-provider'
 
@@ -81,9 +81,15 @@ class Session extends React.Component {
   }
 
   handleCableReceived(data) {
-    SessionClient.pushInState(data.session)
+    this.props.clients.SessionClient.pushInState(data.session)
   }
 
 }
 
-export default Session
+function mapStateToProps(state) {
+  return {
+    clients: state.bootstrap.clients || {}
+  }
+}
+
+export default connect(mapStateToProps)(Session)
