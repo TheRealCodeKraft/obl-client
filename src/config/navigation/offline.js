@@ -1,7 +1,8 @@
 import Header from '../../components/offline/header'
 import MainWrapper from '../../components/common/main-wrapper'
 import Home from '../../components/offline/home'
-import { Login, Signup } from 'codekraft-react-frontend'
+import Login from '../../components/offline/login'
+import Signup from '../../components/offline/signup'
 
 const offline = {
   root: "/",
@@ -26,13 +27,13 @@ const offline = {
           title: "Connexion",
           route: "login",
           discardOnLogin: true,
-          //component: Login
+          component: Login
         },
         {
           title: "Inscription",
           route: "signup",
           discardOnLogin: true,
-          //component: Signup
+          component: Signup
         }
       ]
     }

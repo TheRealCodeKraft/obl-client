@@ -1,10 +1,10 @@
 import React from "react"
+import { connect } from 'react-redux'
 
 import { Redirect } from "react-router-dom"
 
-import Form from 'components/utils/form'
+import { Form } from 'codekraft-react-frontend'
 import { Link } from 'react-router-dom'
-import Auth from 'clients/auth'
 
 import { Grid } from 'react-bootstrap';
 import { Row } from 'react-bootstrap';
@@ -68,7 +68,7 @@ class Login extends React.Component {
                         submitLabel="Me connecter" 
                         onSubmit={this.handleSubmit}
                         submitClass={"btn btn-accent btn-signup"} 
-                        service={{client: Auth, func: "login"}}
+                        service={{client: this.props.clients.ApiClient, func: "login"}}
                         onSubmitComplete={this.handleSubmitComplete}
                     />
                     <Link className={"btn btn-default btn-signup"} to="/signup">Créer un compte</Link>
@@ -91,4 +91,10 @@ class Login extends React.Component {
   }
 }
 
-export default Login;
+function mapStateToProps(state) {
+  return {
+    clients: state.bootstrap.clients || {}
+  }
+}
+
+export default connect(mapStateToProps)(Login)

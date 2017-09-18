@@ -1,9 +1,9 @@
 import React from "react"
+import { connect } from 'react-redux'
 
 import { Link } from "react-router-dom"
 
-import Form from 'components/utils/form'
-import UserClient from 'clients/user'
+import { Form } from 'codekraft-react-frontend'
 
 import { Grid } from 'react-bootstrap';
 import { Row } from 'react-bootstrap';
@@ -118,7 +118,7 @@ class Signup extends React.Component {
                               submitLabel="M'enregistrer"
                               submitClass={"btn btn-accent btn-signup"}  
                               onSubmit={this.handleSubmit} 
-                              service={{client: UserClient, func: "signup"}}
+                              service={{client: this.props.clients.UserClient, func: "signup"}}
                               onSubmitComplete={this.handleSubmitComplete}
                               onSubmitError={this.handleSubmitError}
                         />
@@ -148,4 +148,10 @@ class Signup extends React.Component {
 
 }
 
-export default Signup;
+function mapStateToProps(state) {
+  return {
+    clients: state.bootstrap.clients || {}
+  }
+}
+
+export default connect(mapStateToProps)(Signup)

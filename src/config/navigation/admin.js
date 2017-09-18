@@ -1,5 +1,6 @@
 import Header from '../../components/common/header'
 import MainWrapper from '../../components/common/main-wrapper'
+import Home from '../../components/admin/home'
 
 import _games from './admin/games'
 import _sessions from './admin/sessions'
@@ -28,14 +29,18 @@ const config = {
       items: [
         {
           title: "Tableau de bord admin",
-          root: true
+          root: true,
+          hiddenOnHome: true,
+          component: Home
         },
         {
           title: "Retour au site",
+          hiddenOnHome: true,
           switch: "/dashboard"
         },
         {
           title: "Se déconnecter",
+          hiddenOnHome: true,
           type: "logout"
         }
       ]
