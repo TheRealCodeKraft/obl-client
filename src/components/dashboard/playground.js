@@ -11,7 +11,7 @@ import VideoGame from './playground/video-game'
 import FinalRoom from './playground/final-room'
 import GlobalScores from './playground/global-scores'
 
-import { Grid, Row, Col, Panel, Button } from 'react-bootstrap';
+import { Grid, Row, Col, Panel, Button, Link } from 'react-bootstrap';
 
 class Playground extends React.Component {
 
@@ -60,7 +60,7 @@ class Playground extends React.Component {
                       <div className="small">{this.props.session.title}</div>
                     </Col>
                     <Col md={3}>
-                      <Button href="/dashboard/sessions" className="btn-retour-liste-jeu">Retour à la liste des jeux</Button>
+                      <Link to="/dashboard/sessions" className={"btn btn-retour-liste-jeu"}>Retour à la liste des jeux</Link>
                     </Col>
                   </Row>
                 </Panel>
