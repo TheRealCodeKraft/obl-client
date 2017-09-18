@@ -8,7 +8,9 @@ import {Grid, Row, Col} from "react-bootstrap"
 class Sessions extends React.Component {
 
   componentWillMount() {
-    this.props.clients.SessionClient.fetchAll({current: true})
+    this.setState({loading: true}, function() {
+      this.props.clients.SessionClient.fetchAll({current: true})
+    })
   }
 
   render() {
@@ -22,7 +24,10 @@ class Sessions extends React.Component {
          </Row>
          {sessions.filter(session => {return session !== null }).length > 0
           ? sessions
-          : <Row><Col xs={12}>Vous n'avez été invité à aucune session pour le moment</Col></Row>}
+          : (this.state.loading
+             ? <Row><Col xs={12}>Chargement des sessions en cours</Col></Row>
+             : <Row><Col xs={12}>Vous n'avez été invité à aucune session pour le moment</Col></Row>)
+         }
        </Grid>
     )
   }

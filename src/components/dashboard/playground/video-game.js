@@ -15,10 +15,12 @@ class VideoGame extends React.Component {
     this.state = {
       running: false,
       finished: false,
+      timeout: false,
       scores: {}
     }
 
     this.runGame = this.runGame.bind(this)
+    this.goToNextAfterTimeout = this.goToNextAfterTimeout.bind(this)
   }
 
   componentWillMount() {
@@ -83,7 +85,9 @@ class VideoGame extends React.Component {
                  <Row>
                    {this.state.finished
                     ? <Col xs={12}>
-                        <span>Calcul du score en cours</span>
+                        {this.state.timeout
+                         ? <span>Le temps est écoulé ... <Button className="btn-warning" onClick={this.goToNextAfterTimeout}>Continuer</Button></span>
+                         : <span>Calcul du score en cours</span>}
                       </Col>
                     : <Col xs={12}>
                         <p>Tu vas maintenant participer à ton entretien avec le décideur. Il se déroulera en trois phases :</p>
@@ -104,7 +108,6 @@ class VideoGame extends React.Component {
                           width="100%"
                           height="100%"
                         ></iframe>
-               
                       </Col>
                    }
                  </Row>
@@ -131,7 +134,9 @@ class VideoGame extends React.Component {
   }
 
   runGame() {
-    this.setState({running: true})
+    this.setState({running: true}, function() {
+      this.startChrono()
+    })
   }
 
   endGame() {
@@ -140,6 +145,21 @@ class VideoGame extends React.Component {
       this.props.clients.SessionClient.setUserScores(this.props.session.id, this.props.me.id, this.state.scores, function() {
         self.setState({running: false})
       })
+    })
+  }
+
+  startChrono() {
+    var minutes = this.currentUserState().scenario.chrono
+    var self = this
+    setTimeout(function() {
+      self.setState({finished: true, timeout: true})
+    }, minutes * 60 * 1000);
+  }
+
+  goToNextAfterTimeout() {
+    var self = this
+    this.props.clients.SessionClient.setUserScores(this.props.session.id, this.props.me.id, this.state.scores, function() {
+      self.setState({running: false})
     })
   }
 }
