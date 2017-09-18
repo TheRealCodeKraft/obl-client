@@ -85,7 +85,6 @@ class RoomSelector extends React.Component {
                   ? <Alert bsStyle="info" onDismiss={this.handleHideInfo}>
                       <h4>En attente</h4>
                       <p>Quand tous les joueurs auront rejoint la salle, vous pourrez continuer en cliquant sur "Prêts à jouer".</p>
-                      <p><Button onClick={this.handleHideInfo} bsStyle="info">Fermer</Button></p>
                     </Alert>
                   : null
                 }

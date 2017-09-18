@@ -85,10 +85,9 @@ class ScenarioSelector extends React.Component {
               <Col xs={12}>
                 {
                   this.state.show_info
-                  ? <Alert bsStyle="info" onDismiss={this.handlehideInfo}>
+                  ? <Alert bsStyle="info" onDismiss={this.handleHideInfo}>
                       <h4>En attente</h4>
                           <p>Quand tous les joueurs auront choisi leur lead commercial, vous pourrez cliquer sur le bouton "Prêts à jouer" qui apparaîtra.</p>
-                          <p><Button onClick={this.handleHideInfo} bsStyle="success">Fermer</Button></p>
                     </Alert>
                   : null
                 }
