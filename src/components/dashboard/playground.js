@@ -11,7 +11,8 @@ import VideoGame from './playground/video-game'
 import FinalRoom from './playground/final-room'
 import GlobalScores from './playground/global-scores'
 
-import { Grid, Row, Col, Panel, Button, Link } from 'react-bootstrap';
+import { NavLink } from 'react-router-dom'
+import { Grid, Row, Col, Panel, Button } from 'react-bootstrap';
 
 class Playground extends React.Component {
 
@@ -60,12 +61,13 @@ class Playground extends React.Component {
                       <div className="small">{this.props.session.title}</div>
                     </Col>
                     <Col md={3}>
-                      <Link to="/dashboard/sessions" className={"btn btn-retour-liste-jeu"}>Retour à la liste des jeux</Link>
+                      <NavLink to="/dashboard/sessions" className={"btn btn-retour-liste-jeu"}>Retour à la liste des jeux</NavLink>
                     </Col>
                   </Row>
                 </Panel>
               </Col>
             </Row>
+
             <Row>
               <Col xs={12}>
                 {this.buildSection()}

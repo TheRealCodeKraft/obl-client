@@ -1,7 +1,7 @@
 import React from "react"
 
 import withUserAgent from 'react-useragent'
-//import Browser from 'detect-browser'
+import Browser from 'detect-browser'
 
 import { Grid, Row, Col } from 'react-bootstrap';
 
@@ -72,7 +72,7 @@ class ScenarioSelector extends React.Component {
 
 
 
-//console.log("Browser : " + Browser.name)
+console.log("Browser : " + Browser.name)
 
     if (this.state.flashing) {
       component = <div className="qr-scanner">
@@ -83,7 +83,7 @@ class ScenarioSelector extends React.Component {
                       delay={500}
                       onError={this.handleQrError}
                       onScan={this.handleQrScan}
-                      legacyMode={this.props.ua.os === "iOS"/* && Browser.name === "safari"*/}
+                      legacyMode={this.props.ua.os === "iOS" && Browser.name === "safari"}
                     />
                     <a href="javascript:void(0);" onClick={this.closeScanner}>Annuler</a>
                   </div>
