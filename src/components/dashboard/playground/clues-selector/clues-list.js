@@ -30,7 +30,7 @@ class CluesList extends React.Component {
 
                 <Row>
                   <Col xs={12}>
-                    <Alert bsStyle="warning">
+                    <Alert bsStyle="danger">
                       <h4>Attention !</h4>
                       <p>Faites une copie de vos indices collectés ou prenez-les en note. Vous ne pourrez plus y accéder quand vous aurez commencé le jeu vidéo.</p>
                     </Alert>

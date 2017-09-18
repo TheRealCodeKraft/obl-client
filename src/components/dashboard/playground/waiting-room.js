@@ -8,7 +8,12 @@ class WaitingRoom extends React.Component {
   constructor(props) {
     super(props)
 
+    this.state = {
+      show_info:true
+    }
+
     this.goToRoom = this.goToRoom.bind(this)
+    this.handleHideInfo = this.handleHideInfo.bind(this)
 
   }
 
@@ -22,10 +27,15 @@ class WaitingRoom extends React.Component {
         </Row>
         <Row>
           <Col xs={12}>
-            <Alert bsStyle="info">
-              <h4>En attente</h4>
-              <p>Quand tous les joueurs seront prêts, vous pourrez cliquer sur le bouton "Prêts à jouer" qui apparaîtra.</p>
-            </Alert>
+            {
+              this.state.show_info
+              ? <Alert bsStyle="info" onDismiss={this.handlehideInfo}>
+                  <h4>En attente</h4>
+                  <p>Quand tous les joueurs seront prêts, vous pourrez cliquer sur le bouton "Prêts à jouer" qui apparaîtra.</p>
+                  <p><Button onClick={this.handleHideInfo} bsStyle="info">Fermer</Button></p>
+                </Alert>
+              : null
+            }
           </Col>
         </Row>
         <Row>
@@ -71,6 +81,10 @@ class WaitingRoom extends React.Component {
 
   goToRoom() {
     this.props.clients.SessionClient.room(this.props.session.id)
+  }
+
+  handleHideInfo() {
+    this.setState({show_info:false})
   }
 
 }
