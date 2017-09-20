@@ -20,6 +20,7 @@ const config = {
   restricted: true,
   grants: ["admin"],
   header: Header,
+  enableDefault: false,
   wrapper: {
     component: MainWrapper
   },

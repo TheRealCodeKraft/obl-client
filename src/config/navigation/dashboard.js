@@ -13,6 +13,7 @@ const dashboard = {
   restricted: true,
   profileFiller: ProfileFiller,
   header: Header,
+  enableDefault: false,
   wrapper: {
     component: MainWrapper
   },
