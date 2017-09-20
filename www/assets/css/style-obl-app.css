@@ -289,5 +289,10 @@
  * PLAYGROUND *
  **************/
  .btn-retour-liste-jeu {
-  margin-top:24px;
+    margin-top:24px;
+ }
+ .image-header-playground {
+    float:left;
+    margin-right: 20px;
+    max-width: 80px;
  }

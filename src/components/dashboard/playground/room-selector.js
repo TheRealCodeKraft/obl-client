@@ -13,13 +13,15 @@ class RoomSelector extends React.Component {
     this.state = {
       checking: false,
       error: false,
-      value: ""
+      value: "",
+      show_info:true
     }
 
     this.handleQrScan = this.handleQrScan.bind(this)
     this.checkReturn = this.checkReturn.bind(this)
 
     this.goToScenarii = this.goToScenarii.bind(this)
+    this.handleHideInfo = this.handleHideInfo.bind(this)
 
   }
 
@@ -31,14 +33,6 @@ class RoomSelector extends React.Component {
           <Row>
             <Col xs={12}>
               <h2><i className="pe pe-7s-users text-warning"></i> Joueur ayant rejoint votre salle</h2>
-            </Col>
-          </Row>
-          <Row>
-            <Col xs={12}>
-              <Alert bsStyle="info">
-                <h4>En attente</h4>
-                <p>Quand tous les joueurs auront rejoint la salle, vous pourrez continuer en cliquant sur "Prêts à jouer".</p>
-              </Alert>
             </Col>
           </Row>
           <Row>
@@ -75,14 +69,28 @@ class RoomSelector extends React.Component {
       )
     } else {
       return (
-        <QrScanner
-          title="Flash ici ta carte salle"
-          description="La carte salle est la carte que tu as obtenue par tirage au sort."
-          error={this.state.error}
-          errorMessage={this.state.errorMessage}
-          onScan={this.handleQrScan}
-          searching={this.state.checking}
-        />
+        <Grid fluid>
+          <QrScanner
+            title="Flash ici ta carte salle"
+            description="La carte salle est la carte que tu as obtenue par tirage au sort."
+            error={this.state.error}
+            errorMessage={this.state.errorMessage}
+            onScan={this.handleQrScan}
+            searching={this.state.checking}
+          />
+          <Row>
+              <Col xs={12}>
+                {
+                  this.state.show_info
+                  ? <Alert bsStyle="info" onDismiss={this.handleHideInfo}>
+                      <h4>En attente</h4>
+                      <p>Quand tous les joueurs auront rejoint la salle, vous pourrez continuer en cliquant sur "Prêts à jouer".</p>
+                    </Alert>
+                  : null
+                }
+              </Col>
+          </Row>
+        </Grid>
       )
     }
   }
@@ -120,6 +128,10 @@ class RoomSelector extends React.Component {
 
   goToScenarii() {
     this.props.clients.SessionClient.scenario(this.props.session.id)
+  }
+
+  handleHideInfo() {
+    this.setState({show_info:false})
   }
 
 }

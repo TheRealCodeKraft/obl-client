@@ -57,7 +57,7 @@ class CluesSelector extends React.Component {
     if (this.state.show_last) {
       return  <Row>
                 <Col xs={12}>
-                  <Alert bsStyle="success">
+                  <Alert bsStyle="success" onDismiss={this.hideLast}>
                     <h4>Nouvel indice récolté</h4>
                      {this.state.last.map(item => {
                        return <p>{item.description}</p>

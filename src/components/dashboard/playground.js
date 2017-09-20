@@ -56,12 +56,12 @@ class Playground extends React.Component {
                 <Panel className="panel-filled panel-c-warning">
                   <Row>
                     <Col md={9}>
-                      <img src={this.props.session.game.picture} className="img-rounded image-lg" alt={this.props.session.game.title} />
+                      <img src={this.props.session.game.picture} className="img-rounded image-header-playground" alt={this.props.session.game.title} />
                       <h1>{this.props.session.game.title}</h1>
                       <div className="small">{this.props.session.title}</div>
                     </Col>
                     <Col md={3}>
-                      <NavLink to="/dashboard/sessions" className={"btn btn-retour-liste-jeu"}>Retour à la liste des jeux</NavLink>
+                      <NavLink to="/dashboard/sessions" className={"btn btn-default btn-retour-liste-jeu"}>Retour à la liste des jeux</NavLink>
                     </Col>
                   </Row>
                 </Panel>

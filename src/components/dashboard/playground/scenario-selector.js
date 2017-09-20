@@ -14,12 +14,13 @@ class ScenarioSelector extends React.Component {
       checking: false,
       error: false,
       value: "",
-      
+      show_info:true
     }
 
     this.handleQrScan = this.handleQrScan.bind(this)
     this.checkReturn = this.checkReturn.bind(this)
     this.goToClues = this.goToClues.bind(this)
+    this.handleHideInfo = this.handleHideInfo.bind(this)
 
   }
 
@@ -33,14 +34,6 @@ class ScenarioSelector extends React.Component {
               <h2><i className="pe pe-7s-users text-warning"></i> Joueurs ayant choisi validé leur lead commercial</h2>
             </Col>
           </Row>
-          <Row>
-          <Col xs={12}>
-            <Alert bsStyle="info">
-              <h4>En attente</h4>
-                    <p>Quand tous les joueurs auront choisi leur lead commercial, vous pourrez cliquer sur le bouton "Prêts à jouer" qui apparaîtra.</p>
-            </Alert>
-          </Col>
-        </Row>
           <Row>
             <Col xs={12}>
               <Table responsive>
@@ -77,14 +70,31 @@ class ScenarioSelector extends React.Component {
       )
     } else {
       return (
-        <QrScanner
-          title="Flash ici ta carte lead commercial"
-          description="La carte lead commercial est celle que tu as obtenu lors du jeu introductif de génération de lead commercial."
-          error={this.state.error}
-          errorMessage={this.state.errorMessage}
-          onScan={this.handleQrScan}
-          searching={this.state.checking}
-        />
+
+        <Grid fluid>
+          <QrScanner
+            title="Flash ici ta carte lead commercial"
+            description="La carte lead commercial est celle que tu as obtenu lors du jeu introductif de génération de lead commercial."
+            error={this.state.error}
+            errorMessage={this.state.errorMessage}
+            onScan={this.handleQrScan}
+            searching={this.state.checking}
+          />
+
+          <Row>
+              <Col xs={12}>
+                {
+                  this.state.show_info
+                  ? <Alert bsStyle="info" onDismiss={this.handleHideInfo}>
+                      <h4>En attente</h4>
+                          <p>Quand tous les joueurs auront choisi leur lead commercial, vous pourrez cliquer sur le bouton "Prêts à jouer" qui apparaîtra.</p>
+                    </Alert>
+                  : null
+                }
+              </Col>
+          </Row>
+        </Grid>
+
       )
     }
   }
@@ -123,6 +133,11 @@ class ScenarioSelector extends React.Component {
   goToClues() {
     this.props.clients.SessionClient.clues(this.props.session.id)
   }
+
+  handleHideInfo() {
+    this.setState({show_info:false})
+  }
+
 }
 
 function mapStateToProps(state) {
