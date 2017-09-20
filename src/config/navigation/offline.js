@@ -1,4 +1,5 @@
 import Header from '../../components/offline/header'
+import Link from '../../components/common/header/link'
 import MainWrapper from '../../components/common/main-wrapper'
 import Home from '../../components/offline/home'
 import Login from '../../components/offline/login'
@@ -16,6 +17,7 @@ const offline = {
   },
   menu: {
     navigation: {
+      navLink: Link,
       items: [
         {
           title: "Accueil",

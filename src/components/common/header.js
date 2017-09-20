@@ -5,57 +5,14 @@ import { withRouter } from 'react-router'
 import { NavLink, Link, Redirect } from 'react-router-dom'
 
 import { Navbar } from 'react-bootstrap';
-import { ShowForAcls } from 'codekraft-react-frontend'
+import { Header, ShowForAcls } from 'codekraft-react-frontend'
 
-class Header extends React.Component {
-
-  constructor(props) {
-    super(props)
-
-    this.state = {
-      menu: false
-    }
-
-    this.handleHamburgerClick = this.handleHamburgerClick.bind(this)
-  }
+class SkeletonHeader extends Header {
 
   render() {
-    var menu_entries = [], menu_entry, menu, item, route
+    var menu_entries = [], menu
     for (var key in this.props.menu) {
-      menu = this.props.menu[key]
-      if (menu.label) {
-        menu_entries.push(<li className={"nav-category"}>{menu.label}</li>)
-      }
-      for (var index in menu.items) {  
-        item = menu.items[index]
-        if (item.display !== false) {
-          if (item.type) {
-            switch(item.type) {
-              case "logout":
-                route = "/logout"
-                break
-            }
-
-          } else if (item.root === true) {
-            route = this.props.root 
-          } else if (item.switch) {
-            route = item.switch
-          } else {
-            route = this.props.root + (item.route ? (this.props.root !== "/" ? "/" : "") + item.route : "")
-          }
-          
-          menu_entry = <li className={this.props.location.pathname === route ? "active" : ""}>
-                          <NavLink exact to={route}>
-                            {item.title}
-                          </NavLink>
-                        </li>
-
-          if (item.grants) {
-            menu_entry = <ShowForAcls grants={item.grants}>{menu_entry}</ShowForAcls>
-          }
-          menu_entries.push(menu_entry)
-        }
-      }
+      menu_entries = menu_entries.concat(this.buildItemsFor(this.props.menu[key]))
     }
 
     return (
@@ -90,23 +47,6 @@ class Header extends React.Component {
     );
 
   }
-
-  handleHamburgerClick(e) {
-    e.preventDefault()
-    this.setState({menu: !this.state.menu}, function() {
-      if (this.state.menu) {
-        document.body.className += " nav-toggle"
-      } else {
-        document.body.className -= " nav-toggle"
-      }
-    })
-  }
 }
 
-function mapStateToProps(state) {
-  return {
-    clients: state.bootstrap.clients || {}
-  }
-}
-
-export default withRouter(connect(mapStateToProps)(Header))
+export default withRouter(SkeletonHeader)

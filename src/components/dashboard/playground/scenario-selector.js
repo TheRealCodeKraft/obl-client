@@ -13,7 +13,8 @@ class ScenarioSelector extends React.Component {
     this.state = {
       checking: false,
       error: false,
-      value: ""
+      value: "",
+      
     }
 
     this.handleQrScan = this.handleQrScan.bind(this)

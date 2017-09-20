@@ -1,4 +1,5 @@
 import Header from 'components/common/header'
+import Link from '../../components/common/header/link'
 import MainWrapper from '../../components/common/main-wrapper'
 
 import Home from 'components/dashboard/home'
@@ -17,6 +18,7 @@ const dashboard = {
   },
   menu: {
     navigation: {
+      navLink: Link,
       label: "Navigation",
       items: [
         {

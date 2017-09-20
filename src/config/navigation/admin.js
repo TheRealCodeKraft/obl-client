@@ -1,4 +1,5 @@
 import Header from '../../components/common/header'
+import Link from '../../components/common/header/link'
 import MainWrapper from '../../components/common/main-wrapper'
 import Home from '../../components/admin/home'
 
@@ -24,6 +25,7 @@ const config = {
   },
   menu: {
     general: {
+      navLink: Link,
       label: "Général",
       hiddenOnHome: true,
       items: [
@@ -46,6 +48,7 @@ const config = {
       ]
     },
     users: {
+      navLink: Link,
       label: "Utilisateurs",
       items: [
         _users,
@@ -55,6 +58,7 @@ const config = {
       ]
     },
     games: {
+      navLink: Link,
       label: "Jeux",
       items: [
         _games,
@@ -65,6 +69,7 @@ const config = {
       ]
     },
     sessions: {
+      navLink: Link,
       label: "Sessions",
       items: [
         _sessions,
