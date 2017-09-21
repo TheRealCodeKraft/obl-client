@@ -25,7 +25,7 @@ class SkeletonHeader extends Header {
                   <a href="#" onClick={this.handleHamburgerClick}><i className="stroke-hamburgermenu"></i></a>
                 </div>
               </div>
-              <a className="navbar-brand navbar-admin" href="/dashboard">
+              <a className={"navbar-brand" + (this.props.admin ? " navbar-admin" : "")} href="/dashboard">
                 <img src="/assets/images/logo-obl-mini.png" alt="Open Business Labs" /> <span>OBL</span>
               </a>
             </div>
