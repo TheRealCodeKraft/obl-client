@@ -16,7 +16,7 @@ class GlobalScores extends React.Component {
         <Row>
           <Col xs={12}>
                 <h2><i className="pe pe-7s-paper-plane text-warning"></i> Podium</h2>
-                <Podium session={this.props.session} totalsForSession={true} />
+                <Podium session={this.props.session} showTotals={true} />
           </Col>
         </Row>
         <hr/>
