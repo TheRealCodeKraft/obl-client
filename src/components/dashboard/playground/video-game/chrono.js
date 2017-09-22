@@ -20,7 +20,7 @@ class Chrono extends React.Component {
     return (
       <div className="chrono">
         <span className="inner">
-          {this.state.remaining ? moment(this.state.remaining).format("mm:ss") : null}
+          <i className="pe-7s-stopwatch"></i>{this.state.remaining ? moment(this.state.remaining).format("mm:ss") : null}
         </span>
       </div>
     )

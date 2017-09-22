@@ -202,6 +202,24 @@
   background: #000000;
   z-index: 10000;
 }
+.chrono {
+  position: fixed;
+  z-index: 100000;
+  bottom: 10px;
+  left: 0;
+  right: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  font-size: 1.6em;
+  color: #fff;
+}
+.chrono .inner {
+  padding: 5px;
+  border-radius: 5px;
+  background: #000;
+  border: 1px solid #fff;
+}
 
 /**********
  * PODIUM *
