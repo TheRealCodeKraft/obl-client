@@ -67,6 +67,7 @@ class FinalRoomScores extends React.Component {
   }
 
   currentUserState() {
+console.log(this.props.me.id)
     return this.getUserState(this.props.me)
   }
 
@@ -75,6 +76,7 @@ class FinalRoomScores extends React.Component {
     if (!round) {
       round = this.props.session.current_round
     }
+console.log(round.userStates.filter(state => { return state.user === user.id })[0])
     return round.userStates.filter(state => { return state.user === user.id })[0]
   }
 

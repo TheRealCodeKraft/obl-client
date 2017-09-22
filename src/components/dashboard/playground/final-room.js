@@ -9,6 +9,7 @@ import Scores from './common/scores'
 class FinalRoom extends React.Component {
 
   render() {
+    if (!this.props.session) return null
     return (
       <div>
         <Scores session={this.props.session} me={this.props.me} />

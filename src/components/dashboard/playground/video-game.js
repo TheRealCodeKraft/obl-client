@@ -6,6 +6,7 @@ import withUserAgent from 'react-useragent'
 import { Grid, Row, Col, Button} from 'react-bootstrap';
 
 import CluesList from './clues-selector/clues-list'
+import Chrono from './video-game/chrono'
 
 class VideoGame extends React.Component {
 
@@ -20,6 +21,7 @@ class VideoGame extends React.Component {
     }
 
     this.runGame = this.runGame.bind(this)
+    this.handleChronoEnd = this.handleChronoEnd.bind(this)
     this.goToNextAfterTimeout = this.goToNextAfterTimeout.bind(this)
   }
 
@@ -75,10 +77,10 @@ class VideoGame extends React.Component {
            ? <Col xs={12}>
                <div className="alert alert-danger">
                  <h4>Resource indisponible sur mobile</h4>
-                 <p>Ce mode de simulation n'est à ce jour pas compatible sur mobile.</p>
+                 <p>Ce mode de simulation n'est, à ce jour, pas compatible sur mobile.</p>
                  <p>Merci d'accéder à ce module sur PC/MAC fixe ou portable.</p>
                </div>
-               <span>Contenu indisponible sur mobile</span>
+               <CluesList clues={this.currentUserState().clues} show_alert={false} />
              </Col>
            : <Col xs={12}>
                <Grid fluid>
@@ -108,6 +110,9 @@ class VideoGame extends React.Component {
                           width="100%"
                           height="100%"
                         ></iframe>
+                        {this.state.running
+                         ? <Chrono initial={this.currentUserState().scenario.chrono} onEnd={this.handleChronoEnd} />
+                         : null}
                       </Col>
                    }
                  </Row>
@@ -135,7 +140,6 @@ class VideoGame extends React.Component {
 
   runGame() {
     this.setState({running: true}, function() {
-      this.startChrono()
     })
   }
 
@@ -148,19 +152,15 @@ class VideoGame extends React.Component {
     })
   }
 
-  startChrono() {
-    var minutes = this.currentUserState().scenario.chrono
+  handleChronoEnd() {
     var self = this
-    setTimeout(function() {
+    this.props.clients.SessionClient.setUserScores(this.props.session.id, this.props.me.id, this.state.scores, function() {
       self.setState({finished: true, timeout: true})
-    }, minutes * 60 * 1000);
+    })
   }
 
   goToNextAfterTimeout() {
-    var self = this
-    this.props.clients.SessionClient.setUserScores(this.props.session.id, this.props.me.id, this.state.scores, function() {
-      self.setState({running: false})
-    })
+    this.setState({running: false})
   }
 }
 
