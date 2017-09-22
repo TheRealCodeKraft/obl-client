@@ -101,7 +101,7 @@ class VideoGame extends React.Component {
                         <p>Le temps est limité et c'est toi qui mène l'entretien, donne la cadence et choisi d'avancer à l'étape suivante quand tu es satisfait des infos que tu as.</p>
                         <p>Bonne chance !</p>
                         <Button className={"btn-warning"} onClick={this.runGame}>Commencer l'entretien</Button>
-                        <h2><i className="pe pe-7s-search text-warning"></i> Liste des indices que tu as recolté</h2>
+                        <h2><i className="pe pe-7s-search text-warning"></i> Liste des informations client que tu as recoltées</h2>
                         <CluesList clues={this.currentUserState().clues} />
                         <iframe id="video-game-content" 
                           frameborder="0" 

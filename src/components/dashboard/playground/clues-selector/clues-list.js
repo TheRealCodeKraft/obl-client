@@ -45,7 +45,7 @@ class CluesList extends React.Component {
                       this.props.show_alert !== false && this.state.show_alert
                       ? <Alert bsStyle="danger" onDismiss={this.handleHideAlert}>
                           <h4>Attention !</h4>
-                          <h5>Faites une copie de vos indices collectés ou prenez-les en note. Vous ne pourrez plus y accéder quand vous aurez commencé le jeu vidéo.</h5>
+                          <h5>Faites une copie de vos informations client collectées ou prenez-les en note. Vous ne pourrez plus y accéder quand vous aurez commencé le jeu vidéo.</h5>
                         </Alert>
                       : null
                     }
