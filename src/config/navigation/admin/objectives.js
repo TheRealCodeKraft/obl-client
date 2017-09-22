@@ -17,6 +17,10 @@ const config = {
       {
         label: "Clé VTS",
         name: "key"
+      },
+      {
+        label: "Cible",
+        name: "target"
       }
     ],
     actions: [
@@ -63,6 +67,7 @@ const config = {
         type: "select",
         placeholder: false,
         values: [
+          {id: "none", title: "Aucune"},
           {id: "score", title: "Score"},
           {id: "ca", title: "Chiffre d'affaire"}
         ],
