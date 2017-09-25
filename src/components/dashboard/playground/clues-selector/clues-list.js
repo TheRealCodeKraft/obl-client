@@ -23,7 +23,7 @@ class CluesList extends React.Component {
                     <tr>
                       <th>Type</th>
                       <th>Décideur</th>
-                      <th>Indice</th>
+                      <th>Information client</th>
                     </tr>
                   </thead>
                   <tbody>

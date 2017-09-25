@@ -220,6 +220,18 @@
   background: #000;
   border: 1px solid #fff;
 }
+.chrono-alert {
+  position: fixed;
+  z-index: 100000;
+  bottom: 60px;
+  left: 0;
+  right: 0;
+  width: auto;
+  display: block;
+  color: #fff;
+  max-width: 340px;
+  margin: 0 auto;
+}
 
 /**********
  * PODIUM *

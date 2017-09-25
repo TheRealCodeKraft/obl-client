@@ -47,7 +47,7 @@ class CluesSelector extends React.Component {
           <div><strong>DECIDEURS</strong> U9C3S MAS4R C1J4A F2N4D</div>
         </div>
         */}
-        <h2><i className="pe pe-7s-search text-warning"></i> Indices collectés</h2>
+        <h2><i className="pe pe-7s-search text-warning"></i> Informations client collectées</h2>
         <CluesList clues={this.currentUserState().clues} />
       </div>
     )
@@ -88,7 +88,7 @@ class CluesSelector extends React.Component {
       this.props.clients.SessionClient.pushInState(data.session)
       this.setState({error: false, checking: false, show_last: true, last: data.item})
     } else {
-      var message = "Veuillez utiliser une carte INDICE"
+      var message = "Veuillez utiliser une carte information client"
       if (data.message.indexOf("already use") > 0) {
         message = "Tricheur ? Cette carte a déjà été utilisée ..."
       }
