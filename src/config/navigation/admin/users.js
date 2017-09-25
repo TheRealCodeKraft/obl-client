@@ -23,9 +23,11 @@ const config = {
         name: "email"
       }
     ],
+/*
     actions: [
-      //"see"
+      "see"
     ]
+*/
   }
 }
 
