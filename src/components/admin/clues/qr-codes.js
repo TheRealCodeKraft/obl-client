@@ -28,7 +28,14 @@ class QrCodes extends React.Component {
                   placeholder: "Entrez un QR Code pour l'ajouter à la liste",
                   required: true,
                   defaultValue: this.props.entity.qrcodes
-                } 
+                },
+                {
+                  name: "raw_qrcodes",
+                  label: "Saisissez les QR Codes (1 par ligne)",
+                  type: "textarea",
+                  placeholder: "Saisissez les QR Codes susceptibles de débloquer l'indice",
+                  required: true
+                }
               ]}
               service={{client: this.props.clients.ClueClient, func: "update"}}
               submitClass={"btn btn-accent"}
