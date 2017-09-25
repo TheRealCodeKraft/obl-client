@@ -21,6 +21,12 @@
   text-decoration: none;
 }
 
+.admin-page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .admin-new-button-row {
   text-align: right;
   padding-top:10px;
@@ -34,6 +40,12 @@
   padding-right: 10px;
   padding-left: 10px;
   border-radius: 10px;
+  height: 30px;
+}
+
+.admin-list-header div {
+  display: table-cell;
+  background: #414450;
 }
 
 .admin-new-button:hover {
@@ -83,6 +95,33 @@
 
 .admin-sidebar .session-table-form-container {
   margin-top:15px;
+}
+
+.sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background: #b53c3c;
+  margin-bottom: 20px;
+}
+
+.sidebar-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.sidebar-close-icon {
+  color: #ffffff;
+  font-size: 2em;
+}
+
+.sidebar-content-container {
+  flex: 1;
+  height: 100%;
+  overflow: auto;
+  padding: 20px;
 }
 
 /****************** END SIDEBAR **********************/

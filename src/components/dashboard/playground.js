@@ -103,7 +103,7 @@ class Playground extends React.Component {
           case "clues":
             if (this.currentUserState().decision_maker === null) {
               section = <CluesSelector session={this.props.session} />
-            } else if (this.currentUserState().score && this.currentUserState().score.ca) {
+            } else if (this.currentUserState().score && this.currentUserState().score.ca !== null) {
               section = <FinalRoom session={this.props.session} />
             } else {
               section = <VideoGame session={this.props.session} me={this.props.me} />

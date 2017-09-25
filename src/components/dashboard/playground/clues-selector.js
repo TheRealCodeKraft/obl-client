@@ -29,8 +29,8 @@ class CluesSelector extends React.Component {
     return (
       <div>
         <QrScanner
-          title="Flash ici tes cartes business-battle (cartes indices et carte décideur)"
-          description="Tu recoltes les cartes indices au cours du jeu de plateau. La carte décideur est celle que tu obtiens à la fin du jeu de plateau."
+          title="Flash ici tes cartes business-battle (cartes information client et carte décideur)"
+          description="Tu recoltes les cartes information client au cours du jeu de plateau. La carte décideur est celle que tu obtiens à la fin du jeu de plateau."
           error={this.state.error}
           errorMessage={this.state.errorMessage}
           onScan={this.handleQrScan}
@@ -58,7 +58,7 @@ class CluesSelector extends React.Component {
       return  <Row>
                 <Col xs={12}>
                   <Alert bsStyle="success" onDismiss={this.hideLast}>
-                    <h4>Nouvel indice récolté</h4>
+                    <h4>Nouvelle information client récoltée</h4>
                      {this.state.last.map(item => {
                        return <p>{item.description}</p>
                      })}

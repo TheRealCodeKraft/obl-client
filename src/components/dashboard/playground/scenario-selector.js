@@ -40,7 +40,7 @@ class ScenarioSelector extends React.Component {
                 <thead>
                   <tr>
                     <th>Pseudo</th>
-                    <th>Scenario</th>
+                    <th>Lead commercial</th>
                     <th>Prêt</th>
                   </tr>
                 </thead>
