@@ -9,7 +9,7 @@
     "babel-loader": "7.1.1",
     "babel-preset-latest": "^6.24.1",
     "babel-preset-react": "^6.24.1",
-    "caniuse-lite": "^1.0.30000727",
+    "caniuse-lite": "^1.0.30000777",
     "case-sensitive-paths-webpack-plugin": "^2.1.1",
     "codekraft-react-frontend": "^1.0.39",
     "detect-browser": "^1.10.0",
