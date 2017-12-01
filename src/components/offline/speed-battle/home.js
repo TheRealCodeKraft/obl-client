@@ -49,7 +49,7 @@ class Explanations extends React.Component {
             </div>
           </Row>
 
-          <Panel className="panel panel-filled" style={{textAlign: "center"}}>
+          <Panel className="panel panel-filled" style={this.state.loading ? {textAlign: "center"} : null}>
             {this.state.loading
              ? <span>Chargement de la session</span>
              : <a className={"btn btn-default btn-play"} onClick={this.handlePlay}>Je joue</a>}
@@ -72,7 +72,7 @@ class Explanations extends React.Component {
             </div>
           </Row>
 
-          <Panel className="panel panel-filled" style={{textAlign: "center"}}>
+          <Panel className="panel panel-filled" style={this.props.session.players.length == this.props.session.machine_count && this.playersConnected() ? {textAlign: "center"} : null}>
             {this.props.session.players.length == this.props.session.machine_count && this.playersConnected()
              ? <span>Chargement de la session</span>
              : <Table responsive>
