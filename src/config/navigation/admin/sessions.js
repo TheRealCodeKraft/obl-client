@@ -26,6 +26,18 @@ const config = {
       {
         label: "Joueurs",
         name: "players.length"
+      },
+      {
+        label: "Speed Battle",
+        name: "battle_mode",
+        replaceWith: {
+          true: "Oui",
+          false: "Non"
+        }
+      },
+      {
+        label: "Code",
+        name: "code"
       }
     ],
     actions: [
@@ -56,8 +68,8 @@ const config = {
         icon: "play",
         component: SessionLauncher,
         displayIf: {
-	  property: "playable",
-	  values: ["to_launch", "pause"]
+          property: "playable",
+          values: ["to_launch", "pause"]
         },
         tinify: true
       },
@@ -67,8 +79,8 @@ const config = {
         icon: "moon",
         component: SessionLauncher,
         displayIf: {
-	  property: "playable",
-	  value: "play"
+          property: "playable",
+          value: "play"
         },
         tinify: true
       },
@@ -78,8 +90,8 @@ const config = {
         icon: "next",
         component: SessionLauncher,
         displayIf: {
-	  property: "current_step",
-	  value: "end"
+          property: "current_step",
+          value: "end"
         },
         tinify: true
       }
@@ -141,6 +153,34 @@ const config = {
         value: "title",
         required: true,
         defaultValue: -1
+      },
+      {
+        name: "battle_mode",
+        label: "Mode Speed Battle  ",
+        type: "switch",
+        values: [{value: true, label: "Oui"}, {value: false, label: "Non"}],
+        required: true,
+        defaultValue: false
+      },
+      {
+        name: "code",
+        label: "Code Battle",
+        type: "text",
+        required: true,
+        displayIf: {
+          name: "battle_mode",
+          value: true
+        }
+      },
+      {
+        name: "machine_count",
+        label: "Nombre de joueur",
+        type: "number",
+        required: true,
+        displayIf: {
+          name: "battle_mode",
+          value: true
+        }
       }
     ]
   },

@@ -8,8 +8,11 @@ import {Grid, Row, Col} from "react-bootstrap"
 class Sessions extends React.Component {
 
   componentWillMount() {
+    var self=this
     this.setState({loading: true}, function() {
-      this.props.clients.SessionClient.fetchAll({current: true})
+      this.props.clients.SessionClient.fetchAll({current: true}, function() {
+        self.setState({loading: false})
+      })
     })
   }
 
@@ -45,6 +48,7 @@ class Sessions extends React.Component {
 }
 
 function mapStateToProps(state) {
+  console.log(state)
   return {
     me: state.userState.me || null,
     sessions: state.sessionState.sessions || [],

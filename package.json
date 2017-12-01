@@ -72,7 +72,7 @@
     "compile": "webpack",
     "build": "webpack -p --config ./config/webpack.config.prod.js --progress",
     "heroku-postbuild": "webpack -p --config ./config/webpack.config.prod.js --progress",
-    "start": "node --preserve-symlinks scripts/server.js",
+    "start": "node --preserve-symlinks scripts/server.js > log/development.log 2> log/development.log",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "bugs": {

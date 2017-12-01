@@ -4,6 +4,7 @@ import MainWrapper from '../../components/common/main-wrapper'
 import Home from '../../components/offline/home'
 import Login from '../../components/offline/login'
 import Signup from '../../components/offline/signup'
+import SpeedBattle from '../../components/offline/speed-battle'
 
 const offline = {
   root: "/",
@@ -36,6 +37,12 @@ const offline = {
           route: "signup",
           discardOnLogin: true,
           component: Signup
+        },
+        {
+          title: "Speed Battle",
+          route: "speed-battle",
+          display: false,
+          component: SpeedBattle
         }
       ]
     }

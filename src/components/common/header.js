@@ -12,7 +12,7 @@ class SkeletonHeader extends Header {
   render() {
     var menu_entries = [], menu
     for (var key in this.props.menu) {
-      menu_entries = menu_entries.concat(this.buildItemsFor(this.props.menu[key]))
+      menu_entries = menu_entries.concat(this.buildItemsFor(key))
     }
 
     return (

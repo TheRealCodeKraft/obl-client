@@ -112,6 +112,49 @@ var SessionClient = function(name, plural, store, client) {
     })
   }
 
+  var connectBattle = function(params, callback) {
+    client.get("battles/connect", params, function(data) {
+      /*
+      if (data.session) {
+        store.dispatch({
+          type: "UPDATE_SESSION",
+          session: data.session
+        })
+      }
+      */
+      if (callback) callback(data)
+    }, !params["connected"])
+  }
+
+  var loadRobotSession = function(callback) {
+    client.get("battles/load", {}, function(data) {
+      store.dispatch({
+        type: "UPDATE_SESSION",
+        session: data
+      })
+
+      if (callback) callback(data)
+    })
+  }
+
+  var battleJoin = function(callback) {
+    client.get("battles/join", {}, function(data) {
+      store.dispatch({
+        type: "UPDATE_SESSION",
+        session: data
+      })
+    })
+  }
+
+  var battleGo = function(callback) {
+    client.get("battles/go", {}, function(data) {
+      store.dispatch({
+        type: "UPDATE_SESSION",
+        session: data
+      })
+    })
+  }
+
   return {
     launch: launch,
     pause: pause,
@@ -125,6 +168,11 @@ var SessionClient = function(name, plural, store, client) {
 
     invite: invite,
     inviteAll: inviteAll,
+
+    connectBattle: connectBattle,
+    loadRobotSession: loadRobotSession,
+    battleJoin: battleJoin,
+    battleGo: battleGo,
 
     doPing: doPing,
 

@@ -67,7 +67,6 @@ class FinalRoomScores extends React.Component {
   }
 
   currentUserState() {
-console.log(this.props.me.id)
     return this.getUserState(this.props.me)
   }
 
