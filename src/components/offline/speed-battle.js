@@ -72,7 +72,6 @@ class SpeedBattle extends React.Component {
           </div>
         )
       } else {
-          console.log(this.props.session)
         return (
           <div>
             {!ok ? <AlreadyConnected onLogout={this.handleLogout} /> : null}
