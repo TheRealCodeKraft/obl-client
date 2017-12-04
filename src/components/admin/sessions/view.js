@@ -4,6 +4,7 @@ import Moment from 'react-moment'
 
 import { Grid, Row, Col, Table, Button } from 'react-bootstrap'
 
+import BattleView from './battle-view'
 import Podium from 'components/dashboard/playground/common/podium'
 
 class SessionView extends React.Component {
@@ -24,13 +25,15 @@ class SessionView extends React.Component {
         <hr style={{borderColor: "#636363", marginBottom: 40}} />
         <Row>
           <Col xs={12}>
-            <Podium session={this.props.entity} />
+            <Podium session={this.props.entity} showTotals={true} />
           </Col>
         </Row>
         <hr style={{borderColor: "#636363", marginBottom: 40}} />
         <Row>
           <Col xs={12}>
-                <Table responsive>
+            {this.props.entity.battle_mode
+             ? <BattleView session={this.props.entity}/>
+             :  <Table responsive>
                   <thead>
                     <tr>
                       <th rowSpan="2">Position</th>
@@ -86,7 +89,7 @@ class SessionView extends React.Component {
                       )
                     })}
                   </tbody>
-                </Table>
+                </Table>}
           </Col>
         </Row>
       </Grid>
