@@ -8,7 +8,7 @@ class Chrono extends React.Component {
     super(props)
 
     this.state = {
-      show_timer_alert:true,
+      show_timer_alert:false,
       alertTime_isPassed:false
     }
 

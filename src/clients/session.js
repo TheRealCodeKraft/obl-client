@@ -155,6 +155,15 @@ var SessionClient = function(name, plural, store, client) {
     })
   }
 
+  var setRoundPlayerEmail = function(params, callback) {
+    client.post("battles/roundmail", params, function(data) {
+      store.dispatch({
+        type: "UPDATE_SESSION",
+        session: data
+      })
+    })
+  }
+
   return {
     launch: launch,
     pause: pause,
@@ -173,6 +182,7 @@ var SessionClient = function(name, plural, store, client) {
     loadRobotSession: loadRobotSession,
     battleJoin: battleJoin,
     battleGo: battleGo,
+    setRoundPlayerEmail: setRoundPlayerEmail,
 
     doPing: doPing,
 

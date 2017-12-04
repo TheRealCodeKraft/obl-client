@@ -5,6 +5,8 @@ import { connect } from 'react-redux'
 import Players from '../../dashboard/playground/final-room/players'
 import Podium from '../../dashboard/playground/common/podium'
 import BaseScores from '../../dashboard/playground/common/scores'
+import MailTrapper from './mail-trapper'
+
 import { Grid, Row, Col, Panel } from 'react-bootstrap';
 
 class Scores extends React.Component {
@@ -37,9 +39,11 @@ class Scores extends React.Component {
         <Panel className="panel panel-filled" style={{textAlign: "center"}}>
           {this.props.finished
            ? [this.getScores(),
+              <MailTrapper userState={this.currentUserState()} />,
               this.getNextButton()]
            : [<div><span>Votre score : </span>{this.currentUserState().score.ca}k€</div>,
-              <span>Nous attendons les autres joueurs</span>]}
+              <span>Nous attendons les autres joueurs</span>,
+              <MailTrapper userState={this.currentUserState()} />]}
         </Panel>
      
       </Grid>

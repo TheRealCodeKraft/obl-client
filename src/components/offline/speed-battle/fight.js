@@ -1,22 +1,27 @@
 import React from "react"
-
 import { connect } from 'react-redux'
 
-import { Grid, Row, Col, Panel } from 'react-bootstrap';
+import withUserAgent from 'react-useragent'
 
-import VideoGame from '../../dashboard/playground/video-game'
+import { Grid, Row, Col, Button} from 'react-bootstrap';
 
-class Fight extends React.Component {
+import Chrono from '../../dashboard/playground/video-game/chrono'
+
+class VideoGame extends React.Component {
 
   constructor(props) {
     super(props)
 
     this.state = {
       running: true,
-      finished: false
+      finished: false,
+      timeout: false,
+      scores: {}
     }
 
-    this.handleNext = this.handleNext.bind(this)
+    this.runGame = this.runGame.bind(this)
+    this.handleChronoEnd = this.handleChronoEnd.bind(this)
+    this.goToNextAfterTimeout = this.goToNextAfterTimeout.bind(this)
   }
 
   componentWillMount() {
@@ -57,16 +62,52 @@ class Fight extends React.Component {
   componentWillUnmount() {
     window.API_1484_11 = undefined
   }
-
+  
   render() {
     return (
-      <iframe id="video-game-content" 
-        frameborder="0" 
-        src={this.getUrl()}
-        width="100%"
-        height="100%"
-        style={{position: "fixed", top: 0, bottom: 0, left: 0, right: 0}}
-      ></iframe>
+      <Grid fluid>
+        <Row>
+          <Col xs={12}>
+            <h2><i className="pe pe-7s-users text-warning"></i> Participe à ton entretien</h2>
+          </Col>
+        </Row>
+        <Row>
+          {this.props.ua.mobile
+           ? <Col xs={12}>
+               <div className="alert alert-danger">
+                 <h4>Resource indisponible sur mobile</h4>
+                 <p>Ce mode de simulation n'est, à ce jour, pas compatible sur mobile.</p>
+                 <p>Merci d'accéder à ce module sur PC/MAC fixe ou portable.</p>
+               </div>
+             </Col>
+           : <Col xs={12}>
+               <Grid fluid>
+                 <Row>
+                   {this.state.finished
+                    ? <Col xs={12}>
+                        {this.state.timeout
+                         ? <span>Le temps est écoulé ... <Button className="btn-warning" onClick={this.goToNextAfterTimeout}>Continuer</Button></span>
+                         : <span>Calcul du score en cours</span>}
+                      </Col>
+                    : <Col xs={12}>
+                        <iframe id="video-game-content" 
+                          frameborder="0" 
+                          style={{visibility: this.state.running ? "visible" : "hidden"}}
+                          src={this.getUrl()}
+                          width="100%"
+                          height="100%"
+                        ></iframe>
+                        {this.state.running
+                         ? <Chrono initial={this.currentUserState().scenario.chrono} onEnd={this.handleChronoEnd} />
+                         : null}
+                      </Col>
+                   }
+                 </Row>
+               </Grid>
+             </Col>
+          }
+        </Row>
+      </Grid>
     )
   }
 
@@ -84,18 +125,9 @@ class Fight extends React.Component {
     return this.props.session.current_round.userStates.filter(state => { return state.user === user.id })[0]
   }
 
-  getUrl() {
-    var url = ""
-    url = this.currentUserState().scenario.game_url
-    return url
-  }
-
-  currentUserState() {
-    return this.getUserState(this.props.me)
-  }
-
-  getUserState(user) {
-    return this.props.session.current_round.userStates.filter(state => { return state.user === user.id })[0]
+  runGame() {
+    this.setState({running: true}, function() {
+    })
   }
 
   endGame() {
@@ -107,11 +139,16 @@ class Fight extends React.Component {
     })
   }
 
-  handleNext(e) {
-    e.preventDefault()
-    if (this.props.onNext) this.props.onNext()
+  handleChronoEnd() {
+    var self = this
+    this.props.clients.SessionClient.setUserScores(this.props.session.id, this.props.me.id, this.state.scores, function() {
+      self.setState({finished: true, timeout: true})
+    })
   }
 
+  goToNextAfterTimeout() {
+    this.setState({running: false})
+  }
 }
 
 function fillHash(hash, address, value) {
@@ -131,8 +168,8 @@ function fillHash(hash, address, value) {
 
 function mapStateToProps(state) {
   return {
-    clients: state.bootstrap.clients
+    clients: state.bootstrap.clients,
   }
 }
 
-export default connect(mapStateToProps)(Fight)
+export default withUserAgent(connect(mapStateToProps)(VideoGame))
