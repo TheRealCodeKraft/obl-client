@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 
 import withUserAgent from 'react-useragent'
 
-import { Grid, Row, Col, Button} from 'react-bootstrap';
+import { Grid, Row, Col, Button, Panel} from 'react-bootstrap';
 
 import Chrono from '../../dashboard/playground/video-game/chrono'
 
@@ -64,51 +64,64 @@ class VideoGame extends React.Component {
   }
   
   render() {
-    return (
-      <Grid fluid>
-        <Row>
-          <Col xs={12}>
-            <h2><i className="pe pe-7s-users text-warning"></i> Participe à ton entretien</h2>
-          </Col>
-        </Row>
-        <Row>
-          {this.props.ua.mobile
-           ? <Col xs={12}>
-               <div className="alert alert-danger">
-                 <h4>Resource indisponible sur mobile</h4>
-                 <p>Ce mode de simulation n'est, à ce jour, pas compatible sur mobile.</p>
-                 <p>Merci d'accéder à ce module sur PC/MAC fixe ou portable.</p>
-               </div>
-             </Col>
-           : <Col xs={12}>
-               <Grid fluid>
-                 <Row>
-                   {this.state.finished
-                    ? <Col xs={12}>
-                        {this.state.timeout
-                         ? <span>Le temps est écoulé ... <Button className="btn-warning" onClick={this.goToNextAfterTimeout}>Continuer</Button></span>
-                         : <span>Calcul du score en cours</span>}
-                      </Col>
-                    : <Col xs={12}>
-                        <iframe id="video-game-content" 
-                          frameborder="0" 
-                          style={{visibility: this.state.running ? "visible" : "hidden"}}
-                          src={this.getUrl()}
-                          width="100%"
-                          height="100%"
-                        ></iframe>
-                        {this.state.running
-                         ? <Chrono initial={this.currentUserState().scenario.chrono} onEnd={this.handleChronoEnd} />
-                         : null}
-                      </Col>
-                   }
-                 </Row>
-               </Grid>
-             </Col>
-          }
-        </Row>
-      </Grid>
-    )
+    if (this.state.finished) {
+      return (
+        <Grid className="container-center animated slideInDown">
+           <Row className="view-header">
+            <div className={"header-icon"}>
+                <i className={"pe page-header-icon pe-7s-gleam"}></i>
+            </div>
+            <div className={"header-title"}>
+                <h3>
+                  {this.state.timeout
+                   ? "Temps écoulé"
+                   : "Calcul du score"}
+                </h3>
+                <small>
+                  {this.state.timeout
+                   ? "Vous n'avez pas été assez rapide"
+                   : "La partie est terminée"}
+                </small>
+            </div>
+          </Row>
+
+          <Panel className="panel panel-filled" style={{textAlign: "center"}}>
+            {this.state.timeout
+             ? <Button className="btn-warning" onClick={this.goToNextAfterTimeout}>Continuer</Button>
+             : <span>Nous calculons votre score</span>}
+          </Panel>
+       
+        </Grid>
+      )
+    } else {
+      return (
+        <Grid fluid>
+          <Row>
+            {this.props.ua.mobile
+             ? <Col xs={12}>
+                 <div className="alert alert-danger">
+                   <h4>Resource indisponible sur mobile</h4>
+                   <p>Ce mode de simulation n'est, à ce jour, pas compatible sur mobile.</p>
+                   <p>Merci d'accéder à ce module sur PC/MAC fixe ou portable.</p>
+                 </div>
+               </Col>
+             : <Col xs={12}>
+                  <iframe id="video-game-content" 
+                    frameborder="0" 
+                    style={{visibility: this.state.running ? "visible" : "hidden"}}
+                    src={this.getUrl()}
+                    width="100%"
+                    height="100%"
+                  ></iframe>
+                  {this.state.running
+                   ? <Chrono initial={this.currentUserState().scenario.chrono} onEnd={this.handleChronoEnd} />
+                   : null}
+               </Col>
+            }
+          </Row>
+        </Grid>
+      )
+    }
   }
 
   getUrl() {
