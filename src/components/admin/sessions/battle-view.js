@@ -19,6 +19,17 @@ class BattleView extends React.Component {
                 </Row>
               )
             })}
+        <Row>
+          <Col xs={12}>
+            <hr />
+            <h3>Tous les emails : </h3>
+            {this.props.session.rounds.map((round, index) => {
+              return round.userStates.map(state => {
+                return <div>{state.email}</div>
+              })
+            })}
+          </Col>
+        </Row>
       </Grid>
     )
   }

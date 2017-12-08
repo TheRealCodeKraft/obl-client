@@ -10,7 +10,7 @@ class MailTrapper extends React.Component {
     if (this.props.userState.email) {
       return (
         <div>
-          <hr style={{borderTop: "1px solid #F8F8F7"}} />
+          <hr />
           <span>Vous recevrez prochainement votre score dans votre boite {this.props.userState.email}</span>
           <hr style={{borderTop: "1px solid #F8F8F7"}} />
         </div>
@@ -18,7 +18,7 @@ class MailTrapper extends React.Component {
     } else {
       return (
         <div>
-          <hr style={{borderTop: "1px solid #F8F8F7"}} />
+          <hr />
           Pour recevoir votre score, renseignez votre email !
           <Form id="connexion-form" 
               fields={[{

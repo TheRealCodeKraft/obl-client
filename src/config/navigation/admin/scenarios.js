@@ -88,6 +88,13 @@ const config  = {
         value: "title",
         required: true,
         defaultValue: -1
+      },
+      {
+        name: "chrono",
+        label: "Chrono (en minutes)",
+        placeholder: "Temps limite du scénario",
+        type: "number",
+        required: true
       }
     ]
   },

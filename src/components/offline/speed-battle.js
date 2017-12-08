@@ -32,7 +32,11 @@ class SpeedBattle extends React.Component {
       var self=this
       this.setState({loadingSession: true}, function() {
         this.props.clients.SessionClient.loadRobotSession(function(data) {
-          self.setState({loading: false, loadingSession: false})
+          if (data.error) {
+            self.props.clients.ApiClient.logout()
+          } else {
+            self.setState({loading: false, loadingSession: false})
+          }
         })
       })
     }
@@ -43,7 +47,7 @@ class SpeedBattle extends React.Component {
     if (this.props.me && this.state.loadingSession) {
       return <Loading />
     } else {
-      if (this.props.session) {
+      if (this.props.session && !this.props.session.error) {
         var component = null
         switch(this.props.session.current_step) {
           case "sleeping":

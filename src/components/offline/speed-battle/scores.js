@@ -3,7 +3,7 @@ import React from "react"
 import { connect } from 'react-redux'
 
 import Players from '../../dashboard/playground/final-room/players'
-import Podium from '../../dashboard/playground/common/podium'
+import Step from '../../dashboard/playground/common/podium/step'
 import BaseScores from '../../dashboard/playground/common/scores'
 import MailTrapper from './mail-trapper'
 
@@ -50,6 +50,22 @@ class Scores extends React.Component {
     )
   }
 
+  getStep(state) {
+    if (state.score.room_position > 3) return null
+    return (
+      <div className={"podium-box " + (state.score.room_position == 1 ? "first" : (state.score.room_position == 2 ? "second" : "third"))}>
+        <div className="podium-score">
+          {state.player.id === this.props.me.id ? "Vous" : state.player.lastname}
+        </div>
+        <div className="podium-step">
+          <div className="podium-ca">
+            {state.score.raw}
+          </div>
+        </div>
+      </div>
+    )
+  }
+
   getScores() {
     var states = this.getPlayersStates()
     return (
@@ -57,11 +73,23 @@ class Scores extends React.Component {
         {this.props.me.id == states[0].player.id
          ? <h3>Vous avez gagné !</h3>
          : <h3>Vous avez perdu</h3>}
-      {/*<h3><strong>{states[0].player.lastname}</strong> gagne !</h3>*/}
-        {states.map(state => {
+        <div className="podium" style={{fontSize: "0.4em", height: 100}}>
+          {this.getPlayersStates().map(state => {
+            return this.getStep(state)
+          })}
+        </div>
+        <h4>Détails de votre score</h4>
+        {this.currentUserState().score.objectives.map(objective => {
           return (
-            <div><span>{state.player.id == this.props.me.id ? "Vous" : state.player.lastname}</span> : {state.score.ca}k€</div>
-          )
+            <div className="detail-score" style={{textAlign: "left"}}>
+              <span>
+                <i className="pe pe-7s-angle-right text-warning"></i>{objective.title}
+              </span> :&nbsp; &nbsp;
+              <span>
+                {(objective.scaled * 100) > 100 ? "100" : Math.round(objective.scaled * 100)} % 
+              </span>
+            </div>
+            )
         })}
       </div>
     )
@@ -69,27 +97,8 @@ class Scores extends React.Component {
 
   getPlayersStates() {
     var position = "position"
-    var round = this.props.round
-    if (!round) {
-      round = this.props.session.current_round
-      position = "total_position"
-    } else {
-      if (this.props.showTotals) {
-        position = "total_position"
-      }
-    } 
-
-    var states = round.userStates
-    if (this.props.room) {
-      states = states.filter(state => { return state.room.id === this.props.room.id })
-      position = "room_position"
-      if (this.props.scenario) {
-        states = states.filter(state => { return state.scenario.id === this.props.scenario.id })
-        position = "table_position"
-      }
-    }
-
-    return states.sort(function(a, b) {
+    var round = this.props.session.current_round
+    return round.userStates.sort(function(a, b) {
       if (a.score === null || a.score[position] === null) return 1
       else if (b.score === null || b.score[position] === null) return -1
       else return (a.score[position] < b.score[position]) ? -1 : 1;
