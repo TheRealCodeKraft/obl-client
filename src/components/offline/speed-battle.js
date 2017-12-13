@@ -30,12 +30,19 @@ class SpeedBattle extends React.Component {
   }
 
   componentWillReceiveProps(props) {
+    console.log("loading session ?")
+    console.log(props.me)
+    console.log(props.me ? props.me.robot : "NOPE")
+    console.log(this.state.loadingSession)
+    console.log(this.props.session)
     if (!this.state.loadingSession && props.me && props.me.robot && !this.props.session) {
+      console.log("load session")
       var self=this
       this.setState({loadingSession: true}, function() {
         this.props.clients.SessionClient.loadRobotSession(function(data) {
           if (data.error) {
             self.props.clients.ApiClient.logout()
+            self.props.clients.SessionClient.pushInState(null)
           } else {
             self.setState({loading: false, loadingSession: false})
           }
