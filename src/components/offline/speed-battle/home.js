@@ -31,7 +31,7 @@ class Explanations extends React.Component {
 
   render() {
 
-    if (this.props.session.machine_count == this.props.session.players.length && this.playersConnected()) {
+    if (this.props.session.machine_count == this.props.session.players.filter(player => { return player.role !== "admin" }).length && this.playersConnected()) {
       this.props.clients.SessionClient.battleGo()
     }
     if (!this.playerConnected(this.props.me)) {
@@ -72,8 +72,8 @@ class Explanations extends React.Component {
             </div>
           </Row>
 
-          <Panel className="panel panel-filled" style={this.props.session.players.length == this.props.session.machine_count && this.playersConnected() ? {textAlign: "center"} : null}>
-            {this.props.session.players.length == this.props.session.machine_count && this.playersConnected()
+          <Panel className="panel panel-filled" style={this.props.session.players.filter(player => { return player.role !== "admin" }).length == this.props.session.machine_count && this.playersConnected() ? {textAlign: "center"} : null}>
+            {this.props.session.players.filter(player => { return player.role !== "admin" }).length == this.props.session.machine_count && this.playersConnected()
              ? <span>Chargement de la session</span>
              : <Table responsive>
                  <thead>
@@ -84,7 +84,7 @@ class Explanations extends React.Component {
                  </thead>
                  <tbody>
 
-                   {this.props.session.players.map(player => {
+                   {this.props.session.players.filter(player => { return player.role !== "admin" }).map(player => {
                      /*if (player.id === this.props.me.id) return null*/
                      return (
                        <tr>
@@ -125,7 +125,7 @@ class Explanations extends React.Component {
   }
 
   playersConnected() {
-    return this.props.session.players.length === this.props.session.current_round.userStates.filter(state => { return state.connected }).length
+    return this.props.session.players.filter(player => { return player.role !== "admin" }).length === this.props.session.current_round.userStates.filter(state => { return state.connected }).length
   }
 
   handlePlay(e) {

@@ -51,9 +51,9 @@ class Scores extends React.Component {
   }
 
   getStep(state) {
-    if (state.score.room_position > 3) return null
+    if (state.score.position > 3) return null
     return (
-      <div className={"podium-box " + (state.score.room_position == 1 ? "first" : (state.score.room_position == 2 ? "second" : "third"))}>
+      <div className={"podium-box " + (state.score.position == 1 ? "first" : (state.score.position == 2 ? "second" : "third"))}>
         <div className="podium-score">
           {state.player.id === this.props.me.id ? "Vous" : state.player.lastname}
         </div>
@@ -79,18 +79,21 @@ class Scores extends React.Component {
           })}
         </div>
         <h4>Détails de votre score</h4>
-        {this.currentUserState().score.objectives.map(objective => {
-          return (
-            <div className="detail-score" style={{textAlign: "left"}}>
-              <span>
-                <i className="pe pe-7s-angle-right text-warning"></i>{objective.title}
-              </span> :&nbsp; &nbsp;
-              <span>
-                {(objective.scaled * 100) > 100 ? "100" : Math.round(objective.scaled * 100)} % 
-              </span>
-            </div>
-            )
-        })}
+        {this.currentUserState().score.objectives.length > 0
+         ? this.currentUserState().score.objectives.map(objective => {
+             return (
+               <div className="detail-score" style={{textAlign: "left"}}>
+                 <span>
+                   <i className="pe pe-7s-angle-right text-warning"></i>{objective.title}
+                 </span> :&nbsp; &nbsp;
+                 <span>
+                   {(objective.scaled * 100) > 100 ? "100" : Math.round(objective.scaled * 100)} % 
+                 </span>
+               </div>
+               )
+           })
+         : <span>Vous n'avez atteint aucun objectif</span>
+        }
       </div>
     )
   }
@@ -98,7 +101,7 @@ class Scores extends React.Component {
   getPlayersStates() {
     var position = "position"
     var round = this.props.session.current_round
-    return round.userStates.sort(function(a, b) {
+    return round.userStates.filter(state => { return state.player.role !== "admin" }).sort(function(a, b) {
       if (a.score === null || a.score[position] === null) return 1
       else if (b.score === null || b.score[position] === null) return -1
       else return (a.score[position] < b.score[position]) ? -1 : 1;

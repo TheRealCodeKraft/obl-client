@@ -96,7 +96,7 @@ class Connexion extends React.Component {
               <a onClick={this.handleChoosePlayer.bind(this, stamp)}>
                 <Row style={{background: "#494B53", borderRadius: "5px", marginBottom: 10}}>
                   <Col xs={4}>
-                    <i className={"pe page-header-icon pe-7s-user"} style={{fontSize: "5em", color: "#fff"}}></i>
+                    <i className={"pe page-header-icon pe-7s-" + (stamp.role == "admin" ? "door-lock" : "user")} style={{fontSize: "5em", color: "#fff"}}></i>
                   </Col>
                   <Col xs={8} style={{fontSize: "2.5em", paddingTop: 10}}>
                     {stamp.pseudo}
@@ -105,6 +105,7 @@ class Connexion extends React.Component {
               </a>
             )
           })}
+
           </Grid>
         </Panel>
      
@@ -127,6 +128,10 @@ class Connexion extends React.Component {
   handleChoosePlayer(stamp, e) {
     e.preventDefault()
     this.connect(stamp.email, stamp.stamp)    
+  }
+
+  handleGoToAdmin(e) {
+    e.preventDefault()
   }
 
   connect(email, stamp) {

@@ -11,6 +11,8 @@ import Home from './speed-battle/home'
 import Fight from './speed-battle/fight'
 import Scores from './speed-battle/scores'
 
+import SpeedAdmin from './speed-battle/admin'
+
 class SpeedBattle extends React.Component {
 
   constructor(props) {
@@ -49,25 +51,28 @@ class SpeedBattle extends React.Component {
     } else {
       if (this.props.session && !this.props.session.error) {
         var component = null
-        switch(this.props.session.current_step) {
-          case "sleeping":
-          case "to_launch":
-            component = <WaitingSession />
-            break
-          case "waiting_players":
-          case "room":
-            component = <Home session={this.props.session} me={this.props.me} />
-            break
-          case "clues":
-            if (this.currentUserState().score && this.currentUserState().score.ca !== null) {
-              component = <Scores session={this.props.session} me={this.props.me} />
-            } else {
-              component = <Fight session={this.props.session} me={this.props.me} />
-            }
-            break
-          case "end":
-            component = <Scores onNext={this.handleNext} session={this.props.session} me={this.props.me} finished={true} />
-            break
+        if (this.props.me.role == "admin") component = <SpeedAdmin session={this.props.session} />
+        else {
+          switch(this.props.session.current_step) {
+            case "sleeping":
+            case "to_launch":
+              component = <WaitingSession />
+              break
+            case "waiting_players":
+            case "room":
+              component = <Home session={this.props.session} me={this.props.me} />
+              break
+            case "clues":
+              if (this.currentUserState().score && this.currentUserState().score.ca !== null) {
+                component = <Scores session={this.props.session} me={this.props.me} />
+              } else {
+                component = <Fight session={this.props.session} me={this.props.me} />
+              }
+              break
+            case "end":
+              component = <Scores onNext={this.handleNext} session={this.props.session} me={this.props.me} finished={true} />
+              break
+          }
         }
         return (
           <div>
