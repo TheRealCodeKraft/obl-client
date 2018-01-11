@@ -70,7 +70,7 @@ class SpeedBattle extends React.Component {
               component = <Home session={this.props.session} me={this.props.me} />
               break
             case "clues":
-              if (this.currentUserState().score && this.currentUserState().score.ca !== null) {
+              if (this.currentUserState().score && this.currentUserState().score.raw !== null) {
                 component = <Scores session={this.props.session} me={this.props.me} />
               } else {
                 component = <Fight session={this.props.session} me={this.props.me} />

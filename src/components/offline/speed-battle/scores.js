@@ -41,7 +41,7 @@ class Scores extends React.Component {
            ? [this.getScores(),
               <MailTrapper userState={this.currentUserState()} />,
               this.getNextButton()]
-           : [<div><span>Votre score : </span>{this.currentUserState().score.ca}k€</div>,
+           : [<div><span>Votre score : </span>{this.currentUserState().score.max * this.currentUserState().score.scaled}%</div>,
               <span>Nous attendons les autres joueurs</span>,
               <MailTrapper userState={this.currentUserState()} />]}
         </Panel>
@@ -59,7 +59,7 @@ class Scores extends React.Component {
         </div>
         <div className="podium-step">
           <div className="podium-ca">
-            {state.score.raw}
+            {Math.round(state.score.max * state.score.scaled)}%
           </div>
         </div>
       </div>

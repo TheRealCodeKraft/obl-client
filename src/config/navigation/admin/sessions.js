@@ -25,7 +25,7 @@ const config = {
       },
       {
         label: "Joueurs",
-        name: "players.length"
+        name: "players_count"
       },
       {
         label: "Speed Battle",
@@ -54,13 +54,21 @@ const config = {
         action: "manage_tables",
         label: "Joueurs",
         icon: "users",
-        component: TablesManager
+        component: TablesManager,
+        displayIf: {
+          property: "session_mode",
+          value: true
+        }
       },
       {
         action: "invite",
         label: "Envoyer des invitations",
         icon: "paper-plane",
-        component: Inviter
+        component: Inviter,
+        displayIf: {
+          property: "session_mode",
+          value: true
+        }
       },
       {
         action: "launch",

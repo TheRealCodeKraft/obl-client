@@ -2,196 +2,17 @@ Starting the development server...
 
 Compiled with warnings.
 
-./src/components/offline/speed-battle.js
-/app/src/components/offline/speed-battle.js
-   54:32  warning  Expected '===' and instead saw '=='  eqeqeq
-   56:11  warning  Expected a default case              default-case
-  108:5   warning  Expected a default case              default-case
-
-✖ 3 problems (0 errors, 3 warnings)
-
-./src/components/common/header.js
-/app/src/components/common/header.js
-   2:10  warning  'connect' is defined but never used      no-unused-vars
-   5:10  warning  'NavLink' is defined but never used      no-unused-vars
-   5:19  warning  'Link' is defined but never used         no-unused-vars
-   5:25  warning  'Redirect' is defined but never used     no-unused-vars
-   7:10  warning  'Navbar' is defined but never used       no-unused-vars
-   8:18  warning  'ShowForAcls' is defined but never used  no-unused-vars
-  13:28  warning  'menu' is defined but never used         no-unused-vars
-
-✖ 7 problems (0 errors, 7 warnings)
-
-./src/components/common/main-wrapper.js
-/app/src/components/common/main-wrapper.js
-  6:21  warning  'Col' is defined but never used  no-unused-vars
-
-✖ 1 problem (0 errors, 1 warning)
-
 ./src/components/offline/header.js
 /app/src/components/offline/header.js
   8:3  warning  Useless constructor  no-useless-constructor
 
 ✖ 1 problem (0 errors, 1 warning)
 
-./src/components/dashboard/playground.js
-/app/src/components/dashboard/playground.js
-  15:33  warning  'Button' is defined but never used  no-unused-vars
-  32:42  warning  Missing radix parameter             radix
-
-✖ 2 problems (0 errors, 2 warnings)
-
-./src/components/dashboard/profile-filler.js
-/app/src/components/dashboard/profile-filler.js
-  6:10  warning  'AuthChecker' is defined but never used  no-unused-vars
+./src/components/common/main-wrapper.js
+/app/src/components/common/main-wrapper.js
+  6:21  warning  'Col' is defined but never used  no-unused-vars
 
 ✖ 1 problem (0 errors, 1 warning)
-
-./src/components/admin/sessions/launcher.js
-/app/src/components/admin/sessions/launcher.js
-  42:5  warning  Expected a default case  default-case
-  63:7  warning  Expected a default case  default-case
-
-✖ 2 problems (0 errors, 2 warnings)
-
-./src/components/admin/sessions/inviter.js
-/app/src/components/admin/sessions/inviter.js
-  55:87  warning  Expected '===' and instead saw '=='  eqeqeq
-
-✖ 1 problem (0 errors, 1 warning)
-
-./src/components/admin/sessions/tables-manager.js
-/app/src/components/admin/sessions/tables-manager.js
-   4:8    warning  'Tables' is defined but never used   no-unused-vars
-  16:131  warning  Expected '===' and instead saw '=='  eqeqeq
-  16:170  warning  Expected '===' and instead saw '=='  eqeqeq
-  31:1    warning  Nested block is redundant            no-lone-blocks
-  31:1    warning  Unreachable code                     no-unreachable
-
-✖ 5 problems (0 errors, 5 warnings)
-
-./src/components/admin/sessions/view.js
-/app/src/components/admin/sessions/view.js
-    5:33  warning  'Button' is defined but never used  no-unused-vars
-   44:25  warning  Unreachable code                    no-unreachable
-   52:25  warning  Nested block is redundant           no-lone-blocks
-  101:5   warning  Expected a default case             default-case
-
-✖ 4 problems (0 errors, 4 warnings)
-
-./src/components/offline/speed-battle/loading.js
-/app/src/components/offline/speed-battle/loading.js
-  3:21  warning  'Col' is defined but never used    no-unused-vars
-  3:26  warning  'Panel' is defined but never used  no-unused-vars
-  3:33  warning  'Table' is defined but never used  no-unused-vars
-
-✖ 3 problems (0 errors, 3 warnings)
-
-./src/components/offline/speed-battle/connexion.js
-/app/src/components/offline/speed-battle/connexion.js
-   99:78  warning  Expected '===' and instead saw '=='        eqeqeq
-  120:9   warning  'self' is assigned a value but never used  no-unused-vars
-
-✖ 2 problems (0 errors, 2 warnings)
-
-./src/components/offline/speed-battle/home.js
-/app/src/components/offline/speed-battle/home.js
-   5:21   warning  'Col' is defined but never used      no-unused-vars
-  34:42   warning  Expected '===' and instead saw '=='  eqeqeq
-  75:143  warning  Expected '===' and instead saw '=='  eqeqeq
-  76:101  warning  Expected '===' and instead saw '=='  eqeqeq
-
-✖ 4 problems (0 errors, 4 warnings)
-
-./src/components/offline/speed-battle/already-connected.js
-/app/src/components/offline/speed-battle/already-connected.js
-  5:21  warning  'Col' is defined but never used  no-unused-vars
-
-✖ 1 problem (0 errors, 1 warning)
-
-./src/components/offline/speed-battle/scores.js
-/app/src/components/offline/speed-battle/scores.js
-    5:8    warning  'Players' is defined but never used        no-unused-vars
-    6:8    warning  'Step' is defined but never used           no-unused-vars
-    7:8    warning  'BaseScores' is defined but never used     no-unused-vars
-   10:21   warning  'Col' is defined but never used            no-unused-vars
-   56:61   warning  Expected '===' and instead saw '=='        eqeqeq
-   56:100  warning  Expected '===' and instead saw '=='        eqeqeq
-   73:27   warning  Expected '===' and instead saw '=='        eqeqeq
-  127:9    warning  'self' is assigned a value but never used  no-unused-vars
-
-✖ 8 problems (0 errors, 8 warnings)
-
-./src/components/offline/speed-battle/waiting-session.js
-/app/src/components/offline/speed-battle/waiting-session.js
-  3:21  warning  'Col' is defined but never used    no-unused-vars
-  3:26  warning  'Panel' is defined but never used  no-unused-vars
-  3:33  warning  'Table' is defined but never used  no-unused-vars
-
-✖ 3 problems (0 errors, 3 warnings)
-
-./src/components/dashboard/sessions/session.js
-/app/src/components/dashboard/sessions/session.js
-  9:5  warning  'moment' is assigned a value but never used  no-unused-vars
-
-✖ 1 problem (0 errors, 1 warning)
-
-./src/components/dashboard/playground/clues-selector.js
-/app/src/components/dashboard/playground/clues-selector.js
-  4:10  warning  'Grid' is defined but never used   no-unused-vars
-  4:26  warning  'Table' is defined but never used  no-unused-vars
-
-✖ 2 problems (0 errors, 2 warnings)
-
-./src/components/dashboard/playground/final-room.js
-/app/src/components/dashboard/playground/final-room.js
-  4:10  warning  'Grid' is defined but never used    no-unused-vars
-  4:16  warning  'Row' is defined but never used     no-unused-vars
-  4:21  warning  'Col' is defined but never used     no-unused-vars
-  4:26  warning  'Table' is defined but never used   no-unused-vars
-  4:33  warning  'Button' is defined but never used  no-unused-vars
-
-✖ 5 problems (0 errors, 5 warnings)
-
-./src/components/dashboard/profile/items/traineeship.js
-/app/src/components/dashboard/profile/items/traineeship.js
-  64:9  warning  'value' is assigned a value but never used  no-unused-vars
-
-✖ 1 problem (0 errors, 1 warning)
-
-./src/components/admin/sessions/tables-manager/players.js
-/app/src/components/admin/sessions/tables-manager/players.js
-  32:133  warning  Expected '===' and instead saw '=='  eqeqeq
-  32:173  warning  Expected '===' and instead saw '=='  eqeqeq
-
-✖ 2 problems (0 errors, 2 warnings)
-
-./src/components/dashboard/playground/common/podium.js
-/app/src/components/dashboard/playground/common/podium.js
-  3:10  warning  'Grid' is defined but never used  no-unused-vars
-  3:16  warning  'Row' is defined but never used   no-unused-vars
-  3:21  warning  'Col' is defined but never used   no-unused-vars
-
-✖ 3 problems (0 errors, 3 warnings)
-
-./src/components/utils/qr-scanner.js
-/app/src/components/utils/qr-scanner.js
-   88:29  warning  Script URL is a form of eval  no-script-url
-  139:5   warning  Expected a default case       default-case
-
-✖ 2 problems (0 errors, 2 warnings)
-
-./src/components/dashboard/playground/global-scores/round.js
-/app/src/components/dashboard/playground/global-scores/round.js
-  6:8  warning  'Podium' is defined but never used  no-unused-vars
-
-✖ 1 problem (0 errors, 1 warning)
-
-You may use special comments to disable some warnings.
-Use // eslint-disable-next-line to ignore the next line.
-Use /* eslint-disable */ to ignore all warnings in a file.
-Compiling...
-Compiled with warnings.
 
 ./src/components/common/header.js
 /app/src/components/common/header.js
@@ -211,23 +32,11 @@ Compiled with warnings.
 
 ✖ 1 problem (0 errors, 1 warning)
 
-./src/components/common/main-wrapper.js
-/app/src/components/common/main-wrapper.js
-  6:21  warning  'Col' is defined but never used  no-unused-vars
-
-✖ 1 problem (0 errors, 1 warning)
-
-./src/components/offline/header.js
-/app/src/components/offline/header.js
-  8:3  warning  Useless constructor  no-useless-constructor
-
-✖ 1 problem (0 errors, 1 warning)
-
 ./src/components/offline/speed-battle.js
 /app/src/components/offline/speed-battle.js
-   54:32  warning  Expected '===' and instead saw '=='  eqeqeq
-   56:11  warning  Expected a default case              default-case
-  108:5   warning  Expected a default case              default-case
+   61:32  warning  Expected '===' and instead saw '=='  eqeqeq
+   63:11  warning  Expected a default case              default-case
+  115:5   warning  Expected a default case              default-case
 
 ✖ 3 problems (0 errors, 3 warnings)
 
@@ -238,23 +47,21 @@ Compiled with warnings.
 
 ✖ 2 problems (0 errors, 2 warnings)
 
-./src/components/dashboard/profile/items/traineeship.js
-/app/src/components/dashboard/profile/items/traineeship.js
-  64:9  warning  'value' is assigned a value but never used  no-unused-vars
-
-✖ 1 problem (0 errors, 1 warning)
-
-./src/components/dashboard/sessions/session.js
-/app/src/components/dashboard/sessions/session.js
-  9:5  warning  'moment' is assigned a value but never used  no-unused-vars
-
-✖ 1 problem (0 errors, 1 warning)
-
 ./src/components/admin/sessions/inviter.js
 /app/src/components/admin/sessions/inviter.js
   55:87  warning  Expected '===' and instead saw '=='  eqeqeq
 
 ✖ 1 problem (0 errors, 1 warning)
+
+./src/components/admin/sessions/tables-manager.js
+/app/src/components/admin/sessions/tables-manager.js
+   4:8    warning  'Tables' is defined but never used   no-unused-vars
+  16:131  warning  Expected '===' and instead saw '=='  eqeqeq
+  16:170  warning  Expected '===' and instead saw '=='  eqeqeq
+  31:1    warning  Nested block is redundant            no-lone-blocks
+  31:1    warning  Unreachable code                     no-unreachable
+
+✖ 5 problems (0 errors, 5 warnings)
 
 ./src/components/admin/sessions/launcher.js
 /app/src/components/admin/sessions/launcher.js
@@ -271,6 +78,18 @@ Compiled with warnings.
 
 ✖ 3 problems (0 errors, 3 warnings)
 
+./src/components/offline/speed-battle/already-connected.js
+/app/src/components/offline/speed-battle/already-connected.js
+  5:21  warning  'Col' is defined but never used  no-unused-vars
+
+✖ 1 problem (0 errors, 1 warning)
+
+./src/components/dashboard/sessions/session.js
+/app/src/components/dashboard/sessions/session.js
+  9:5  warning  'moment' is assigned a value but never used  no-unused-vars
+
+✖ 1 problem (0 errors, 1 warning)
+
 ./src/components/offline/speed-battle/waiting-session.js
 /app/src/components/offline/speed-battle/waiting-session.js
   3:21  warning  'Col' is defined but never used    no-unused-vars
@@ -278,12 +97,6 @@ Compiled with warnings.
   3:33  warning  'Table' is defined but never used  no-unused-vars
 
 ✖ 3 problems (0 errors, 3 warnings)
-
-./src/components/offline/speed-battle/already-connected.js
-/app/src/components/offline/speed-battle/already-connected.js
-  5:21  warning  'Col' is defined but never used  no-unused-vars
-
-✖ 1 problem (0 errors, 1 warning)
 
 ./src/components/dashboard/playground/clues-selector.js
 /app/src/components/dashboard/playground/clues-selector.js
@@ -302,22 +115,14 @@ Compiled with warnings.
 
 ✖ 5 problems (0 errors, 5 warnings)
 
-./src/components/offline/speed-battle/connexion.js
-/app/src/components/offline/speed-battle/connexion.js
-   99:78  warning  Expected '===' and instead saw '=='        eqeqeq
-  120:9   warning  'self' is assigned a value but never used  no-unused-vars
+./src/components/admin/sessions/view.js
+/app/src/components/admin/sessions/view.js
+    5:33  warning  'Button' is defined but never used  no-unused-vars
+   44:25  warning  Unreachable code                    no-unreachable
+   52:25  warning  Nested block is redundant           no-lone-blocks
+  101:5   warning  Expected a default case             default-case
 
-✖ 2 problems (0 errors, 2 warnings)
-
-./src/components/admin/sessions/tables-manager.js
-/app/src/components/admin/sessions/tables-manager.js
-   4:8    warning  'Tables' is defined but never used   no-unused-vars
-  16:131  warning  Expected '===' and instead saw '=='  eqeqeq
-  16:170  warning  Expected '===' and instead saw '=='  eqeqeq
-  31:1    warning  Nested block is redundant            no-lone-blocks
-  31:1    warning  Unreachable code                     no-unreachable
-
-✖ 5 problems (0 errors, 5 warnings)
+✖ 4 problems (0 errors, 4 warnings)
 
 ./src/components/offline/speed-battle/home.js
 /app/src/components/offline/speed-battle/home.js
@@ -327,6 +132,13 @@ Compiled with warnings.
   76:101  warning  Expected '===' and instead saw '=='  eqeqeq
 
 ✖ 4 problems (0 errors, 4 warnings)
+
+./src/components/offline/speed-battle/connexion.js
+/app/src/components/offline/speed-battle/connexion.js
+   99:78  warning  Expected '===' and instead saw '=='        eqeqeq
+  120:9   warning  'self' is assigned a value but never used  no-unused-vars
+
+✖ 2 problems (0 errors, 2 warnings)
 
 ./src/components/offline/speed-battle/scores.js
 /app/src/components/offline/speed-battle/scores.js
@@ -341,18 +153,9 @@ Compiled with warnings.
 
 ✖ 8 problems (0 errors, 8 warnings)
 
-./src/components/admin/sessions/view.js
-/app/src/components/admin/sessions/view.js
-    5:33  warning  'Button' is defined but never used  no-unused-vars
-   44:25  warning  Unreachable code                    no-unreachable
-   52:25  warning  Nested block is redundant           no-lone-blocks
-  101:5   warning  Expected a default case             default-case
-
-✖ 4 problems (0 errors, 4 warnings)
-
-./src/components/offline/speed-battle/admin.js
-/app/src/components/offline/speed-battle/admin.js
-  7:5  warning  'FileSaver' is assigned a value but never used  no-unused-vars
+./src/components/dashboard/profile/items/traineeship.js
+/app/src/components/dashboard/profile/items/traineeship.js
+  64:9  warning  'value' is assigned a value but never used  no-unused-vars
 
 ✖ 1 problem (0 errors, 1 warning)
 
@@ -396,12 +199,6 @@ Compiled with warnings.
 
 ✖ 1 problem (0 errors, 1 warning)
 
-./src/components/offline/header.js
-/app/src/components/offline/header.js
-  8:3  warning  Useless constructor  no-useless-constructor
-
-✖ 1 problem (0 errors, 1 warning)
-
 ./src/components/common/header.js
 /app/src/components/common/header.js
    2:10  warning  'connect' is defined but never used      no-unused-vars
@@ -420,11 +217,17 @@ Compiled with warnings.
 
 ✖ 1 problem (0 errors, 1 warning)
 
+./src/components/offline/header.js
+/app/src/components/offline/header.js
+  8:3  warning  Useless constructor  no-useless-constructor
+
+✖ 1 problem (0 errors, 1 warning)
+
 ./src/components/offline/speed-battle.js
 /app/src/components/offline/speed-battle.js
-   54:32  warning  Expected '===' and instead saw '=='  eqeqeq
-   56:11  warning  Expected a default case              default-case
-  108:5   warning  Expected a default case              default-case
+   61:32  warning  Expected '===' and instead saw '=='  eqeqeq
+   63:11  warning  Expected a default case              default-case
+  115:5   warning  Expected a default case              default-case
 
 ✖ 3 problems (0 errors, 3 warnings)
 
@@ -445,6 +248,12 @@ Compiled with warnings.
 
 ✖ 5 problems (0 errors, 5 warnings)
 
+./src/components/admin/sessions/inviter.js
+/app/src/components/admin/sessions/inviter.js
+  55:87  warning  Expected '===' and instead saw '=='  eqeqeq
+
+✖ 1 problem (0 errors, 1 warning)
+
 ./src/components/admin/sessions/launcher.js
 /app/src/components/admin/sessions/launcher.js
   42:5  warning  Expected a default case  default-case
@@ -452,30 +261,9 @@ Compiled with warnings.
 
 ✖ 2 problems (0 errors, 2 warnings)
 
-./src/components/admin/sessions/inviter.js
-/app/src/components/admin/sessions/inviter.js
-  55:87  warning  Expected '===' and instead saw '=='  eqeqeq
-
-✖ 1 problem (0 errors, 1 warning)
-
-./src/components/admin/sessions/view.js
-/app/src/components/admin/sessions/view.js
-    5:33  warning  'Button' is defined but never used  no-unused-vars
-   44:25  warning  Unreachable code                    no-unreachable
-   52:25  warning  Nested block is redundant           no-lone-blocks
-  101:5   warning  Expected a default case             default-case
-
-✖ 4 problems (0 errors, 4 warnings)
-
 ./src/components/dashboard/sessions/session.js
 /app/src/components/dashboard/sessions/session.js
   9:5  warning  'moment' is assigned a value but never used  no-unused-vars
-
-✖ 1 problem (0 errors, 1 warning)
-
-./src/components/offline/speed-battle/already-connected.js
-/app/src/components/offline/speed-battle/already-connected.js
-  5:21  warning  'Col' is defined but never used  no-unused-vars
 
 ✖ 1 problem (0 errors, 1 warning)
 
@@ -487,6 +275,12 @@ Compiled with warnings.
 
 ✖ 3 problems (0 errors, 3 warnings)
 
+./src/components/offline/speed-battle/already-connected.js
+/app/src/components/offline/speed-battle/already-connected.js
+  5:21  warning  'Col' is defined but never used  no-unused-vars
+
+✖ 1 problem (0 errors, 1 warning)
+
 ./src/components/offline/speed-battle/loading.js
 /app/src/components/offline/speed-battle/loading.js
   3:21  warning  'Col' is defined but never used    no-unused-vars
@@ -495,10 +289,32 @@ Compiled with warnings.
 
 ✖ 3 problems (0 errors, 3 warnings)
 
+./src/components/admin/sessions/view.js
+/app/src/components/admin/sessions/view.js
+    5:33  warning  'Button' is defined but never used  no-unused-vars
+   44:25  warning  Unreachable code                    no-unreachable
+   52:25  warning  Nested block is redundant           no-lone-blocks
+  101:5   warning  Expected a default case             default-case
+
+✖ 4 problems (0 errors, 4 warnings)
+
+./src/components/dashboard/profile/items/traineeship.js
+/app/src/components/dashboard/profile/items/traineeship.js
+  64:9  warning  'value' is assigned a value but never used  no-unused-vars
+
+✖ 1 problem (0 errors, 1 warning)
+
 ./src/components/dashboard/playground/clues-selector.js
 /app/src/components/dashboard/playground/clues-selector.js
   4:10  warning  'Grid' is defined but never used   no-unused-vars
   4:26  warning  'Table' is defined but never used  no-unused-vars
+
+✖ 2 problems (0 errors, 2 warnings)
+
+./src/components/offline/speed-battle/connexion.js
+/app/src/components/offline/speed-battle/connexion.js
+   99:78  warning  Expected '===' and instead saw '=='        eqeqeq
+  120:9   warning  'self' is assigned a value but never used  no-unused-vars
 
 ✖ 2 problems (0 errors, 2 warnings)
 
@@ -512,28 +328,6 @@ Compiled with warnings.
 
 ✖ 5 problems (0 errors, 5 warnings)
 
-./src/components/dashboard/profile/items/traineeship.js
-/app/src/components/dashboard/profile/items/traineeship.js
-  64:9  warning  'value' is assigned a value but never used  no-unused-vars
-
-✖ 1 problem (0 errors, 1 warning)
-
-./src/components/offline/speed-battle/home.js
-/app/src/components/offline/speed-battle/home.js
-   5:21   warning  'Col' is defined but never used      no-unused-vars
-  34:42   warning  Expected '===' and instead saw '=='  eqeqeq
-  75:143  warning  Expected '===' and instead saw '=='  eqeqeq
-  76:101  warning  Expected '===' and instead saw '=='  eqeqeq
-
-✖ 4 problems (0 errors, 4 warnings)
-
-./src/components/offline/speed-battle/connexion.js
-/app/src/components/offline/speed-battle/connexion.js
-   99:78  warning  Expected '===' and instead saw '=='        eqeqeq
-  120:9   warning  'self' is assigned a value but never used  no-unused-vars
-
-✖ 2 problems (0 errors, 2 warnings)
-
 ./src/components/offline/speed-battle/scores.js
 /app/src/components/offline/speed-battle/scores.js
     5:8    warning  'Players' is defined but never used        no-unused-vars
@@ -546,6 +340,15 @@ Compiled with warnings.
   127:9    warning  'self' is assigned a value but never used  no-unused-vars
 
 ✖ 8 problems (0 errors, 8 warnings)
+
+./src/components/offline/speed-battle/home.js
+/app/src/components/offline/speed-battle/home.js
+   5:21   warning  'Col' is defined but never used      no-unused-vars
+  34:42   warning  Expected '===' and instead saw '=='  eqeqeq
+  75:143  warning  Expected '===' and instead saw '=='  eqeqeq
+  76:101  warning  Expected '===' and instead saw '=='  eqeqeq
+
+✖ 4 problems (0 errors, 4 warnings)
 
 ./src/components/admin/sessions/tables-manager/players.js
 /app/src/components/admin/sessions/tables-manager/players.js
@@ -579,211 +382,22 @@ You may use special comments to disable some warnings.
 Use // eslint-disable-next-line to ignore the next line.
 Use /* eslint-disable */ to ignore all warnings in a file.
 Compiling...
-Compiled with warnings.
-
-./src/components/offline/header.js
-/app/src/components/offline/header.js
-  8:3  warning  Useless constructor  no-useless-constructor
-
-✖ 1 problem (0 errors, 1 warning)
-
-./src/components/common/main-wrapper.js
-/app/src/components/common/main-wrapper.js
-  6:21  warning  'Col' is defined but never used  no-unused-vars
-
-✖ 1 problem (0 errors, 1 warning)
-
-./src/components/common/header.js
-/app/src/components/common/header.js
-   2:10  warning  'connect' is defined but never used      no-unused-vars
-   5:10  warning  'NavLink' is defined but never used      no-unused-vars
-   5:19  warning  'Link' is defined but never used         no-unused-vars
-   5:25  warning  'Redirect' is defined but never used     no-unused-vars
-   7:10  warning  'Navbar' is defined but never used       no-unused-vars
-   8:18  warning  'ShowForAcls' is defined but never used  no-unused-vars
-  13:28  warning  'menu' is defined but never used         no-unused-vars
-
-✖ 7 problems (0 errors, 7 warnings)
-
-./src/components/dashboard/profile-filler.js
-/app/src/components/dashboard/profile-filler.js
-  6:10  warning  'AuthChecker' is defined but never used  no-unused-vars
-
-✖ 1 problem (0 errors, 1 warning)
-
-./src/components/offline/speed-battle.js
-/app/src/components/offline/speed-battle.js
-   54:32  warning  Expected '===' and instead saw '=='  eqeqeq
-   56:11  warning  Expected a default case              default-case
-  108:5   warning  Expected a default case              default-case
-
-✖ 3 problems (0 errors, 3 warnings)
-
-./src/components/dashboard/playground.js
-/app/src/components/dashboard/playground.js
-  15:33  warning  'Button' is defined but never used  no-unused-vars
-  32:42  warning  Missing radix parameter             radix
-
-✖ 2 problems (0 errors, 2 warnings)
-
-./src/components/dashboard/profile/items/traineeship.js
-/app/src/components/dashboard/profile/items/traineeship.js
-  64:9  warning  'value' is assigned a value but never used  no-unused-vars
-
-✖ 1 problem (0 errors, 1 warning)
-
-./src/components/admin/sessions/inviter.js
-/app/src/components/admin/sessions/inviter.js
-  55:87  warning  Expected '===' and instead saw '=='  eqeqeq
-
-✖ 1 problem (0 errors, 1 warning)
-
-./src/components/admin/sessions/launcher.js
-/app/src/components/admin/sessions/launcher.js
-  42:5  warning  Expected a default case  default-case
-  63:7  warning  Expected a default case  default-case
-
-✖ 2 problems (0 errors, 2 warnings)
-
-./src/components/offline/speed-battle/loading.js
-/app/src/components/offline/speed-battle/loading.js
-  3:21  warning  'Col' is defined but never used    no-unused-vars
-  3:26  warning  'Panel' is defined but never used  no-unused-vars
-  3:33  warning  'Table' is defined but never used  no-unused-vars
-
-✖ 3 problems (0 errors, 3 warnings)
-
-./src/components/offline/speed-battle/waiting-session.js
-/app/src/components/offline/speed-battle/waiting-session.js
-  3:21  warning  'Col' is defined but never used    no-unused-vars
-  3:26  warning  'Panel' is defined but never used  no-unused-vars
-  3:33  warning  'Table' is defined but never used  no-unused-vars
-
-✖ 3 problems (0 errors, 3 warnings)
-
-./src/components/offline/speed-battle/already-connected.js
-/app/src/components/offline/speed-battle/already-connected.js
-  5:21  warning  'Col' is defined but never used  no-unused-vars
-
-✖ 1 problem (0 errors, 1 warning)
-
-./src/components/dashboard/sessions/session.js
-/app/src/components/dashboard/sessions/session.js
-  9:5  warning  'moment' is assigned a value but never used  no-unused-vars
-
-✖ 1 problem (0 errors, 1 warning)
-
-./src/components/admin/sessions/tables-manager.js
-/app/src/components/admin/sessions/tables-manager.js
-   4:8    warning  'Tables' is defined but never used   no-unused-vars
-  16:131  warning  Expected '===' and instead saw '=='  eqeqeq
-  16:170  warning  Expected '===' and instead saw '=='  eqeqeq
-  31:1    warning  Nested block is redundant            no-lone-blocks
-  31:1    warning  Unreachable code                     no-unreachable
-
-✖ 5 problems (0 errors, 5 warnings)
-
-./src/components/dashboard/playground/clues-selector.js
-/app/src/components/dashboard/playground/clues-selector.js
-  4:10  warning  'Grid' is defined but never used   no-unused-vars
-  4:26  warning  'Table' is defined but never used  no-unused-vars
-
-✖ 2 problems (0 errors, 2 warnings)
-
-./src/components/dashboard/playground/final-room.js
-/app/src/components/dashboard/playground/final-room.js
-  4:10  warning  'Grid' is defined but never used    no-unused-vars
-  4:16  warning  'Row' is defined but never used     no-unused-vars
-  4:21  warning  'Col' is defined but never used     no-unused-vars
-  4:26  warning  'Table' is defined but never used   no-unused-vars
-  4:33  warning  'Button' is defined but never used  no-unused-vars
-
-✖ 5 problems (0 errors, 5 warnings)
-
-./src/components/offline/speed-battle/connexion.js
-/app/src/components/offline/speed-battle/connexion.js
-   99:78  warning  Expected '===' and instead saw '=='        eqeqeq
-  120:9   warning  'self' is assigned a value but never used  no-unused-vars
-
-✖ 2 problems (0 errors, 2 warnings)
+Failed to compile.
 
 ./src/components/offline/speed-battle/scores.js
-/app/src/components/offline/speed-battle/scores.js
-    5:8    warning  'Players' is defined but never used        no-unused-vars
-    6:8    warning  'Step' is defined but never used           no-unused-vars
-    7:8    warning  'BaseScores' is defined but never used     no-unused-vars
-   10:21   warning  'Col' is defined but never used            no-unused-vars
-   56:61   warning  Expected '===' and instead saw '=='        eqeqeq
-   56:100  warning  Expected '===' and instead saw '=='        eqeqeq
-   73:27   warning  Expected '===' and instead saw '=='        eqeqeq
-  127:9    warning  'self' is assigned a value but never used  no-unused-vars
+Syntax error: Unterminated regular expression (44:121)
 
-✖ 8 problems (0 errors, 8 warnings)
+  42 |               <MailTrapper userState={this.currentUserState()} />,
+  43 |               this.getNextButton()]
+> 44 |            : [<div><span>Votre score : </span>{this.currentUserState().score.max * this.currentUserState().score.scaled</div>,
+     |                                                                                                                          ^
+  45 |               <span>Nous attendons les autres joueurs</span>,
+  46 |               <MailTrapper userState={this.currentUserState()} />]}
+  47 |         </Panel>
 
-./src/components/offline/speed-battle/home.js
-/app/src/components/offline/speed-battle/home.js
-   5:21   warning  'Col' is defined but never used      no-unused-vars
-  34:42   warning  Expected '===' and instead saw '=='  eqeqeq
-  75:143  warning  Expected '===' and instead saw '=='  eqeqeq
-  76:101  warning  Expected '===' and instead saw '=='  eqeqeq
-
-✖ 4 problems (0 errors, 4 warnings)
-
-./src/components/admin/sessions/view.js
-/app/src/components/admin/sessions/view.js
-    5:33  warning  'Button' is defined but never used  no-unused-vars
-   44:25  warning  Unreachable code                    no-unreachable
-   52:25  warning  Nested block is redundant           no-lone-blocks
-  101:5   warning  Expected a default case             default-case
-
-✖ 4 problems (0 errors, 4 warnings)
-
-./src/components/admin/sessions/tables-manager/players.js
-/app/src/components/admin/sessions/tables-manager/players.js
-  32:133  warning  Expected '===' and instead saw '=='  eqeqeq
-  32:173  warning  Expected '===' and instead saw '=='  eqeqeq
-
-✖ 2 problems (0 errors, 2 warnings)
-
-./src/components/dashboard/playground/global-scores/round.js
-/app/src/components/dashboard/playground/global-scores/round.js
-  6:8  warning  'Podium' is defined but never used  no-unused-vars
-
-✖ 1 problem (0 errors, 1 warning)
-
-./src/components/dashboard/playground/common/podium.js
-/app/src/components/dashboard/playground/common/podium.js
-  3:10  warning  'Grid' is defined but never used  no-unused-vars
-  3:16  warning  'Row' is defined but never used   no-unused-vars
-  3:21  warning  'Col' is defined but never used   no-unused-vars
-
-✖ 3 problems (0 errors, 3 warnings)
-
-./src/components/utils/qr-scanner.js
-/app/src/components/utils/qr-scanner.js
-   88:29  warning  Script URL is a form of eval  no-script-url
-  139:5   warning  Expected a default case       default-case
-
-✖ 2 problems (0 errors, 2 warnings)
-
-You may use special comments to disable some warnings.
-Use // eslint-disable-next-line to ignore the next line.
-Use /* eslint-disable */ to ignore all warnings in a file.
 Compiling...
 Compiled with warnings.
 
-./src/components/common/main-wrapper.js
-/app/src/components/common/main-wrapper.js
-  6:21  warning  'Col' is defined but never used  no-unused-vars
-
-✖ 1 problem (0 errors, 1 warning)
-
-./src/components/offline/header.js
-/app/src/components/offline/header.js
-  8:3  warning  Useless constructor  no-useless-constructor
-
-✖ 1 problem (0 errors, 1 warning)
-
 ./src/components/common/header.js
 /app/src/components/common/header.js
    2:10  warning  'connect' is defined but never used      no-unused-vars
@@ -796,19 +410,23 @@ Compiled with warnings.
 
 ✖ 7 problems (0 errors, 7 warnings)
 
+./src/components/common/main-wrapper.js
+/app/src/components/common/main-wrapper.js
+  6:21  warning  'Col' is defined but never used  no-unused-vars
+
+✖ 1 problem (0 errors, 1 warning)
+
+./src/components/offline/header.js
+/app/src/components/offline/header.js
+  8:3  warning  Useless constructor  no-useless-constructor
+
+✖ 1 problem (0 errors, 1 warning)
+
 ./src/components/dashboard/profile-filler.js
 /app/src/components/dashboard/profile-filler.js
   6:10  warning  'AuthChecker' is defined but never used  no-unused-vars
 
 ✖ 1 problem (0 errors, 1 warning)
-
-./src/components/offline/speed-battle.js
-/app/src/components/offline/speed-battle.js
-   54:32  warning  Expected '===' and instead saw '=='  eqeqeq
-   56:11  warning  Expected a default case              default-case
-  108:5   warning  Expected a default case              default-case
-
-✖ 3 problems (0 errors, 3 warnings)
 
 ./src/components/dashboard/playground.js
 /app/src/components/dashboard/playground.js
@@ -817,15 +435,25 @@ Compiled with warnings.
 
 ✖ 2 problems (0 errors, 2 warnings)
 
-./src/components/admin/sessions/tables-manager.js
-/app/src/components/admin/sessions/tables-manager.js
-   4:8    warning  'Tables' is defined but never used   no-unused-vars
-  16:131  warning  Expected '===' and instead saw '=='  eqeqeq
-  16:170  warning  Expected '===' and instead saw '=='  eqeqeq
-  31:1    warning  Nested block is redundant            no-lone-blocks
-  31:1    warning  Unreachable code                     no-unreachable
+./src/components/offline/speed-battle.js
+/app/src/components/offline/speed-battle.js
+   61:32  warning  Expected '===' and instead saw '=='  eqeqeq
+   63:11  warning  Expected a default case              default-case
+  115:5   warning  Expected a default case              default-case
 
-✖ 5 problems (0 errors, 5 warnings)
+✖ 3 problems (0 errors, 3 warnings)
+
+./src/components/dashboard/profile/items/traineeship.js
+/app/src/components/dashboard/profile/items/traineeship.js
+  64:9  warning  'value' is assigned a value but never used  no-unused-vars
+
+✖ 1 problem (0 errors, 1 warning)
+
+./src/components/dashboard/sessions/session.js
+/app/src/components/dashboard/sessions/session.js
+  9:5  warning  'moment' is assigned a value but never used  no-unused-vars
+
+✖ 1 problem (0 errors, 1 warning)
 
 ./src/components/admin/sessions/inviter.js
 /app/src/components/admin/sessions/inviter.js
@@ -840,20 +468,32 @@ Compiled with warnings.
 
 ✖ 2 problems (0 errors, 2 warnings)
 
-./src/components/admin/sessions/view.js
-/app/src/components/admin/sessions/view.js
-    5:33  warning  'Button' is defined but never used  no-unused-vars
-   44:25  warning  Unreachable code                    no-unreachable
-   52:25  warning  Nested block is redundant           no-lone-blocks
-  101:5   warning  Expected a default case             default-case
+./src/components/admin/sessions/tables-manager.js
+/app/src/components/admin/sessions/tables-manager.js
+   4:8    warning  'Tables' is defined but never used   no-unused-vars
+  16:131  warning  Expected '===' and instead saw '=='  eqeqeq
+  16:170  warning  Expected '===' and instead saw '=='  eqeqeq
+  31:1    warning  Nested block is redundant            no-lone-blocks
+  31:1    warning  Unreachable code                     no-unreachable
 
-✖ 4 problems (0 errors, 4 warnings)
+✖ 5 problems (0 errors, 5 warnings)
 
-./src/components/dashboard/sessions/session.js
-/app/src/components/dashboard/sessions/session.js
-  9:5  warning  'moment' is assigned a value but never used  no-unused-vars
+./src/components/dashboard/playground/clues-selector.js
+/app/src/components/dashboard/playground/clues-selector.js
+  4:10  warning  'Grid' is defined but never used   no-unused-vars
+  4:26  warning  'Table' is defined but never used  no-unused-vars
 
-✖ 1 problem (0 errors, 1 warning)
+✖ 2 problems (0 errors, 2 warnings)
+
+./src/components/dashboard/playground/final-room.js
+/app/src/components/dashboard/playground/final-room.js
+  4:10  warning  'Grid' is defined but never used    no-unused-vars
+  4:16  warning  'Row' is defined but never used     no-unused-vars
+  4:21  warning  'Col' is defined but never used     no-unused-vars
+  4:26  warning  'Table' is defined but never used   no-unused-vars
+  4:33  warning  'Button' is defined but never used  no-unused-vars
+
+✖ 5 problems (0 errors, 5 warnings)
 
 ./src/components/offline/speed-battle/loading.js
 /app/src/components/offline/speed-battle/loading.js
@@ -877,28 +517,14 @@ Compiled with warnings.
 
 ✖ 1 problem (0 errors, 1 warning)
 
-./src/components/dashboard/profile/items/traineeship.js
-/app/src/components/dashboard/profile/items/traineeship.js
-  64:9  warning  'value' is assigned a value but never used  no-unused-vars
+./src/components/admin/sessions/view.js
+/app/src/components/admin/sessions/view.js
+    5:33  warning  'Button' is defined but never used  no-unused-vars
+   44:25  warning  Unreachable code                    no-unreachable
+   52:25  warning  Nested block is redundant           no-lone-blocks
+  101:5   warning  Expected a default case             default-case
 
-✖ 1 problem (0 errors, 1 warning)
-
-./src/components/dashboard/playground/final-room.js
-/app/src/components/dashboard/playground/final-room.js
-  4:10  warning  'Grid' is defined but never used    no-unused-vars
-  4:16  warning  'Row' is defined but never used     no-unused-vars
-  4:21  warning  'Col' is defined but never used     no-unused-vars
-  4:26  warning  'Table' is defined but never used   no-unused-vars
-  4:33  warning  'Button' is defined but never used  no-unused-vars
-
-✖ 5 problems (0 errors, 5 warnings)
-
-./src/components/dashboard/playground/clues-selector.js
-/app/src/components/dashboard/playground/clues-selector.js
-  4:10  warning  'Grid' is defined but never used   no-unused-vars
-  4:26  warning  'Table' is defined but never used  no-unused-vars
-
-✖ 2 problems (0 errors, 2 warnings)
+✖ 4 problems (0 errors, 4 warnings)
 
 ./src/components/offline/speed-battle/connexion.js
 /app/src/components/offline/speed-battle/connexion.js
@@ -936,197 +562,6 @@ Compiled with warnings.
 
 ✖ 2 problems (0 errors, 2 warnings)
 
-./src/components/dashboard/playground/common/podium.js
-/app/src/components/dashboard/playground/common/podium.js
-  3:10  warning  'Grid' is defined but never used  no-unused-vars
-  3:16  warning  'Row' is defined but never used   no-unused-vars
-  3:21  warning  'Col' is defined but never used   no-unused-vars
-
-✖ 3 problems (0 errors, 3 warnings)
-
-./src/components/dashboard/playground/global-scores/round.js
-/app/src/components/dashboard/playground/global-scores/round.js
-  6:8  warning  'Podium' is defined but never used  no-unused-vars
-
-✖ 1 problem (0 errors, 1 warning)
-
-./src/components/utils/qr-scanner.js
-/app/src/components/utils/qr-scanner.js
-   88:29  warning  Script URL is a form of eval  no-script-url
-  139:5   warning  Expected a default case       default-case
-
-✖ 2 problems (0 errors, 2 warnings)
-
-You may use special comments to disable some warnings.
-Use // eslint-disable-next-line to ignore the next line.
-Use /* eslint-disable */ to ignore all warnings in a file.
-Compiling...
-Compiled with warnings.
-
-./src/components/offline/header.js
-/app/src/components/offline/header.js
-  8:3  warning  Useless constructor  no-useless-constructor
-
-✖ 1 problem (0 errors, 1 warning)
-
-./src/components/common/main-wrapper.js
-/app/src/components/common/main-wrapper.js
-  6:21  warning  'Col' is defined but never used  no-unused-vars
-
-✖ 1 problem (0 errors, 1 warning)
-
-./src/components/common/header.js
-/app/src/components/common/header.js
-   2:10  warning  'connect' is defined but never used      no-unused-vars
-   5:10  warning  'NavLink' is defined but never used      no-unused-vars
-   5:19  warning  'Link' is defined but never used         no-unused-vars
-   5:25  warning  'Redirect' is defined but never used     no-unused-vars
-   7:10  warning  'Navbar' is defined but never used       no-unused-vars
-   8:18  warning  'ShowForAcls' is defined but never used  no-unused-vars
-  13:28  warning  'menu' is defined but never used         no-unused-vars
-
-✖ 7 problems (0 errors, 7 warnings)
-
-./src/components/dashboard/profile-filler.js
-/app/src/components/dashboard/profile-filler.js
-  6:10  warning  'AuthChecker' is defined but never used  no-unused-vars
-
-✖ 1 problem (0 errors, 1 warning)
-
-./src/components/offline/speed-battle.js
-/app/src/components/offline/speed-battle.js
-   54:32  warning  Expected '===' and instead saw '=='  eqeqeq
-   56:11  warning  Expected a default case              default-case
-  108:5   warning  Expected a default case              default-case
-
-✖ 3 problems (0 errors, 3 warnings)
-
-./src/components/dashboard/playground.js
-/app/src/components/dashboard/playground.js
-  15:33  warning  'Button' is defined but never used  no-unused-vars
-  32:42  warning  Missing radix parameter             radix
-
-✖ 2 problems (0 errors, 2 warnings)
-
-./src/components/dashboard/profile/items/traineeship.js
-/app/src/components/dashboard/profile/items/traineeship.js
-  64:9  warning  'value' is assigned a value but never used  no-unused-vars
-
-✖ 1 problem (0 errors, 1 warning)
-
-./src/components/dashboard/sessions/session.js
-/app/src/components/dashboard/sessions/session.js
-  9:5  warning  'moment' is assigned a value but never used  no-unused-vars
-
-✖ 1 problem (0 errors, 1 warning)
-
-./src/components/admin/sessions/tables-manager.js
-/app/src/components/admin/sessions/tables-manager.js
-   4:8    warning  'Tables' is defined but never used   no-unused-vars
-  16:131  warning  Expected '===' and instead saw '=='  eqeqeq
-  16:170  warning  Expected '===' and instead saw '=='  eqeqeq
-  31:1    warning  Nested block is redundant            no-lone-blocks
-  31:1    warning  Unreachable code                     no-unreachable
-
-✖ 5 problems (0 errors, 5 warnings)
-
-./src/components/admin/sessions/inviter.js
-/app/src/components/admin/sessions/inviter.js
-  55:87  warning  Expected '===' and instead saw '=='  eqeqeq
-
-✖ 1 problem (0 errors, 1 warning)
-
-./src/components/admin/sessions/launcher.js
-/app/src/components/admin/sessions/launcher.js
-  42:5  warning  Expected a default case  default-case
-  63:7  warning  Expected a default case  default-case
-
-✖ 2 problems (0 errors, 2 warnings)
-
-./src/components/offline/speed-battle/waiting-session.js
-/app/src/components/offline/speed-battle/waiting-session.js
-  3:21  warning  'Col' is defined but never used    no-unused-vars
-  3:26  warning  'Panel' is defined but never used  no-unused-vars
-  3:33  warning  'Table' is defined but never used  no-unused-vars
-
-✖ 3 problems (0 errors, 3 warnings)
-
-./src/components/offline/speed-battle/already-connected.js
-/app/src/components/offline/speed-battle/already-connected.js
-  5:21  warning  'Col' is defined but never used  no-unused-vars
-
-✖ 1 problem (0 errors, 1 warning)
-
-./src/components/dashboard/playground/clues-selector.js
-/app/src/components/dashboard/playground/clues-selector.js
-  4:10  warning  'Grid' is defined but never used   no-unused-vars
-  4:26  warning  'Table' is defined but never used  no-unused-vars
-
-✖ 2 problems (0 errors, 2 warnings)
-
-./src/components/dashboard/playground/final-room.js
-/app/src/components/dashboard/playground/final-room.js
-  4:10  warning  'Grid' is defined but never used    no-unused-vars
-  4:16  warning  'Row' is defined but never used     no-unused-vars
-  4:21  warning  'Col' is defined but never used     no-unused-vars
-  4:26  warning  'Table' is defined but never used   no-unused-vars
-  4:33  warning  'Button' is defined but never used  no-unused-vars
-
-✖ 5 problems (0 errors, 5 warnings)
-
-./src/components/admin/sessions/view.js
-/app/src/components/admin/sessions/view.js
-    5:33  warning  'Button' is defined but never used  no-unused-vars
-   44:25  warning  Unreachable code                    no-unreachable
-   52:25  warning  Nested block is redundant           no-lone-blocks
-  101:5   warning  Expected a default case             default-case
-
-✖ 4 problems (0 errors, 4 warnings)
-
-./src/components/offline/speed-battle/loading.js
-/app/src/components/offline/speed-battle/loading.js
-  3:21  warning  'Col' is defined but never used    no-unused-vars
-  3:26  warning  'Panel' is defined but never used  no-unused-vars
-  3:33  warning  'Table' is defined but never used  no-unused-vars
-
-✖ 3 problems (0 errors, 3 warnings)
-
-./src/components/offline/speed-battle/home.js
-/app/src/components/offline/speed-battle/home.js
-   5:21   warning  'Col' is defined but never used      no-unused-vars
-  34:42   warning  Expected '===' and instead saw '=='  eqeqeq
-  75:143  warning  Expected '===' and instead saw '=='  eqeqeq
-  76:101  warning  Expected '===' and instead saw '=='  eqeqeq
-
-✖ 4 problems (0 errors, 4 warnings)
-
-./src/components/offline/speed-battle/scores.js
-/app/src/components/offline/speed-battle/scores.js
-    5:8    warning  'Players' is defined but never used        no-unused-vars
-    6:8    warning  'Step' is defined but never used           no-unused-vars
-    7:8    warning  'BaseScores' is defined but never used     no-unused-vars
-   10:21   warning  'Col' is defined but never used            no-unused-vars
-   56:61   warning  Expected '===' and instead saw '=='        eqeqeq
-   56:100  warning  Expected '===' and instead saw '=='        eqeqeq
-   73:27   warning  Expected '===' and instead saw '=='        eqeqeq
-  127:9    warning  'self' is assigned a value but never used  no-unused-vars
-
-✖ 8 problems (0 errors, 8 warnings)
-
-./src/components/offline/speed-battle/connexion.js
-/app/src/components/offline/speed-battle/connexion.js
-   99:78  warning  Expected '===' and instead saw '=='        eqeqeq
-  120:9   warning  'self' is assigned a value but never used  no-unused-vars
-
-✖ 2 problems (0 errors, 2 warnings)
-
-./src/components/admin/sessions/tables-manager/players.js
-/app/src/components/admin/sessions/tables-manager/players.js
-  32:133  warning  Expected '===' and instead saw '=='  eqeqeq
-  32:173  warning  Expected '===' and instead saw '=='  eqeqeq
-
-✖ 2 problems (0 errors, 2 warnings)
-
 ./src/components/dashboard/playground/global-scores/round.js
 /app/src/components/dashboard/playground/global-scores/round.js
   6:8  warning  'Podium' is defined but never used  no-unused-vars
@@ -1154,12 +589,6 @@ Use /* eslint-disable */ to ignore all warnings in a file.
 Compiling...
 Compiled with warnings.
 
-./src/components/offline/header.js
-/app/src/components/offline/header.js
-  8:3  warning  Useless constructor  no-useless-constructor
-
-✖ 1 problem (0 errors, 1 warning)
-
 ./src/components/common/main-wrapper.js
 /app/src/components/common/main-wrapper.js
   6:21  warning  'Col' is defined but never used  no-unused-vars
@@ -1178,19 +607,17 @@ Compiled with warnings.
 
 ✖ 7 problems (0 errors, 7 warnings)
 
+./src/components/offline/header.js
+/app/src/components/offline/header.js
+  8:3  warning  Useless constructor  no-useless-constructor
+
+✖ 1 problem (0 errors, 1 warning)
+
 ./src/components/dashboard/profile-filler.js
 /app/src/components/dashboard/profile-filler.js
   6:10  warning  'AuthChecker' is defined but never used  no-unused-vars
 
 ✖ 1 problem (0 errors, 1 warning)
-
-./src/components/offline/speed-battle.js
-/app/src/components/offline/speed-battle.js
-   54:32  warning  Expected '===' and instead saw '=='  eqeqeq
-   56:11  warning  Expected a default case              default-case
-  108:5   warning  Expected a default case              default-case
-
-✖ 3 problems (0 errors, 3 warnings)
 
 ./src/components/dashboard/playground.js
 /app/src/components/dashboard/playground.js
@@ -1199,52 +626,13 @@ Compiled with warnings.
 
 ✖ 2 problems (0 errors, 2 warnings)
 
-./src/components/dashboard/profile/items/traineeship.js
-/app/src/components/dashboard/profile/items/traineeship.js
-  64:9  warning  'value' is assigned a value but never used  no-unused-vars
-
-✖ 1 problem (0 errors, 1 warning)
-
-./src/components/dashboard/sessions/session.js
-/app/src/components/dashboard/sessions/session.js
-  9:5  warning  'moment' is assigned a value but never used  no-unused-vars
-
-✖ 1 problem (0 errors, 1 warning)
-
-./src/components/admin/sessions/launcher.js
-/app/src/components/admin/sessions/launcher.js
-  42:5  warning  Expected a default case  default-case
-  63:7  warning  Expected a default case  default-case
-
-✖ 2 problems (0 errors, 2 warnings)
-
-./src/components/offline/speed-battle/loading.js
-/app/src/components/offline/speed-battle/loading.js
-  3:21  warning  'Col' is defined but never used    no-unused-vars
-  3:26  warning  'Panel' is defined but never used  no-unused-vars
-  3:33  warning  'Table' is defined but never used  no-unused-vars
+./src/components/offline/speed-battle.js
+/app/src/components/offline/speed-battle.js
+   61:32  warning  Expected '===' and instead saw '=='  eqeqeq
+   63:11  warning  Expected a default case              default-case
+  115:5   warning  Expected a default case              default-case
 
 ✖ 3 problems (0 errors, 3 warnings)
-
-./src/components/offline/speed-battle/waiting-session.js
-/app/src/components/offline/speed-battle/waiting-session.js
-  3:21  warning  'Col' is defined but never used    no-unused-vars
-  3:26  warning  'Panel' is defined but never used  no-unused-vars
-  3:33  warning  'Table' is defined but never used  no-unused-vars
-
-✖ 3 problems (0 errors, 3 warnings)
-
-./src/components/offline/speed-battle/already-connected.js
-/app/src/components/offline/speed-battle/already-connected.js
-  5:21  warning  'Col' is defined but never used  no-unused-vars
-
-✖ 1 problem (0 errors, 1 warning)
-
-./src/components/admin/sessions/inviter.js
-/app/src/components/admin/sessions/inviter.js
-  55:87  warning  Expected '===' and instead saw '=='  eqeqeq
-
-✖ 1 problem (0 errors, 1 warning)
 
 ./src/components/admin/sessions/tables-manager.js
 /app/src/components/admin/sessions/tables-manager.js
@@ -1255,6 +643,40 @@ Compiled with warnings.
   31:1    warning  Unreachable code                     no-unreachable
 
 ✖ 5 problems (0 errors, 5 warnings)
+
+./src/components/admin/sessions/launcher.js
+/app/src/components/admin/sessions/launcher.js
+  42:5  warning  Expected a default case  default-case
+  63:7  warning  Expected a default case  default-case
+
+✖ 2 problems (0 errors, 2 warnings)
+
+./src/components/admin/sessions/inviter.js
+/app/src/components/admin/sessions/inviter.js
+  55:87  warning  Expected '===' and instead saw '=='  eqeqeq
+
+✖ 1 problem (0 errors, 1 warning)
+
+./src/components/dashboard/sessions/session.js
+/app/src/components/dashboard/sessions/session.js
+  9:5  warning  'moment' is assigned a value but never used  no-unused-vars
+
+✖ 1 problem (0 errors, 1 warning)
+
+./src/components/admin/sessions/view.js
+/app/src/components/admin/sessions/view.js
+    5:33  warning  'Button' is defined but never used  no-unused-vars
+   44:25  warning  Unreachable code                    no-unreachable
+   52:25  warning  Nested block is redundant           no-lone-blocks
+  101:5   warning  Expected a default case             default-case
+
+✖ 4 problems (0 errors, 4 warnings)
+
+./src/components/dashboard/profile/items/traineeship.js
+/app/src/components/dashboard/profile/items/traineeship.js
+  64:9  warning  'value' is assigned a value but never used  no-unused-vars
+
+✖ 1 problem (0 errors, 1 warning)
 
 ./src/components/dashboard/playground/clues-selector.js
 /app/src/components/dashboard/playground/clues-selector.js
@@ -1273,21 +695,27 @@ Compiled with warnings.
 
 ✖ 5 problems (0 errors, 5 warnings)
 
-./src/components/offline/speed-battle/connexion.js
-/app/src/components/offline/speed-battle/connexion.js
-   99:78  warning  Expected '===' and instead saw '=='        eqeqeq
-  120:9   warning  'self' is assigned a value but never used  no-unused-vars
+./src/components/offline/speed-battle/already-connected.js
+/app/src/components/offline/speed-battle/already-connected.js
+  5:21  warning  'Col' is defined but never used  no-unused-vars
 
-✖ 2 problems (0 errors, 2 warnings)
+✖ 1 problem (0 errors, 1 warning)
 
-./src/components/offline/speed-battle/home.js
-/app/src/components/offline/speed-battle/home.js
-   5:21   warning  'Col' is defined but never used      no-unused-vars
-  34:42   warning  Expected '===' and instead saw '=='  eqeqeq
-  75:143  warning  Expected '===' and instead saw '=='  eqeqeq
-  76:101  warning  Expected '===' and instead saw '=='  eqeqeq
+./src/components/offline/speed-battle/loading.js
+/app/src/components/offline/speed-battle/loading.js
+  3:21  warning  'Col' is defined but never used    no-unused-vars
+  3:26  warning  'Panel' is defined but never used  no-unused-vars
+  3:33  warning  'Table' is defined but never used  no-unused-vars
 
-✖ 4 problems (0 errors, 4 warnings)
+✖ 3 problems (0 errors, 3 warnings)
+
+./src/components/offline/speed-battle/waiting-session.js
+/app/src/components/offline/speed-battle/waiting-session.js
+  3:21  warning  'Col' is defined but never used    no-unused-vars
+  3:26  warning  'Panel' is defined but never used  no-unused-vars
+  3:33  warning  'Table' is defined but never used  no-unused-vars
+
+✖ 3 problems (0 errors, 3 warnings)
 
 ./src/components/offline/speed-battle/scores.js
 /app/src/components/offline/speed-battle/scores.js
@@ -1302,12 +730,19 @@ Compiled with warnings.
 
 ✖ 8 problems (0 errors, 8 warnings)
 
-./src/components/admin/sessions/view.js
-/app/src/components/admin/sessions/view.js
-    5:33  warning  'Button' is defined but never used  no-unused-vars
-   44:25  warning  Unreachable code                    no-unreachable
-   52:25  warning  Nested block is redundant           no-lone-blocks
-  101:5   warning  Expected a default case             default-case
+./src/components/offline/speed-battle/connexion.js
+/app/src/components/offline/speed-battle/connexion.js
+   99:78  warning  Expected '===' and instead saw '=='        eqeqeq
+  120:9   warning  'self' is assigned a value but never used  no-unused-vars
+
+✖ 2 problems (0 errors, 2 warnings)
+
+./src/components/offline/speed-battle/home.js
+/app/src/components/offline/speed-battle/home.js
+   5:21   warning  'Col' is defined but never used      no-unused-vars
+  34:42   warning  Expected '===' and instead saw '=='  eqeqeq
+  75:143  warning  Expected '===' and instead saw '=='  eqeqeq
+  76:101  warning  Expected '===' and instead saw '=='  eqeqeq
 
 ✖ 4 problems (0 errors, 4 warnings)
 
@@ -1345,6 +780,12 @@ Use /* eslint-disable */ to ignore all warnings in a file.
 Compiling...
 Compiled with warnings.
 
+./src/components/common/main-wrapper.js
+/app/src/components/common/main-wrapper.js
+  6:21  warning  'Col' is defined but never used  no-unused-vars
+
+✖ 1 problem (0 errors, 1 warning)
+
 ./src/components/offline/header.js
 /app/src/components/offline/header.js
   8:3  warning  Useless constructor  no-useless-constructor
@@ -1363,12 +804,6 @@ Compiled with warnings.
 
 ✖ 7 problems (0 errors, 7 warnings)
 
-./src/components/common/main-wrapper.js
-/app/src/components/common/main-wrapper.js
-  6:21  warning  'Col' is defined but never used  no-unused-vars
-
-✖ 1 problem (0 errors, 1 warning)
-
 ./src/components/dashboard/profile-filler.js
 /app/src/components/dashboard/profile-filler.js
   6:10  warning  'AuthChecker' is defined but never used  no-unused-vars
@@ -1377,9 +812,9 @@ Compiled with warnings.
 
 ./src/components/offline/speed-battle.js
 /app/src/components/offline/speed-battle.js
-   56:32  warning  Expected '===' and instead saw '=='  eqeqeq
-   58:11  warning  Expected a default case              default-case
-  110:5   warning  Expected a default case              default-case
+   61:32  warning  Expected '===' and instead saw '=='  eqeqeq
+   63:11  warning  Expected a default case              default-case
+  115:5   warning  Expected a default case              default-case
 
 ✖ 3 problems (0 errors, 3 warnings)
 
@@ -1389,34 +824,6 @@ Compiled with warnings.
   32:42  warning  Missing radix parameter             radix
 
 ✖ 2 problems (0 errors, 2 warnings)
-
-./src/components/dashboard/sessions/session.js
-/app/src/components/dashboard/sessions/session.js
-  9:5  warning  'moment' is assigned a value but never used  no-unused-vars
-
-✖ 1 problem (0 errors, 1 warning)
-
-./src/components/offline/speed-battle/waiting-session.js
-/app/src/components/offline/speed-battle/waiting-session.js
-  3:21  warning  'Col' is defined but never used    no-unused-vars
-  3:26  warning  'Panel' is defined but never used  no-unused-vars
-  3:33  warning  'Table' is defined but never used  no-unused-vars
-
-✖ 3 problems (0 errors, 3 warnings)
-
-./src/components/offline/speed-battle/loading.js
-/app/src/components/offline/speed-battle/loading.js
-  3:21  warning  'Col' is defined but never used    no-unused-vars
-  3:26  warning  'Panel' is defined but never used  no-unused-vars
-  3:33  warning  'Table' is defined but never used  no-unused-vars
-
-✖ 3 problems (0 errors, 3 warnings)
-
-./src/components/offline/speed-battle/already-connected.js
-/app/src/components/offline/speed-battle/already-connected.js
-  5:21  warning  'Col' is defined but never used  no-unused-vars
-
-✖ 1 problem (0 errors, 1 warning)
 
 ./src/components/dashboard/profile/items/traineeship.js
 /app/src/components/dashboard/profile/items/traineeship.js
@@ -1424,44 +831,17 @@ Compiled with warnings.
 
 ✖ 1 problem (0 errors, 1 warning)
 
-./src/components/dashboard/playground/clues-selector.js
-/app/src/components/dashboard/playground/clues-selector.js
-  4:10  warning  'Grid' is defined but never used   no-unused-vars
-  4:26  warning  'Table' is defined but never used  no-unused-vars
+./src/components/dashboard/sessions/session.js
+/app/src/components/dashboard/sessions/session.js
+  9:5  warning  'moment' is assigned a value but never used  no-unused-vars
 
-✖ 2 problems (0 errors, 2 warnings)
-
-./src/components/dashboard/playground/final-room.js
-/app/src/components/dashboard/playground/final-room.js
-  4:10  warning  'Grid' is defined but never used    no-unused-vars
-  4:16  warning  'Row' is defined but never used     no-unused-vars
-  4:21  warning  'Col' is defined but never used     no-unused-vars
-  4:26  warning  'Table' is defined but never used   no-unused-vars
-  4:33  warning  'Button' is defined but never used  no-unused-vars
-
-✖ 5 problems (0 errors, 5 warnings)
+✖ 1 problem (0 errors, 1 warning)
 
 ./src/components/admin/sessions/inviter.js
 /app/src/components/admin/sessions/inviter.js
   55:87  warning  Expected '===' and instead saw '=='  eqeqeq
 
 ✖ 1 problem (0 errors, 1 warning)
-
-./src/components/offline/speed-battle/connexion.js
-/app/src/components/offline/speed-battle/connexion.js
-   99:78  warning  Expected '===' and instead saw '=='        eqeqeq
-  120:9   warning  'self' is assigned a value but never used  no-unused-vars
-
-✖ 2 problems (0 errors, 2 warnings)
-
-./src/components/offline/speed-battle/home.js
-/app/src/components/offline/speed-battle/home.js
-   5:21   warning  'Col' is defined but never used      no-unused-vars
-  34:42   warning  Expected '===' and instead saw '=='  eqeqeq
-  75:143  warning  Expected '===' and instead saw '=='  eqeqeq
-  76:101  warning  Expected '===' and instead saw '=='  eqeqeq
-
-✖ 4 problems (0 errors, 4 warnings)
 
 ./src/components/admin/sessions/launcher.js
 /app/src/components/admin/sessions/launcher.js
@@ -1469,123 +849,6 @@ Compiled with warnings.
   63:7  warning  Expected a default case  default-case
 
 ✖ 2 problems (0 errors, 2 warnings)
-
-./src/components/admin/sessions/tables-manager.js
-/app/src/components/admin/sessions/tables-manager.js
-   4:8    warning  'Tables' is defined but never used   no-unused-vars
-  16:131  warning  Expected '===' and instead saw '=='  eqeqeq
-  16:170  warning  Expected '===' and instead saw '=='  eqeqeq
-  31:1    warning  Nested block is redundant            no-lone-blocks
-  31:1    warning  Unreachable code                     no-unreachable
-
-✖ 5 problems (0 errors, 5 warnings)
-
-./src/components/admin/sessions/view.js
-/app/src/components/admin/sessions/view.js
-    5:33  warning  'Button' is defined but never used  no-unused-vars
-   44:25  warning  Unreachable code                    no-unreachable
-   52:25  warning  Nested block is redundant           no-lone-blocks
-  101:5   warning  Expected a default case             default-case
-
-✖ 4 problems (0 errors, 4 warnings)
-
-./src/components/offline/speed-battle/scores.js
-/app/src/components/offline/speed-battle/scores.js
-    5:8    warning  'Players' is defined but never used        no-unused-vars
-    6:8    warning  'Step' is defined but never used           no-unused-vars
-    7:8    warning  'BaseScores' is defined but never used     no-unused-vars
-   10:21   warning  'Col' is defined but never used            no-unused-vars
-   56:61   warning  Expected '===' and instead saw '=='        eqeqeq
-   56:100  warning  Expected '===' and instead saw '=='        eqeqeq
-   73:27   warning  Expected '===' and instead saw '=='        eqeqeq
-  127:9    warning  'self' is assigned a value but never used  no-unused-vars
-
-✖ 8 problems (0 errors, 8 warnings)
-
-./src/components/dashboard/playground/global-scores/round.js
-/app/src/components/dashboard/playground/global-scores/round.js
-  6:8  warning  'Podium' is defined but never used  no-unused-vars
-
-✖ 1 problem (0 errors, 1 warning)
-
-./src/components/dashboard/playground/common/podium.js
-/app/src/components/dashboard/playground/common/podium.js
-  3:10  warning  'Grid' is defined but never used  no-unused-vars
-  3:16  warning  'Row' is defined but never used   no-unused-vars
-  3:21  warning  'Col' is defined but never used   no-unused-vars
-
-✖ 3 problems (0 errors, 3 warnings)
-
-./src/components/admin/sessions/tables-manager/players.js
-/app/src/components/admin/sessions/tables-manager/players.js
-  32:133  warning  Expected '===' and instead saw '=='  eqeqeq
-  32:173  warning  Expected '===' and instead saw '=='  eqeqeq
-
-✖ 2 problems (0 errors, 2 warnings)
-
-./src/components/utils/qr-scanner.js
-/app/src/components/utils/qr-scanner.js
-   88:29  warning  Script URL is a form of eval  no-script-url
-  139:5   warning  Expected a default case       default-case
-
-✖ 2 problems (0 errors, 2 warnings)
-
-You may use special comments to disable some warnings.
-Use // eslint-disable-next-line to ignore the next line.
-Use /* eslint-disable */ to ignore all warnings in a file.
-Compiling...
-Compiled with warnings.
-
-./src/components/offline/header.js
-/app/src/components/offline/header.js
-  8:3  warning  Useless constructor  no-useless-constructor
-
-✖ 1 problem (0 errors, 1 warning)
-
-./src/components/common/main-wrapper.js
-/app/src/components/common/main-wrapper.js
-  6:21  warning  'Col' is defined but never used  no-unused-vars
-
-✖ 1 problem (0 errors, 1 warning)
-
-./src/components/common/header.js
-/app/src/components/common/header.js
-   2:10  warning  'connect' is defined but never used      no-unused-vars
-   5:10  warning  'NavLink' is defined but never used      no-unused-vars
-   5:19  warning  'Link' is defined but never used         no-unused-vars
-   5:25  warning  'Redirect' is defined but never used     no-unused-vars
-   7:10  warning  'Navbar' is defined but never used       no-unused-vars
-   8:18  warning  'ShowForAcls' is defined but never used  no-unused-vars
-  13:28  warning  'menu' is defined but never used         no-unused-vars
-
-✖ 7 problems (0 errors, 7 warnings)
-
-./src/components/offline/speed-battle.js
-/app/src/components/offline/speed-battle.js
-   60:32  warning  Expected '===' and instead saw '=='  eqeqeq
-   62:11  warning  Expected a default case              default-case
-  114:5   warning  Expected a default case              default-case
-
-✖ 3 problems (0 errors, 3 warnings)
-
-./src/components/dashboard/playground.js
-/app/src/components/dashboard/playground.js
-  15:33  warning  'Button' is defined but never used  no-unused-vars
-  32:42  warning  Missing radix parameter             radix
-
-✖ 2 problems (0 errors, 2 warnings)
-
-./src/components/dashboard/profile-filler.js
-/app/src/components/dashboard/profile-filler.js
-  6:10  warning  'AuthChecker' is defined but never used  no-unused-vars
-
-✖ 1 problem (0 errors, 1 warning)
-
-./src/components/admin/sessions/inviter.js
-/app/src/components/admin/sessions/inviter.js
-  55:87  warning  Expected '===' and instead saw '=='  eqeqeq
-
-✖ 1 problem (0 errors, 1 warning)
 
 ./src/components/admin/sessions/tables-manager.js
 /app/src/components/admin/sessions/tables-manager.js
@@ -1605,25 +868,6 @@ Compiled with warnings.
 
 ✖ 3 problems (0 errors, 3 warnings)
 
-./src/components/admin/sessions/launcher.js
-/app/src/components/admin/sessions/launcher.js
-  42:5  warning  Expected a default case  default-case
-  63:7  warning  Expected a default case  default-case
-
-✖ 2 problems (0 errors, 2 warnings)
-
-./src/components/offline/speed-battle/already-connected.js
-/app/src/components/offline/speed-battle/already-connected.js
-  5:21  warning  'Col' is defined but never used  no-unused-vars
-
-✖ 1 problem (0 errors, 1 warning)
-
-./src/components/dashboard/sessions/session.js
-/app/src/components/dashboard/sessions/session.js
-  9:5  warning  'moment' is assigned a value but never used  no-unused-vars
-
-✖ 1 problem (0 errors, 1 warning)
-
 ./src/components/offline/speed-battle/waiting-session.js
 /app/src/components/offline/speed-battle/waiting-session.js
   3:21  warning  'Col' is defined but never used    no-unused-vars
@@ -1632,9 +876,9 @@ Compiled with warnings.
 
 ✖ 3 problems (0 errors, 3 warnings)
 
-./src/components/dashboard/profile/items/traineeship.js
-/app/src/components/dashboard/profile/items/traineeship.js
-  64:9  warning  'value' is assigned a value but never used  no-unused-vars
+./src/components/offline/speed-battle/already-connected.js
+/app/src/components/offline/speed-battle/already-connected.js
+  5:21  warning  'Col' is defined but never used  no-unused-vars
 
 ✖ 1 problem (0 errors, 1 warning)
 
@@ -1708,202 +952,11 @@ Compiled with warnings.
 
 ✖ 3 problems (0 errors, 3 warnings)
 
-./src/components/utils/qr-scanner.js
-/app/src/components/utils/qr-scanner.js
-   88:29  warning  Script URL is a form of eval  no-script-url
-  139:5   warning  Expected a default case       default-case
-
-✖ 2 problems (0 errors, 2 warnings)
-
 ./src/components/dashboard/playground/global-scores/round.js
 /app/src/components/dashboard/playground/global-scores/round.js
   6:8  warning  'Podium' is defined but never used  no-unused-vars
 
 ✖ 1 problem (0 errors, 1 warning)
-
-You may use special comments to disable some warnings.
-Use // eslint-disable-next-line to ignore the next line.
-Use /* eslint-disable */ to ignore all warnings in a file.
-Compiling...
-Compiled with warnings.
-
-./src/components/offline/header.js
-/app/src/components/offline/header.js
-  8:3  warning  Useless constructor  no-useless-constructor
-
-✖ 1 problem (0 errors, 1 warning)
-
-./src/components/common/main-wrapper.js
-/app/src/components/common/main-wrapper.js
-  6:21  warning  'Col' is defined but never used  no-unused-vars
-
-✖ 1 problem (0 errors, 1 warning)
-
-./src/components/common/header.js
-/app/src/components/common/header.js
-   2:10  warning  'connect' is defined but never used      no-unused-vars
-   5:10  warning  'NavLink' is defined but never used      no-unused-vars
-   5:19  warning  'Link' is defined but never used         no-unused-vars
-   5:25  warning  'Redirect' is defined but never used     no-unused-vars
-   7:10  warning  'Navbar' is defined but never used       no-unused-vars
-   8:18  warning  'ShowForAcls' is defined but never used  no-unused-vars
-  13:28  warning  'menu' is defined but never used         no-unused-vars
-
-✖ 7 problems (0 errors, 7 warnings)
-
-./src/components/dashboard/profile-filler.js
-/app/src/components/dashboard/profile-filler.js
-  6:10  warning  'AuthChecker' is defined but never used  no-unused-vars
-
-✖ 1 problem (0 errors, 1 warning)
-
-./src/components/dashboard/playground.js
-/app/src/components/dashboard/playground.js
-  15:33  warning  'Button' is defined but never used  no-unused-vars
-  32:42  warning  Missing radix parameter             radix
-
-✖ 2 problems (0 errors, 2 warnings)
-
-./src/components/offline/speed-battle.js
-/app/src/components/offline/speed-battle.js
-   60:32  warning  Expected '===' and instead saw '=='  eqeqeq
-   62:11  warning  Expected a default case              default-case
-  114:5   warning  Expected a default case              default-case
-
-✖ 3 problems (0 errors, 3 warnings)
-
-./src/components/dashboard/profile/items/traineeship.js
-/app/src/components/dashboard/profile/items/traineeship.js
-  64:9  warning  'value' is assigned a value but never used  no-unused-vars
-
-✖ 1 problem (0 errors, 1 warning)
-
-./src/components/dashboard/sessions/session.js
-/app/src/components/dashboard/sessions/session.js
-  9:5  warning  'moment' is assigned a value but never used  no-unused-vars
-
-✖ 1 problem (0 errors, 1 warning)
-
-./src/components/admin/sessions/launcher.js
-/app/src/components/admin/sessions/launcher.js
-  42:5  warning  Expected a default case  default-case
-  63:7  warning  Expected a default case  default-case
-
-✖ 2 problems (0 errors, 2 warnings)
-
-./src/components/admin/sessions/inviter.js
-/app/src/components/admin/sessions/inviter.js
-  55:87  warning  Expected '===' and instead saw '=='  eqeqeq
-
-✖ 1 problem (0 errors, 1 warning)
-
-./src/components/admin/sessions/tables-manager.js
-/app/src/components/admin/sessions/tables-manager.js
-   4:8    warning  'Tables' is defined but never used   no-unused-vars
-  16:131  warning  Expected '===' and instead saw '=='  eqeqeq
-  16:170  warning  Expected '===' and instead saw '=='  eqeqeq
-  31:1    warning  Nested block is redundant            no-lone-blocks
-  31:1    warning  Unreachable code                     no-unreachable
-
-✖ 5 problems (0 errors, 5 warnings)
-
-./src/components/dashboard/playground/clues-selector.js
-/app/src/components/dashboard/playground/clues-selector.js
-  4:10  warning  'Grid' is defined but never used   no-unused-vars
-  4:26  warning  'Table' is defined but never used  no-unused-vars
-
-✖ 2 problems (0 errors, 2 warnings)
-
-./src/components/dashboard/playground/final-room.js
-/app/src/components/dashboard/playground/final-room.js
-  4:10  warning  'Grid' is defined but never used    no-unused-vars
-  4:16  warning  'Row' is defined but never used     no-unused-vars
-  4:21  warning  'Col' is defined but never used     no-unused-vars
-  4:26  warning  'Table' is defined but never used   no-unused-vars
-  4:33  warning  'Button' is defined but never used  no-unused-vars
-
-✖ 5 problems (0 errors, 5 warnings)
-
-./src/components/admin/sessions/view.js
-/app/src/components/admin/sessions/view.js
-    5:33  warning  'Button' is defined but never used  no-unused-vars
-   44:25  warning  Unreachable code                    no-unreachable
-   52:25  warning  Nested block is redundant           no-lone-blocks
-  101:5   warning  Expected a default case             default-case
-
-✖ 4 problems (0 errors, 4 warnings)
-
-./src/components/offline/speed-battle/loading.js
-/app/src/components/offline/speed-battle/loading.js
-  3:21  warning  'Col' is defined but never used    no-unused-vars
-  3:26  warning  'Panel' is defined but never used  no-unused-vars
-  3:33  warning  'Table' is defined but never used  no-unused-vars
-
-✖ 3 problems (0 errors, 3 warnings)
-
-./src/components/offline/speed-battle/already-connected.js
-/app/src/components/offline/speed-battle/already-connected.js
-  5:21  warning  'Col' is defined but never used  no-unused-vars
-
-✖ 1 problem (0 errors, 1 warning)
-
-./src/components/offline/speed-battle/waiting-session.js
-/app/src/components/offline/speed-battle/waiting-session.js
-  3:21  warning  'Col' is defined but never used    no-unused-vars
-  3:26  warning  'Panel' is defined but never used  no-unused-vars
-  3:33  warning  'Table' is defined but never used  no-unused-vars
-
-✖ 3 problems (0 errors, 3 warnings)
-
-./src/components/offline/speed-battle/home.js
-/app/src/components/offline/speed-battle/home.js
-   5:21   warning  'Col' is defined but never used      no-unused-vars
-  34:42   warning  Expected '===' and instead saw '=='  eqeqeq
-  75:143  warning  Expected '===' and instead saw '=='  eqeqeq
-  76:101  warning  Expected '===' and instead saw '=='  eqeqeq
-
-✖ 4 problems (0 errors, 4 warnings)
-
-./src/components/offline/speed-battle/connexion.js
-/app/src/components/offline/speed-battle/connexion.js
-   99:78  warning  Expected '===' and instead saw '=='        eqeqeq
-  120:9   warning  'self' is assigned a value but never used  no-unused-vars
-
-✖ 2 problems (0 errors, 2 warnings)
-
-./src/components/offline/speed-battle/scores.js
-/app/src/components/offline/speed-battle/scores.js
-    5:8    warning  'Players' is defined but never used        no-unused-vars
-    6:8    warning  'Step' is defined but never used           no-unused-vars
-    7:8    warning  'BaseScores' is defined but never used     no-unused-vars
-   10:21   warning  'Col' is defined but never used            no-unused-vars
-   56:61   warning  Expected '===' and instead saw '=='        eqeqeq
-   56:100  warning  Expected '===' and instead saw '=='        eqeqeq
-   73:27   warning  Expected '===' and instead saw '=='        eqeqeq
-  127:9    warning  'self' is assigned a value but never used  no-unused-vars
-
-✖ 8 problems (0 errors, 8 warnings)
-
-./src/components/admin/sessions/tables-manager/players.js
-/app/src/components/admin/sessions/tables-manager/players.js
-  32:133  warning  Expected '===' and instead saw '=='  eqeqeq
-  32:173  warning  Expected '===' and instead saw '=='  eqeqeq
-
-✖ 2 problems (0 errors, 2 warnings)
-
-./src/components/dashboard/playground/global-scores/round.js
-/app/src/components/dashboard/playground/global-scores/round.js
-  6:8  warning  'Podium' is defined but never used  no-unused-vars
-
-✖ 1 problem (0 errors, 1 warning)
-
-./src/components/dashboard/playground/common/podium.js
-/app/src/components/dashboard/playground/common/podium.js
-  3:10  warning  'Grid' is defined but never used  no-unused-vars
-  3:16  warning  'Row' is defined but never used   no-unused-vars
-  3:21  warning  'Col' is defined but never used   no-unused-vars
-
-✖ 3 problems (0 errors, 3 warnings)
 
 ./src/components/utils/qr-scanner.js
 /app/src/components/utils/qr-scanner.js
@@ -1918,12 +971,6 @@ Use /* eslint-disable */ to ignore all warnings in a file.
 Compiling...
 Compiled with warnings.
 
-./src/components/common/main-wrapper.js
-/app/src/components/common/main-wrapper.js
-  6:21  warning  'Col' is defined but never used  no-unused-vars
-
-✖ 1 problem (0 errors, 1 warning)
-
 ./src/components/common/header.js
 /app/src/components/common/header.js
    2:10  warning  'connect' is defined but never used      no-unused-vars
@@ -1935,6 +982,12 @@ Compiled with warnings.
   13:28  warning  'menu' is defined but never used         no-unused-vars
 
 ✖ 7 problems (0 errors, 7 warnings)
+
+./src/components/common/main-wrapper.js
+/app/src/components/common/main-wrapper.js
+  6:21  warning  'Col' is defined but never used  no-unused-vars
+
+✖ 1 problem (0 errors, 1 warning)
 
 ./src/components/dashboard/profile-filler.js
 /app/src/components/dashboard/profile-filler.js
@@ -1963,12 +1016,6 @@ Compiled with warnings.
 
 ✖ 3 problems (0 errors, 3 warnings)
 
-./src/components/dashboard/sessions/session.js
-/app/src/components/dashboard/sessions/session.js
-  9:5  warning  'moment' is assigned a value but never used  no-unused-vars
-
-✖ 1 problem (0 errors, 1 warning)
-
 ./src/components/admin/sessions/tables-manager.js
 /app/src/components/admin/sessions/tables-manager.js
    4:8    warning  'Tables' is defined but never used   no-unused-vars
@@ -1992,18 +1039,26 @@ Compiled with warnings.
 
 ✖ 1 problem (0 errors, 1 warning)
 
+./src/components/dashboard/sessions/session.js
+/app/src/components/dashboard/sessions/session.js
+  9:5  warning  'moment' is assigned a value but never used  no-unused-vars
+
+✖ 1 problem (0 errors, 1 warning)
+
+./src/components/admin/sessions/view.js
+/app/src/components/admin/sessions/view.js
+    5:33  warning  'Button' is defined but never used  no-unused-vars
+   44:25  warning  Unreachable code                    no-unreachable
+   52:25  warning  Nested block is redundant           no-lone-blocks
+  101:5   warning  Expected a default case             default-case
+
+✖ 4 problems (0 errors, 4 warnings)
+
 ./src/components/dashboard/profile/items/traineeship.js
 /app/src/components/dashboard/profile/items/traineeship.js
   64:9  warning  'value' is assigned a value but never used  no-unused-vars
 
 ✖ 1 problem (0 errors, 1 warning)
-
-./src/components/dashboard/playground/clues-selector.js
-/app/src/components/dashboard/playground/clues-selector.js
-  4:10  warning  'Grid' is defined but never used   no-unused-vars
-  4:26  warning  'Table' is defined but never used  no-unused-vars
-
-✖ 2 problems (0 errors, 2 warnings)
 
 ./src/components/dashboard/playground/final-room.js
 /app/src/components/dashboard/playground/final-room.js
@@ -2015,11 +1070,20 @@ Compiled with warnings.
 
 ✖ 5 problems (0 errors, 5 warnings)
 
-./src/components/offline/speed-battle/already-connected.js
-/app/src/components/offline/speed-battle/already-connected.js
-  5:21  warning  'Col' is defined but never used  no-unused-vars
+./src/components/dashboard/playground/clues-selector.js
+/app/src/components/dashboard/playground/clues-selector.js
+  4:10  warning  'Grid' is defined but never used   no-unused-vars
+  4:26  warning  'Table' is defined but never used  no-unused-vars
 
-✖ 1 problem (0 errors, 1 warning)
+✖ 2 problems (0 errors, 2 warnings)
+
+./src/components/offline/speed-battle/loading.js
+/app/src/components/offline/speed-battle/loading.js
+  3:21  warning  'Col' is defined but never used    no-unused-vars
+  3:26  warning  'Panel' is defined but never used  no-unused-vars
+  3:33  warning  'Table' is defined but never used  no-unused-vars
+
+✖ 3 problems (0 errors, 3 warnings)
 
 ./src/components/offline/speed-battle/waiting-session.js
 /app/src/components/offline/speed-battle/waiting-session.js
@@ -2029,22 +1093,11 @@ Compiled with warnings.
 
 ✖ 3 problems (0 errors, 3 warnings)
 
-./src/components/admin/sessions/view.js
-/app/src/components/admin/sessions/view.js
-    5:33  warning  'Button' is defined but never used  no-unused-vars
-   44:25  warning  Unreachable code                    no-unreachable
-   52:25  warning  Nested block is redundant           no-lone-blocks
-  101:5   warning  Expected a default case             default-case
+./src/components/offline/speed-battle/already-connected.js
+/app/src/components/offline/speed-battle/already-connected.js
+  5:21  warning  'Col' is defined but never used  no-unused-vars
 
-✖ 4 problems (0 errors, 4 warnings)
-
-./src/components/offline/speed-battle/loading.js
-/app/src/components/offline/speed-battle/loading.js
-  3:21  warning  'Col' is defined but never used    no-unused-vars
-  3:26  warning  'Panel' is defined but never used  no-unused-vars
-  3:33  warning  'Table' is defined but never used  no-unused-vars
-
-✖ 3 problems (0 errors, 3 warnings)
+✖ 1 problem (0 errors, 1 warning)
 
 ./src/components/offline/speed-battle/scores.js
 /app/src/components/offline/speed-battle/scores.js
@@ -2059,13 +1112,6 @@ Compiled with warnings.
 
 ✖ 8 problems (0 errors, 8 warnings)
 
-./src/components/offline/speed-battle/connexion.js
-/app/src/components/offline/speed-battle/connexion.js
-   99:78  warning  Expected '===' and instead saw '=='        eqeqeq
-  120:9   warning  'self' is assigned a value but never used  no-unused-vars
-
-✖ 2 problems (0 errors, 2 warnings)
-
 ./src/components/offline/speed-battle/home.js
 /app/src/components/offline/speed-battle/home.js
    5:21   warning  'Col' is defined but never used      no-unused-vars
@@ -2074,6 +1120,13 @@ Compiled with warnings.
   76:101  warning  Expected '===' and instead saw '=='  eqeqeq
 
 ✖ 4 problems (0 errors, 4 warnings)
+
+./src/components/offline/speed-battle/connexion.js
+/app/src/components/offline/speed-battle/connexion.js
+   99:78  warning  Expected '===' and instead saw '=='        eqeqeq
+  120:9   warning  'self' is assigned a value but never used  no-unused-vars
+
+✖ 2 problems (0 errors, 2 warnings)
 
 ./src/components/admin/sessions/tables-manager/players.js
 /app/src/components/admin/sessions/tables-manager/players.js
@@ -2090,18 +1143,18 @@ Compiled with warnings.
 
 ✖ 3 problems (0 errors, 3 warnings)
 
-./src/components/dashboard/playground/global-scores/round.js
-/app/src/components/dashboard/playground/global-scores/round.js
-  6:8  warning  'Podium' is defined but never used  no-unused-vars
-
-✖ 1 problem (0 errors, 1 warning)
-
 ./src/components/utils/qr-scanner.js
 /app/src/components/utils/qr-scanner.js
    88:29  warning  Script URL is a form of eval  no-script-url
   139:5   warning  Expected a default case       default-case
 
 ✖ 2 problems (0 errors, 2 warnings)
+
+./src/components/dashboard/playground/global-scores/round.js
+/app/src/components/dashboard/playground/global-scores/round.js
+  6:8  warning  'Podium' is defined but never used  no-unused-vars
+
+✖ 1 problem (0 errors, 1 warning)
 
 You may use special comments to disable some warnings.
 Use // eslint-disable-next-line to ignore the next line.
