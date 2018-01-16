@@ -30,9 +30,13 @@
       var mediaUrl = "";
       if (getParameterByName("default")) {
         mediaUrl = "/video-game/default";
+      } else if (getParameterByName("local")) {
+        mediaUrl = "http://localhost:3002/shared/video-game/game-" + gameId + "/scenario-" + scenarioId;
       } else {
         mediaUrl = "https://media.openbusinesslabs.com/video-game/game-" + gameId + "/scenario-" + scenarioId;
       }
+
+      console.log("LOADING GAME FROM : " + mediaUrl)
       function loadXHook() {
         xhook.before(function(request) {
           if (request.url.match(/StreamingAssets.*/)) {
@@ -172,14 +176,18 @@
     <p class="footer"></p>
     <script type='text/javascript'>
       var Module = {
-        TOTAL_MEMORY: 999999999,
-        errorhandler: null,			// arguments: err, url, line. This function must return 'true' if the error is handled, otherwise 'false'
+        TOTAL_MEMORY: 4026531840,
+        errorhandler: function(err, url, line) {
+          console.log("ERROR : ")
+          console.log(err)
+        },			// arguments: err, url, line. This function must return 'true' if the error is handled, otherwise 'false'
         compatibilitycheck: null,
         dataUrl: mediaUrl + "/Release/WebPlayer.data",
         codeUrl: mediaUrl + "/Release/WebPlayer.js",
         memUrl: mediaUrl + "/Release/WebPlayer.mem",
         asmUrl: mediaUrl + "/Release/WebPlayer.asm.js"
       };
+console.log(Module.TOTAL_MEMORY)
     </script>
     <script src="assets/js/UnityLoader.js"></script>
 
