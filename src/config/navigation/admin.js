@@ -24,12 +24,14 @@ const config = {
   wrapper: {
     component: MainWrapper
   },
+  /*
   iconSet: "pe pe-7s-",
   icons: {
     delete: "junk",
     edit: "pen",
     view: "look"
   },
+  */
   menu: {
     general: {
       navLink: Link,
