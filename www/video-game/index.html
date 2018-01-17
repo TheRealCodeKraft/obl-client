@@ -176,7 +176,7 @@
     <p class="footer"></p>
     <script type='text/javascript'>
       var Module = {
-        TOTAL_MEMORY: 4026531840,
+        TOTAL_MEMORY: 268435456,
         errorhandler: function(err, url, line) {
           console.log("ERROR : ")
           console.log(err)
@@ -187,7 +187,7 @@
         memUrl: mediaUrl + "/Release/WebPlayer.mem",
         asmUrl: mediaUrl + "/Release/WebPlayer.asm.js"
       };
-console.log(Module.TOTAL_MEMORY)
+      console.log("Allocated memory : " + Module.TOTAL_MEMORY)
     </script>
     <script src="assets/js/UnityLoader.js"></script>
 

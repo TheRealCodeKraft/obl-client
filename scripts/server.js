@@ -9,6 +9,7 @@ process.env.NODE_ENV = 'development';
 require('dotenv').config({silent: true});
 
 var chalk = require('chalk');
+const path = require('path');
 var webpack = require('webpack');
 var WebpackDevServer = require('webpack-dev-server');
 var historyApiFallback = require('connect-history-api-fallback');
@@ -261,7 +262,33 @@ function runDevServer(host, port, protocol) {
     },
     // Enable HTTPS if the HTTPS environment variable is set to 'true'
     https: protocol === "https",
-    host: host
+    host: host,
+    proxy: {
+      '/paf': {
+        target: 'http://localhost:3002',
+        secure: true,
+        bypass: function(req, res, opt) {
+          if (req.url.indexOf('Release/WebPlayer') !== -1) {
+            const filePath = path.resolve('www' + req.url + 'gz')
+            console.log("SENDING FILE : " + filePath)
+            var exists = fs.existsSync(filePath)
+            if (exists) {
+              // Content-type is very interesting part that guarantee that
+              // Web browser will handle response in an appropriate manner.
+              res.writeHead(200, {'content-encoding': 'gzip', 'content-type': (req.url.indexOf('js') > - 1) ? 'application/x-javascript' : 'application/octet-stream'}) 
+              fs.createReadStream(filePath).pipe(res);
+            } else {
+              response.writeHead(400, {"Content-Type": "text/plain"});
+              response.end("ERROR File does not exist");
+            }
+
+            return false
+          } else {
+            return req.url
+          }
+        }
+      }
+    }
   });
 
   // Our custom middleware proxies requests to /index.html or a remote API.
