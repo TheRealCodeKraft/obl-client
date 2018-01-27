@@ -23,20 +23,22 @@ class Scores extends React.Component {
 
   render() {
     return (
-      <Grid className="container-center animated slideInDown">
+      <Grid className="container-center animated slideInDown container-cook">
          <Row className="view-header">
-          <div className={"header-icon"}>
-              <i className={"pe page-header-icon pe-7s-medal"}></i>
-          </div>
-          <div className={"header-title"}>
-              <h3>Scores</h3>
-              <small>
-                Résultats du battle
-              </small>
-          </div>
+         <div className="header-score-subwrap">
+            <div className={"header-icon"}>
+                <i className={"pe page-header-icon pe-7s-medal"}></i>
+            </div>
+            <div className={"header-title"}>
+                <h3>Scores</h3>
+                <small>
+                  Résultats du battle
+                </small>
+            </div>
+        </div>
         </Row>
 
-        <Panel className="panel panel-filled" style={{textAlign: "center"}}>
+        <Panel className="panel" style={{textAlign: "center"}}>
           {this.props.finished
            ? [this.getScores(),
               <MailTrapper userState={this.currentUserState()} />,
