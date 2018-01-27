@@ -14,7 +14,7 @@ class Header extends React.Component {
     return (
       <div className="back-link">
         {this.props.location.pathname === "/speed-battle"
-         ? <img src="assets/images/logo-obl-small.png" alt="Open Business Labs" />
+         ? <img src="assets/images/logo-skilder.png" alt="Skilder" className="logo-skilder" />
          : <Link to="/"><img src="assets/images/logo-obl-small.png" alt="Open Business Labs" /></Link>
         }
       </div>

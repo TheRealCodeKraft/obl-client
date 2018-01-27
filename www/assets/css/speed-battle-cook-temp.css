@@ -1,0 +1,73 @@
+.logo-skilder {
+    width: 150px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    margin-left: 25px;
+}
+
+.content:before {
+    content: '';
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    z-index: -2;
+    left: 0;
+    right: 0;
+    background-image: url('/assets/images/fond-bois.jpg');
+    background-size: cover;
+  }
+
+.back-link {
+    background: #2a2a2a;
+    box-shadow: 0px 0px 4px #000000e8;
+    border-bottom: 1px solid #fdc645c4;
+}
+
+.container-cook {
+    background: #2a2a2a;
+    border: 1px solid #fdc645e0;
+    box-shadow: 0px 0px 6px 2px #0000005e;
+    padding: 0px!important;
+    margin-top: -15px;
+}
+
+.container-cook > .view-header {
+    padding: 0px!important;
+    margin-top: 0px!important;
+}
+
+.btn-cook {
+    cursor: pointer;
+    background: #e89f22;
+    padding: 10px 25px;
+    text-transform: uppercase;
+    color: white;
+    border: 1px solid #dfb875;
+    -webkit-transition-property: background;
+    -ms-transition-property: background;
+    -o-transition-property: background;
+    transition-property: background;
+    transition-duration: 0.5s;
+}
+
+.btn-cook:hover {
+    text-decoration: none;
+    background: #dfb875;
+    padding: 10px 25px;
+    text-transform: uppercase;
+    color: white;
+    border: 1px solid #dfb875;
+}
+
+.header-cover {
+    height: 258px;
+    margin-bottom: 25px;
+    background-image: url('/assets/images/cover-cook.jpg');
+    background-size: cover;
+    border-bottom: 1px solid #00000063;
+}
+
+.header-subwrap {
+    padding: 0 35px;
+    margin: 40px 0px 20px 0px;
+}
