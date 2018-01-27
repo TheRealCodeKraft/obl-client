@@ -41,17 +41,6 @@ class Explanations extends React.Component {
             <div className="header-cover">
 
             </div>
-            <div className="header-subwrap">
-              <div className={"header-icon"}>
-                  <i className={"pe page-header-icon pe-7s-cup"}></i>
-              </div>
-              <div className={"header-title"}>
-                  <h3>Le défi des bouchers</h3>
-                  <small>
-                    Mesurez-vous à vos adversaires dans un Speed Battle !
-                  </small>
-              </div>
-            </div>
           </Row>
           <Panel className="panel" style={{textAlign: "center"}}>
             {this.state.loading
