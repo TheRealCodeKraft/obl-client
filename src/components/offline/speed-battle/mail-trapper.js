@@ -19,7 +19,7 @@ class MailTrapper extends React.Component {
       return (
         <div>
           <hr />
-          Pour recevoir votre score, renseignez votre email !
+          Pour participer au tirage au sort et en savoir plus sur les opportunités métier, renseigne ton email ci-dessous :
           <Form id="connexion-form" 
               fields={[{
                 name: "email",

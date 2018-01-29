@@ -70,7 +70,7 @@ class Explanations extends React.Component {
              : <Table responsive>
                  <thead>
                    <tr>
-                     <th>Pseudo</th>
+                     <th>Joueur</th>
                      <th>Prêt</th>
                    </tr>
                  </thead>

@@ -32,7 +32,7 @@ class Scores extends React.Component {
             <div className={"header-title"}>
                 <h3>Scores</h3>
                 <small>
-                  Résultats du battle
+                  Résultats du Défi
                 </small>
             </div>
         </div>
