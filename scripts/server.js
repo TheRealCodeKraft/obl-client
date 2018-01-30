@@ -265,7 +265,7 @@ function runDevServer(host, port, protocol) {
     host: host,
     proxy: {
       '/paf': {
-        target: 'http://localhost:3002',
+        target: 'http://openbusinesslabs.com',
         secure: true,
         bypass: function(req, res, opt) {
           if (req.url.indexOf('Release/WebPlayer') !== -1) {
@@ -278,8 +278,8 @@ function runDevServer(host, port, protocol) {
               res.writeHead(200, {'content-encoding': 'gzip', 'content-type': (req.url.indexOf('js') > - 1) ? 'application/x-javascript' : 'application/octet-stream'}) 
               fs.createReadStream(filePath).pipe(res);
             } else {
-              response.writeHead(400, {"Content-Type": "text/plain"});
-              response.end("ERROR File does not exist");
+              res.writeHead(400, {"Content-Type": "text/plain"});
+              res.end("ERROR File does not exist");
             }
 
             return false
