@@ -11,7 +11,7 @@ class MailTrapper extends React.Component {
       return (
         <div>
           <hr />
-          <span>Vous recevrez prochainement votre score dans votre boite {this.props.userState.email}</span>
+          <span>Merci d'avoir joué et à bientôt !</span>
           <hr style={{borderTop: "1px solid #F8F8F7"}} />
         </div>
       )
