@@ -64,12 +64,13 @@
         loading = document.getElementById("iloading");
         logo = document.getElementById("lloading");
         bg = document.getElementById("bgloading");
-        logo.style.top = 50 + '%';
+        logo.style.visibility = "hidden";
+        logo.style.top = 60 + '%';
         logo.style.left = 50 + '%';
         logo.style.position = 'absolute';
         logo.style.marginLeft = -237 + 'px';
 
-        bg.style.top = 50 + '%';
+        bg.style.top = 60 + '%';
         bg.style.left = 50 + '%';
         bg.style.position = 'absolute';
         bg.style.marginLeft = -237 + 'px';
@@ -152,7 +153,7 @@
 
   <body class="template" onload="loadXHook();resize_canvas();loadingPlayer()" onresize="resize_canvas()" style="overflow:hidden">
     <div align="center" id="loading" style="visibility:hidden">
-      <img src="assets/images/Splash.png" id="iloading" alt="loading" title="loading" />
+      <img src="assets/images/Splash.jpg" id="iloading" alt="loading" title="loading" />
       <img src="assets/images/Logo.png" id="lloading" alt="logo" title="logo" width="471px;" />
       <div id="bgloading" style="background-image:url(assets/images/Dash.png);width:474px;height:78px;padding-top:23px;" >
         <img src="assets/images/Loading.png" id="io" style="margin-left:-228px;margin-top:-18px;position:absolute;"/>

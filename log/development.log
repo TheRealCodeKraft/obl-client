@@ -1,8 +1,13 @@
-(node:15) UnhandledPromiseRejectionWarning: Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
-    at validateHeader (_http_outgoing.js:500:11)
-    at ServerResponse.setHeader (_http_outgoing.js:507:3)
-    at Object.handleRangeHeaders (/app/node_modules/webpack-dev-middleware/lib/Shared.js:78:8)
-    at processRequest (/app/node_modules/webpack-dev-middleware/middleware.js:71:22)
+ReferenceError: response is not defined
+    at Object.bypass (/app/scripts/server.js:281:15)
+    at /app/node_modules/webpack-dev-server/lib/Server.js:192:45
+    at Layer.handle [as handle_request] (/app/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/app/node_modules/express/lib/router/index.js:317:13)
+    at /app/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/app/node_modules/express/lib/router/index.js:335:12)
+    at next (/app/node_modules/express/lib/router/index.js:275:10)
+    at goNext (/app/node_modules/webpack-dev-middleware/middleware.js:27:49)
+    at processRequest (/app/node_modules/webpack-dev-middleware/middleware.js:66:21)
     at Object.ready (/app/node_modules/webpack-dev-middleware/lib/Shared.js:166:29)
     at Object.handleRequest (/app/node_modules/webpack-dev-middleware/lib/Shared.js:209:10)
     at /app/node_modules/webpack-dev-middleware/middleware.js:44:11
@@ -10,18 +15,16 @@
     at webpackDevMiddleware (/app/node_modules/webpack-dev-middleware/middleware.js:43:10)
     at Layer.handle [as handle_request] (/app/node_modules/express/lib/router/layer.js:95:5)
     at trim_prefix (/app/node_modules/express/lib/router/index.js:317:13)
+ReferenceError: response is not defined
+    at Object.bypass (/app/scripts/server.js:281:15)
+    at /app/node_modules/webpack-dev-server/lib/Server.js:192:45
+    at Layer.handle [as handle_request] (/app/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/app/node_modules/express/lib/router/index.js:317:13)
     at /app/node_modules/express/lib/router/index.js:284:7
     at Function.process_params (/app/node_modules/express/lib/router/index.js:335:12)
     at next (/app/node_modules/express/lib/router/index.js:275:10)
-    at /app/node_modules/connect-history-api-fallback/lib/index.js:74:5
-    at Layer.handle [as handle_request] (/app/node_modules/express/lib/router/layer.js:95:5)
-(node:15) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). (rejection id: 1)
-(node:15) [DEP0018] DeprecationWarning: Unhandled promise rejections are deprecated. In the future, promise rejections that are not handled will terminate the Node.js process with a non-zero exit code.
-(node:15) UnhandledPromiseRejectionWarning: Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
-    at validateHeader (_http_outgoing.js:500:11)
-    at ServerResponse.setHeader (_http_outgoing.js:507:3)
-    at Object.handleRangeHeaders (/app/node_modules/webpack-dev-middleware/lib/Shared.js:78:8)
-    at processRequest (/app/node_modules/webpack-dev-middleware/middleware.js:71:22)
+    at goNext (/app/node_modules/webpack-dev-middleware/middleware.js:27:49)
+    at processRequest (/app/node_modules/webpack-dev-middleware/middleware.js:66:21)
     at Object.ready (/app/node_modules/webpack-dev-middleware/lib/Shared.js:166:29)
     at Object.handleRequest (/app/node_modules/webpack-dev-middleware/lib/Shared.js:209:10)
     at /app/node_modules/webpack-dev-middleware/middleware.js:44:11
@@ -29,17 +32,16 @@
     at webpackDevMiddleware (/app/node_modules/webpack-dev-middleware/middleware.js:43:10)
     at Layer.handle [as handle_request] (/app/node_modules/express/lib/router/layer.js:95:5)
     at trim_prefix (/app/node_modules/express/lib/router/index.js:317:13)
+ReferenceError: response is not defined
+    at Object.bypass (/app/scripts/server.js:281:15)
+    at /app/node_modules/webpack-dev-server/lib/Server.js:192:45
+    at Layer.handle [as handle_request] (/app/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/app/node_modules/express/lib/router/index.js:317:13)
     at /app/node_modules/express/lib/router/index.js:284:7
     at Function.process_params (/app/node_modules/express/lib/router/index.js:335:12)
     at next (/app/node_modules/express/lib/router/index.js:275:10)
-    at /app/node_modules/connect-history-api-fallback/lib/index.js:74:5
-    at Layer.handle [as handle_request] (/app/node_modules/express/lib/router/layer.js:95:5)
-(node:15) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). (rejection id: 2)
-(node:15) UnhandledPromiseRejectionWarning: Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
-    at validateHeader (_http_outgoing.js:500:11)
-    at ServerResponse.setHeader (_http_outgoing.js:507:3)
-    at Object.handleRangeHeaders (/app/node_modules/webpack-dev-middleware/lib/Shared.js:78:8)
-    at processRequest (/app/node_modules/webpack-dev-middleware/middleware.js:71:22)
+    at goNext (/app/node_modules/webpack-dev-middleware/middleware.js:27:49)
+    at processRequest (/app/node_modules/webpack-dev-middleware/middleware.js:66:21)
     at Object.ready (/app/node_modules/webpack-dev-middleware/lib/Shared.js:166:29)
     at Object.handleRequest (/app/node_modules/webpack-dev-middleware/lib/Shared.js:209:10)
     at /app/node_modules/webpack-dev-middleware/middleware.js:44:11
@@ -47,17 +49,16 @@
     at webpackDevMiddleware (/app/node_modules/webpack-dev-middleware/middleware.js:43:10)
     at Layer.handle [as handle_request] (/app/node_modules/express/lib/router/layer.js:95:5)
     at trim_prefix (/app/node_modules/express/lib/router/index.js:317:13)
+ReferenceError: response is not defined
+    at Object.bypass (/app/scripts/server.js:281:15)
+    at /app/node_modules/webpack-dev-server/lib/Server.js:192:45
+    at Layer.handle [as handle_request] (/app/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/app/node_modules/express/lib/router/index.js:317:13)
     at /app/node_modules/express/lib/router/index.js:284:7
     at Function.process_params (/app/node_modules/express/lib/router/index.js:335:12)
     at next (/app/node_modules/express/lib/router/index.js:275:10)
-    at /app/node_modules/connect-history-api-fallback/lib/index.js:74:5
-    at Layer.handle [as handle_request] (/app/node_modules/express/lib/router/layer.js:95:5)
-(node:15) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). (rejection id: 3)
-(node:15) UnhandledPromiseRejectionWarning: Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
-    at validateHeader (_http_outgoing.js:500:11)
-    at ServerResponse.setHeader (_http_outgoing.js:507:3)
-    at Object.handleRangeHeaders (/app/node_modules/webpack-dev-middleware/lib/Shared.js:78:8)
-    at processRequest (/app/node_modules/webpack-dev-middleware/middleware.js:71:22)
+    at goNext (/app/node_modules/webpack-dev-middleware/middleware.js:27:49)
+    at processRequest (/app/node_modules/webpack-dev-middleware/middleware.js:66:21)
     at Object.ready (/app/node_modules/webpack-dev-middleware/lib/Shared.js:166:29)
     at Object.handleRequest (/app/node_modules/webpack-dev-middleware/lib/Shared.js:209:10)
     at /app/node_modules/webpack-dev-middleware/middleware.js:44:11
@@ -65,17 +66,16 @@
     at webpackDevMiddleware (/app/node_modules/webpack-dev-middleware/middleware.js:43:10)
     at Layer.handle [as handle_request] (/app/node_modules/express/lib/router/layer.js:95:5)
     at trim_prefix (/app/node_modules/express/lib/router/index.js:317:13)
+ReferenceError: response is not defined
+    at Object.bypass (/app/scripts/server.js:281:15)
+    at /app/node_modules/webpack-dev-server/lib/Server.js:192:45
+    at Layer.handle [as handle_request] (/app/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/app/node_modules/express/lib/router/index.js:317:13)
     at /app/node_modules/express/lib/router/index.js:284:7
     at Function.process_params (/app/node_modules/express/lib/router/index.js:335:12)
     at next (/app/node_modules/express/lib/router/index.js:275:10)
-    at /app/node_modules/connect-history-api-fallback/lib/index.js:74:5
-    at Layer.handle [as handle_request] (/app/node_modules/express/lib/router/layer.js:95:5)
-(node:15) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). (rejection id: 4)
-(node:15) UnhandledPromiseRejectionWarning: Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
-    at validateHeader (_http_outgoing.js:500:11)
-    at ServerResponse.setHeader (_http_outgoing.js:507:3)
-    at Object.handleRangeHeaders (/app/node_modules/webpack-dev-middleware/lib/Shared.js:78:8)
-    at processRequest (/app/node_modules/webpack-dev-middleware/middleware.js:71:22)
+    at goNext (/app/node_modules/webpack-dev-middleware/middleware.js:27:49)
+    at processRequest (/app/node_modules/webpack-dev-middleware/middleware.js:66:21)
     at Object.ready (/app/node_modules/webpack-dev-middleware/lib/Shared.js:166:29)
     at Object.handleRequest (/app/node_modules/webpack-dev-middleware/lib/Shared.js:209:10)
     at /app/node_modules/webpack-dev-middleware/middleware.js:44:11
@@ -83,33 +83,16 @@
     at webpackDevMiddleware (/app/node_modules/webpack-dev-middleware/middleware.js:43:10)
     at Layer.handle [as handle_request] (/app/node_modules/express/lib/router/layer.js:95:5)
     at trim_prefix (/app/node_modules/express/lib/router/index.js:317:13)
+ReferenceError: response is not defined
+    at Object.bypass (/app/scripts/server.js:281:15)
+    at /app/node_modules/webpack-dev-server/lib/Server.js:192:45
+    at Layer.handle [as handle_request] (/app/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/app/node_modules/express/lib/router/index.js:317:13)
     at /app/node_modules/express/lib/router/index.js:284:7
     at Function.process_params (/app/node_modules/express/lib/router/index.js:335:12)
     at next (/app/node_modules/express/lib/router/index.js:275:10)
-    at /app/node_modules/connect-history-api-fallback/lib/index.js:74:5
-    at Layer.handle [as handle_request] (/app/node_modules/express/lib/router/layer.js:95:5)
-(node:15) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). (rejection id: 5)
-(node:15) UnhandledPromiseRejectionWarning: Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
-    at validateHeader (_http_outgoing.js:500:11)
-    at ServerResponse.setHeader (_http_outgoing.js:507:3)
-    at Object.handleRangeHeaders (/app/node_modules/webpack-dev-middleware/lib/Shared.js:78:8)
-    at processRequest (/app/node_modules/webpack-dev-middleware/middleware.js:71:22)
-    at Object.ready (/app/node_modules/webpack-dev-middleware/lib/Shared.js:166:29)
-    at Object.handleRequest (/app/node_modules/webpack-dev-middleware/lib/Shared.js:SENDING FILE : /app/www/shared/video-game/game-35/scenario-13/Release/WebPlayer.jsgz
-SENDING FILE : /app/www/shared/video-game/game-35/scenario-13/Release/WebPlayer.memgz
-SENDING FILE : /app/www/shared/video-game/game-35/scenario-13/Release/WebPlayer.datagz
-SENDING FILE : /app/www/shared/video-game/game-35/scenario-13/Release/WebPlayer.asm.jsgz
-SENDING FILE : /app/www/shared/video-game/game-35/scenario-13/Release/WebPlayer.jsgz
- Function.process_params (/app/node_modules/express/lib/router/index.js:335:12)
-    at next (/app/node_modules/express/lib/router/index.js:275:10)
-    at /app/node_modules/connect-history-api-fallback/lib/index.js:74:5
-    at Layer.handle [as handle_request] (/app/node_modules/express/lib/router/layer.js:95:5)
-(node:15) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). (rejection id: 6)
-(node:15) UnhandledPromiseRejectionWarning: Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
-    at validateHeader (_http_outgoing.js:500:11)
-    at ServerResponse.setHeader (_http_outgoing.js:507:3)
-    at Object.handleRangeHeaders (/app/node_modules/webpack-dev-middleware/lib/Shared.js:78:8)
-    at processRequest (/app/node_modules/webpack-dev-middleware/middleware.js:71:22)
+    at goNext (/app/node_modules/webpack-dev-middleware/middleware.js:27:49)
+    at processRequest (/app/node_modules/webpack-dev-middleware/middleware.js:66:21)
     at Object.ready (/app/node_modules/webpack-dev-middleware/lib/Shared.js:166:29)
     at Object.handleRequest (/app/node_modules/webpack-dev-middleware/lib/Shared.js:209:10)
     at /app/node_modules/webpack-dev-middleware/middleware.js:44:11
@@ -117,17 +100,16 @@ SENDING FILE : /app/www/shared/video-game/game-35/scenario-13/Release/WebPlayer.
     at webpackDevMiddleware (/app/node_modules/webpack-dev-middleware/middleware.js:43:10)
     at Layer.handle [as handle_request] (/app/node_modules/express/lib/router/layer.js:95:5)
     at trim_prefix (/app/node_modules/express/lib/router/index.js:317:13)
+ReferenceError: response is not defined
+    at Object.bypass (/app/scripts/server.js:281:15)
+    at /app/node_modules/webpack-dev-server/lib/Server.js:192:45
+    at Layer.handle [as handle_request] (/app/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/app/node_modules/express/lib/router/index.js:317:13)
     at /app/node_modules/express/lib/router/index.js:284:7
     at Function.process_params (/app/node_modules/express/lib/router/index.js:335:12)
     at next (/app/node_modules/express/lib/router/index.js:275:10)
-    at /app/node_modules/connect-history-api-fallback/lib/index.js:74:5
-    at Layer.handle [as handle_request] (/app/node_modules/express/lib/router/layer.js:95:5)
-(node:15) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). (rejection id: 7)
-(node:15) UnhandledPromiseRejectionWarning: Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
-    at validateHeader (_http_outgoing.js:500:11)
-    at ServerResponse.setHeader (_http_outgoing.js:507:3)
-    at Object.handleRangeHeaders (/app/node_modules/webpack-dev-middleware/lib/Shared.js:78:8)
-    at processRequest (/app/node_modules/webpack-dev-middleware/middleware.js:71:22)
+    at goNext (/app/node_modules/webpack-dev-middleware/middleware.js:27:49)
+    at processRequest (/app/node_modules/webpack-dev-middleware/middleware.js:66:21)
     at Object.ready (/app/node_modules/webpack-dev-middleware/lib/Shared.js:166:29)
     at Object.handleRequest (/app/node_modules/webpack-dev-middleware/lib/Shared.js:209:10)
     at /app/node_modules/webpack-dev-middleware/middleware.js:44:11
@@ -135,17 +117,45 @@ SENDING FILE : /app/www/shared/video-game/game-35/scenario-13/Release/WebPlayer.
     at webpackDevMiddleware (/app/node_modules/webpack-dev-middleware/middleware.js:43:10)
     at Layer.handle [as handle_request] (/app/node_modules/express/lib/router/layer.js:95:5)
     at trim_prefix (/app/node_modules/express/lib/router/index.js:317:13)
+ReferenceError: response is not defined
+    at Object.bypass (/app/scripts/server.js:281:15)
+  SENDING FILE : /app/www/shared/video-game/game-1/scenario-1/Release/WebPlayer.memgz
+SENDING FILE : /app/www/shared/video-game/game-1/scenario-1/Release/WebPlayer.datagzgz
+SENDING FILE : /app/www/shared/video-game/game-1/scenario-1/Release/WebPlayer.asm.jsgzgz
+SENDING FILE : /app/www/shared/video-game/game-1/scenario-1/Release/WebPlayer.memgzgz
+SENDING FILE : /app/www/shared/video-game/game-1/scenario-1/Release/WebPlayer.memgz
+SENDING FILE : /app/www/shared/video-game/game-1/scenario-1/Release/WebPlayer.datagzgz
+SENDING FILE : /app/www/shared/video-game/game-1/scenario-1/Release/WebPlayer.asm.jsgzgz
+SENDING FILE : /app/www/shared/video-game/game-1/scenario-1/Release/WebPlayer.memgzgz
+SENDING FILE : /app/www/shared/video-game/game-1/scenario-1/Release/WebPlayer.memgz
+SENDING FILE : /app/www/shared/video-game/game-1/scenario-1/Release/WebPlayer.datagzgz
+SENDING FILE : /app/www/shared/video-game/game-1/scenario-1/Release/WebPlayer.asm.jsgzgz
+SENDING FILE : /app/www/shared/video-game/game-1/scenario-1/Release/WebPlayer.memgzgz
+SENDING FILE : /app/www/shared/video-game/game-1/scenario-1/Release/WebPlayer.memgz
+SENDING FILE : /app/www/shared/video-game/game-1/scenario-1/Release/WebPlayer.datagzgz
+SENDING FILE : /app/www/shared/video-game/game-1/scenario-1/Release/WebPlayer.memgzgz
+SENDING FILE : /app/www/shared/video-game/game-1/scenario-1/Release/WebPlayer.asm.jsgzgz
+SENDING FILE : /app/www/shared/video-game/game-1/scenario-1/Release/WebPlayer.memgz
+SENDING FILE : /app/www/shared/video-game/game-1/scenario-1/Release/WebPlayer.datagzgz
+SENDING FILE : /app/www/shared/video-game/game-1/scenario-1/Release/WebPlayer.asm.jsgzgz
+SENDING FILE : /app/www/shared/video-game/game-1/scenario-1/Release/WebPlayer.memgzgz
+SENDING FILE : /app/www/shared/video-game/game-1/scenario-1/Release/WebPlayer.memgz
+SENDING FILE : /app/www/shared/video-game/game-1/scenario-1/Release/WebPlayer.datagzgz
+SENDING FILE : /app/www/shared/video-game/game-1/scenario-1/Release/WebPlayer.asm.jsgzgz
+SENDING FILE : /app/www/shared/video-game/game-1/scenario-1/Release/WebPlayer.memgzgz
+SENDING FILE : /app/www/shared/video-game/game-1/scenario-1/Release/WebPlayer.memgz
+SENDING FILE : /app/www/shared/video-game/game-1/scenario-1/Release/WebPlayer.datagzgz
+SENDING FILE : /app/www/shared/video-game/game-1/scenario-1/Release/WebPlayer.asm.jsgzgz
+SENDING FILE : /app/www/shared/video-game/game-1/scenario-1/Release/WebPlayer.memgzgz
+ject.bypass (/app/scripts/server.js:281:15)
+    at /app/node_modules/webpack-dev-server/lib/Server.js:192:45
+    at Layer.handle [as handle_request] (/app/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/app/node_modules/express/lib/router/index.js:317:13)
     at /app/node_modules/express/lib/router/index.js:284:7
     at Function.process_params (/app/node_modules/express/lib/router/index.js:335:12)
     at next (/app/node_modules/express/lib/router/index.js:275:10)
-    at /app/node_modules/connect-history-api-fallback/lib/index.js:74:5
-    at Layer.handle [as handle_request] (/app/node_modules/express/lib/router/layer.js:95:5)
-(node:15) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). (rejection id: 8)
-(node:15) UnhandledPromiseRejectionWarning: Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
-    at validateHeader (_http_outgoing.js:500:11)
-    at ServerResponse.setHeader (_http_outgoing.js:507:3)
-    at Object.handleRangeHeaders (/app/node_modules/webpack-dev-middleware/lib/Shared.js:78:8)
-    at processRequest (/app/node_modules/webpack-dev-middleware/middleware.js:71:22)
+    at goNext (/app/node_modules/webpack-dev-middleware/middleware.js:27:49)
+    at processRequest (/app/node_modules/webpack-dev-middleware/middleware.js:66:21)
     at Object.ready (/app/node_modules/webpack-dev-middleware/lib/Shared.js:166:29)
     at Object.handleRequest (/app/node_modules/webpack-dev-middleware/lib/Shared.js:209:10)
     at /app/node_modules/webpack-dev-middleware/middleware.js:44:11
@@ -153,17 +163,16 @@ SENDING FILE : /app/www/shared/video-game/game-35/scenario-13/Release/WebPlayer.
     at webpackDevMiddleware (/app/node_modules/webpack-dev-middleware/middleware.js:43:10)
     at Layer.handle [as handle_request] (/app/node_modules/express/lib/router/layer.js:95:5)
     at trim_prefix (/app/node_modules/express/lib/router/index.js:317:13)
+ReferenceError: response is not defined
+    at Object.bypass (/app/scripts/server.js:281:15)
+    at /app/node_modules/webpack-dev-server/lib/Server.js:192:45
+    at Layer.handle [as handle_request] (/app/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/app/node_modules/express/lib/router/index.js:317:13)
     at /app/node_modules/express/lib/router/index.js:284:7
     at Function.process_params (/app/node_modules/express/lib/router/index.js:335:12)
     at next (/app/node_modules/express/lib/router/index.js:275:10)
-    at /app/node_modules/connect-history-api-fallback/lib/index.js:74:5
-    at Layer.handle [as handle_request] (/app/node_modules/express/lib/router/layer.js:95:5)
-(node:15) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). (rejection id: 9)
-(node:15) UnhandledPromiseRejectionWarning: Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
-    at validateHeader (_http_outgoing.js:500:11)
-    at ServerResponse.setHeader (_http_outgoing.js:507:3)
-    at Object.handleRangeHeaders (/app/node_modules/webpack-dev-middleware/lib/Shared.js:78:8)
-    at processRequest (/app/node_modules/webpack-dev-middleware/middleware.js:71:22)
+    at goNext (/app/node_modules/webpack-dev-middleware/middleware.js:27:49)
+    at processRequest (/app/node_modules/webpack-dev-middleware/middleware.js:66:21)
     at Object.ready (/app/node_modules/webpack-dev-middleware/lib/Shared.js:166:29)
     at Object.handleRequest (/app/node_modules/webpack-dev-middleware/lib/Shared.js:209:10)
     at /app/node_modules/webpack-dev-middleware/middleware.js:44:11
@@ -171,17 +180,16 @@ SENDING FILE : /app/www/shared/video-game/game-35/scenario-13/Release/WebPlayer.
     at webpackDevMiddleware (/app/node_modules/webpack-dev-middleware/middleware.js:43:10)
     at Layer.handle [as handle_request] (/app/node_modules/express/lib/router/layer.js:95:5)
     at trim_prefix (/app/node_modules/express/lib/router/index.js:317:13)
+ReferenceError: response is not defined
+    at Object.bypass (/app/scripts/server.js:281:15)
+    at /app/node_modules/webpack-dev-server/lib/Server.js:192:45
+    at Layer.handle [as handle_request] (/app/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/app/node_modules/express/lib/router/index.js:317:13)
     at /app/node_modules/express/lib/router/index.js:284:7
     at Function.process_params (/app/node_modules/express/lib/router/index.js:335:12)
     at next (/app/node_modules/express/lib/router/index.js:275:10)
-    at /app/node_modules/connect-history-api-fallback/lib/index.js:74:5
-    at Layer.handle [as handle_request] (/app/node_modules/express/lib/router/layer.js:95:5)
-(node:15) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). (rejection id: 10)
-(node:15) UnhandledPromiseRejectionWarning: Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
-    at validateHeader (_http_outgoing.js:500:11)
-    at ServerResponse.setHeader (_http_outgoing.js:507:3)
-    at Object.handleRangeHeaders (/app/node_modules/webpack-dev-middleware/lib/Shared.js:78:8)
-    at processRequest (/app/node_modules/webpack-dev-middleware/middleware.js:71:22)
+    at goNext (/app/node_modules/webpack-dev-middleware/middleware.js:27:49)
+    at processRequest (/app/node_modules/webpack-dev-middleware/middleware.js:66:21)
     at Object.ready (/app/node_modules/webpack-dev-middleware/lib/Shared.js:166:29)
     at Object.handleRequest (/app/node_modules/webpack-dev-middleware/lib/Shared.js:209:10)
     at /app/node_modules/webpack-dev-middleware/middleware.js:44:11
@@ -189,17 +197,16 @@ SENDING FILE : /app/www/shared/video-game/game-35/scenario-13/Release/WebPlayer.
     at webpackDevMiddleware (/app/node_modules/webpack-dev-middleware/middleware.js:43:10)
     at Layer.handle [as handle_request] (/app/node_modules/express/lib/router/layer.js:95:5)
     at trim_prefix (/app/node_modules/express/lib/router/index.js:317:13)
+ReferenceError: response is not defined
+    at Object.bypass (/app/scripts/server.js:281:15)
+    at /app/node_modules/webpack-dev-server/lib/Server.js:192:45
+    at Layer.handle [as handle_request] (/app/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/app/node_modules/express/lib/router/index.js:317:13)
     at /app/node_modules/express/lib/router/index.js:284:7
     at Function.process_params (/app/node_modules/express/lib/router/index.js:335:12)
     at next (/app/node_modules/express/lib/router/index.js:275:10)
-    at /app/node_modules/connect-history-api-fallback/lib/index.js:74:5
-    at Layer.handle [as handle_request] (/app/node_modules/express/lib/router/layer.js:95:5)
-(node:15) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). (rejection id: 11)
-(node:15) UnhandledPromiseRejectionWarning: Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
-    at validateHeader (_http_outgoing.js:500:11)
-    at ServerResponse.setHeader (_http_outgoing.js:507:3)
-    at Object.handleRangeHeaders (/app/node_modules/webpack-dev-middleware/lib/Shared.js:78:8)
-    at processRequest (/app/node_modules/webpack-dev-middleware/middleware.js:71:22)
+    at goNext (/app/node_modules/webpack-dev-middleware/middleware.js:27:49)
+    at processRequest (/app/node_modules/webpack-dev-middleware/middleware.js:66:21)
     at Object.ready (/app/node_modules/webpack-dev-middleware/lib/Shared.js:166:29)
     at Object.handleRequest (/app/node_modules/webpack-dev-middleware/lib/Shared.js:209:10)
     at /app/node_modules/webpack-dev-middleware/middleware.js:44:11
@@ -207,9 +214,394 @@ SENDING FILE : /app/www/shared/video-game/game-35/scenario-13/Release/WebPlayer.
     at webpackDevMiddleware (/app/node_modules/webpack-dev-middleware/middleware.js:43:10)
     at Layer.handle [as handle_request] (/app/node_modules/express/lib/router/layer.js:95:5)
     at trim_prefix (/app/node_modules/express/lib/router/index.js:317:13)
+ReferenceError: response is not defined
+    at Object.bypass (/app/scripts/server.js:281:15)
+    at /app/node_modules/webpack-dev-server/lib/Server.js:192:45
+    at Layer.handle [as handle_request] (/app/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/app/node_modules/express/lib/router/index.js:317:13)
     at /app/node_modules/express/lib/router/index.js:284:7
     at Function.process_params (/app/node_modules/express/lib/router/index.js:335:12)
     at next (/app/node_modules/express/lib/router/index.js:275:10)
-    at /app/node_modules/connect-history-api-fallback/lib/index.js:74:5
+    at goNext (/app/node_modules/webpack-dev-middleware/middleware.js:27:49)
+    at processRequest (/app/node_modules/webpack-dev-middleware/middleware.js:66:21)
+    at Object.ready (/app/node_modules/webpack-dev-middleware/lib/Shared.js:166:29)
+    at Object.handleRequest (/app/node_modules/webpack-dev-middleware/lib/Shared.js:209:10)
+    at /app/node_modules/webpack-dev-middleware/middleware.js:44:11
+    at new Promise (<anonymous>)
+    at webpackDevMiddleware (/app/node_modules/webpack-dev-middleware/middleware.js:43:10)
     at Layer.handle [as handle_request] (/app/node_modules/express/lib/router/layer.js:95:5)
-(node:15) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). (rejection id: 12)
+    at trim_prefix (/app/node_modules/express/lib/router/index.js:317:13)
+ReferenceError: response is not defined
+    at Object.bypass (/app/scripts/server.js:281:15)
+    at /app/node_modules/webpack-dev-server/lib/Server.js:192:45
+    at Layer.handle [as handle_request] (/app/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/app/node_modules/express/lib/router/index.js:317:13)
+    at /app/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/app/node_modules/express/lib/router/index.js:335:12)
+    at next (/app/node_modules/express/lib/router/index.js:275:10)
+    at goNext (/app/node_modules/webpack-dev-middleware/middleware.js:27:49)
+    at processRequest (/app/node_modules/webpack-dev-middleware/middleware.js:66:21)
+    at Object.ready (/app/node_modules/webpack-dev-middleware/lib/Shared.js:166:29)
+    at Object.handleRequest (/app/node_modules/webpack-dev-middleware/lib/Shared.js:209:10)
+    at /app/node_modules/webpack-dev-middleware/middleware.js:44:11
+    at new Promise (<anonymous>)
+    at webpackDevMiddleware (/app/node_modules/webpack-dev-middleware/middleware.js:43:10)
+    at Layer.handle [as handle_request] (/app/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/app/node_modules/express/lib/router/index.js:317:13)
+ReferenceError: response is not defined
+    at Object.bypass (/app/scripts/server.js:281:15)
+    at /app/node_modules/webpack-dev-server/lib/Server.js:192:45
+    at Layer.handle [as handle_request] (/app/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/app/node_modules/express/lib/router/index.js:317:13)
+    at /app/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/app/node_modules/express/lib/router/index.js:335:12)
+    at next (/app/node_modules/express/lib/router/index.js:275:10)
+    at goNext (/app/node_modules/webpack-dev-middleware/middleware.js:27:49)
+    at processRequest (/app/node_modules/webpack-dev-middleware/middleware.js:66:21)
+    at Object.ready (/app/node_modules/webpack-dev-middleware/lib/Shared.js:166:29)
+    at Object.handleRequest (/app/node_modules/webpack-dev-middleware/lib/Shared.js:209:10)
+    at /app/node_modules/webpack-dev-middleware/middleware.js:44:11
+    at new Promise (<anonymous>)
+    at webpackDevMiddleware (/app/node_modules/webpack-dev-middleware/middleware.js:43:10)
+    at Layer.handle [as handle_request] (/app/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/app/node_modules/express/lib/router/index.js:317:13)
+ReferenceError: response is not defined
+    at Object.bypass (/app/scripts/server.js:281:15)
+    at /app/node_modules/webpack-dev-server/lib/Server.js:192:45
+    at Layer.handle [as handle_request] (/app/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/app/node_modules/express/lib/router/index.js:317:13)
+    at /app/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/app/node_modules/express/lib/router/index.js:335:12)
+    at next (/app/node_modules/express/lib/router/index.js:275:10)
+    at goNext (/app/node_modules/webpack-dev-middleware/middleware.js:27:49)
+    at processRequest (/app/node_modules/webpack-dev-middleware/middleware.js:66:21)
+    at Object.ready (/app/node_modules/webpack-dev-middleware/lib/Shared.js:166:29)
+    at Object.handleRequest (/app/node_modules/webpack-dev-middleware/lib/Shared.js:209:10)
+    at /app/node_modules/webpack-dev-middleware/middleware.js:44:11
+    at new Promise (<anonymous>)
+    at webpackDevMiddleware (/app/node_modules/webpack-dev-middleware/middleware.js:43:10)
+    at Layer.handle [as handle_request] (/app/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/app/node_modules/express/lib/router/index.js:317:13)
+ReferenceError: response is not defined
+    at Object.bypass (/app/scripts/server.js:281:15)
+    at /app/node_modules/webpack-dev-server/lib/Server.js:192:45
+    at Layer.handle [as handle_request] (/app/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/app/node_modules/express/lib/router/index.js:317:13)
+    at /app/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/app/node_modules/express/lib/router/index.js:335:12)
+    at next (/app/node_modules/express/lib/router/index.js:275:10)
+    at goNext (/app/node_modules/webpack-dev-middleware/middleware.js:27:49)
+    at processRequest (/app/node_modules/webpack-dev-middleware/middleware.js:66:21)
+    at Object.ready (/app/node_modules/webpack-dev-middleware/lib/Shared.js:166:29)
+    at Object.handleRequest (/app/node_modules/webpack-dev-middleware/lib/Shared.js:209:10)
+    at /app/node_modules/webpack-dev-middleware/middleware.js:44:11
+    at new Promise (<anonymous>)
+    at webpackDevMiddleware (/app/node_modules/webpack-dev-middleware/middleware.js:43:10)
+    at Layer.handle [as handle_request] (/app/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/app/node_modules/express/lib/router/index.js:317:13)
+ReferenceError: response is not defined
+    at Object.bypass (/app/scripts/server.js:281:15)
+    at /app/node_modules/webpack-dev-server/lib/Server.js:192:45
+    at Layer.handle [as handle_request] (/app/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/app/node_modules/express/lib/router/index.js:317:13)
+    at /app/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/app/node_modules/express/lib/router/index.js:335:12)
+    at next (/app/node_modules/express/lib/router/index.js:275:10)
+    at goNext (/app/node_modules/webpack-dev-middleware/middleware.js:27:49)
+    at processRequest (/app/node_modules/webpack-dev-middleware/middleware.js:66:21)
+    at Object.ready (/app/node_modules/webpack-dev-middleware/lib/Shared.js:166:29)
+    at Object.handleRequest (/app/node_modules/webpack-dev-middleware/lib/Shared.js:209:10)
+    at /app/node_modules/webpack-dev-middleware/middleware.js:44:11
+    at new Promise (<anonymous>)
+    at webpackDevMiddleware (/app/node_modules/webpack-dev-middleware/middleware.js:43:10)
+    at Layer.handle [as handle_request] (/app/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/app/node_modules/express/lib/router/index.js:317:13)
+ReferenceError: response is not defined
+    at Object.bypass (/app/scripts/server.js:281:15)
+    at /app/node_modules/webpack-dev-server/lib/Server.js:192:45
+    at Layer.handle [as handle_request] (/app/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/app/node_modules/express/lib/router/index.js:317:13)
+    at /app/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/app/node_modules/express/lib/router/index.js:335:12)
+    at next (/app/node_modules/express/lib/router/index.js:275:10)
+    at goNext (/app/node_modules/webpack-dev-middleware/middleware.js:27:49)
+    at processRequest (/app/node_modules/webpack-dev-middleware/middleware.js:66:21)
+    at Object.ready (/app/node_modules/webpack-dev-middleware/lib/Shared.js:166:29)
+    at Object.handleRequest (/app/node_modules/webpack-dev-middleware/lib/Shared.js:209:10)
+    at /app/node_modules/webpack-dev-middleware/middleware.js:44:11
+    at new Promise (<anonymous>)
+    at webpackDevMiddleware (/app/node_modules/webpack-dev-middleware/middleware.js:43:10)
+    at Layer.handle [as handle_request] (/app/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/app/node_modules/express/lib/router/index.js:317:13)
+ReferenceError: response is not defined
+    at Object.bypass (/app/scripts/server.js:281:15)
+    at /app/node_modules/webpack-dev-server/lib/Server.js:192:45
+    at Layer.handle [as handle_request] (/app/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/app/node_modules/express/lib/router/index.js:317:13)
+    at /app/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/app/node_modules/express/lib/router/index.js:335:12)
+    at next (/app/node_modules/express/lib/router/index.js:275:10)
+    at goNext (/app/node_modules/webpack-dev-middleware/middleware.js:27:49)
+    at processRequest (/app/node_modules/webpack-dev-middleware/middleware.js:66:21)
+    at Object.ready (/app/node_modules/webpack-dev-middleware/lib/Shared.js:166:29)
+    at Object.handleRequest (/app/node_modules/webpack-dev-middleware/lib/Shared.js:209:10)
+    at /app/node_modules/webpack-dev-middleware/middleware.js:44:11
+    at new Promise (<anonymous>)
+    at webpackDevMiddleware (/app/node_modules/webpack-dev-middleware/middleware.js:43:10)
+    at Layer.handle [as handle_request] (/app/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/app/node_modules/express/lib/router/index.js:317:13)
+ReferenceError: response is not defined
+    at Object.bypass (/app/scripts/server.js:281:15)
+    at /app/node_modules/webpack-dev-server/lib/Server.js:192:45
+    at Layer.handle [as handle_request] (/app/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/app/node_modules/express/lib/router/index.js:317:13)
+    at /app/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/app/node_modules/express/lib/router/index.js:335:12)
+    at next (/app/node_modules/express/lib/router/index.js:275:10)
+    at goNext (/app/node_modules/webpack-dev-middleware/middleware.js:27:49)
+    at processRequest (/app/node_modules/webpack-dev-middleware/middleware.js:66:21)
+    at Object.ready (/app/node_modules/webpack-dev-middleware/lib/Shared.js:166:29)
+    at Object.handleRequest (/app/node_modules/webpack-dev-middleware/lib/Shared.js:209:10)
+    at /app/node_modules/webpack-dev-middleware/middleware.js:44:11
+    at new Promise (<anonymous>)
+    at webpackDevMiddleware (/app/node_modules/webpack-dev-middleware/middleware.js:43:10)
+    at Layer.handle [as handle_request] (/app/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/app/node_modules/express/lib/router/index.js:317:13)
+ReferenceError: response is not defined
+    at Object.bypass (/app/scripts/server.js:281:15)
+    at /app/node_modules/webpack-dev-server/lib/Server.js:192:45
+    at Layer.handle [as handle_request] (/app/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/app/node_modules/express/lib/router/index.js:317:13)
+    at /app/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/app/node_modules/express/lib/router/index.js:335:12)
+    at next (/app/node_modules/express/lib/router/index.js:275:10)
+    at goNext (/app/node_modules/webpack-dev-middleware/middleware.js:27:49)
+    at processRequest (/app/node_modules/webpack-dev-middleware/middleware.js:66:21)
+    at Object.ready (/app/node_modules/webpack-dev-middleware/lib/Shared.js:166:29)
+    at Object.handleRequest (/app/node_modules/webpack-dev-middleware/lib/Shared.js:209:10)
+    at /app/node_modules/webpack-dev-middleware/middleware.js:44:11
+    at new Promise (<anonymous>)
+    at webpackDevMiddleware (/app/node_modules/webpack-dev-middleware/middleware.js:43:10)
+    at Layer.handle [as handle_request] (/app/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/app/node_modules/express/lib/router/index.js:317:13)
+ReferenceError: response is not defined
+    at Object.bypass (/app/scripts/server.js:281:15)
+    at /app/node_modules/webpack-dev-server/lib/Server.js:192:45
+    at Layer.handle [as handle_request] (/app/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/app/node_modules/express/lib/router/index.js:317:13)
+    at /app/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/app/node_modules/express/lib/router/index.js:335:12)
+    at next (/app/node_modules/express/lib/router/index.js:275:10)
+    at goNext (/app/node_modules/webpack-dev-middleware/middleware.js:27:49)
+    at processRequest (/app/node_modules/webpack-dev-middleware/middleware.js:66:21)
+    at Object.ready (/app/node_modules/webpack-dev-middleware/lib/Shared.js:166:29)
+    at Object.handleRequest (/app/node_modules/webpack-dev-middleware/lib/Shared.js:209:10)
+    at /app/node_modules/webpack-dev-middleware/middleware.js:44:11
+    at new Promise (<anonymous>)
+    at webpackDevMiddleware (/app/node_modules/webpack-dev-middleware/middleware.js:43:10)
+    at Layer.handle [as handle_request] (/app/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/app/node_modules/express/lib/router/index.js:317:13)
+ReferenceError: response is not defined
+    at Object.bypass (/app/scripts/server.js:281:15)
+    at /app/node_modules/webpack-dev-server/lib/Server.js:192:45
+    at Layer.handle [as handle_request] (/app/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/app/node_modules/express/lib/router/index.js:317:13)
+    at /app/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/app/node_modules/express/lib/router/index.js:335:12)
+    at next (/app/node_modules/express/lib/router/index.js:275:10)
+    at goNext (/app/node_modules/webpack-dev-middleware/middleware.js:27:49)
+    at processRequest (/app/node_modules/webpack-dev-middleware/middleware.js:66:21)
+    at Object.ready (/app/node_modules/webpack-dev-middleware/lib/Shared.js:166:29)
+    at Object.handleRequest (/app/node_modules/webpack-dev-middleware/lib/Shared.js:209:10)
+    at /app/node_modules/webpack-dev-middleware/middleware.js:44:11
+    at new Promise (<anonymous>)
+    at webpackDevMiddleware (/app/node_modules/webpack-dev-middleware/middleware.js:43:10)
+    at Layer.handle [as handle_request] (/app/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/app/node_modules/express/lib/router/index.js:317:13)
+ReferenceError: response is not defined
+    at Object.bypass (/app/scripts/server.js:281:15)
+    at /app/node_modules/webpack-dev-server/lib/Server.js:192:45
+    at Layer.handle [as handle_request] (/app/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/app/node_modules/express/lib/router/index.js:317:13)
+    at /app/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/app/node_modules/express/lib/router/index.js:335:12)
+    at next (/app/node_modules/express/lib/router/index.js:275:10)
+    at goNext (/app/node_modules/webpack-dev-middleware/middleware.js:27:49)
+    at processRequest (/app/node_modules/webpack-dev-middleware/middleware.js:66:21)
+    at Object.ready (/app/node_modules/webpack-dev-middleware/lib/Shared.js:166:29)
+    at Object.handleRequest (/app/node_modules/webpack-dev-middleware/lib/Shared.js:209:10)
+    at /app/node_modules/webpack-dev-middleware/middleware.js:44:11
+    at new Promise (<anonymous>)
+    at webpackDevMiddleware (/app/node_modules/webpack-dev-middleware/middleware.js:43:10)
+    at Layer.handle [as handle_request] (/app/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/app/node_modules/express/lib/router/index.js:317:13)
+ReferenceError: response is not defined
+    at Object.bypass (/app/scripts/server.js:281:15)
+    at /app/node_modules/webpack-dev-server/lib/Server.js:192:45
+    at Layer.handle [as handle_request] (/app/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/app/node_modules/express/lib/router/index.js:317:13)
+    at /app/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/app/node_modules/express/lib/router/index.js:335:12)
+    at next (/app/node_modules/express/lib/router/index.js:275:10)
+    at goNext (/app/node_modules/webpack-dev-middleware/middleware.js:27:49)
+    at processRequest (/app/node_modules/webpack-dev-middleware/middleware.js:66:21)
+    at Object.ready (/app/node_modules/webpack-dev-middleware/lib/Shared.js:166:29)
+    at Object.handleRequest (/app/node_modules/webpack-dev-middleware/lib/Shared.js:209:10)
+    at /app/node_modules/webpack-dev-middleware/middleware.js:44:11
+    at new Promise (<anonymous>)
+    at webpackDevMiddleware (/app/node_modules/webpack-dev-middleware/middleware.js:43:10)
+    at Layer.handle [as handle_request] (/app/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/app/node_modules/express/lib/router/index.js:317:13)
+ReferenceError: response is not defined
+    at Object.bypass (/app/scripts/server.js:281:15)
+    at /app/node_modules/webpack-dev-server/lib/Server.js:192:45
+    at Layer.handle [as handle_request] (/app/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/app/node_modules/express/lib/router/index.js:317:13)
+    at /app/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/app/node_modules/express/lib/router/index.js:335:12)
+    at next (/app/node_modules/express/lib/router/index.js:275:10)
+    at goNext (/app/node_modules/webpack-dev-middleware/middleware.js:27:49)
+    at processRequest (/app/node_modules/webpack-dev-middleware/middleware.js:66:21)
+    at Object.ready (/app/node_modules/webpack-dev-middleware/lib/Shared.js:166:29)
+    at Object.handleRequest (/app/node_modules/webpack-dev-middleware/lib/Shared.js:209:10)
+    at /app/node_modules/webpack-dev-middleware/middleware.js:44:11
+    at new Promise (<anonymous>)
+    at webpackDevMiddleware (/app/node_modules/webpack-dev-middleware/middleware.js:43:10)
+    at Layer.handle [as handle_request] (/app/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/app/node_modules/express/lib/router/index.js:317:13)
+ReferenceError: response is not defined
+    at Object.bypass (/app/scripts/server.js:281:15)
+    at /app/node_modules/webpack-dev-server/lib/Server.js:192:45
+    at Layer.handle [as handle_request] (/app/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/app/node_modules/express/lib/router/index.js:317:13)
+    at /app/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/app/node_modules/express/lib/router/index.js:335:12)
+    at next (/app/node_modules/express/lib/router/index.js:275:10)
+    at goNext (/app/node_modules/webpack-dev-middleware/middleware.js:27:49)
+    at processRequest (/app/node_modules/webpack-dev-middleware/middleware.js:66:21)
+    at Object.ready (/app/node_modules/webpack-dev-middleware/lib/Shared.js:166:29)
+    at Object.handleRequest (/app/node_modules/webpack-dev-middleware/lib/Shared.js:209:10)
+    at /app/node_modules/webpack-dev-middleware/middleware.js:44:11
+    at new Promise (<anonymous>)
+    at webpackDevMiddleware (/app/node_modules/webpack-dev-middleware/middleware.js:43:10)
+    at Layer.handle [as handle_request] (/app/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/app/node_modules/express/lib/router/index.js:317:13)
+ReferenceError: response is not defined
+    at Object.bypass (/app/scripts/server.js:281:15)
+    at /app/node_modules/webpack-dev-server/lib/Server.js:192:45
+    at Layer.handle [as handle_request] (/app/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/app/node_modules/express/lib/router/index.js:317:13)
+    at /app/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/app/node_modules/express/lib/router/index.js:335:12)
+    at next (/app/node_modules/express/lib/router/index.js:275:10)
+    at goNext (/app/node_modules/webpack-dev-middleware/middleware.js:27:49)
+    at processRequest (/app/node_modules/webpack-dev-middleware/middleware.js:66:21)
+    at Object.ready (/app/node_modules/webpack-dev-middleware/lib/Shared.js:166:29)
+    at Object.handleRequest (/app/node_modules/webpack-dev-middleware/lib/Shared.js:209:10)
+    at /app/node_modules/webpack-dev-middleware/middleware.js:44:11
+    at new Promise (<anonymous>)
+    at webpackDevMiddleware (/app/node_modules/webpack-dev-middleware/middleware.js:43:10)
+    at Layer.handle [as handle_request] (/app/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/app/node_modules/express/lib/router/index.js:317:13)
+ReferenceError: response is not defined
+    at Object.bypass (/app/scripts/server.js:281:15)
+    at /app/node_modules/webpack-dev-server/lib/Server.js:192:45
+    at Layer.handle [as handle_request] (/app/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/app/node_modules/express/lib/router/index.js:317:13)
+    at /app/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/app/node_modules/express/lib/router/index.js:335:12)
+    at next (/app/node_modules/express/lib/router/index.js:275:10)
+    at goNext (/app/node_modules/webpack-dev-middleware/middleware.js:27:49)
+    at processRequest (/app/node_modules/webpack-dev-middleware/middleware.js:66:21)
+    at Object.ready (/app/node_modules/webpack-dev-middleware/lib/Shared.js:166:29)
+    at Object.handleRequest (/app/node_modules/webpack-dev-middleware/lib/Shared.js:209:10)
+    at /app/node_modules/webpack-dev-middleware/middleware.js:44:11
+    at new Promise (<anonymous>)
+    at webpackDevMiddleware (/app/node_modules/webpack-dev-middleware/middleware.js:43:10)
+    at Layer.handle [as handle_request] (/app/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/app/node_modules/express/lib/router/index.js:317:13)
+ReferenceError: response is not defined
+    at Object.bypass (/app/scripts/server.js:281:15)
+    at /app/node_modules/webpack-dev-server/lib/Server.js:192:45
+    at Layer.handle [as handle_request] (/app/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/app/node_modules/express/lib/router/index.js:317:13)
+    at /app/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/app/node_modules/express/lib/router/index.js:335:12)
+    at next (/app/node_modules/express/lib/router/index.js:275:10)
+    at goNext (/app/node_modules/webpack-dev-middleware/middleware.js:27:49)
+    at processRequest (/app/node_modules/webpack-dev-middleware/middleware.js:66:21)
+    at Object.ready (/app/node_modules/webpack-dev-middleware/lib/Shared.js:166:29)
+    at Object.handleRequest (/app/node_modules/webpack-dev-middleware/lib/Shared.js:209:10)
+    at /app/node_modules/webpack-dev-middleware/middleware.js:44:11
+    at new Promise (<anonymous>)
+    at webpackDevMiddleware (/app/node_modules/webpack-dev-middleware/middleware.js:43:10)
+    at Layer.handle [as handle_request] (/app/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/app/node_modules/express/lib/router/index.js:317:13)
+ReferenceError: response is not defined
+    at Object.bypass (/app/scripts/server.js:281:15)
+    at /app/node_modules/webpack-dev-server/lib/Server.js:192:45
+    at Layer.handle [as handle_request] (/app/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/app/node_modules/express/lib/router/index.js:317:13)
+    at /app/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/app/node_modules/express/lib/router/index.js:335:12)
+    at next (/app/node_modules/express/lib/router/index.js:275:10)
+    at goNext (/app/node_modules/webpack-dev-middleware/middleware.js:27:49)
+    at processRequest (/app/node_modules/webpack-dev-middleware/middleware.js:66:21)
+    at Object.ready (/app/node_modules/webpack-dev-middleware/lib/Shared.js:166:29)
+    at Object.handleRequest (/app/node_modules/webpack-dev-middleware/lib/Shared.js:209:10)
+    at /app/node_modules/webpack-dev-middleware/middleware.js:44:11
+    at new Promise (<anonymous>)
+    at webpackDevMiddleware (/app/node_modules/webpack-dev-middleware/middleware.js:43:10)
+    at Layer.handle [as handle_request] (/app/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/app/node_modules/express/lib/router/index.js:317:13)
+ReferenceError: response is not defined
+    at Object.bypass (/app/scripts/server.js:281:15)
+    at /app/node_modules/webpack-dev-server/lib/Server.js:192:45
+    at Layer.handle [as handle_request] (/app/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/app/node_modules/express/lib/router/index.js:317:13)
+    at /app/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/app/node_modules/express/lib/router/index.js:335:12)
+    at next (/app/node_modules/express/lib/router/index.js:275:10)
+    at goNext (/app/node_modules/webpack-dev-middleware/middleware.js:27:49)
+    at processRequest (/app/node_modules/webpack-dev-middleware/middleware.js:66:21)
+    at Object.ready (/app/node_modules/webpack-dev-middleware/lib/Shared.js:166:29)
+    at Object.handleRequest (/app/node_modules/webpack-dev-middleware/lib/Shared.js:209:10)
+    at /app/node_modules/webpack-dev-middleware/middleware.js:44:11
+    at new Promise (<anonymous>)
+    at webpackDevMiddleware (/app/node_modules/webpack-dev-middleware/middleware.js:43:10)
+    at Layer.handle [as handle_request] (/app/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/app/node_modules/express/lib/router/index.js:317:13)
+ReferenceError: response is not defined
+    at Object.bypass (/app/scripts/server.js:281:15)
+    at /app/node_modules/webpack-dev-server/lib/Server.js:192:45
+    at Layer.handle [as handle_request] (/app/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/app/node_modules/express/lib/router/index.js:317:13)
+    at /app/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/app/node_modules/express/lib/router/index.js:335:12)
+    at next (/app/node_modules/express/lib/router/index.js:275:10)
+    at goNext (/app/node_modules/webpack-dev-middleware/middleware.js:27:49)
+    at processRequest (/app/node_modules/webpack-dev-middleware/middleware.js:66:21)
+    at Object.ready (/app/node_modules/webpack-dev-middleware/lib/Shared.js:166:29)
+    at Object.handleRequest (/app/node_modules/webpack-dev-middleware/lib/Shared.js:209:10)
+    at /app/node_modules/webpack-dev-middleware/middleware.js:44:11
+    at new Promise (<anonymous>)
+    at webpackDevMiddleware (/app/node_modules/webpack-dev-middleware/middleware.js:43:10)
+    at Layer.handle [as handle_request] (/app/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/app/node_modules/express/lib/router/index.js:317:13)
+ReferenceError: response is not defined
+    at Object.bypass (/app/scripts/server.js:281:15)
+    at /app/node_modules/webpack-dev-server/lib/Server.js:192:45
+    at Layer.handle [as handle_request] (/app/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/app/node_modules/express/lib/router/index.js:317:13)
+    at /app/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/app/node_modules/express/lib/router/index.js:335:12)
+    at next (/app/node_modules/express/lib/router/index.js:275:10)
+    at goNext (/app/node_modules/webpack-dev-middleware/middleware.js:27:49)
+    at processRequest (/app/node_modules/webpack-dev-middleware/middleware.js:66:21)
+    at Object.ready (/app/node_modules/webpack-dev-middleware/lib/Shared.js:166:29)
+    at Object.handleRequest (/app/node_modules/webpack-dev-middleware/lib/Shared.js:209:10)
+    at /app/node_modules/webpack-dev-middleware/middleware.js:44:11
+    at new Promise (<anonymous>)
+    at webpackDevMiddleware (/app/node_modules/webpack-dev-middleware/middleware.js:43:10)
+    at Layer.handle [as handle_request] (/app/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/app/node_modules/express/lib/router/index.js:317:13)
