@@ -17,7 +17,6 @@ import ProfileFiller from './dashboard/profile-filler'
 class Dashboard extends React.Component {
 
   constructor(props) {
-
     super(props)
     this.state = {}
   }
