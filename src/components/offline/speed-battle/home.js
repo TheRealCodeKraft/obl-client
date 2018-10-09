@@ -54,7 +54,7 @@ class Explanations extends React.Component {
              ? <span>Chargement de la session</span>
              : <a className={"btn btn-default btn-play"} onClick={this.handlePlay}>Je joue</a>}
           </Panel>
-       
+
         </Grid>
       )
     } else {
@@ -100,7 +100,7 @@ class Explanations extends React.Component {
                  </tbody>
                </Table>}
           </Panel>
-       
+
         </Grid>
       )
     }

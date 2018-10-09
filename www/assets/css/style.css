@@ -815,10 +815,12 @@ body {
   z-index: -2;
   left: 0;
   right: 0;
-  background-image: -webkit-radial-gradient(top, circle cover, #393b45 0%, #2d3038 70%);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.2)), url( "http://www.all4business.pl/wp-content/uploads/2014/12/rozw%C3%B3j-firmy.jpg");
+  background-size: cover;
+  /*background-image: -webkit-radial-gradient(top, circle cover, #393b45 0%, #2d3038 70%);
   background-image: -moz-radial-gradient(center, circle cover, #393b45 0%, #2d3038 70%);
   background-image: -o-radial-gradient(center, circle cover, #393b45 0%, #2d3038 70%);
-  background-image: radial-gradient(center, circle cover, #393b45 0%, #2d3038 70%);
+  background-image: radial-gradient(center, circle cover, #393b45 0%, #2d3038 70%);*/
   background-position: 50%, 50%;
 }
 .navigation {
