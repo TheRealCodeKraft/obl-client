@@ -86,7 +86,7 @@
           canvas.height = (window.innerHeight * 100)/100;
           canvas.width = (canvas.height * (16.0/9.0));
           loading.width = canvas.width;
-          loading.height = canvas.height;				
+          loading.height = canvas.height;
         }
         ratio = loading.width / 1920;
         logo.style.marginTop = -logo.height * ratio  + 'px';
@@ -150,6 +150,10 @@
       }
     </script>
   </head>
+
+
+  <img src="assets/images/Splash.jpg" id="iloading" alt="loading" title="loading" width="1191" height="670" style="top: 0px; left: 54px; position: absolute;">
+
 
   <body class="template" onload="loadXHook();resize_canvas();loadingPlayer()" onresize="resize_canvas()" style="overflow:hidden">
     <div align="center" id="loading" style="visibility:hidden">

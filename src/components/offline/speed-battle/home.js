@@ -37,7 +37,7 @@ class Explanations extends React.Component {
     if (!this.playerConnected(this.props.me)) {
       return (
         <Grid className="container-center animated slideInDown">
-           <Row className="view-header">
+           <Row className="view-header border">
             <div className={"header-icon"}>
                 <i className={"pe page-header-icon pe-7s-cup"}></i>
             </div>
@@ -52,7 +52,7 @@ class Explanations extends React.Component {
           <Panel className="panel panel-filled" style={this.state.loading ? {textAlign: "center"} : null}>
             {this.state.loading
              ? <span>Chargement de la session</span>
-             : <a className={"btn btn-default btn-play"} onClick={this.handlePlay}>Je joue</a>}
+             : <a className={"btn btn-default btn-play"} onClick={this.handlePlay}>Jouer</a>}
           </Panel>
 
         </Grid>

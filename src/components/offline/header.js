@@ -11,10 +11,18 @@ class Header extends React.Component {
 
   render() {
 
+    const divStyle = {
+      height: 60,
+      width: 60,
+      backgroundColor: 'white',
+      marginTop: 15,
+      marginLeft: 15,
+    }
+
     return (
       <div className="back-link">
         {this.props.location.pathname === "/speed-battle"
-         ? <img src="assets/images/logo-obl-small.png" alt="Open Business Labs" />
+         ? <img src="assets/images/FCD-ombre-blanche.png" style={divStyle} alt="Open Business Labs" />
          : <Link to="/"><img src="assets/images/logo-obl-small.png" alt="Open Business Labs" /></Link>
         }
       </div>
