@@ -6,12 +6,15 @@
 .btn {
   color: inherit;
   background-color: transparent;
+  font-size: 19px;
 }
 .buttons-margin .btn {
   margin-bottom: 5px;
 }
 .btn-default {
   border-color: #585d6e;
+  cursor: pointer;
+
 }
 .btn.btn-w-sm {
   min-width: 80px;
@@ -90,7 +93,7 @@ fieldset[disabled] .btn-accent.focus {
   background-color: #949ba2;
 }
 .btn-default {
-  color: #949ba2;
+  color: white;
   background-color: transparent;
   border-color: #616779;
 }
@@ -905,7 +908,7 @@ body.blank .content {
   min-height: 50px;
   padding: 17px 15px;
   border: 1px solid gray;
-  background-color: #dbdbdb;
+  background-color: #666363;
   border-radius: 6px;
 }
 /* Various */
@@ -1248,6 +1251,8 @@ img.image-xl {
 }
 .panel .panel-body {
   padding: 5px 15px 15px 15px;
+  background-color: #DBDBDB;
+  border-radius: 3px;
 }
 .panel.panel-filled .panel-body {
   padding-top: 10px;
