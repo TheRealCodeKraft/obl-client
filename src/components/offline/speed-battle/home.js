@@ -51,7 +51,9 @@ class Explanations extends React.Component {
             </Row>
             {this.state.loading
               ? <span>Chargement de la session</span>
-              : <a className={"btn btn-default btn-play"} onClick={this.handlePlay}>Jouer</a>}
+              : <a onClick={this.handlePlay} >
+                  <img className={"play-btn"} src="assets/images/JOUER.png" alt=""/>
+                </a>}
           </Panel>
         </Grid>
       )

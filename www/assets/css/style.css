@@ -907,11 +907,21 @@ body.blank .content {
   margin: 20px 0;
   min-height: 50px;
   padding: 17px 15px;
-  border: 1px solid gray;
-  background-color: #666363;
+  /*border: 1px solid gray;*/
   border-radius: 6px;
-  background-color: #004CB1 ;
+/*  background-color: #D6D6D6;
+*/}
+.container-center.animated h3 {
+  color: #193C89;
+  font-size: 33px;
 }
+
+.container-center.animated small {
+  color: #193C89;
+  font-size: 16px;
+}
+
+
 /* Various */
 a {
   color: #f6a821;
@@ -1257,6 +1267,13 @@ img.image-xl {
 }
 .panel.panel-filled .panel-body {
   padding-top: 10px;
+}
+.panel.panel-filled .play-btn {
+  height: 80px;
+  max-width: auto;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
 }
 .panel .panel-footer {
   background-color: transparent;
