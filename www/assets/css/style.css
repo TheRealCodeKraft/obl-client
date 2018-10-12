@@ -1347,6 +1347,7 @@ img.image-xl {
   float: left;
   margin-top: -8px;
   line-height: 0;
+  padding-top: 19px;
 }
 .view-header .header-title {
   margin-left: 68px;
