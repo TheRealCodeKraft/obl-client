@@ -14,16 +14,20 @@ class Header extends React.Component {
     const divStyle = {
       height: 60,
       width: 'auto',
-      backgroundColor: 'white',
       marginTop: 15,
-      marginLeft: 15,
+      marginLeft: 15
+    }
+
+    const imgStyle = {
+      height: 40,
+      margin: 30
     }
 
     return (
       <div className="back-link">
         {this.props.location.pathname === "/speed-battle"
-         ? <img src="assets/images/FCD-ombre-blanche.png" style={divStyle} alt="FCD défi des métier de bouches" />
-         : <Link to="/"><img src="assets/images/logo-obl-small.png" alt="Open Business Labs" /></Link>
+         ? <img src="assets/images/FCD_logo.png" style={divStyle} alt="FCD défi des métier de bouches" />
+         : <Link to="/"><img src="assets/images/Logo-final.ai.png" alt="Open Business Labs" style={imgStyle}/></Link>
         }
       </div>
     )

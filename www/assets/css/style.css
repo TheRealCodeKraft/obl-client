@@ -910,6 +910,7 @@ body.blank .content {
   border: 1px solid gray;
   background-color: #666363;
   border-radius: 6px;
+  background-color: #004CB1 ;
 }
 /* Various */
 a {
@@ -1250,7 +1251,7 @@ img.image-xl {
   border-radius: 3px;
 }
 .panel .panel-body {
-  padding: 5px 15px 15px 15px;
+  padding: 0px 15px 15px 15px;
   background-color: #DBDBDB;
   border-radius: 3px;
 }
@@ -1332,6 +1333,8 @@ img.image-xl {
 }
 .view-header .header-title {
   margin-left: 68px;
+  color: white;
+
 }
 .view-header .header-title h3 {
   margin-bottom: 2px;
