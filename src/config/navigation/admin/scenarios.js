@@ -35,6 +35,11 @@ const config  = {
       {
         label: "Upload",
         name: "upload"
+      },
+      {
+        label: "Gif",
+        name: "gif",
+        type: "image"
       }
     ],
     actions: [
@@ -95,6 +100,12 @@ const config  = {
         placeholder: "Temps limite du scénario",
         type: "number",
         required: true
+      },
+      {
+        name: "gif",
+        label: "Gif",
+        placeholder: "indiquez l'url du gif",
+        type: "image-uploader"
       }
     ]
   },

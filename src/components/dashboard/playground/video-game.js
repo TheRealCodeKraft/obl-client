@@ -1,3 +1,6 @@
+// c'est le fichier qui va jouer le jeu vidéo (voir l'iframe)
+// le fichier index.html est joué dans l'iframe
+
 import React from "react"
 import { connect } from 'react-redux'
 
@@ -63,7 +66,7 @@ class VideoGame extends React.Component {
   componentWillUnmount() {
     window.API_1484_11 = undefined
   }
-  
+
   render() {
     return (
       <Grid fluid>
@@ -103,8 +106,8 @@ class VideoGame extends React.Component {
                         <Button className={"btn-warning"} onClick={this.runGame}>Commencer l'entretien</Button>
                         <h2><i className="pe pe-7s-search text-warning"></i> Liste des informations client que tu as recoltées</h2>
                         <CluesList clues={this.currentUserState().clues} />
-                        <iframe id="video-game-content" 
-                          frameborder="0" 
+                        <iframe id="video-game-content"
+                          frameborder="0"
                           style={{visibility: this.state.running ? "visible" : "hidden"}}
                           src={this.getUrl()}
                           width="100%"

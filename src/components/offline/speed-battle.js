@@ -13,6 +13,8 @@ import Scores from './speed-battle/scores'
 
 import SpeedAdmin from './speed-battle/admin'
 
+
+
 class SpeedBattle extends React.Component {
 
   constructor(props) {
@@ -30,11 +32,13 @@ class SpeedBattle extends React.Component {
   }
 
   componentWillReceiveProps(props) {
-    console.log("loading session ?")
-    console.log(props.me)
-    console.log(props.me ? props.me.robot : "NOPE")
-    console.log(this.state.loadingSession)
-    console.log(this.props.session)
+    // console.log("loading session ?")
+    // console.log(props.me)
+    // console.log(props.me ? props.me.robot : "NOPE")
+    // console.log(this.state.loadingSession)
+    // console.log(this.props.session)
+
+    //permet de logger le robot automatiquement
     if (!this.state.loadingSession && props.me && props.me.robot && !this.props.session) {
       console.log("load session")
       var self=this
@@ -139,8 +143,11 @@ class SpeedBattle extends React.Component {
 function mapStateToProps(state) {
   return {
     me: state.userState.me || null,
+    // me permet de réccupérer l'utilisateur courant
     clients: state.bootstrap.clients || {},
+    // permet de réccupérer tous les clients d'API
     session: state.sessionState.session || null,
+    // permet d'avoir la session courante
   }
 }
 
