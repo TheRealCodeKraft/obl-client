@@ -1069,25 +1069,22 @@ SENDING FILE : /app/www/shared/video-game/game-17/scenario-17/Release/WebPlayer.
 SENDING FILE : /app/www/shared/video-game/game-17/scenario-17/Release/WebPlayer.datagz
 SENDING FILE : /app/www/shared/video-game/game-17/scenario-17/Release/WebPlayer.asm.jsgz
 SENDING FILE : /app/www/shared/video-game/game-17/scenario-17/Release/WebPlayer.jsgz
- Object.handleRequest (/app/node_modules/webpack-dev-middleware/lib/Shared.js:209:10)
-    at /app/node_modules/webpack-dev-middleware/middleware.js:44:11
-    at new Promise (<anonymous>)
-    at webpackDevMiddleware (/app/node_modules/webpack-dev-middleware/middleware.js:43:10)
-    at Layer.handle [as handle_request] (/app/node_modules/express/lib/router/layer.js:95:5)
-    at trim_prefix (/app/node_modules/express/lib/router/index.js:317:13)
-ReferenceError: response is not defined
-    at Object.bypass (/app/scripts/server.js:281:15)
-    at /app/node_modules/webpack-dev-server/lib/Server.js:192:45
-    at Layer.handle [as handle_request] (/app/node_modules/express/lib/router/layer.js:95:5)
-    at trim_prefix (/app/node_modules/express/lib/router/index.js:317:13)
-    at /app/node_modules/express/lib/router/index.js:284:7
-    at Function.process_params (/app/node_modules/express/lib/router/index.js:335:12)
-    at next (/app/node_modules/express/lib/router/index.js:275:10)
-    at goNext (/app/node_modules/webpack-dev-middleware/middleware.js:27:49)
-    at processRequest (/app/node_modules/webpack-dev-middleware/middleware.js:66:21)
-    at Object.ready (/app/node_modules/webpack-dev-middleware/lib/Shared.js:166:29)
-    at Object.handleRequest (/app/node_modules/webpack-dev-middleware/lib/Shared.js:209:10)
-    at /app/node_modules/webpack-dev-middleware/middleware.js:44:11
+SENDING FILE : /app/www/shared/video-game/game-17/scenario-17/Release/WebPlayer.memgz
+SENDING FILE : /app/www/shared/video-game/game-17/scenario-17/Release/WebPlayer.datagz
+SENDING FILE : /app/www/shared/video-game/game-17/scenario-17/Release/WebPlayer.asm.jsgz
+SENDING FILE : /app/www/shared/video-game/game-17/scenario-17/Release/WebPlayer.memgz
+SENDING FILE : /app/www/shared/video-game/game-17/scenario-17/Release/WebPlayer.datagz
+SENDING FILE : /app/www/shared/video-game/game-17/scenario-17/Release/WebPlayer.asm.jsgz
+SENDING FILE : /app/www/shared/video-game/game-17/scenario-17/Release/WebPlayer.jsgz
+SENDING FILE : /app/www/shared/video-game/game-17/scenario-17/Release/WebPlayer.jsgz
+SENDING FILE : /app/www/shared/video-game/game-17/scenario-17/Release/WebPlayer.memgz
+SENDING FILE : /app/www/shared/video-game/game-17/scenario-17/Release/WebPlayer.asm.jsgz
+SENDING FILE : /app/www/shared/video-game/game-17/scenario-17/Release/WebPlayer.datagz
+SENDING FILE : /app/www/shared/video-game/game-17/scenario-17/Release/WebPlayer.memgz
+SENDING FILE : /app/www/shared/video-game/game-17/scenario-17/Release/WebPlayer.datagz
+SENDING FILE : /app/www/shared/video-game/game-17/scenario-17/Release/WebPlayer.asm.jsgz
+SENDING FILE : /app/www/shared/video-game/game-17/scenario-17/Release/WebPlayer.jsgz
+SENDING FILE : /app/www/shared/video-game/game-17/scenario-17/Release/WebPlayer.jsgz
     at new Promise (<anonymous>)
     at webpackDevMiddleware (/app/node_modules/webpack-dev-middleware/middleware.js:43:10)
     at Layer.handle [as handle_request] (/app/node_modules/express/lib/router/layer.js:95:5)
@@ -10935,3 +10932,291 @@ ReferenceError: response is not defined
     at Layer.handle [as handle_request] (/app/node_modules/express/lib/router/layer.js:95:5)
     at trim_prefix (/app/node_modules/express/lib/router/index.js:317:13)
 (node:26) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). (rejection id: 16)
+(node:26) UnhandledPromiseRejectionWarning: Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (_http_outgoing.js:470:11)
+    at Object.handleRangeHeaders (/app/node_modules/webpack-dev-middleware/lib/Shared.js:78:8)
+    at processRequest (/app/node_modules/webpack-dev-middleware/middleware.js:71:22)
+    at Object.ready (/app/node_modules/webpack-dev-middleware/lib/Shared.js:166:29)
+    at Object.handleRequest (/app/node_modules/webpack-dev-middleware/lib/Shared.js:209:10)
+    at /app/node_modules/webpack-dev-middleware/middleware.js:44:11
+    at new Promise (<anonymous>)
+    at webpackDevMiddleware (/app/node_modules/webpack-dev-middleware/middleware.js:43:10)
+    at Layer.handle [as handle_request] (/app/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/app/node_modules/express/lib/router/index.js:317:13)
+    at /app/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/app/node_modules/express/lib/router/index.js:335:12)
+    at next (/app/node_modules/express/lib/router/index.js:275:10)
+    at /app/node_modules/connect-history-api-fallback/lib/index.js:74:5
+    at Layer.handle [as handle_request] (/app/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/app/node_modules/express/lib/router/index.js:317:13)
+(node:26) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). (rejection id: 17)
+(node:26) UnhandledPromiseRejectionWarning: Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (_http_outgoing.js:470:11)
+    at Object.handleRangeHeaders (/app/node_modules/webpack-dev-middleware/lib/Shared.js:78:8)
+    at processRequest (/app/node_modules/webpack-dev-middleware/middleware.js:71:22)
+    at Object.ready (/app/node_modules/webpack-dev-middleware/lib/Shared.js:166:29)
+    at Object.handleRequest (/app/node_modules/webpack-dev-middleware/lib/Shared.js:209:10)
+    at /app/node_modules/webpack-dev-middleware/middleware.js:44:11
+    at new Promise (<anonymous>)
+    at webpackDevMiddleware (/app/node_modules/webpack-dev-middleware/middleware.js:43:10)
+    at Layer.handle [as handle_request] (/app/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/app/node_modules/express/lib/router/index.js:317:13)
+    at /app/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/app/node_modules/express/lib/router/index.js:335:12)
+    at next (/app/node_modules/express/lib/router/index.js:275:10)
+    at /app/node_modules/connect-history-api-fallback/lib/index.js:74:5
+    at Layer.handle [as handle_request] (/app/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/app/node_modules/express/lib/router/index.js:317:13)
+(node:26) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). (rejection id: 18)
+(node:26) UnhandledPromiseRejectionWarning: Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (_http_outgoing.js:470:11)
+    at Object.handleRangeHeaders (/app/node_modules/webpack-dev-middleware/lib/Shared.js:78:8)
+    at processRequest (/app/node_modules/webpack-dev-middleware/middleware.js:71:22)
+    at Object.ready (/app/node_modules/webpack-dev-middleware/lib/Shared.js:166:29)
+    at Object.handleRequest (/app/node_modules/webpack-dev-middleware/lib/Shared.js:209:10)
+    at /app/node_modules/webpack-dev-middleware/middleware.js:44:11
+    at new Promise (<anonymous>)
+    at webpackDevMiddleware (/app/node_modules/webpack-dev-middleware/middleware.js:43:10)
+    at Layer.handle [as handle_request] (/app/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/app/node_modules/express/lib/router/index.js:317:13)
+    at /app/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/app/node_modules/express/lib/router/index.js:335:12)
+    at next (/app/node_modules/express/lib/router/index.js:275:10)
+    at /app/node_modules/connect-history-api-fallback/lib/index.js:74:5
+    at Layer.handle [as handle_request] (/app/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/app/node_modules/express/lib/router/index.js:317:13)
+(node:26) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). (rejection id: 19)
+(node:26) UnhandledPromiseRejectionWarning: Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (_http_outgoing.js:470:11)
+    at Object.handleRangeHeaders (/app/node_modules/webpack-dev-middleware/lib/Shared.js:78:8)
+    at processRequest (/app/node_modules/webpack-dev-middleware/middleware.js:71:22)
+    at Object.ready (/app/node_modules/webpack-dev-middleware/lib/Shared.js:166:29)
+    at Object.handleRequest (/app/node_modules/webpack-dev-middleware/lib/Shared.js:209:10)
+    at /app/node_modules/webpack-dev-middleware/middleware.js:44:11
+    at new Promise (<anonymous>)
+    at webpackDevMiddleware (/app/node_modules/webpack-dev-middleware/middleware.js:43:10)
+    at Layer.handle [as handle_request] (/app/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/app/node_modules/express/lib/router/index.js:317:13)
+    at /app/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/app/node_modules/express/lib/router/index.js:335:12)
+    at next (/app/node_modules/express/lib/router/index.js:275:10)
+    at /app/node_modules/connect-history-api-fallback/lib/index.js:74:5
+    at Layer.handle [as handle_request] (/app/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/app/node_modules/express/lib/router/index.js:317:13)
+(node:26) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). (rejection id: 20)
+(node:26) UnhandledPromiseRejectionWarning: Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (_http_outgoing.js:470:11)
+    at Object.handleRangeHeaders (/app/node_modules/webpack-dev-middleware/lib/Shared.js:78:8)
+    at processRequest (/app/node_modules/webpack-dev-middleware/middleware.js:71:22)
+    at Object.ready (/app/node_modules/webpack-dev-middleware/lib/Shared.js:166:29)
+    at Object.handleRequest (/app/node_modules/webpack-dev-middleware/lib/Shared.js:209:10)
+    at /app/node_modules/webpack-dev-middleware/middleware.js:44:11
+    at new Promise (<anonymous>)
+    at webpackDevMiddleware (/app/node_modules/webpack-dev-middleware/middleware.js:43:10)
+    at Layer.handle [as handle_request] (/app/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/app/node_modules/express/lib/router/index.js:317:13)
+    at /app/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/app/node_modules/express/lib/router/index.js:335:12)
+    at next (/app/node_modules/express/lib/router/index.js:275:10)
+    at /app/node_modules/connect-history-api-fallback/lib/index.js:74:5
+    at Layer.handle [as handle_request] (/app/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/app/node_modules/express/lib/router/index.js:317:13)
+(node:26) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). (rejection id: 21)
+(node:26) UnhandledPromiseRejectionWarning: Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (_http_outgoing.js:470:11)
+    at Object.handleRangeHeaders (/app/node_modules/webpack-dev-middleware/lib/Shared.js:78:8)
+    at processRequest (/app/node_modules/webpack-dev-middleware/middleware.js:71:22)
+    at Object.ready (/app/node_modules/webpack-dev-middleware/lib/Shared.js:166:29)
+    at Object.handleRequest (/app/node_modules/webpack-dev-middleware/lib/Shared.js:209:10)
+    at /app/node_modules/webpack-dev-middleware/middleware.js:44:11
+    at new Promise (<anonymous>)
+    at webpackDevMiddleware (/app/node_modules/webpack-dev-middleware/middleware.js:43:10)
+    at Layer.handle [as handle_request] (/app/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/app/node_modules/express/lib/router/index.js:317:13)
+    at /app/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/app/node_modules/express/lib/router/index.js:335:12)
+    at next (/app/node_modules/express/lib/router/index.js:275:10)
+    at /app/node_modules/connect-history-api-fallback/lib/index.js:74:5
+    at Layer.handle [as handle_request] (/app/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/app/node_modules/express/lib/router/index.js:317:13)
+(node:26) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). (rejection id: 22)
+(node:26) UnhandledPromiseRejectionWarning: Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (_http_outgoing.js:470:11)
+    at Object.handleRangeHeaders (/app/node_modules/webpack-dev-middleware/lib/Shared.js:78:8)
+    at processRequest (/app/node_modules/webpack-dev-middleware/middleware.js:71:22)
+    at Object.ready (/app/node_modules/webpack-dev-middleware/lib/Shared.js:166:29)
+    at Object.handleRequest (/app/node_modules/webpack-dev-middleware/lib/Shared.js:209:10)
+    at /app/node_modules/webpack-dev-middleware/middleware.js:44:11
+    at new Promise (<anonymous>)
+    at webpackDevMiddleware (/app/node_modules/webpack-dev-middleware/middleware.js:43:10)
+    at Layer.handle [as handle_request] (/app/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/app/node_modules/express/lib/router/index.js:317:13)
+    at /app/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/app/node_modules/express/lib/router/index.js:335:12)
+    at next (/app/node_modules/express/lib/router/index.js:275:10)
+    at /app/node_modules/connect-history-api-fallback/lib/index.js:74:5
+    at Layer.handle [as handle_request] (/app/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/app/node_modules/express/lib/router/index.js:317:13)
+(node:26) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). (rejection id: 23)
+(node:26) UnhandledPromiseRejectionWarning: Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (_http_outgoing.js:470:11)
+    at Object.handleRangeHeaders (/app/node_modules/webpack-dev-middleware/lib/Shared.js:78:8)
+    at processRequest (/app/node_modules/webpack-dev-middleware/middleware.js:71:22)
+    at Object.ready (/app/node_modules/webpack-dev-middleware/lib/Shared.js:166:29)
+    at Object.handleRequest (/app/node_modules/webpack-dev-middleware/lib/Shared.js:209:10)
+    at /app/node_modules/webpack-dev-middleware/middleware.js:44:11
+    at new Promise (<anonymous>)
+    at webpackDevMiddleware (/app/node_modules/webpack-dev-middleware/middleware.js:43:10)
+    at Layer.handle [as handle_request] (/app/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/app/node_modules/express/lib/router/index.js:317:13)
+    at /app/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/app/node_modules/express/lib/router/index.js:335:12)
+    at next (/app/node_modules/express/lib/router/index.js:275:10)
+    at /app/node_modules/connect-history-api-fallback/lib/index.js:74:5
+    at Layer.handle [as handle_request] (/app/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/app/node_modules/express/lib/router/index.js:317:13)
+(node:26) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). (rejection id: 24)
+(node:26) UnhandledPromiseRejectionWarning: Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (_http_outgoing.js:470:11)
+    at Object.handleRangeHeaders (/app/node_modules/webpack-dev-middleware/lib/Shared.js:78:8)
+    at processRequest (/app/node_modules/webpack-dev-middleware/middleware.js:71:22)
+    at Object.ready (/app/node_modules/webpack-dev-middleware/lib/Shared.js:166:29)
+    at Object.handleRequest (/app/node_modules/webpack-dev-middleware/lib/Shared.js:209:10)
+    at /app/node_modules/webpack-dev-middleware/middleware.js:44:11
+    at new Promise (<anonymous>)
+    at webpackDevMiddleware (/app/node_modules/webpack-dev-middleware/middleware.js:43:10)
+    at Layer.handle [as handle_request] (/app/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/app/node_modules/express/lib/router/index.js:317:13)
+    at /app/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/app/node_modules/express/lib/router/index.js:335:12)
+    at next (/app/node_modules/express/lib/router/index.js:275:10)
+    at /app/node_modules/connect-history-api-fallback/lib/index.js:74:5
+    at Layer.handle [as handle_request] (/app/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/app/node_modules/express/lib/router/index.js:317:13)
+(node:26) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). (rejection id: 25)
+(node:26) UnhandledPromiseRejectionWarning: Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (_http_outgoing.js:470:11)
+    at Object.handleRangeHeaders (/app/node_modules/webpack-dev-middleware/lib/Shared.js:78:8)
+    at processRequest (/app/node_modules/webpack-dev-middleware/middleware.js:71:22)
+    at Object.ready (/app/node_modules/webpack-dev-middleware/lib/Shared.js:166:29)
+    at Object.handleRequest (/app/node_modules/webpack-dev-middleware/lib/Shared.js:209:10)
+    at /app/node_modules/webpack-dev-middleware/middleware.js:44:11
+    at new Promise (<anonymous>)
+    at webpackDevMiddleware (/app/node_modules/webpack-dev-middleware/middleware.js:43:10)
+    at Layer.handle [as handle_request] (/app/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/app/node_modules/express/lib/router/index.js:317:13)
+    at /app/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/app/node_modules/express/lib/router/index.js:335:12)
+    at next (/app/node_modules/express/lib/router/index.js:275:10)
+    at /app/node_modules/connect-history-api-fallback/lib/index.js:74:5
+    at Layer.handle [as handle_request] (/app/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/app/node_modules/express/lib/router/index.js:317:13)
+(node:26) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). (rejection id: 26)
+(node:26) UnhandledPromiseRejectionWarning: Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (_http_outgoing.js:470:11)
+    at Object.handleRangeHeaders (/app/node_modules/webpack-dev-middleware/lib/Shared.js:78:8)
+    at processRequest (/app/node_modules/webpack-dev-middleware/middleware.js:71:22)
+    at Object.ready (/app/node_modules/webpack-dev-middleware/lib/Shared.js:166:29)
+    at Object.handleRequest (/app/node_modules/webpack-dev-middleware/lib/Shared.js:209:10)
+    at /app/node_modules/webpack-dev-middleware/middleware.js:44:11
+    at new Promise (<anonymous>)
+    at webpackDevMiddleware (/app/node_modules/webpack-dev-middleware/middleware.js:43:10)
+    at Layer.handle [as handle_request] (/app/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/app/node_modules/express/lib/router/index.js:317:13)
+    at /app/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/app/node_modules/express/lib/router/index.js:335:12)
+    at next (/app/node_modules/express/lib/router/index.js:275:10)
+    at /app/node_modules/connect-history-api-fallback/lib/index.js:74:5
+    at Layer.handle [as handle_request] (/app/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/app/node_modules/express/lib/router/index.js:317:13)
+(node:26) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). (rejection id: 27)
+(node:26) UnhandledPromiseRejectionWarning: Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (_http_outgoing.js:470:11)
+    at Object.handleRangeHeaders (/app/node_modules/webpack-dev-middleware/lib/Shared.js:78:8)
+    at processRequest (/app/node_modules/webpack-dev-middleware/middleware.js:71:22)
+    at Object.ready (/app/node_modules/webpack-dev-middleware/lib/Shared.js:166:29)
+    at Object.handleRequest (/app/node_modules/webpack-dev-middleware/lib/Shared.js:209:10)
+    at /app/node_modules/webpack-dev-middleware/middleware.js:44:11
+    at new Promise (<anonymous>)
+    at webpackDevMiddleware (/app/node_modules/webpack-dev-middleware/middleware.js:43:10)
+    at Layer.handle [as handle_request] (/app/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/app/node_modules/express/lib/router/index.js:317:13)
+    at /app/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/app/node_modules/express/lib/router/index.js:335:12)
+    at next (/app/node_modules/express/lib/router/index.js:275:10)
+    at /app/node_modules/connect-history-api-fallback/lib/index.js:74:5
+    at Layer.handle [as handle_request] (/app/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/app/node_modules/express/lib/router/index.js:317:13)
+(node:26) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). (rejection id: 28)
+(node:26) UnhandledPromiseRejectionWarning: Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (_http_outgoing.js:470:11)
+    at Object.handleRangeHeaders (/app/node_modules/webpack-dev-middleware/lib/Shared.js:78:8)
+    at processRequest (/app/node_modules/webpack-dev-middleware/middleware.js:71:22)
+    at Object.ready (/app/node_modules/webpack-dev-middleware/lib/Shared.js:166:29)
+    at Object.handleRequest (/app/node_modules/webpack-dev-middleware/lib/Shared.js:209:10)
+    at /app/node_modules/webpack-dev-middleware/middleware.js:44:11
+    at new Promise (<anonymous>)
+    at webpackDevMiddleware (/app/node_modules/webpack-dev-middleware/middleware.js:43:10)
+    at Layer.handle [as handle_request] (/app/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/app/node_modules/express/lib/router/index.js:317:13)
+    at /app/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/app/node_modules/express/lib/router/index.js:335:12)
+    at next (/app/node_modules/express/lib/router/index.js:275:10)
+    at /app/node_modules/connect-history-api-fallback/lib/index.js:74:5
+    at Layer.handle [as handle_request] (/app/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/app/node_modules/express/lib/router/index.js:317:13)
+(node:26) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). (rejection id: 29)
+(node:26) UnhandledPromiseRejectionWarning: Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (_http_outgoing.js:470:11)
+    at Object.handleRangeHeaders (/app/node_modules/webpack-dev-middleware/lib/Shared.js:78:8)
+    at processRequest (/app/node_modules/webpack-dev-middleware/middleware.js:71:22)
+    at Object.ready (/app/node_modules/webpack-dev-middleware/lib/Shared.js:166:29)
+    at Object.handleRequest (/app/node_modules/webpack-dev-middleware/lib/Shared.js:209:10)
+    at /app/node_modules/webpack-dev-middleware/middleware.js:44:11
+    at new Promise (<anonymous>)
+    at webpackDevMiddleware (/app/node_modules/webpack-dev-middleware/middleware.js:43:10)
+    at Layer.handle [as handle_request] (/app/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/app/node_modules/express/lib/router/index.js:317:13)
+    at /app/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/app/node_modules/express/lib/router/index.js:335:12)
+    at next (/app/node_modules/express/lib/router/index.js:275:10)
+    at /app/node_modules/connect-history-api-fallback/lib/index.js:74:5
+    at Layer.handle [as handle_request] (/app/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/app/node_modules/express/lib/router/index.js:317:13)
+(node:26) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). (rejection id: 30)
+(node:26) UnhandledPromiseRejectionWarning: Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (_http_outgoing.js:470:11)
+    at Object.handleRangeHeaders (/app/node_modules/webpack-dev-middleware/lib/Shared.js:78:8)
+    at processRequest (/app/node_modules/webpack-dev-middleware/middleware.js:71:22)
+    at Object.ready (/app/node_modules/webpack-dev-middleware/lib/Shared.js:166:29)
+    at Object.handleRequest (/app/node_modules/webpack-dev-middleware/lib/Shared.js:209:10)
+    at /app/node_modules/webpack-dev-middleware/middleware.js:44:11
+    at new Promise (<anonymous>)
+    at webpackDevMiddleware (/app/node_modules/webpack-dev-middleware/middleware.js:43:10)
+    at Layer.handle [as handle_request] (/app/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/app/node_modules/express/lib/router/index.js:317:13)
+    at /app/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/app/node_modules/express/lib/router/index.js:335:12)
+    at next (/app/node_modules/express/lib/router/index.js:275:10)
+    at /app/node_modules/connect-history-api-fallback/lib/index.js:74:5
+    at Layer.handle [as handle_request] (/app/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/app/node_modules/express/lib/router/index.js:317:13)
+(node:26) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). (rejection id: 31)
+(node:26) UnhandledPromiseRejectionWarning: Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (_http_outgoing.js:470:11)
+    at Object.handleRangeHeaders (/app/node_modules/webpack-dev-middleware/lib/Shared.js:78:8)
+    at processRequest (/app/node_modules/webpack-dev-middleware/middleware.js:71:22)
+    at Object.ready (/app/node_modules/webpack-dev-middleware/lib/Shared.js:166:29)
+    at Object.handleRequest (/app/node_modules/webpack-dev-middleware/lib/Shared.js:209:10)
+    at /app/node_modules/webpack-dev-middleware/middleware.js:44:11
+    at new Promise (<anonymous>)
+    at webpackDevMiddleware (/app/node_modules/webpack-dev-middleware/middleware.js:43:10)
+    at Layer.handle [as handle_request] (/app/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/app/node_modules/express/lib/router/index.js:317:13)
+    at /app/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/app/node_modules/express/lib/router/index.js:335:12)
+    at next (/app/node_modules/express/lib/router/index.js:275:10)
+    at /app/node_modules/connect-history-api-fallback/lib/index.js:74:5
+    at Layer.handle [as handle_request] (/app/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/app/node_modules/express/lib/router/index.js:317:13)
+(node:26) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). (rejection id: 32)
