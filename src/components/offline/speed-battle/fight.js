@@ -129,11 +129,11 @@ class VideoGame extends React.Component {
   getUrl() {
     var url = ""
     url = this.currentUserState().scenario.game_url
-    console.log("-----------je suis dans getUrl-----------------")
-    console.log(this.currentUserState())
-    console.log(this.currentUserState().scenario)
-    console.log(this.currentUserState().scenario.game_url)
-    console.log(url)
+    // console.log("-----------je suis dans getUrl-----------------")
+    // console.log(this.currentUserState())
+    // console.log(this.currentUserState().scenario)
+    // console.log(this.currentUserState().scenario.game_url)
+    // console.log(url)
 
     return url
   }
