@@ -23,9 +23,9 @@
         name = name.replace(/[\[\]]/g, "\\$&");
         var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
             results = regex.exec(url);
-        console.log("---------------------------------")
-        console.log("je suis dans getParameterByName")
-        console.log("---------------------------------")
+        // console.log("---------------------------------")
+        // console.log("je suis dans getParameterByName")
+        // console.log("---------------------------------")
         console.log(results)
         if (!results) return null;
         if (!results[2]) return '';
@@ -37,9 +37,9 @@
       const scenarioId = getParameterByName("scenario_id");
       const loader = getParameterByName("loader")
 
-      console.log("-------------------------------------")
-      console.log(`je reccupere l'url du gif depuis index.html et sa valeur est: ${loader}`)
-      console.log("-------------------------------------")
+      // console.log("-------------------------------------")
+      // console.log(`je reccupere l'url du gif depuis index.html et sa valeur est: ${loader}`)
+      // console.log("-------------------------------------")
 
       var mediaUrl = "";
       if (getParameterByName("default")) {
