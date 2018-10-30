@@ -30,7 +30,7 @@ class AlreadyConnected extends React.Component {
         <Panel className="panel panel-filled">
           <a className={"btn btn-default btn-play"} onClick={this.handleNext}>Je me déconnecte</a>
         </Panel>
-     
+
       </Grid>
     )
   }
@@ -42,7 +42,6 @@ class AlreadyConnected extends React.Component {
       if (self.props.onLogout) self.props.onLogout()
     })
   }
-
 
 }
 

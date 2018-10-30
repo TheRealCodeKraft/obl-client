@@ -8,6 +8,7 @@ import { Grid, Row, Col, Panel } from 'react-bootstrap';
 class MainWrapper extends React.Component {
 
   render() {
+
     console.log(this.props.location.pathname)
     if (this.props.me && this.props.me.robot && this.props.location.pathname !== "/speed-battle") {
       return (
@@ -28,13 +29,13 @@ class MainWrapper extends React.Component {
             <Panel className="panel panel-filled">
                <Link className={"btn btn-default btn-play"} to="/speed-battle">Rejoindre le battle</Link>
             </Panel>
-       
+
           </Grid>
         </section>
       )
     } else {
       return (
-        <section className={(this.props.config && this.props.config.mainSectionClass) ? this.props.config.mainSectionClass : "content"}>
+        <section className={(this.props.config && this.props.config.mainSectionClass) ? this.props.config.mainSectionClass : "content"} >
           {this.props.children}
         </section>
       )

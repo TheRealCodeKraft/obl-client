@@ -13,26 +13,35 @@ class Chrono extends React.Component {
     }
 
     this.handleHideAlert = this.handleHideAlert.bind(this)
-
+    console.log("------------------------------------------------------------------------------------------")
+    console.log("Je suis dans le composant Chrono à l'initialisation de la classe")
   }
 
   componentDidMount() {
     this.setState({remaining: this.props.initial * 60 * 1000, currentTs: moment(), startTs: moment()}, function() {
+      console.log("------------------------------------------------------------------------------------------")
+      console.log("Je suis dans le composant Chrono à l'initialisation du chron dans le componentWillUnmount")
+      console.log("la valeur du chrono est:" + this.props.initial)
+      console.log("------------------------------------------------------------------------------------------")
       this.tick()
     })
+  }
+
+  componentWillUnmount() {
+
   }
 
   render() {
     return (
       <div>
         {
-              this.state.alertTime_isPassed && this.state.show_timer_alert
-              ? <div className="chrono-alert">
-                  <Alert bsStyle="warning" onDismiss={this.handleHideAlert}>
-                    <h4><i className="pe-7s-attention"></i> Attention plus que 5 minutes !!</h4>
-                  </Alert>
-                </div>
-              : null
+          this.state.alertTime_isPassed && this.state.show_timer_alert
+          ? <div className="chrono-alert">
+              <Alert bsStyle="warning" onDismiss={this.handleHideAlert}>
+                <h4><i className="pe-7s-attention"></i> Attention plus que 5 minutes !!</h4>
+              </Alert>
+            </div>
+          : null
         }
         <div className="chrono">
           <span className="inner">
@@ -54,14 +63,14 @@ class Chrono extends React.Component {
         self.setState({finished: true, remaining: moment(0)}, function() {
           if (self.props.onEnd) self.props.onEnd()
         })
-      } 
+      }
       else {
         self.setState({currentTs: now, remaining: remaining}, function() {
           self.tick()
           if (remaining <= alertTime) {
             this.setState({alertTime_isPassed:true})
-            setTimeout(function() { 
-              this.setState({show_timer_alert:false}) 
+            setTimeout(function() {
+              this.setState({show_timer_alert:false})
             }.bind(this), 8000);
           }
         })

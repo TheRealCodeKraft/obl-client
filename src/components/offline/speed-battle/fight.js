@@ -62,7 +62,7 @@ class VideoGame extends React.Component {
   componentWillUnmount() {
     window.API_1484_11 = undefined
   }
-  
+
   render() {
     if (this.state.finished) {
       return (
@@ -90,7 +90,7 @@ class VideoGame extends React.Component {
              ? <Button className="btn-warning" onClick={this.goToNextAfterTimeout}>Continuer</Button>
              : <span>Nous calculons votre score</span>}
           </Panel>
-       
+
         </Grid>
       )
     } else {
@@ -106,8 +106,8 @@ class VideoGame extends React.Component {
                  </div>
                </Col>
              : <Col xs={12}>
-                  <iframe id="video-game-content" 
-                    frameborder="0" 
+                  <iframe id="video-game-content"
+                    frameborder="0"
                     style={{visibility: this.state.running ? "visible" : "hidden"}}
                     src={this.getUrl()}
                     width="100%"
@@ -124,16 +124,26 @@ class VideoGame extends React.Component {
     }
   }
 
+
+  // permet de passer le game_url du scenario à l'iframe(méthode du serializer qui construit l'url à partir )
   getUrl() {
     var url = ""
     url = this.currentUserState().scenario.game_url
+    // console.log("-----------je suis dans getUrl-----------------")
+    // console.log(this.currentUserState())
+    // console.log(this.currentUserState().scenario)
+    // console.log(this.currentUserState().scenario.game_url)
+    // console.log(url)
+
     return url
   }
 
+  // return the state of the current_user
   currentUserState() {
     return this.getUserState(this.props.me)
   }
 
+  // return a hash of the state for the user passed as a paramter with user_id, user instance, score, email, connected...
   getUserState(user) {
     return this.props.session.current_round.userStates.filter(state => { return state.user === user.id })[0]
   }

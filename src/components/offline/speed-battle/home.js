@@ -37,24 +37,24 @@ class Explanations extends React.Component {
     if (!this.playerConnected(this.props.me)) {
       return (
         <Grid className="container-center animated slideInDown">
-           <Row className="view-header">
-            <div className={"header-icon"}>
-                <i className={"pe page-header-icon pe-7s-cup"}></i>
-            </div>
-            <div className={"header-title"}>
-                <h3>Business Battle</h3>
-                <small>
-                  Mesurez-vous à vos adversaires dans un Speed Battle
-                </small>
-            </div>
-          </Row>
-
           <Panel className="panel panel-filled" style={this.state.loading ? {textAlign: "center"} : null}>
+            <Row className="view-header border">
+              <div className={"header-icon"}>
+                  <i className={"pe page-header-icon pe-7s-cup"}></i>
+              </div>
+              <div className={"header-title"}>
+                <h3>Business Battle</h3>
+                  <small>
+                    Mesurez-vous à vos adversaires dans un Speed Battle
+                  </small>
+              </div>
+            </Row>
             {this.state.loading
-             ? <span>Chargement de la session</span>
-             : <a className={"btn btn-default btn-play"} onClick={this.handlePlay}>Je joue</a>}
+              ? <span>Chargement de la session</span>
+              : <a onClick={this.handlePlay} >
+                  <img className={"play-btn"} src="assets/images/JOUER.png" alt=""/>
+                </a>}
           </Panel>
-       
         </Grid>
       )
     } else {
@@ -100,7 +100,7 @@ class Explanations extends React.Component {
                  </tbody>
                </Table>}
           </Panel>
-       
+
         </Grid>
       )
     }

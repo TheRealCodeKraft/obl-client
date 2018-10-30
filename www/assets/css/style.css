@@ -6,12 +6,15 @@
 .btn {
   color: inherit;
   background-color: transparent;
+  font-size: 19px;
 }
 .buttons-margin .btn {
   margin-bottom: 5px;
 }
 .btn-default {
   border-color: #585d6e;
+  cursor: pointer;
+
 }
 .btn.btn-w-sm {
   min-width: 80px;
@@ -90,7 +93,7 @@ fieldset[disabled] .btn-accent.focus {
   background-color: #949ba2;
 }
 .btn-default {
-  color: #949ba2;
+  color: white;
   background-color: transparent;
   border-color: #616779;
 }
@@ -815,10 +818,12 @@ body {
   z-index: -2;
   left: 0;
   right: 0;
-  background-image: -webkit-radial-gradient(top, circle cover, #393b45 0%, #2d3038 70%);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.2)), url("../../video-game/assets/images/fond-bois.jpg");
+  background-size: cover;
+  /*background-image: -webkit-radial-gradient(top, circle cover, #393b45 0%, #2d3038 70%);
   background-image: -moz-radial-gradient(center, circle cover, #393b45 0%, #2d3038 70%);
   background-image: -o-radial-gradient(center, circle cover, #393b45 0%, #2d3038 70%);
-  background-image: radial-gradient(center, circle cover, #393b45 0%, #2d3038 70%);
+  background-image: radial-gradient(center, circle cover, #393b45 0%, #2d3038 70%);*/
   background-position: 50%, 50%;
 }
 .navigation {
@@ -896,6 +901,27 @@ body.blank .content {
 .container-center.lg {
   max-width: 800px;
 }
+
+.container-center  .border {
+  padding-top: 41px;
+  margin: 20px 0;
+  min-height: 50px;
+  padding: 17px 15px;
+  /*border: 1px solid gray;*/
+  border-radius: 6px;
+/*  background-color: #D6D6D6;
+*/}
+.container-center.animated h3 {
+  color: #193C89;
+  font-size: 33px;
+}
+
+.container-center.animated small {
+  color: #193C89;
+  font-size: 16px;
+}
+
+
 /* Various */
 a {
   color: #f6a821;
@@ -1235,10 +1261,19 @@ img.image-xl {
   border-radius: 3px;
 }
 .panel .panel-body {
-  padding: 5px 15px 15px 15px;
+  padding: 0px 15px 15px 15px;
+  background-color: #DBDBDB;
+  border-radius: 3px;
 }
 .panel.panel-filled .panel-body {
   padding-top: 10px;
+}
+.panel.panel-filled .play-btn {
+  height: 80px;
+  max-width: auto;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
 }
 .panel .panel-footer {
   background-color: transparent;
@@ -1312,13 +1347,17 @@ img.image-xl {
   float: left;
   margin-top: -8px;
   line-height: 0;
+  padding-top: 19px;
 }
 .view-header .header-title {
   margin-left: 68px;
+  color: white;
+
 }
 .view-header .header-title h3 {
   margin-bottom: 2px;
 }
+
 .panel.collapsed .panel-body,
 .panel.collapsed .panel-footer {
   display: none;
@@ -2849,3 +2888,6 @@ fieldset[disabled] .form-control {
   color: #ffffff !important;
   padding: 6px 12px !important;
 }
+
+
+

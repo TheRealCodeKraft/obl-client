@@ -6,6 +6,7 @@ import { Form } from 'codekraft-react-frontend'
 
 import { Grid, Row, Col, Panel } from 'react-bootstrap';
 
+// Page de connexion à la première page de connexion à un speed battle (la ou on rentre le code du battle)
 class Connexion extends React.Component {
 
   constructor(props) {
@@ -30,7 +31,7 @@ class Connexion extends React.Component {
         defaultValue: "PAF"
       }
     ]
-  
+
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleSubmitComplete = this.handleSubmitComplete.bind(this)
   }
@@ -60,16 +61,16 @@ class Connexion extends React.Component {
         </Row>
 
         <Panel className="panel panel-filled">
-          <Form id="connexion-form" 
-              fields={this.fields} 
-              submitLabel="Connexion" 
+          <Form id="connexion-form"
+              fields={this.fields}
+              submitLabel="Connexion"
               onSubmit={this.handleSubmit}
-              submitClass={"btn btn-accent"} 
+              submitClass={"btn btn-accent"}
               service={{client: this.props.clients.SessionClient, func: "connectBattle"}}
               onSubmitComplete={this.handleSubmitComplete}
           />
         </Panel>
-     
+
       </Grid>
     )
   }
@@ -108,7 +109,7 @@ class Connexion extends React.Component {
 
           </Grid>
         </Panel>
-     
+
       </Grid>
     )
   }
@@ -127,7 +128,7 @@ class Connexion extends React.Component {
 
   handleChoosePlayer(stamp, e) {
     e.preventDefault()
-    this.connect(stamp.email, stamp.stamp)    
+    this.connect(stamp.email, stamp.stamp)
   }
 
   handleGoToAdmin(e) {
@@ -139,7 +140,7 @@ class Connexion extends React.Component {
     this.props.clients.ApiClient.login({email: email, password: stamp}, function(data) {
       //this.props.clients.UserClient.me()
       self.setState({loggedIn: true})
-    }) 
+    })
 
   }
 
