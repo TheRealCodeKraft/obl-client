@@ -58,17 +58,22 @@ class SpeedAdmin extends React.Component {
                       </tr>
                     </thead>
                     <tbody>
-                      { this.state.userStatesList.map((userStates) => {
-                        // console.log("je log userStates")
-                        // console.log(userStates)
+                      { this.state.userStatesList.map((userStates, index) => {
+                        console.log("je log userStates")
+                        console.log(userStates)
                         return (
                           userStates ? (
-                          <tr>
-                            {userStates.sort(function(a, b) { return a.player.id > b.player.id }).map((st, sti) => {
+                          <tr key={index}>
+                            {userStates.sort(function(a, b) { return a.player.id > b.player.id }).map((st, sti, index) => {
+                              console.log("je log st")
+                              console.log(st)
+                              console.log("je log sti")
+                              console.log(sti)
+
                               return [
-                                  <td>{st.player.lastname}</td>,
-                                  <td>{st.email ? st.email : "Pas de mail"}</td>,
-                                  <td>{sti === 0 ? "Gagné!" : "Perdu..."}</td>
+                                  <td key={st.user}>{st.player.lastname}</td>,
+                                  <td key={st.player.firstname}>{st.email ? st.email : "Pas de mail"}</td>,
+                                  <td key={st.player.email}>{sti === 0 ? "Gagné!" : "Perdu..."}</td>
                               ]
                             })}
                           </tr>
