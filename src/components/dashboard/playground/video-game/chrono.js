@@ -13,16 +13,21 @@ class Chrono extends React.Component {
     }
 
     this.handleHideAlert = this.handleHideAlert.bind(this)
-    console.log("------------------------------------------------------------------------------------------")
-    console.log("Je suis dans le composant Chrono à l'initialisation de la classe")
+    // console.log("------------------------------------------------------------------------------------------")
+    // console.log("Je suis dans le composant Chrono à l'initialisation de la classe")
   }
 
   componentDidMount() {
+    // la props initial est définie dans le component parent "fight.js": initial={this.currentUserState().scenario.chrono}
+    // correspond au chrono rensigné par l'admin lors de la création du scenario
     this.setState({remaining: this.props.initial * 60 * 1000, currentTs: moment(), startTs: moment()}, function() {
-      console.log("------------------------------------------------------------------------------------------")
-      console.log("Je suis dans le composant Chrono à l'initialisation du chron dans le componentWillUnmount")
-      console.log("la valeur du chrono est:" + this.props.initial)
-      console.log("------------------------------------------------------------------------------------------")
+      // * 60 * 1000 converti les minutes en milliseconds
+      // console.log("------------------------------------------------------------------------------------------")
+      // console.log("Je suis dans le composant Chrono à l'initialisation du chrono dans le componentWillUnmount")
+      // console.log("la valeur du chrono est:" + `${this.props.initial}`)
+      // console.log("currentTs:" + `${this.setstate.currentTs}`)
+      // console.log("startTs:" + `${this.setstate.startTs}`)
+      // console.log("------------------------------------------------------------------------------------------")
       this.tick()
     })
   }
@@ -55,10 +60,16 @@ class Chrono extends React.Component {
   tick() {
     var self = this
     setTimeout(function() {
+      // heure de départ du chrono
       var now = moment()
+      //
       var total = moment(self.props.initial * 60 * 1000)
       var alertTime = moment(total - 20000)
       var remaining = moment(total - (now - self.state.startTs))
+      // console.log("je log now, total, alertime et remaining")
+      // console.log(now)
+      // console.log(alertTime)
+      // console.log(remaining)
       if (remaining < 0) {
         self.setState({finished: true, remaining: moment(0)}, function() {
           if (self.props.onEnd) self.props.onEnd()
