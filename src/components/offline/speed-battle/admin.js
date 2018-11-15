@@ -13,6 +13,12 @@ class SpeedAdmin extends React.Component {
 
     this.handleGoToNextRound = this.handleGoToNextRound.bind(this)
     this.handleExport = this.handleExport.bind(this)
+    this.handleCleanUserStates = this.handleCleanUserStates.bind(this)
+    // Renvoi un tableau de userStates pour chaque round (tableau de tableau)
+    // this.state = {
+    //   userStatesList: this.props.session.rounds.map((round) => {
+    //     return round.userStates
+    //   })
   }
 
   render() {
@@ -50,14 +56,14 @@ class SpeedAdmin extends React.Component {
                       </tr>
                     </thead>
                     <tbody>
-                      {this.props.session.rounds.map((round, index) => {
+                      { this.props.session.rounds.map((round, index) => {
                         return (
-                          <tr>
-                            {round.userStates.sort(function(a, b) { return a.player.id > b.player.id }).map((st, sti) => {
+                          <tr key={index}>
+                            {round.userStates.sort(function(a, b) { return a.player.id > b.player.id }).map((st, sti, index) => {
                               return [
-                                  <td>{st.player.lastname}</td>,
-                                  <td>{st.email ? st.email : "Pas de mail"}</td>,
-                                  <td>{sti === 0 ? "Gagné!" : "Perdu..."}</td>
+                                <td key={st.user}>{st.player.lastname}</td>,
+                                <td key={st.player.firstname}>{st.email ? st.email : "Pas de mail"}</td>,
+                                <td key={st.player.email}>{sti === 0 ? "Gagné!" : "Perdu..."}</td>
                               ]
                             })}
                           </tr>
@@ -72,12 +78,19 @@ class SpeedAdmin extends React.Component {
                 <Col xs={12} style={{display: "flex", justifyContent: "space-between"}}>
                   <h4>Tous les emails</h4>
                   <Button onClick={this.handleExport}>Exporter</Button>
+                  <Button onClick={this.handleCleanUserStates}>Cleaner la base</Button>
                 </Col>
                 <Col xs={12}>
-                  {this.props.session.rounds.map((round, index) => {
-                    return round.userStates.map(state => {
-                      return state.email ? <div>{state.email}</div> : null
-                    })
+                  {this.props.session.rounds.map(round => {
+                    // console.log("je log les Usersstates dans le tableau d'emails")
+                    // console.log(userStates)
+                    return (
+                      round.userStates.map((state) => {
+                        // console.log("je log les state dans le tableau d'emails")
+                        // console.log(state)
+                        return state.email ? <div>{state.email}</div> : null
+                      })
+                    )
                   })}
                 </Col>
               </Row>
@@ -86,6 +99,15 @@ class SpeedAdmin extends React.Component {
         </Row>
       </Grid>
     )
+  }
+
+  handleCleanUserStates() {
+    // this.setState({
+    //   userStatesList: this.props.session.rounds.map((round, index) => {
+    //     return round.userStates.length = 0
+    //   })
+    // })
+    this.props.clients.SessionClient.destroyRounds(this.props.session.id)
   }
 
   handleGoToNextRound() {

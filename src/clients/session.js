@@ -30,6 +30,16 @@ var SessionClient = function(name, plural, store, client) {
     })
   }
 
+  var destroyRounds = function(id, callback) {
+    client.put(plural + '/rounds', id, {}, function(data) {
+      store.dispatch({
+        type: "UPDATE_SESSION",
+        session: data
+      })
+      if (callback) callback(data)
+    })
+  }
+
   var room = function(id, callback) {
     client.put(plural + "/room", id, {}, function(data) {
       store.dispatch({
@@ -168,6 +178,7 @@ var SessionClient = function(name, plural, store, client) {
     launch: launch,
     pause: pause,
     nextRound: nextRound,
+    destroyRounds: destroyRounds,
     room: room,
     scenario: scenario,
     clues: clues,
